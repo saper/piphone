@@ -13,10 +13,9 @@
         <th class="hide-when-print"></th>
         <th class="hide-when-print"></th>
     <th>#</th>
-    <th>Login</th>
-    <th>Email</th>
-    <th>Enabled</th>
-    <th>Admin?</th>
+    <th>Name</th>
+    <th>Start</th>
+    <th>End</th>
   </tr>
 
 </thead>
@@ -38,6 +37,9 @@ if ($row=="odd") $row="even"; else $row="odd";
       <?php } ?>
    <td class="id"><?php echo $c["id"]; ?></td>
    <td class="name"><?php echo $c["name"]; ?></td>
+   <td class="datestart"><?php echo $c["datestart"]; ?></td>
+   <td class="dateend"><?php echo $c["dateend"]; ?></td>
+
   </tr>
    <?php } ?>
     
