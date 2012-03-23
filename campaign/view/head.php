@@ -15,6 +15,9 @@
 <div id="wrapper">
 
 <div style="float: right; padding: 10px;">
+   <?php if (is_admin()) { ?>
+   <p><a href="/admin"><?php __("Admin"); ?></a></p>
+    <?php } ?>
    <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" />
 </div>
 

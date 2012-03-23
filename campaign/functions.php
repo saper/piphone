@@ -222,5 +222,31 @@ function render($viewname) {
 }
 
 
+function check_user_identity() {
+  if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Please authenticate';
+    exit;
+  } 
+  $GLOBALS["me"]=mqone("SELECT * FROM user WHERE login='".mquote($_SERVER['PHP_AUTH_USER'])."' AND pass=PASSWORD('".mquote($_SERVER['PHP_AUTH_PW'])."') AND enabled=1;");
+  
+  if (!$GLOBALS["me"]) {
+    header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Login or password incorrect, or account disabled';
+    exit;
+  }
+  //  mq("UPDATE user SET lastlogin=NOW() WHERE id='".$GLOBALS["me"]["id"]."';");
+}
+
+
+/* ************************************************************ */
+/** Returns TRUE if the current user is an administrator
+ */
+function is_admin() {
+  return ($GLOBALS["me"]["admin"]!=0);
+}
+
 
 
