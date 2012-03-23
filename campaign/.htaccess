@@ -1,0 +1,8 @@
+Options -Indexes
+
+RewriteEngine On
+# Everything NOT in static/ is served by the catchall index.php : 
+RewriteCond %{REQUEST_URI} !^/static/
+RewriteRule .* index.php [L]
+
+

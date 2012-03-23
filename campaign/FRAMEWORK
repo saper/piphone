@@ -1,0 +1,35 @@
+This program is using a micro-framework : 
+
+- functions.php contains nice functions you  could use
+
+- index.php is a catch-all php, that catches the /controller/action urls as follow : 
+
+In controller/ folder, create one class for each first-level directory in your website : 
+
+for http://example.com/something/ 
+create somethingController.php which will contain the declaration of somethingController class.
+
+then create the method 
+function indexAction() { }
+that will be called for http://example.com/something/ 
+
+and any other method will be called as follow : 
+function anotherAction() { }
+will be called for http://example.com/something/another (with or without trailing /)
+
+Those methods should either call 
+      redirect($url) to redirect to another url
+or
+      render($view) to render a view in view/ folder.
+If any error occured, call
+   not_found() 
+to send the usual 404 error message ... 
+
+
+GLOBALS : 
+
+* any trailing /data/id/123... after /class/action will be filled in $params[] as a numeric array of data (splited at /)
+* $view should be filled with any data useful for the view...
+
+any file in static/ will be send as-is to the user
+

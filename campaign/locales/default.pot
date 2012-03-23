@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-23 20:42+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: view/campaigncall.php:17 view/campaigncall.php:21 view/campaigncall.php:21
+msgid "has phone number"
+msgstr ""
+
+#: view/campaigncall.php:28
+msgid ""
+"We are now calling you and you will soon be at the phone with the person "
+"above."
+msgstr ""
+
+#: view/campaigncall.php:31
+msgid "When the phone call ends, you may want to"
+msgstr ""
+
+#: view/campaigncall.php:31 view/campaigncall.php:38
+msgid "Send us some feedback"
+msgstr ""
+
+#: view/campaigncall.php:35
+msgid ""
+"You should call him now, and press the feedback button to give us some "
+"feedback about that call."
+msgstr ""
+
+#: view/campaigncall.php:38
+msgid "When the phone call will end, you may want to"
+msgstr ""
+
+#: view/index.php:3 view/index.php:3
+msgid "Campaign's list"
+msgstr ""
+
+#: view/campaignform.php:20 view/campaignform.php:20
+msgid "Choose your Country:"
+msgstr ""
+
+#: view/campaignform.php:20
+msgid "-- Choose your country --"
+msgstr ""
+
+#: view/campaignform.php:23
+msgid ""
+"If you want to be called back, enter your phone number, <br />starting by "
+"+&lt;countrycode&gt; (example, +33 for France, without the initial 0):"
+msgstr ""
+
+#: view/campaignform.php:26
+msgid "Call my MEP"
+msgstr ""
+
+#: view/nothing.php:3 view/nothing.php:3
+msgid "Oups"
+msgstr ""
+
+#: view/index.php:8 view/index.php:8
+msgid "Starting"
+msgstr ""
+
+#: view/index.php:8 view/index.php:8
+msgid "Ending"
+msgstr ""
+
+#: view/index.php:8 view/index.php:8
+msgid "Campaign Name"
+msgstr ""
+
+#: view/feedbackform.php:3 view/feedbackform.php:3
+msgid "Feedback Form"
+msgstr ""
+
+#: view/feedbackform.php:7 view/campaigncall.php:39 view/campaigncall.php:43
+#: view/campaigncall.php:47 view/feedbackform.php:7 view/campaigncall.php:47
+msgid ""
+"Please tell us what happened if you was able to talk to someone. Your "
+"feedback is important to us."
+msgstr ""
+
+#: view/feedbackform.php:14 view/campaigncall.php:46 view/campaigncall.php:50
+#: view/campaigncall.php:54 view/feedbackform.php:14 view/campaigncall.php:54
+msgid "Send my feedback"
+msgstr ""
+
+#: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
+#: view/campaigncall.php:55 view/feedbackform.php:15 view/campaigncall.php:55
+msgid "Cancel"
+msgstr ""
+
+#: controller/campaignController.php:233 controller/campaignController.php:253
+#: controller/campaignController.php:264 controller/campaignController.php:284
+#: controller/campaignController.php:264 controller/campaignController.php:284
+msgid "A feedback has already been given for that call, sorry"
+msgstr ""
+
+#: controller/campaignController.php:258 controller/campaignController.php:289
+#: controller/campaignController.php:289
+msgid "Your feedback has been sent to us, thanks for your participation!"
+msgstr ""
+
+#: controller/campaignController.php:54 controller/campaignController.php:54
+msgid "The specified campaign has not been found, please check your link"
+msgstr ""
+
+#: controller/campaignController.php:59 controller/campaignController.php:59
+msgid ""
+"The specified campaign is now over, next time come here before it's too late!"
+msgstr ""
+
+#: controller/campaignController.php:131 controller/campaignController.php:131
+msgid "Your phone number look strange, please check it"
+msgstr ""
+
+#: controller/campaignController.php:143 controller/campaignController.php:143
+msgid "Your phone number is from an unsupported country, sorry for that"
+msgstr ""
+
+#: controller/campaignController.php:151 controller/campaignController.php:151
+msgid "Country not found, please check"
+msgstr ""
+
+#: functions.php:199 functions.php:199
+msgid "Page Not Found"
+msgstr ""
+
+#: functions.php:199 functions.php:199
+msgid ""
+"The requested page has not been found or an error happened. Please check"
+msgstr ""
+
+#: view/campaigncall.php:28 view/campaigncall.php:32 view/campaigncall.php:32
+msgid ""
+"If you read the briefing above, and if you fully acknowledge it, click the "
+"button below to get in touch with that person."
+msgstr ""
+
+#: view/campaigncall.php:30 view/campaigncall.php:34 view/campaigncall.php:34
+msgid "Call me"
+msgstr ""
+
+#: view/campaigncall.php:35 view/campaigncall.php:39 view/campaigncall.php:39
+msgid ""
+"You should call him now, and fill the form below to give us some feedback "
+"about that call."
+msgstr ""
+
+#: view/campaigncall.php:53 view/campaigncall.php:57 view/campaigncall.php:61
+#: view/campaigncall.php:61
+msgid ""
+"We are now calling you, you will be connected to the phone above soon..."
+msgstr ""
+
+#: view/campaignform.php:20 view/campaignform.php:20
+msgid "-- All Europe --"
+msgstr ""
+
+#: view/campaignform.php:26 view/campaignform.php:27 view/campaignform.php:27
+msgid "Next Step"
+msgstr ""
+
+#: view/campaigncall.php:40
+msgid "If you prefer to call another MEP, click the button below"
+msgstr ""
+
+#: view/campaigncall.php:41 view/campaigncall.php:45 view/campaigncall.php:45
+msgid "Call another one"
+msgstr ""
+
+#: view/campaigncall.php:44 view/campaigncall.php:44
+msgid "If you prefer to call another MEP, click the button "
+msgstr ""
+
+#: view/campaignform.php:23 view/campaignform.php:23
+msgid ""
+"Enter your phone number to be connected with your MEP through our platform. "
+"<br />Go directly to the next step if you want to call him by yourself."
+msgstr ""
+
+#: view/campaignform.php:24 view/campaignform.php:24
+msgid ""
+"Phone number must start by +&lt;countrycode&gt; <br />(example, +33 for "
+"France, then the number without the initial 0):"
+msgstr ""

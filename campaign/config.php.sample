@@ -1,0 +1,19 @@
+<?php
+
+define("PROJECT","piphone");
+define("PROJECTNAME","Pi-Phone");
+
+mysql_connect("localhost","piphone","password");
+mysql_select_db("piphone");
+
+// PLIVO / FREESWITCH CONFIGURATION 
+define("REST_API_URL", 'http://127.0.0.1:8088');
+define("ApiVersion",'v0.1');
+define("AccountSid",'SEE README');
+define("AuthToken",'SEE README');
+
+// If you uncomment this, this number will be called INSTEAD of the MEP's one : 
+//define("FORCETO","0033140404040");
+
+
+?>
