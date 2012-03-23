@@ -16,7 +16,11 @@
 
 <div style="float: right; padding: 10px;">
    <?php if (is_admin()) { ?>
-   <p><a href="/admin"><?php __("Admin"); ?></a></p>
+   <p><ul>
+<li><a href="/admin"><?php __("Campaign Admin"); ?></a></li>
+<li><a href="/user"><?php __("User Admin"); ?></a></li>
+</ul>
+</p>
     <?php } ?>
    <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" />
 </div>
