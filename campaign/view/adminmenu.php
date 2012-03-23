@@ -6,7 +6,7 @@
 
 <ul>
 <li><a href="/user"><?php __("Manage users"); ?></li>
-<li><a href="/campaign"><?php __("Manage campaigns"); ?></li>
+<li><a href="/admin"><?php __("Manage campaigns"); ?></li>
 </ul>
 <?php require_once("foot.php"); ?>
 
