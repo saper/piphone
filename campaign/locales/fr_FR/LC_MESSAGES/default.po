@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-29 11:59+0100\n"
+"POT-Creation-Date: 2012-03-23 22:09+0100\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: français <>\n"
@@ -114,10 +114,12 @@ msgstr "Annuler"
 
 #: controller/campaignController.php:233 controller/campaignController.php:253
 #: controller/campaignController.php:264 controller/campaignController.php:284
+#: controller/campaignController.php:265 controller/campaignController.php:285
 msgid "A feedback has already been given for that call, sorry"
 msgstr "Un retour a déjà été envoyé pour cet appel, désolé."
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
+#: controller/campaignController.php:290
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr "Votre retour nous a été envoyé. Merci de votre participation !"
 
@@ -209,12 +211,14 @@ msgstr "Si vous préférez appeler un autre Député, cliquez sur le bouton "
 msgid ""
 "Enter your phone number to be connected with your MEP through our platform. "
 "<br />Go directly to the next step if you want to call him by yourself."
-msgstr "Entrez votre numéro pour être mis en relation par nos soins. <br />Passez directement à l'étape suivante si vous souhaitez appeler vous même"
+msgstr ""
+"Entrez votre numéro pour être mis en relation par nos soins. <br />Passez "
+"directement à l'étape suivante si vous souhaitez appeler vous même"
 
 #: view/campaignform.php:24
 msgid ""
 "Phone number must start by +&lt;countrycode&gt; <br />(example, +33 for "
 "France, then the number without the initial 0):"
 msgstr ""
-"Le numéro de téléphone doit commencer par +&lt;code de pays&gt; <br />"
-"(par exemple, +33 pour la france, puis le numéro sans le 0 initial) :"
+"Le numéro de téléphone doit commencer par +&lt;code de pays&gt; <br />(par "
+"exemple, +33 pour la france, puis le numéro sans le 0 initial) :"

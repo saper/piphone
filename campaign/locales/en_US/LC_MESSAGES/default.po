@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-29 11:59+0100\n"
+"POT-Creation-Date: 2012-03-23 22:09+0100\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -105,10 +105,12 @@ msgstr ""
 
 #: controller/campaignController.php:233 controller/campaignController.php:253
 #: controller/campaignController.php:264 controller/campaignController.php:284
+#: controller/campaignController.php:265 controller/campaignController.php:285
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
+#: controller/campaignController.php:290
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 

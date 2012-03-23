@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-23 20:42+0100\n"
+"POT-Creation-Date: 2012-03-23 22:09+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,12 +106,12 @@ msgstr ""
 
 #: controller/campaignController.php:233 controller/campaignController.php:253
 #: controller/campaignController.php:264 controller/campaignController.php:284
-#: controller/campaignController.php:264 controller/campaignController.php:284
+#: controller/campaignController.php:265 controller/campaignController.php:285
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
-#: controller/campaignController.php:289
+#: controller/campaignController.php:290
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 
