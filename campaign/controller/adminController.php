@@ -43,14 +43,14 @@ class adminController extends abstractController {
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
     if (!$id) not_found();
-    $user=mqone("SELECT * FROM user WHERE id=$id;");
-    if (!$user) not_found();
-    $view["title"]="Editing user account ".$user["login"];
-    $view["actionname"]="Edit this user account";
-    $view["user"]=$user;
-    list($view["user"]["parentlogin"])=mqone("SELECT login FROM user WHERE id='".$view["user"]["parent"]."';");
-    unset($view["user"]["pass"]);
-    render("userform");
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    $view["title"]="Editing campaign ".$user["name"];
+    $view["actionname"]="Edit this campaign";
+    $view["campaign"]=$campaign;
+    list($view["campaign"]["parentname"])=mqone("SELECT name FROM campaign WHERE id='".$view["campaign"]["parent"]."';");
+    //unset($view["user"]["pass"]);
+    render("adminform");
   }
   
 

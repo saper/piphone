@@ -38,7 +38,7 @@ if ($row=="odd") $row="even"; else $row="odd";
    <td class="id"><?php echo $c["id"]; ?></td>
    <td class="name"><?php echo $c["name"]; ?></td>
    <td class="datestart"><?php echo $c["datestart"]; ?></td>
-   <td class="dateend"><?php echo $c["dateend"]; ?></td>
+   <td class="datestop"><?php echo $c["datestop"]; ?></td>
 
   </tr>
    <?php } ?>
