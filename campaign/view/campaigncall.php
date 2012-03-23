@@ -14,6 +14,7 @@
 
 <div id="callee">
    <?php 
+
    if ($view["callee"]["url"]) echo "<a target=\"memopol\" href=\"".$view["callee"]["url"]."\">";
 echo $view["callee"]["name"]; 
    if ($view["callee"]["url"]) echo "</a>";

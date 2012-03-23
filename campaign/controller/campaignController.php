@@ -55,11 +55,13 @@ class campaignController extends abstractController {
       $this->indexAction();
       exit();
     }
+    /*
     if ($campaign["expired"]) {
       $view["error"]=_("The specified campaign is now over, next time come here before it's too late!");
       $this->indexAction();
       exit();
-    }
+      }
+    */
     return $campaign;
   }
 
@@ -82,13 +84,19 @@ class campaignController extends abstractController {
 
 
   /* ************************************************************************ */
-  /** Effective call for a campaign ... */
+  /** IFRAME to SHOW the FORM to enter your number and country 
+   * 
+   */
   function callAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $slug=addslashes(trim($params[0]));
 
     $view["campaign"]=$this->_getCampaign($slug); // Exit in case of error
+    if ($view["campaign"]["expired"]) {
+      render("campaignexpired");
+      exit();
+    }
     $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
     switch(intval($_REQUEST["step"])) {
 
@@ -172,14 +180,6 @@ class campaignController extends abstractController {
 
       $view["phone"]=$phone;
       // Now proceed to call ...
-      /*
-      if ($phone) {
-	$realphone=preg_replace("#^\+#","00",$phone);
-	$realcallee=preg_replace("#^\+#","00",$callee["phone"]);
-	$uuid=$this->_callback($realphone,$realcallee,$view["campaign"]["wavfile"],substr($GLOBALS["lang"],0,2));
-	mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
-      }
-      */
       render("campaigncall");
       break;
 
@@ -246,7 +246,6 @@ class campaignController extends abstractController {
       return false;
     }
     //##
-
 
   } // function _callback
 
