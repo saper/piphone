@@ -70,7 +70,7 @@
 
     l'installation par defaut de freeswitch n'inclut pas de script d'init, 
     toutesfois il n'est pas tres complique d'en faire un. Pour lancer le 
-    demon freeswitch, il suffit d'executer /usr/loca/freeswitch/
+    demon freeswitch, il suffit d'executer /usr/local/freeswitch/
     bin/freeswitch -nonat ( le flag nonat sert a bypasser les fonctionalites 
     STUN/ICE/UPNP, qui sont inutiles lorsque le serveur dispose d'une ip 
     publique.
@@ -99,8 +99,9 @@
   ---------------------------
 
     Une fois le script d'installation automatique termine, il faut modifier le 
-    fichier /usr/local/plivo/etc/default.conf, et remplir les variables AUTH_ID 
-    et AUTH_TOKEN avec des chaines aleatoires, de preference > 10 characteres.
+    fichier /usr/local/plivo/etc/plivo/default.conf, et remplir les variables 
+    AUTH_ID et AUTH_TOKEN avec des chaines aleatoires, de preference
+    > 10 characteres.
     
 
   3.2 LANCEMENT DE PLIVO
@@ -116,6 +117,11 @@
   suffit de copier <PIPHONE_REPOS_ROOT>/piphone et de le faire servir par un 
   serveur d'applications supportant php5 ( ne necessite pas de modules 
   particuliers a part curl).
+
+  Il faut disposer du plivohelper.php, script facilitant le pilotage de plivo
+  depuis PHP5. Pour cela, positionnez-vous dans le dossier 
+  *./<PIPHONE_REPOS_ROOT>/piphone/lib/*  et lancez
+  *git clone https://github.com/plivo/plivohelper-php.git plivo/*
 
   Ensuite, il faut modifier le contenu de piphone/conf/config.inc.php, et 
   changer les parametres $accountSid et $authtoken, qu'il faut remplir avec 

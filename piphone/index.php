@@ -87,7 +87,7 @@
       $response = $client->create_uuid($params);
       $bridge_id = $response->Response->Message;
 
-      $params = array( 'command' => "luarun bridge.lua $bridge_id sofia/gateway/$sipconf/$cn sofia/gateway/$sipconf/$callto sofia/gateway/$sipconf/$cn sofia/gateway/$sipconf/$callto lqdn_ann.wav",'bg' => 'true');
+      $params = array( 'command' => "luarun bridge.lua $bridge_id sofia/gateway/$sipconf/$cn sofia/gateway/$sipconf2/$callto sofia/gateway/$sipconf/$cn sofia/gateway/$sipconf2/$callto lqdn_itre_acta.wav",'bg' => 'true');
 
       try {
         // Initiate bridge
