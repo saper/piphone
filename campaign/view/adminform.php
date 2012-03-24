@@ -10,28 +10,24 @@
 <tr><th><label for="name">Name</label></th></tr>
 <tr><td><input size="32" type="text" id="name" name="name" value="<?php eher($view["campaign"]["name"]); ?>" /></td></tr>
 
-<tr><th><label for="pass">Password</label></th></tr>
-<tr><td><input size="32" type="password" id="pass" name="pass" value="<?php eher($view["user"]["pass"]); ?>" /></td></tr>
 
-<tr><th><label for="pass2">Password (again)</label></th></tr>
-<tr><td><input size="32" type="password" id="pass2" name="pass2" value="<?php eher($view["user"]["pass2"]); ?>" /></td></tr>
+<tr><th><label for="description">Description</label></th></tr>
+<tr><td><textarea rows="30" cols="80" id="description" name="description"><?php eher($view["campaign"]["description"]); ?></textarea></td></tr>
 
-<tr><th><label for="email">Email</label></th></tr>
-<tr><td><input size="60" type="text" id="email" name="email" value="<?php eher($view["user"]["email"]); ?>" /></td></tr>
 
-<tr><th><label for="enabled">Enabled ?</label>
-  <input type="checkbox" id="enabled" name="enabled"<?php checked($view["user"]["enabled"]); ?> value="1" />
-</th></tr>
+<tr><th><label for="descriptioni-fr">Description FR</label></th></tr>
+<tr><td><textarea rows="30" cols="80" id="description-fr" name="description-fr"><?php eher($view["campaign"]["description-fr"]); ?></textarea></td></tr>
 
-<tr><th><label for="admin">Admin ?</label>
-  <input type="checkbox" id="admin" name="admin"<?php checked($view["user"]["admin"]); ?> value="1" />
-</th></tr>
+<tr><th><label for="datestart">Date Start (YYYY-MM-DD hh:mm:ss)</label></th></tr>
+<tr><td><input size="60" type="text" id="datestart" name="datestart" value="<?php eher($view["campaign"]["datestart"]); ?>" /></td></tr>
 
+<tr><th><label for="datestop">Date Stop (YYYY-MM-DD hh:mm:ss)</label></th></tr>
+<tr><td><input size="60" type="text" id="datestop" name="datestop" value="<?php eher($view["campaign"]["datestop"]); ?>" /></td></tr>
 
 </table>
 
 <input type="submit" name="go" value="<?php echo $view["actionname"]; ?>" />
-<input type="button" name="cancel" value="Cancel" onclick="document.location='/user'" />
+<input type="button" name="cancel" value="Cancel" onclick="document.location='/admin'" />
 
 </form>
 
