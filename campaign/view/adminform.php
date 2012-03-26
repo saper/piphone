@@ -5,11 +5,13 @@
  <?php show_messages(); ?>
 
 <form method="post" action="/admin/do">
-<input type="hidden" id="id" name="id" value="<?php eher($view["admin"]["id"]); ?>" />
+<input type="hidden" id="id" name="id" value="<?php eher($view["campaign"]["id"]); ?>" />
 <table class="form">
 <tr><th><label for="name">Name</label></th></tr>
 <tr><td><input size="32" type="text" id="name" name="name" value="<?php eher($view["campaign"]["name"]); ?>" /></td></tr>
 
+<tr><th><label for="slug">Slug</label></th></tr>
+<tr><td><input size="32" type="text" id="slug" name="slug" value="<?php eher($view["campaign"]["slug"]); ?>" /></td></tr>
 
 <tr><th><label for="description">Description</label></th></tr>
 <tr><td><textarea rows="30" cols="80" id="description" name="description"><?php eher($view["campaign"]["description"]); ?></textarea></td></tr>
