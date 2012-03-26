@@ -17,7 +17,7 @@ class adminController extends abstractController {
   
 
   /* ************************************************************************ */
-  /** Get the list of user accounts */
+  /** Get the list of campaigns */
   function indexAction() {
     global $view;
     $view["campaign"]=mqlist("SELECT campaign.* FROM campaign");
@@ -27,7 +27,7 @@ class adminController extends abstractController {
 
 
   /* ************************************************************************ */
-  /** Show the form to add a new user account */
+  /** Show the form to add a new campaigns */
   function addAction() {
     global $view;
     $view["title"]="Campaign creation";
@@ -37,7 +37,7 @@ class adminController extends abstractController {
 
 
   /* ************************************************************************ */
-  /** Show the form to edit an existing user account */
+  /** Show the form to edit an existing campaign account */
   function editAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
@@ -45,11 +45,10 @@ class adminController extends abstractController {
     if (!$id) not_found();
     $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
     if (!$campaign) not_found();
-    $view["title"]="Editing campaign ".$user["name"];
+    $view["title"]="Editing campaign ".$campaign["name"];
     $view["actionname"]="Edit this campaign";
     $view["campaign"]=$campaign;
     list($view["campaign"]["parentname"])=mqone("SELECT name FROM campaign WHERE id='".$view["campaign"]["parent"]."';");
-    //unset($view["user"]["pass"]);
     render("adminform");
   }
   
@@ -84,29 +83,13 @@ class adminController extends abstractController {
       return;
     }
 	
-/*
-    if ($_REQUEST["pass"]!=$_REQUEST["pass2"]) {
-      $view["error"]="Passwords do not match, please check";
-      $this->_cancelform($id,$old["login"]);
-      return;
-    }
-*/
     $already=mqone("SELECT * FROM campaign WHERE slug='".addslashes($view["campaign"]["slug"])."' AND id!='$id';");
     if ($already) {
       $view["error"]="That slug already exists, please use another one.";
       $this->_cancelform($id,$old["name"]);
       return;      
     }
-/*
-    $sqlpass="";
-    if ($view["user"]["pass"]) {
-      $sqlpass=" pass=PASSWORD('".addslashes($view["user"]["pass"])."'), ";
-    }
-    $sql="          login='".addslashes($view["user"]["login"])."',
-          email='".addslashes($view["user"]["email"])."',
-          enabled='".addslashes($view["user"]["enabled"])."',
-          admin='".addslashes($view["user"]["admin"])."'";
-*/
+
     $name = addslashes($view["campaign"]["name"]);
     $slug = addslashes($view["campaign"]["slug"]);
     $desc = addslashes($view["campaign"]["description"]);
@@ -172,29 +155,29 @@ class adminController extends abstractController {
 
 
   /* ************************************************************************ */
-  /** Receive a URL to disable a user account */
+  /** Receive a URL to disable a campaign */
   function disableAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
-    $user=mqone("SELECT * FROM user WHERE id=$id;");
-    if (!$user) not_found();
-    mq("UPDATE user SET enabled=0 WHERE id=$id;");    
-    $view["message"]="The user has been disabled successfully";
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    mq("UPDATE campaign SET enabled=0 WHERE id=$id;");    
+    $view["message"]="The campaign has been disabled successfully";
     $this->indexAction();
   }
 
 
   /* ************************************************************************ */
-  /** Receive a URL to enable a user account */
+  /** Receive a URL to enable a campaign */
   function enableAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
-    $user=mqone("SELECT * FROM user WHERE id=$id;");
-    if (!$user) not_found();
-    mq("UPDATE user SET enabled=1 WHERE id=$id;");    
-    $view["message"]="The user has been enabled successfully";
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    mq("UPDATE campaign SET enabled=1 WHERE id=$id;");    
+    $view["message"]="The campaign has been enabled successfully";
     $this->indexAction();
   }
 
