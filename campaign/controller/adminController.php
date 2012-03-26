@@ -30,9 +30,9 @@ class adminController extends abstractController {
   /** Show the form to add a new user account */
   function addAction() {
     global $view;
-    $view["title"]="User account creation";
-    $view["actionname"]="Create this user account";
-    render("userform");
+    $view["title"]="Campaign creation";
+    $view["actionname"]="Create this campaign";
+    render("adminform");
   }
 
 
@@ -142,29 +142,28 @@ class adminController extends abstractController {
 
 
   /* ************************************************************************ */
-  /** Show the form to confirm when deleting a user */
+  /** Show the form to confirm when deleting a campaign */
   function delAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
-    $user=mqone("SELECT * FROM user WHERE id=$id;");
-    if (!$user) not_found();
-    $view["title"]="Deleting user account ".$user["login"];
-    $view["user"]=$user;
-    unset($view["user"]["pass"]);
-    render("userdel");
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    $view["title"]="Deleting campaign ".$campaign["name"];
+    $view["campaign"]=$campaign;
+    render("admindel");
   }
 
 
   /* ************************************************************************ */
-  /** Receive a POST to del a user account */
+  /** Receive a POST to del a campaign */
   function dodelAction() {
     global $view;
     $id=intval($_REQUEST["id"]);
-    $user=mqone("SELECT * FROM user WHERE id=$id;");
-    if (!$user) not_found();
-    mq("DELETE FROM user WHERE id=$id;");    
-    $view["message"]="The user has been deleted successfully";
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    mq("DELETE FROM campaign WHERE id=$id;");    
+    $view["message"]="The campaign has been deleted successfully";
     $this->indexAction();
   } // dodelAction
 
