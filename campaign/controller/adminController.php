@@ -55,31 +55,49 @@ class adminController extends abstractController {
   
 
   /* ************************************************************************ */
-  /** Receive a POST to add or edit a user account */
+  /** Receive a POST to add or edit a campaign */
   function doAction() {
     global $view;
     $id=intval($_REQUEST["id"]);
     if ($id) {
-      $old=mqone("SELECT * FROM user WHERE id=$id;");
+      $old=mqone("SELECT * FROM campaign WHERE id=$id;");
       if (!$old) not_found();
     }
 
     // Validate the fields : 
-    $fields=array("id","login","pass","email","enabled","admin");
-    foreach($fields as $f) $view["user"][$f]=$_REQUEST[$f]; 
+    $fields=array("id","name","slug","description","description-fr","datestart","datestop");
+    foreach($fields as $f) $view["campaign"][$f]=$_REQUEST[$f]; 
 
+    if (!$tstart = strtotime($_REQUEST["datestart"])) {
+      $view["error"]="Start date is not valid";
+      $this->_cancelform($id,$old["name"]);
+      return;
+    }
+    if (!$tstop = strtotime($_REQUEST["datestop"])) {
+      $view["error"]="End date is not valid";
+      $this->_cancelform($id,$old["name"]);
+      return;
+    }
+    if ($tstart >= $tstop) {
+      $view["error"]="Start date is after end date";
+      $this->_cancelform($id,$old["name"]);
+      return;
+    }
+	
+/*
     if ($_REQUEST["pass"]!=$_REQUEST["pass2"]) {
       $view["error"]="Passwords do not match, please check";
       $this->_cancelform($id,$old["login"]);
       return;
     }
-    $already=mqone("SELECT * FROM user WHERE login='".addslashes($view["user"]["login"])."' AND id!='$id';");
+*/
+    $already=mqone("SELECT * FROM campaign WHERE slug='".addslashes($view["campaign"]["slug"])."' AND id!='$id';");
     if ($already) {
-      $view["error"]="That login already exists, please use another one.";
-      $this->_cancelform($id,$old["login"]);
+      $view["error"]="That slug already exists, please use another one.";
+      $this->_cancelform($id,$old["name"]);
       return;      
     }
-
+/*
     $sqlpass="";
     if ($view["user"]["pass"]) {
       $sqlpass=" pass=PASSWORD('".addslashes($view["user"]["pass"])."'), ";
@@ -88,31 +106,38 @@ class adminController extends abstractController {
           email='".addslashes($view["user"]["email"])."',
           enabled='".addslashes($view["user"]["enabled"])."',
           admin='".addslashes($view["user"]["admin"])."'";
-
+*/
+    $name = addslashes($view["campaign"]["name"]);
+    $slug = addslashes($view["campaign"]["slug"]);
+    $desc = addslashes($view["campaign"]["description"]);
+    $descfr = addslashes($view["campaign"]["description-fr"]);
+    $datestart = $view["campaign"]["datestart"];
+    $datestop = $view["campaign"]["datestop"];
+    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop'";
     if ($id) {
-      // Update user: 
-      mq("UPDATE user SET $sqlpass $sql WHERE id='$id' ;");
-      $view["message"]="The user has been edited successfully";
+      // Update campaign: 
+      mq("UPDATE campaign $sql WHERE id='$id' ;");
+      $view["message"]="The campaign has been edited successfully";
     } else {
-      // Create user:
-      mq("INSERT INTO user SET $sqlpass $sql;");
-      $view["message"]="The user has been created successfully";
+      // Create campaign:
+      mq("INSERT INTO campaign $sql;");
+      $view["message"]="The campaign has been created successfully";
     }
     $this->indexAction();
   } // doAction
 
 
   // Go back to the form, having the right params : 
-  private function _cancelform($id,$login="") {
+  private function _cancelform($id,$name="") {
     global $view;
     if ($id) {
-      $view["title"]="Editing user account ".$login;
-      $view["actionname"]="Edit this user account";
+      $view["title"]="Editing campaign ".$name;
+      $view["actionname"]="Edit this campaign";
     } else {
-      $view["title"]="User account creation";
-      $view["actionname"]="Create this user account";
+      $view["title"]="Campaign creation";
+      $view["actionname"]="Create this campaign";
     }
-    render("userform");
+    render("adminform"); 
   }
 
 
