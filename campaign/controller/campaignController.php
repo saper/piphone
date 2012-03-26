@@ -39,7 +39,7 @@ class campaignController extends abstractController {
   
   private function _getCampaignCountries($id) {
     $countries=array();
-    $r=mq("SELECT DISTINCT c.code,c.name FROM lists l, countries c WHERE c.code=l.country AND l.campaign='".intval($id)."' ORDER BY 1;");
+    $r=mq("SELECT DISTINCT c.code,c.name FROM lists l, countries c WHERE c.code=l.country AND l.campaign='".intval($id)."' AND l.enabled=1 ORDER BY 1;");
     while ($c=mysql_fetch_assoc($r)) {
       $countries[$c["code"]]=$c["name"];
     }
@@ -164,7 +164,7 @@ class campaignController extends abstractController {
       
       if ($country) $sql=" AND country='$country' "; else $sql="";
       // Find a MEP to call : 
-      $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' $sql ORDER BY callcount ASC;");
+      $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
       mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
       $view["callee"]=$callee;
       mq("INSERT INTO calls SET caller='$phone', callee='".$callee["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
