@@ -12,26 +12,11 @@
 </head>
    <body<?php if (isset($body)) echo $body; ?>>
 
-<div id="wrapper">
+<?php
 
-<div style="float: right; padding: 10px;">
-   <?php if (is_admin()) { ?>
-   <p><ul>
-<li><a href="/admin"><?php __("Campaign Admin"); ?></a></li>
-<li><a href="/user"><?php __("User Admin"); ?></a></li>
-</ul>
-</p>
-    <?php } ?>
-   <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" />
-</div>
+     echo "<div id=\"callee\">"._("This campaign is expired.")."</div>";
 
-   <div style="padding: 10px">
-   [<a href="?setlang=en">English</a>] 
-   [<a href="?setlang=fr">Français</a>] 
-</div>
+?>
 
-   <h1>PiPhone Campaigning Tool</h1>
-
-<div id="content">
-
-
+</body>
+</html>
