@@ -20,7 +20,7 @@ class adminController extends abstractController {
   /** Get the list of campaigns */
   function indexAction() {
     global $view;
-    $view["campaign"]=mqlist("SELECT campaign.* FROM campaign");
+    $view["campaign"]=mqlist("SELECT campaign.* FROM campaign;");
     render("adminlist");
   }
 
@@ -96,7 +96,7 @@ class adminController extends abstractController {
     $descfr = addslashes($view["campaign"]["description-fr"]);
     $datestart = $view["campaign"]["datestart"];
     $datestop = $view["campaign"]["datestop"];
-    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop'";
+    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop';";
     if ($id) {
       // Update campaign: 
       mq("UPDATE campaign $sql WHERE id='$id' ;");
@@ -179,6 +179,22 @@ class adminController extends abstractController {
     mq("UPDATE campaign SET enabled=1 WHERE id=$id;");    
     $view["message"]="The campaign has been enabled successfully";
     $this->indexAction();
+  }
+
+
+  /* ************************************************************************ */
+  /** Display stats for a given campaign */
+  function statsAction() {
+    global $view,$params;
+    if(!isset($params[0])) not_found();
+    $id=intval($params[0]);
+    $campaign=mqone("SELECT name FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    $view["title"]="Showing stats for campaign ".$campaign["name"];
+    $view["rawstats"]=mqlist("SELECT * FROM calls WHERE campaign=$id");
+    $view["withuuid"]=array_filter($view["rawstats"],function($a) {return($a["uuid"]!="");});
+    $view["withfeedback"]=array_filter($view["rawstats"],function($a) {return($a["feedback"]!="");});
+    render("adminstats");
   }
 
 

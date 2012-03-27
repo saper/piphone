@@ -16,6 +16,7 @@
     <th>Name</th>
     <th>Start</th>
     <th>End</th>
+    <th>Stats</th>
   </tr>
 
 </thead>
@@ -39,7 +40,7 @@ if ($row=="odd") $row="even"; else $row="odd";
    <td class="name"><?php echo $c["name"]; ?></td>
    <td class="datestart"><?php echo $c["datestart"]; ?></td>
    <td class="datestop"><?php echo $c["datestop"]; ?></td>
-
+   <td class="showstats"><a href="/admin/stats/<?php echo $c["id"]; ?>">Show Stats</a></td>
   </tr>
    <?php } ?>
     
