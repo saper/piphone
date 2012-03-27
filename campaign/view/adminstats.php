@@ -40,7 +40,7 @@ function vistoggle(tgtId, txtId)
     if ($row=="odd") $row="even"; else $row="odd"; ?>
     <tr id="call-<?php echo $c["id"]; ?>" class="<?php echo $row; ?>">
       <td><?php echo $c["caller"]; ?></td>
-      <td><?php echo $c["callee"]; ?></td>
+      <td><?php echo $c["callee2"]; ?></td>
       <td><?php echo $c["datestart"]; ?></td>
       <td><?php echo $c["dateend"]; ?></td>
       <td><?php echo $c["duration"]; ?></td>
@@ -49,7 +49,33 @@ function vistoggle(tgtId, txtId)
     <?php } // end foreach ?>
   </tbody>
 </table>
-<li><?php echo count($view["withuuid"]); ?> calls through piphone (with uuid)</li>
+<li><?php echo count($view["withuuid"]); ?> calls through piphone (with uuid) <span id="show_pi" onClick="javascript:vistoggle('tbl_pi','show_pi');">[show]</span></li>
+<table id="tbl_pi" class="list" style="display:none">
+  <thead><tr>
+    <th>Caller</th>
+    <th>Callee</th>
+    <th>Call start</th>
+    <th>Call end</th>
+    <th>Duration</th>
+    <th>Feedback</th>
+  </tr></thead>
+  <tbody>
+  <?php
+  $row="odd";
+  foreach($view["withuuid"] as $c) {
+    if ($row=="odd") $row="even"; else $row="odd"; ?>
+    <tr id="call-<?php echo $c["id"]; ?>" class="<?php echo $row; ?>">
+      <td><?php echo $c["caller"]; ?></td>
+      <td><?php echo $c["callee2"]; ?></td>
+      <td><?php echo $c["datestart"]; ?></td>
+      <td><?php echo $c["dateend"]; ?></td>
+      <td><?php echo $c["duration"]; ?></td>
+      <td><?php echo $c["feedback"]; ?></td>
+    </tr>
+    <?php } // end foreach ?>
+  </tbody>
+</table>
+
 <li><?php echo count($view["rawstats"]); ?> calls logged</li>
 <ul>
 
