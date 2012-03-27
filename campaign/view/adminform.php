@@ -25,11 +25,6 @@
 
 <tr><th><label for="datestop">Date Stop (YYYY-MM-DD hh:mm:ss)</label></th></tr>
 <tr><td><input size="60" type="text" id="datestop" name="datestop" value="<?php eher($view["campaign"]["datestop"]); ?>" /></td></tr>
-<script type="text/javascript">
- $(document).ready(function() {
-  $("textarea").cleditor({width:"100%", height:"400"});
- });
-</script>
 </table>
 
 <input type="submit" name="go" value="<?php echo $view["actionname"]; ?>" />
@@ -37,6 +32,11 @@
 
 </form>
 
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("textarea").cleditor({width:"100%", height:"400"});
+ });
+</script>
 
 <?php require_once("foot.php"); ?>
 
