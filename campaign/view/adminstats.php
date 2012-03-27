@@ -24,7 +24,7 @@ function vistoggle(tgtId, txtId)
 <h3>Calls breakdown</h3>
 <ul>
 <li><?php echo count($view["withfeedback"]); ?> calls with feedback <span id="show_fb" onClick="javascript:vistoggle('tbl_fb','show_fb');">[show]</span></li>
-<table id="tbl_fb" class="list" style="display:none">
+<table id="tbl_fb" class="list sortable" style="display:none">
   <thead><tr>
     <th>Caller</th>
     <th>Callee</th>
@@ -50,7 +50,7 @@ function vistoggle(tgtId, txtId)
   </tbody>
 </table>
 <li><?php echo count($view["withuuid"]); ?> calls through piphone (with uuid) <span id="show_pi" onClick="javascript:vistoggle('tbl_pi','show_pi');">[show]</span></li>
-<table id="tbl_pi" class="list" style="display:none">
+<table id="tbl_pi" class="list sortable" style="display:none">
   <thead><tr>
     <th>Caller</th>
     <th>Callee</th>

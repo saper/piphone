@@ -306,6 +306,12 @@ tr.notice td {
     background-color: #dfffdf;
 }
 
+table.sortable thead {
+    /*background-color:#eee;*/
+    text-decoration:underline;
+    cursor: pointer;
+}
+
 label {
     display: block;
 }
