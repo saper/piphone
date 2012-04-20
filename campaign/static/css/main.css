@@ -96,6 +96,7 @@ html>body #content { min-height: 600px; }
 a, a:link, a:visited{ color: #2A5685; text-decoration: none; }
 a:hover, a:active{ color: #c61a1a; text-decoration: underline;}
 a img{ border: 0; }
+table.list td.live { vertical-align: middle ; }
 
 /***** Flash & error messages ****/
 #errorExplanation, div.flash, .nodata, .warning {
