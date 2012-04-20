@@ -45,6 +45,11 @@
 
 </form>
 
+<script type="text/javascript">
+ $(document).ready(function() {
+  $("textarea").cleditor({width:"100%", height:"400"});
+ });
+</script>
 
 <?php require_once("foot.php"); ?>
 

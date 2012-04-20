@@ -10,6 +10,7 @@
    <script src="/static/js/jquery-1.6.3.min.js" type="text/javascript"></script>
    <script src="/static/cleditor/jquery.cleditor.min.js" type="text/javascript"></script>
    <script src="/static/js/main.js" type="text/javascript"></script>
+   <script src="/static/js/sorttable.js" type="text/javascript"></script>
    <meta name="robots" content="noindex,follow,noarchive" />
    <?php if (isset($head)) echo $head; ?>
 </head>
