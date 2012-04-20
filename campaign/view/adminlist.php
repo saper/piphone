@@ -16,6 +16,8 @@
     <th>Name</th>
     <th>Start</th>
     <th>End</th>
+    <th>List<br />Count</th>
+    <th>Relevant<br />Calls</th>
   </tr>
 
 </thead>
@@ -39,7 +41,8 @@ if ($row=="odd") $row="even"; else $row="odd";
    <td class="name"><?php echo $c["name"]; ?></td>
    <td class="datestart"><?php echo $c["datestart"]; ?></td>
    <td class="datestop"><?php echo $c["datestop"]; ?></td>
-
+   <td class="count"><?php echo $c["count"]; ?></td>
+   <td class="calls"><?php echo $c["calls"]; ?></td>
   </tr>
    <?php } ?>
     

@@ -28,6 +28,13 @@ function mqone($query) {
     return mysql_fetch_array($q); 
 }
 
+function mqonefield($query) { 
+  $q=mq($query);
+  if (!$q) return false; 
+  $res=mysql_fetch_array($q);
+  return $res[0];
+}
+
 function mqassoc($query) { 
   $q=mq($query); 
   if (!$q) return false; 

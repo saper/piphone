@@ -20,7 +20,11 @@ class adminController extends abstractController {
   /** Get the list of campaigns */
   function indexAction() {
     global $view;
-    $view["campaign"]=mqlist("SELECT campaign.* FROM campaign");
+    $view["campaign"]=mqlist("SELECT campaign.* FROM campaign ORDER BY enabled DESC");
+    for($i=0;$i<count($view["campaign"]);$i++) {
+      $view["campaign"][$i]["count"]=mqonefield("SELECT COUNT(*) FROM lists WHERE campaign=".$view["campaign"][$i]["id"]);
+      $view["campaign"][$i]["calls"]=mqonefield("SELECT COUNT(*) FROM calls WHERE campaign=".$view["campaign"][$i]["id"]." AND (uuid!='' OR feedback!='')");
+    }
     render("adminlist");
   }
 

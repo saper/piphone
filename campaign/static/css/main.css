@@ -327,3 +327,6 @@ div#status {
     width: 80%;
     margin-right: 20px;
 }
+table, table td, table tr, table th {
+    border-collapse: collapse;
+}

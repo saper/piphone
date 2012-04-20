@@ -6,13 +6,28 @@
 
 <table>
 <tr><th><?php __("Campaign Name"); ?></th><th><?php __("Starting"); ?></th><th><?php __("Ending"); ?></th></tr>
-<?php
-foreach($view["campaign"] as $c) {
+   <?php 
+   $row="odd";
+foreach($view["campaign"] as $c) { 
+if ($row=="odd") $row="even"; else $row="odd";
 ?>
-<tr>
+  <tr id="campaign-<?php echo $c["id"]; ?>" class="<?php echo $row; ?>">
   <td><a href="/campaign/go/<?php echo $c["slug"]; ?>"><?php echo $c["name"]; ?></a></td>
   <td><?php echo $c["datestart"]; ?></td>
   <td><?php echo $c["datestop"]; ?></td>
+</tr>
+  <tr class="<?php echo $row; ?>">
+      <td></td>
+  <td colspan="2" style="font-size: small">
+<?php
+     //				       echo $GLOBALS["lang"];
+  if ($c["longname-".substr($GLOBALS["lang"],0,2)]) {
+    echo $c["longname-".substr($GLOBALS["lang"],0,2)];
+  } else {
+    echo $c["longname"];
+  }
+?>
+</td>
 </tr>
 <?php
 }
