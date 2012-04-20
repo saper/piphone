@@ -34,9 +34,9 @@ if ($row=="odd") $row="even"; else $row="odd";
    <td class="links"><a class="icon icon-edit" href="/admin/edit/<?php echo $c["id"]; ?>">Edit</a></td>
    <td class="links"><a class="icon icon-del" href="/admin/del/<?php echo $c["id"]; ?>">Delete</a></td>
    <?php if ($c["enabled"]) { ?>
-   <td class="links"><a class="icon icon-fav-off" href="/admin/disable/<?php echo $c["id"]; ?>">Disable</a></td>
+   <td class="links"><a class="icon icon-fav" href="/admin/disable/<?php echo $c["id"]; ?>">Disable</a></td>
       <?php } else { ?>
-   <td class="links"><a class="icon icon-fav" href="/admin/enable/<?php echo $c["id"]; ?>">Enable</a></td>
+   <td class="links"><a class="icon icon-fav-off" href="/admin/enable/<?php echo $c["id"]; ?>">Enable</a></td>
       <?php } ?>
    <td class="id"><?php echo $c["id"]; ?></td>
    <td class="name"><?php echo $c["name"]; ?></td>
