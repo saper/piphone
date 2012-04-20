@@ -68,7 +68,7 @@ class adminController extends abstractController {
     }
 
     // Validate the fields : 
-    $fields=array("id","name","slug","description","description-fr","datestart","datestop");
+    $fields=array("id","name","slug","longname", "longname-fr", "description","description-fr","datestart","datestop");
     foreach($fields as $f) $view["campaign"][$f]=$_REQUEST[$f]; 
 
     if (!$tstart = strtotime($_REQUEST["datestart"])) {
@@ -100,7 +100,14 @@ class adminController extends abstractController {
     $descfr = addslashes($view["campaign"]["description-fr"]);
     $datestart = $view["campaign"]["datestart"];
     $datestop = $view["campaign"]["datestop"];
-    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop';";
+    // $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop';";
+    $sqls = array();
+    foreach($view["campaign"] as $fname => $fdata) {
+      $fdata = addslashes($fdata);
+      $sqls[] = "`$fname`='$fdata'";
+    }
+    $sql = "SET " . implode(", ", $sqls);
+
     if ($id) {
       // Update campaign: 
       mq("UPDATE campaign $sql WHERE id='$id' ;");
