@@ -98,9 +98,9 @@ class adminController extends abstractController {
     $slug = addslashes($view["campaign"]["slug"]);
     $desc = addslashes($view["campaign"]["description"]);
     $descfr = addslashes($view["campaign"]["description-fr"]);
-    $datestart = $view["campaign"]["datestart"];
-    $datestop = $view["campaign"]["datestop"];
-    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop';";
+    $datestart = addslashes($view["campaign"]["datestart"]);
+    $datestop = addslashes($view["campaign"]["datestop"]);
+    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop' ";
     if ($id) {
       // Update campaign: 
       mq("UPDATE campaign $sql WHERE id='$id' ;");
