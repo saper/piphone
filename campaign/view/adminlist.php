@@ -16,6 +16,7 @@
     <th>Name</th>
     <th>Start</th>
     <th>End</th>
+    <th>Live?</th>
     <th>List<br />Count</th>
     <th>Relevant<br />Calls</th>
     <th>Stats</th>
@@ -34,14 +35,15 @@ if ($row=="odd") $row="even"; else $row="odd";
    <td class="links"><a class="icon icon-edit" href="/admin/edit/<?php echo $c["id"]; ?>">Edit</a></td>
    <td class="links"><a class="icon icon-del" href="/admin/del/<?php echo $c["id"]; ?>">Delete</a></td>
    <?php if ($c["enabled"]) { ?>
-   <td class="links"><a class="icon icon-fav-off" href="/admin/disable/<?php echo $c["id"]; ?>">Disable</a></td>
+   <td class="links"><a class="icon icon-fav" href="/admin/disable/<?php echo $c["id"]; ?>">Disable</a></td>
       <?php } else { ?>
-   <td class="links"><a class="icon icon-fav" href="/admin/enable/<?php echo $c["id"]; ?>">Enable</a></td>
+   <td class="links"><a class="icon icon-fav-off" href="/admin/enable/<?php echo $c["id"]; ?>">Enable</a></td>
       <?php } ?>
    <td class="id"><?php echo $c["id"]; ?></td>
    <td class="name"><?php echo $c["name"]; ?></td>
    <td class="datestart"><?php echo $c["datestart"]; ?></td>
    <td class="datestop"><?php echo $c["datestop"]; ?></td>
+   <td class="live"><?php if($c["enabled"] & ! $c["expired"]) echo '<img src="/static/images/on_air.gif" alt="ON AIR" />'; ?></td>
    <td class="count"><?php echo $c["count"]; ?></td>
    <td class="calls"><?php echo $c["calls"]; ?></td>
    <td class="showstats"><a href="/admin/stats/<?php echo $c["id"]; ?>">Show Stats</a></td>

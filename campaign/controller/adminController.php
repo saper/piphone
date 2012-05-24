@@ -20,7 +20,7 @@ class adminController extends abstractController {
   /** Get the list of campaigns */
   function indexAction() {
     global $view;
-    $view["campaign"]=mqlist("SELECT campaign.* FROM campaign ORDER BY enabled DESC");
+    $view["campaign"]=mqlist("SELECT campaign.*, IF(datestart<=NOW() AND datestop>=NOW(),0,1) AS expired FROM campaign ORDER BY enabled DESC");
     for($i=0;$i<count($view["campaign"]);$i++) {
       $view["campaign"][$i]["count"]=mqonefield("SELECT COUNT(*) FROM lists WHERE campaign=".$view["campaign"][$i]["id"]);
       $view["campaign"][$i]["calls"]=mqonefield("SELECT COUNT(*) FROM calls WHERE campaign=".$view["campaign"][$i]["id"]." AND (uuid!='' OR feedback!='')");
@@ -68,7 +68,7 @@ class adminController extends abstractController {
     }
 
     // Validate the fields : 
-    $fields=array("id","name","slug","description","description-fr","datestart","datestop");
+    $fields=array("id","name","slug","longname", "longname-fr", "description","description-fr","datestart","datestop");
     foreach($fields as $f) $view["campaign"][$f]=$_REQUEST[$f]; 
 
     if (!$tstart = strtotime($_REQUEST["datestart"])) {
@@ -100,7 +100,14 @@ class adminController extends abstractController {
     $descfr = addslashes($view["campaign"]["description-fr"]);
     $datestart = addslashes($view["campaign"]["datestart"]);
     $datestop = addslashes($view["campaign"]["datestop"]);
-    $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop' ";
+    // $sql = "SET `name`='$name', `slug`='$slug', `description`='$desc', `description-fr`='$descfr', `datestart`='$datestart', `datestop`='$datestop';";
+    $sqls = array();
+    foreach($view["campaign"] as $fname => $fdata) {
+      $fdata = addslashes($fdata);
+      $sqls[] = "`$fname`='$fdata'";
+    }
+    $sql = "SET " . implode(", ", $sqls);
+
     if ($id) {
       // Update campaign: 
       mq("UPDATE campaign $sql WHERE id='$id' ;");
