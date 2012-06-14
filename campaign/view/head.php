@@ -29,7 +29,11 @@
    <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" />
 </div>
 <div id="logo">
-<a href="https://support.laquadrature.net/" title="Support La Quadrature du Net against ACTA and beyond!" alt="Support La Quadrature du Net against ACTA and beyond!"><img src="https://support.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Support La Quadrature du Net against ACTA and beyond!" /></a>
+   <?php if ($GLOBALS["lang"]=="fr_FR") { ?>
+<a href="https://soutien.laquadrature.net/" title="Soutenez La Quadrature du Net contre ACTA et au-delà !" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !"><img src="https://soutien.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !" /></a>
+   <?php } else { ?>
+<a href="https://support.laquadrature.net/" title="Support La Quadrature du Net against ACTA and beyond!" alt="Support La Quadrature du Net against ACTA and beyond!"><img src="https://support.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Support La Quadrature du Net against ACTA and beyond!" /><
+<?php } ?>
 </div>
 
    <div style="padding: 10px">
