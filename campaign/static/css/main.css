@@ -337,3 +337,8 @@ div#status {
 table, table td, table tr, table th {
     border-collapse: collapse;
 }
+
+#logo {
+    float: right; 
+    padding: 20px 100px 20px 20px;
+}

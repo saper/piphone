@@ -28,6 +28,9 @@
     <?php } ?>
    <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" />
 </div>
+<div id="logo">
+<a href="https://support.laquadrature.net/" title="Support La Quadrature du Net against ACTA and beyond!" alt="Support La Quadrature du Net against ACTA and beyond!"><img src="https://support.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Support La Quadrature du Net against ACTA and beyond!" /></a>
+</div>
 
    <div style="padding: 10px">
    [<a href="?setlang=en">English</a>] 
