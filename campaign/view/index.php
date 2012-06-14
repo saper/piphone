@@ -7,6 +7,9 @@
 <table>
 <tr><th><?php __("Campaign Name"); ?></th><th><?php __("Starting"); ?></th><th><?php __("Ending"); ?></th></tr>
    <?php 
+
+if (count($view["campaign"])) {
+
    $row="odd";
 foreach($view["campaign"] as $c) { 
 if ($row=="odd") $row="even"; else $row="odd";
@@ -30,9 +33,13 @@ if ($row=="odd") $row="even"; else $row="odd";
 </td>
 </tr>
 <?php
-}
+    }
 ?>
 </table>
+    <?php } else { /* There is no current campaign */ ?>
 
+<p><?php __("There is currently no campaign. Please come back later or when you hear there will be one"); ?> 
+
+<?php } ?>
 <?php require_once("foot.php"); ?>
 
