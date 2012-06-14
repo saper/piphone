@@ -11,7 +11,7 @@
    <script src="/static/cleditor/jquery.cleditor.min.js" type="text/javascript"></script>
    <script src="/static/js/main.js" type="text/javascript"></script>
    <script src="/static/js/sorttable.js" type="text/javascript"></script>
-   <meta name="robots" content="noindex,follow,noarchive" />
+   <meta name="robots" content="index,follow,noarchive" />
    <?php if (isset($head)) echo $head; ?>
 </head>
    <body<?php if (isset($body)) echo $body; ?>>
