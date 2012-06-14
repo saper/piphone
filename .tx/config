@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.net
+
+[lqdnsupport.piphone]
+source_file = campaign/locales/default.pot
+source_lang = en
+trans.fr = campaign/locales/fr_FR/LC_MESSAGES/default.po
+trans.en_US = campaign/locales/en_US/LC_MESSAGES/default.po
