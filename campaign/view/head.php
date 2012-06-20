@@ -42,6 +42,12 @@
 </div>
 
    <h1>PiPhone Campaigning Tool</h1>
+<?php /*
+<div class="error flash">
+   THE PIPHONE IS CURRENTLY OUT OF ORDER, THIS MESSAGE WILL DISAPPEAR WHEN IT WILL WORK AGAIN<br />
+   LE PIPHONE EST ACTUELLEMENT HORS SERVICE, NOUS ENLEVERONS CE MESSAGE UNE FOIS RÉPARÉ
+</div>
+      */ ?>
 
 <div id="content">
 
