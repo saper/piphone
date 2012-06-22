@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Benjamin Sonntag <benjamin@sonntag.fr>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: LQDN Support\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-14 11:37+0200\n"
+"POT-Creation-Date: 2012-06-22 20:32+0200\n"
 "PO-Revision-Date: 2012-06-14 09:52+0000\n"
 "Last-Translator: Benjamin Sonntag <benjamin@sonntag.fr>\n"
-"Language-Team: French (http://www.transifex.net/projects/p/lqdnsupport/language/fr/)\n"
+"Language-Team: French (http://www.transifex.net/projects/p/lqdnsupport/"
+"language/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: view/campaigncall.php:17 view/campaigncall.php:21 view/campaigncall.php:22
@@ -26,7 +27,9 @@ msgstr "a le numéro de téléphone"
 msgid ""
 "We are now calling you and you will soon be at the phone with the person "
 "above."
-msgstr "Nous allons maintenant vous appeler, et vous serez très bientôt en relation téléphonique avec la personne ci-dessus."
+msgstr ""
+"Nous allons maintenant vous appeler, et vous serez très bientôt en relation "
+"téléphonique avec la personne ci-dessus."
 
 #: view/campaigncall.php:31
 msgid "When the phone call ends, you may want to"
@@ -40,17 +43,19 @@ msgstr "Nous faire remonter le résultat"
 msgid ""
 "You should call him now, and press the feedback button to give us some "
 "feedback about that call."
-msgstr "Vous pouvez l'appeler dès maintenant, et appuyer sur le bouton rapporter le résultat afin de nous faire rapporter le contenu de votre conversation."
+msgstr ""
+"Vous pouvez l'appeler dès maintenant, et appuyer sur le bouton rapporter le "
+"résultat afin de nous faire rapporter le contenu de votre conversation."
 
 #: view/campaigncall.php:38
 msgid "When the phone call will end, you may want to"
 msgstr "Lorsque l'appel sera terminé, vous pouvez"
 
-#: view/index.php:3 view/index.php:3
+#: view/index.php:3 view/index.php:8
 msgid "Campaign's list"
 msgstr "Liste des campagnes"
 
-#: view/campaignform.php:20 view/campaignform.php:20
+#: view/campaignform.php:20
 msgid "Choose your Country:"
 msgstr "Choisissez votre pays : "
 
@@ -62,70 +67,75 @@ msgstr "-- Choisissez votre pays --"
 msgid ""
 "If you want to be called back, enter your phone number, <br />starting by "
 "+&lt;countrycode&gt; (example, +33 for France, without the initial 0):"
-msgstr "Si vous voulez que nous vous rappelions, entrez votre numéro de téléphone<br />en commençant par +&lt;code de pays&gt; (par exemple, +33 pour la france, sans le 0 initial) :"
+msgstr ""
+"Si vous voulez que nous vous rappelions, entrez votre numéro de "
+"téléphone<br />en commençant par +&lt;code de pays&gt; (par exemple, +33 "
+"pour la france, sans le 0 initial) :"
 
 #: view/campaignform.php:26
 msgid "Call my MEP"
 msgstr "Appeler mon Député Européen"
 
-#: view/nothing.php:3 view/nothing.php:3
+#: view/nothing.php:3
 msgid "Oups"
 msgstr "Oups"
 
-#: view/index.php:8 view/index.php:8
+#: view/index.php:8 view/index.php:13
 msgid "Starting"
 msgstr "Démarre le"
 
-#: view/index.php:8 view/index.php:8
+#: view/index.php:8 view/index.php:13
 msgid "Ending"
 msgstr "Se termine le"
 
-#: view/index.php:8 view/index.php:8
+#: view/index.php:8 view/index.php:13
 msgid "Campaign Name"
 msgstr "Nom de la campagne"
 
-#: view/feedbackform.php:3 view/feedbackform.php:3
+#: view/feedbackform.php:3
 msgid "Feedback Form"
 msgstr "Formulaire de Rapport"
 
 #: view/feedbackform.php:7 view/campaigncall.php:39 view/campaigncall.php:43
-#: view/campaigncall.php:47 view/feedbackform.php:7 view/campaigncall.php:48
+#: view/campaigncall.php:47 view/campaigncall.php:48
 msgid ""
 "Please tell us what happened if you was able to talk to someone. Your "
 "feedback is important to us."
-msgstr "Merci de nous rapporter ce qu'il s'est passé si vous avez pu parler à quelqu'un. Votre retour nous est crucial."
+msgstr ""
+"Merci de nous rapporter ce qu'il s'est passé si vous avez pu parler à "
+"quelqu'un. Votre retour nous est crucial."
 
 #: view/feedbackform.php:14 view/campaigncall.php:46 view/campaigncall.php:50
-#: view/campaigncall.php:54 view/feedbackform.php:14 view/campaigncall.php:55
+#: view/campaigncall.php:54 view/campaigncall.php:55
 msgid "Send my feedback"
 msgstr "Envoyer mon retour d'expérience"
 
 #: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
-#: view/campaigncall.php:55 view/feedbackform.php:15 view/campaigncall.php:56
+#: view/campaigncall.php:55 view/campaigncall.php:56
 msgid "Cancel"
 msgstr "Annuler"
 
 #: controller/campaignController.php:233 controller/campaignController.php:253
 #: controller/campaignController.php:264 controller/campaignController.php:284
 #: controller/campaignController.php:265 controller/campaignController.php:285
-#: controller/campaignController.php:264 controller/campaignController.php:284
 msgid "A feedback has already been given for that call, sorry"
 msgstr "Un retour a déjà été envoyé pour cet appel, désolé."
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
-#: controller/campaignController.php:290 controller/campaignController.php:289
+#: controller/campaignController.php:290
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr "Votre retour nous a été envoyé. Merci de votre participation !"
 
-#: controller/campaignController.php:54 controller/campaignController.php:54
+#: controller/campaignController.php:54
 msgid "The specified campaign has not been found, please check your link"
 msgstr "La campagne demandée n'a pas été trouvée, merci de vérifier votre lien"
 
 #: controller/campaignController.php:59
 msgid ""
-"The specified campaign is now over, next time come here before it's too "
-"late!"
-msgstr "La campagne demandée est terminée. La prochaine fois venez ici avant qu'il ne soit trop tard !"
+"The specified campaign is now over, next time come here before it's too late!"
+msgstr ""
+"La campagne demandée est terminée. La prochaine fois venez ici avant qu'il "
+"ne soit trop tard !"
 
 #: controller/campaignController.php:131 controller/campaignController.php:139
 msgid "Your phone number look strange, please check it"
@@ -133,7 +143,8 @@ msgstr "Votre numéro de téléphone semble incorrect, vérifiez"
 
 #: controller/campaignController.php:143 controller/campaignController.php:151
 msgid "Your phone number is from an unsupported country, sorry for that"
-msgstr "Votre numéro de téléphone est d'un pays non supporté, nous en sommes désolé"
+msgstr ""
+"Votre numéro de téléphone est d'un pays non supporté, nous en sommes désolé"
 
 #: controller/campaignController.php:151 controller/campaignController.php:159
 msgid "Country not found, please check"
@@ -146,13 +157,18 @@ msgstr "Page non trouvée"
 #: functions.php:199 functions.php:206
 msgid ""
 "The requested page has not been found or an error happened. Please check"
-msgstr "La page demandée n'a pas pu être trouvée, ou une erreur est survenu. Merci de vérifier"
+msgstr ""
+"La page demandée n'a pas pu être trouvée, ou une erreur est survenu. Merci "
+"de vérifier"
 
 #: view/campaigncall.php:28 view/campaigncall.php:32 view/campaigncall.php:33
 msgid ""
 "If you read the briefing above, and if you fully acknowledge it, click the "
 "button below to get in touch with that person."
-msgstr "Si vous avez lu le texte ci-dessus, et que vous êtes prêt à suivre nos recommandations, cliquez sur le bouton ci-dessous pour entrer en contact avec cette personne."
+msgstr ""
+"Si vous avez lu le texte ci-dessus, et que vous êtes prêt à suivre nos "
+"recommandations, cliquez sur le bouton ci-dessous pour entrer en contact "
+"avec cette personne."
 
 #: view/campaigncall.php:30 view/campaigncall.php:34 view/campaigncall.php:35
 msgid "Call me"
@@ -162,19 +178,23 @@ msgstr "Appelez moi"
 msgid ""
 "You should call him now, and fill the form below to give us some feedback "
 "about that call."
-msgstr "Vous pouvez l'appeler dès maintenant, remplir ensuite le formulaire ci-dessous afin de nous faire rapporter le contenu de votre conversation."
+msgstr ""
+"Vous pouvez l'appeler dès maintenant, remplir ensuite le formulaire ci-"
+"dessous afin de nous faire rapporter le contenu de votre conversation."
 
 #: view/campaigncall.php:53 view/campaigncall.php:57 view/campaigncall.php:61
 #: view/campaigncall.php:62
 msgid ""
 "We are now calling you, you will be connected to the phone above soon..."
-msgstr "Nous sommes an train de vous appeler, et vous serez très bientôt en relation téléphonique avec la personne ci-dessus."
+msgstr ""
+"Nous sommes an train de vous appeler, et vous serez très bientôt en relation "
+"téléphonique avec la personne ci-dessus."
 
-#: view/campaignform.php:20 view/campaignform.php:20
+#: view/campaignform.php:20
 msgid "-- All Europe --"
 msgstr "-- Toute l'Europe --"
 
-#: view/campaignform.php:26 view/campaignform.php:27 view/campaignform.php:27
+#: view/campaignform.php:26 view/campaignform.php:27
 msgid "Next Step"
 msgstr "Étape suivante"
 
@@ -190,23 +210,29 @@ msgstr "Appeler quelqu'un d'autre"
 msgid "If you prefer to call another MEP, click the button "
 msgstr "Si vous préférez appeler un autre Député, cliquez sur le bouton "
 
-#: view/campaignform.php:23 view/campaignform.php:23
+#: view/campaignform.php:23
 msgid ""
 "Enter your phone number to be connected with your MEP through our platform. "
 "<br />Go directly to the next step if you want to call him by yourself."
-msgstr "Entrez votre numéro pour être mis en relation par nos soins. <br />Passez directement à l'étape suivante si vous souhaitez appeler vous même"
+msgstr ""
+"Entrez votre numéro pour être mis en relation par nos soins. <br />Passez "
+"directement à l'étape suivante si vous souhaitez appeler vous même"
 
-#: view/campaignform.php:24 view/campaignform.php:24
+#: view/campaignform.php:24
 msgid ""
 "Phone number must start by +&lt;countrycode&gt; <br />(example, +33 for "
 "France, then the number without the initial 0):"
-msgstr "Le numéro de téléphone doit commencer par +&lt;code de pays&gt; <br />(par exemple, +33 pour la france, puis le numéro sans le 0 initial) :"
+msgstr ""
+"Le numéro de téléphone doit commencer par +&lt;code de pays&gt; <br />(par "
+"exemple, +33 pour la france, puis le numéro sans le 0 initial) :"
 
-#: view/index.php:41
+#: view/index.php:41 view/index.php:47
 msgid ""
 "There is currently no campaign. Please come back later or when you hear "
 "there will be one"
-msgstr "Il n'y a pas de campagne en cours. Revenez plus tard ou quand vous saurez qu'il y en a une."
+msgstr ""
+"Il n'y a pas de campagne en cours. Revenez plus tard ou quand vous saurez "
+"qu'il y en a une."
 
 #: view/adminmenu.php:3
 msgid "Piphone Administration"

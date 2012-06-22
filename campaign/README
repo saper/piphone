@@ -15,7 +15,7 @@ ensure that the .htaccess is taken into account by your webserver, and that rewr
 clone the plivo-helper files into campaign/plivo by using : 
 
 cd campaign/
-git clone https://github.com/digination/plivohelper-php
+git clone https://github.com/digination/plivohelper-php plivo
 
 inject piphone.sql into your database to create the basic structure
 

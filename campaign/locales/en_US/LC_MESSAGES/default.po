@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-14 11:37+0200\n"
+"POT-Creation-Date: 2012-06-22 20:32+0200\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "When the phone call will end, you may want to"
 msgstr ""
 
-#: view/index.php:3
+#: view/index.php:3 view/index.php:8
 msgid "Campaign's list"
 msgstr ""
 
@@ -70,15 +70,15 @@ msgstr ""
 msgid "Oups"
 msgstr ""
 
-#: view/index.php:8
+#: view/index.php:8 view/index.php:13
 msgid "Starting"
 msgstr ""
 
-#: view/index.php:8
+#: view/index.php:8 view/index.php:13
 msgid "Ending"
 msgstr ""
 
-#: view/index.php:8
+#: view/index.php:8 view/index.php:13
 msgid "Campaign Name"
 msgstr ""
 
@@ -198,7 +198,7 @@ msgid ""
 "France, then the number without the initial 0):"
 msgstr ""
 
-#: view/index.php:41
+#: view/index.php:41 view/index.php:47
 msgid ""
 "There is currently no campaign. Please come back later or when you hear "
 "there will be one"
