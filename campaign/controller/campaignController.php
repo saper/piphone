@@ -82,7 +82,43 @@ class campaignController extends abstractController {
   }
 
 
+  /* ************************************************************************ */
+  /* Changing everything /o/
+   */
+  function go2Action() {
+    global $view,$params;
+    if (!isset($params[0])) not_found();
+    $slug=addslashes(trim($params[0]));
 
+    $view["campaign"]=$this->_getCampaign($slug); // Exit in case of error
+    if ($view["campaign"]["expired"]) {
+      render("campaignexpired");
+      exit();
+    }
+    $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
+
+    $view["lang"]=substr($GLOBALS["lang"],0,2);
+    // Set or reset the cookie : 
+    if ($_COOKIE["piphone"] && preg_match("#^[a-z]{32}$#",$_COOKIE["piphone"])) {
+    $cookie=$_COOKIE["piphone"];
+    } else {
+    $cookie=$this->_getRand();
+    }
+    setCookie("piphone",$cookie,time()+86400*365,"/");
+    mq("REPLACE INTO cookies SET cookie='$cookie', country='$country', phone='$phone';");
+
+    if ($country) $sql=" AND country='$country' "; else $sql="";
+    // Find a MEP to call : 
+    $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
+    mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
+    $view["callee"]=$callee;
+    mq("INSERT INTO calls SET caller='$phone', callee='".$callee["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
+    $view["callid"]=mysql_insert_id();
+    
+    $view["phone"]=$phone;
+    // Now proceed to call ...
+    render("campaigngo2");
+  }
   /* ************************************************************************ */
   /** IFRAME to SHOW the FORM to enter your number and country 
    * 

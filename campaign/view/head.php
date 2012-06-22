@@ -4,7 +4,7 @@
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title><?php echo PROJECTNAME; ?> <?php if (isset($view["title"])) echo " - ".$view["title"]; ?></title>
    <link rel="shortcut icon" href="/static/favicon.ico" />
-   <link href="/static/css/main.css" media="all" rel="stylesheet" type="text/css" />   
+   <link href="/static/ui-2.0/global.css" media="all" rel="stylesheet" type="text/css" />   
    <link href="/static/cleditor/jquery.cleditor.css" media="all" rel="stylesheet" type="text/css" />   
    <script src="/static/js/main.js" type="text/javascript"></script>
    <script src="/static/js/jquery-1.6.3.min.js" type="text/javascript"></script>
@@ -26,7 +26,7 @@
 </ul>
 </p>
     <?php } ?>
-   <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" />
+<!--   <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" /> -->
 </div>
 <div id="logo">
    <?php if ($GLOBALS["lang"]=="fr_FR") { ?>
@@ -36,19 +36,20 @@
 <?php } ?>
 </div>
 
-   <div style="padding: 10px">
+<div style="padding: 10px">
    [<a href="?setlang=en">English</a>] 
    [<a href="?setlang=fr">Français</a>] 
 </div>
 
+<div id="header">
    <h1>PiPhone Campaigning Tool</h1>
+</div>
 <?php /*
 <div class="error flash">
    THE PIPHONE IS CURRENTLY OUT OF ORDER, THIS MESSAGE WILL DISAPPEAR WHEN IT WILL WORK AGAIN<br />
    LE PIPHONE EST ACTUELLEMENT HORS SERVICE, NOUS ENLEVERONS CE MESSAGE UNE FOIS RÉPARÉ
 </div>
       */ ?>
-
 <div id="content">
 
 

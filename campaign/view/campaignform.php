@@ -4,7 +4,7 @@
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title><?php echo PROJECTNAME; ?> <?php if (isset($view["title"])) echo " - ".$view["title"]; ?></title>
    <link rel="shortcut icon" href="/static/favicon.ico" />
-   <link href="/static/css/main.css" media="all" rel="stylesheet" type="text/css" />   
+   <link href="/static/ui-2.0/global.cs" media="all" rel="stylesheet" type="text/css" />   
    <script src="/static/js/main.js" type="text/javascript"></script>
    <script src="/static/js/jquery-1.6.3.min.js" type="text/javascript"></script>
    <meta name="robots" content="noindex,follow,noarchive" />
@@ -16,7 +16,7 @@
 
 <!-- Now the form -->
 <form method="post" action="/campaign/call/<?php echo $view["campaign"]["slug"]; ?>?step=1">
-<p>
+<p style="text-align: center;">
    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$_REQUEST["country"]); ?></select>
 </p>
 <p>
