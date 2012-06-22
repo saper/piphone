@@ -1,5 +1,10 @@
 
 <?php require_once("head.php"); ?>
+
+
+<?php
+if (count($view["campaign"])) {
+?>
 <h2><?php __("Campaign's list"); ?></h2>
 
 <?php show_messages(); ?>
@@ -8,7 +13,6 @@
 <tr><th><?php __("Campaign Name"); ?></th><th><?php __("Starting"); ?></th><th><?php __("Ending"); ?></th></tr>
    <?php 
 
-if (count($view["campaign"])) {
 
    $row="odd";
 foreach($view["campaign"] as $c) { 
@@ -37,6 +41,8 @@ if ($row=="odd") $row="even"; else $row="odd";
 ?>
 </table>
     <?php } else { /* There is no current campaign */ ?>
+
+<?php show_messages(); ?>
 
 <p><?php __("There is currently no campaign. Please come back later or when you hear there will be one"); ?> 
 
