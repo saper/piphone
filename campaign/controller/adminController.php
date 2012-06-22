@@ -55,7 +55,55 @@ class adminController extends abstractController {
     list($view["campaign"]["parentname"])=mqone("SELECT name FROM campaign WHERE id='".$view["campaign"]["parent"]."';");
     render("adminform");
   }
+
+
+
+  /* ************************************************************************ */
+  /** Show the form to edit the list of callees for this campaign */
+  function listAction() {
+    global $view,$params;
+    if (!isset($params[0])) not_found();
+    $id=intval($params[0]);
+    if (!$id) not_found();
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+    $list=mqlist("SELECT * FROM lists WHERE campaign=$id;");
+    $view["title"]="Editing list of callees forcampaign ".$campaign["name"];
+    $view["actionname"]="Apply the changes to this campaign";
+    $view["campaign"]=$campaign;
+    $view["list"]=$list;
+    render("adminlistcallee");
+  }
   
+
+  /* ************************************************************************ */
+  /** Receive a POST to enable or disable people in a campaign */
+  function dolistAction() {
+    global $view;
+    $id=intval($_REQUEST["id"]);
+    if ($id) {
+      $old=mqone("SELECT * FROM campaign WHERE id=$id;");
+      if (!$old) not_found();
+    }
+    $list=mqassoc("SELECT id,enabled FROM lists WHERE campaign=$id;");
+    
+    // Validate the fields : 
+    foreach($_REQUEST["callee"] as $cid=>$action) {
+      $cid=intval($cid); $action=intval($action);
+      if ($list[$cid]!=$action) {
+	mq("UPDATE lists SET enabled='$action' WHERE campaign=$id AND id='$cid';");
+	if ($action) { 
+	  $view["message"].="$cid enabled. ";
+	} else {
+	  $view["message"].="$cid disabled. ";
+	}
+      }
+    }
+
+    $this->indexAction();
+  } // doAction
+
+
 
   /* ************************************************************************ */
   /** Receive a POST to add or edit a campaign */

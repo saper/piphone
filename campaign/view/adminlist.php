@@ -9,9 +9,7 @@
 <div class="autoscroll">
 <table class="list issues">
     <thead><tr>
-        <th class="hide-when-print"></th>
-        <th class="hide-when-print"></th>
-        <th class="hide-when-print"></th>
+	<th colspan="4"></th>
     <th>#</th>
     <th>Name</th>
     <th>Start</th>
@@ -32,15 +30,17 @@ foreach($view["campaign"] as $c) {
 if ($row=="odd") $row="even"; else $row="odd";
 ?>
   <tr id="campaign-<?php echo $c["id"]; ?>" class="<?php echo $row; ?> user <?php if ($c["enabled"]) echo "enabled"; else echo "disabled"; ?>">
-   <td class="links"><a class="icon icon-edit" href="/admin/edit/<?php echo $c["id"]; ?>">Edit</a></td>
-   <td class="links"><a class="icon icon-del" href="/admin/del/<?php echo $c["id"]; ?>">Delete</a></td>
+   <td class="links"><a class="icon icon-multiple" href="/admin/list/<?php echo $c["id"]; ?>">List</a></td>
+   <td class="links">   <a class="icon icon-edit" href="/admin/edit/<?php echo $c["id"]; ?>">Edit</a></td>
+   <td class="links">   <a class="icon icon-del" href="/admin/del/<?php echo $c["id"]; ?>">Delete</a></td>
    <?php if ($c["enabled"]) { ?>
-   <td class="links"><a class="icon icon-fav" href="/admin/disable/<?php echo $c["id"]; ?>">Disable</a></td>
+   <td class="links">   <a class="icon icon-fav" href="/admin/disable/<?php echo $c["id"]; ?>">Disable</a></td>
       <?php } else { ?>
-   <td class="links"><a class="icon icon-fav-off" href="/admin/enable/<?php echo $c["id"]; ?>">Enable</a></td>
+   <td class="links">   <a class="icon icon-fav-off" href="/admin/enable/<?php echo $c["id"]; ?>">Enable</a></td>
       <?php } ?>
+</td>
    <td class="id"><?php echo $c["id"]; ?></td>
-   <td class="name"><?php echo $c["name"]; ?></td>
+   <td class="name"><a href="/campaign/go/<?php echo $c["slug"] ?>"><?php echo $c["name"]; ?></a></td>
    <td class="datestart"><?php echo $c["datestart"]; ?></td>
    <td class="datestop"><?php echo $c["datestop"]; ?></td>
    <td class="live"><?php if($c["enabled"] & ! $c["expired"]) echo '<img src="/static/images/on_air.gif" alt="ON AIR" />'; ?></td>

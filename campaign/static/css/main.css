@@ -316,7 +316,9 @@ table.sortable thead {
 label {
     display: block;
 }
-
+label.radio {
+    display: inline;
+}
 div#callee {
     font-size: 14px; 
     font-weight: bold;
