@@ -195,6 +195,8 @@ class campaignController extends abstractController {
 
     $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
     mq("UPDATE calls SET uuid='$uuid' WHERE id='".$callid."';");
+    $view["frame"]=1;
+    $this->go2Action();
     //echo "OK";
   }
 
