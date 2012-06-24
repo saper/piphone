@@ -28,7 +28,7 @@ if ($row=="odd") $row="even"; else $row="odd";
 	?>
 	</p>
 	<p class="deadline"><?php echo $c["datestop"]; ?></p>
-	<p class="button"><a href="/campaign/go2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a></p>
+	<p class="button"><a href="/campaign/go2/<?php echo $c["slug"]; ?>?step=0" class="blue"><?php __("Act now!"); ?></a></p>
 </div>
 <?php
     }

@@ -96,7 +96,6 @@ class campaignController extends abstractController {
       exit();
     }
     $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
-
     $view["lang"]=substr($GLOBALS["lang"],0,2);
     // Set or reset the cookie : 
     if ($_COOKIE["piphone"] && preg_match("#^[a-z]{32}$#",$_COOKIE["piphone"])) {
@@ -107,18 +106,98 @@ class campaignController extends abstractController {
     setCookie("piphone",$cookie,time()+86400*365,"/");
     mq("REPLACE INTO cookies SET cookie='$cookie', country='$country', phone='$phone';");
 
-    if ($country) $sql=" AND country='$country' "; else $sql="";
-    // Find a MEP to call : 
-    $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
+    // Step 0: show a MEP to call
+    switch(intval($_REQUEST["step"])) {
+    case 0:
+        if ($country) $sql=" AND country='$country' "; else $sql="";
+        // Find a MEP to call : 
+        $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
+        $view["callee"]=$callee;
+        setCookie("callee",$callee["id"],time()+86400*365,"/");
+        // Now proceed to call ...
+        render("campaigngo2");
+        exit();
+    // Step 1: show the frame to issue the call, have the feedback,etc
+    case 1:
+        // Let's retrieve the callee from cookie
+        if ($_COOKIE["callee"]) {
+            $cookie=$_COOKIE["callee"];
+        }
+        $callee=mqone("SELECT * FROM lists WHERE id='".$cookie."';");
+        $view["callee"]=$callee;
+        $view["frame"]=1;
+        render("campaigngo2");
+        exit();
+    }
+  }
+
+  /**********************************************************
+   * Call people, but check their number first
+   */
+  function callme2Action() {
+    global $view,$params;
+    if (!isset($params[0])) not_found();
+    $slug=addslashes(trim($params[0]));
+    $view["campaign"]=$this->_getCampaign($slug);
+
+      // Check that the phone number isvalid
+      $phone=trim(str_replace(" ","",$_REQUEST["phone"]));
+      if ($phone) {
+	if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) {
+	  $view["message"]=_("Your phone number look strange, please check it");
+          $view["frame"]=1;
+ 	  $this->go2Action();
+	  exit();
+	}
+	$found="";
+	foreach($this->countryPhoneCodes as $c=>$v) {
+	  if (substr($phone,0,strlen($c))==$c) {
+	    $found=$v;
+	    break;
+	  }
+	}
+	if (!$found) {
+	  $view["message"]=_("Your phone number is from an unsupported country, sorry for that");
+          $view["frame"]=1;
+	  $this->go2Action();
+          exit();
+	}
+      }
+      // Check the country
+      $country=trim($_REQUEST["country"]);
+      if ($country && !array_key_exists($country,$view["countries"])) {
+	$view["message"]=_("Country not found, please check"); 
+	$this->go2Action();
+	exit();
+      }
+    // Get the callee back
+        if ($_COOKIE["callee"]) {
+            $cookie=$_COOKIE["callee"];
+        }
+    $callee=mqone("SELECT * FROM lists WHERE id='".$cookie."';");
     mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
-    $view["callee"]=$callee;
     mq("INSERT INTO calls SET caller='$phone', callee='".$callee["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
     $view["callid"]=mysql_insert_id();
-    
     $view["phone"]=$phone;
-    // Now proceed to call ...
-    render("campaigngo2");
+    //$callid=intval(trim($params[0]));
+    $call=mqone("SELECT * FROM calls WHERE id=".$view["callid"]." AND uuid='';");
+    $campaign=mqone("SELECT * FROM campaign WHERE id=".$call["campaign"].";");
+    if (!$call || !$campaign) {
+      not_found();
+    }
+    $realphone=preg_replace("#^\+#","00",$call["caller"]);
+    $realcallee=preg_replace("#^\+#","00",$call["callee"]);
+
+    // FORCE for PREPROD : 
+    if (defined("FORCETO")) {
+      $realcallee=FORCETO;
+    }
+
+    $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
+    mq("UPDATE calls SET uuid='$uuid' WHERE id='".$callid."';");
+    //echo "OK";
   }
+
   /* ************************************************************************ */
   /** IFRAME to SHOW the FORM to enter your number and country 
    * 
@@ -135,7 +214,6 @@ class campaignController extends abstractController {
     }
     $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
     switch(intval($_REQUEST["step"])) {
-
     case 0: // STEP 0 : show the form with phone number and country : 
       
       $preselected=false;
@@ -224,8 +302,7 @@ class campaignController extends abstractController {
     }
   }
 
-
-  function callmeAction() {
+function callmeAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $callid=intval(trim($params[0]));
