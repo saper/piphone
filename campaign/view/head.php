@@ -12,11 +12,12 @@
    <script src="/static/js/main.js" type="text/javascript"></script>
    <script src="/static/js/sorttable.js" type="text/javascript"></script>
    <meta name="robots" content="index,follow,noarchive" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <?php if (isset($head)) echo $head; ?>
 </head>
-   <body<?php if (isset($body)) echo $body; ?>>
+<body<?php if (isset($body)) echo $body; ?>>
 
-<div id="wrapper">
 
 <div style="float: right; padding: 10px;">
    <?php if (is_admin()) { ?>
@@ -28,21 +29,15 @@
     <?php } ?>
 <!--   <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" /> -->
 </div>
-<div id="logo">
-   <?php if ($GLOBALS["lang"]=="fr_FR") { ?>
-<a href="https://soutien.laquadrature.net/" title="Soutenez La Quadrature du Net contre ACTA et au-delà !" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !"><img src="https://soutien.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !" /></a>
-   <?php } else { ?>
-<a href="https://support.laquadrature.net/" title="Support La Quadrature du Net against ACTA and beyond!" alt="Support La Quadrature du Net against ACTA and beyond!"><img src="https://support.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Support La Quadrature du Net against ACTA and beyond!" /></a>
-<?php } ?>
-</div>
 
 <div style="padding: 10px">
    [<a href="?setlang=en">English</a>] 
    [<a href="?setlang=fr">Français</a>] 
 </div>
 
+<div id="wrapper">
 <div id="header">
-   <h1>PiPhone Campaigning Tool</h1>
+<h1>PiPhone </h1><h2>Call MEPs for free \ and make yourself heard</h2>
 </div>
 <?php /*
 <div class="error flash">
@@ -50,6 +45,12 @@
    LE PIPHONE EST ACTUELLEMENT HORS SERVICE, NOUS ENLEVERONS CE MESSAGE UNE FOIS RÉPARÉ
 </div>
       */ ?>
-<div id="content">
+<div id="global">
 
-
+<div style="float: right;" id="logo">
+   <?php if ($GLOBALS["lang"]=="fr_FR") { ?>
+<a href="https://soutien.laquadrature.net/" title="Soutenez La Quadrature du Net contre ACTA et au-delà !" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !"><img src="https://soutien.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !" /></a>
+   <?php } else { ?>
+<a href="https://support.laquadrature.net/" title="Support La Quadrature du Net against ACTA and beyond!" alt="Support La Quadrature du Net against ACTA and beyond!"><img src="https://support.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Support La Quadrature du Net against ACTA and beyond!" /></a>
+<?php } ?>
+</div>

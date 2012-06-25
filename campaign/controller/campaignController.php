@@ -101,6 +101,13 @@ class campaignController extends abstractController {
     // If a mep is already set, choose it
     if ($params[1]) $callee=mqone("SELECT * FROM lists WHERE id='".trim($params[1])."';");
 
+    // Find a MEP to call if none has been chosen already
+    if ($_REQUEST["country"]) $country=$_REQUEST["country"];
+    if ($country) $sql=" AND country='$country' "; else $sql="";
+    if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC, RAND();");
+    $view["callee"]=$callee;
+    $view["message"]=$country;
+
     // If I have a callid, it means call has been done
     if ($params[2]) $callid=trim($params[2]);
     if ($callid) $view["callid"]=$callid;
@@ -140,8 +147,8 @@ class campaignController extends abstractController {
       }
       mq("UPDATE calls SET feedback='".addslashes($_REQUEST["feedback"])."',dateend=NOW() WHERE id='".$callid."';");
       $view["message"]=_("Your feedback has been sent to us, thanks for your participation!"); 
-      unset $view["callid"]
-      unset $view["callee"]
+      unset($view["callid"]);
+      unset($view["callee"]);
     }  
 
     // Set or reset the cookie : 
@@ -165,10 +172,6 @@ class campaignController extends abstractController {
       $view["phone"]=$phone;
     }
 
-    // Find a MEP to call if none has been chosen already
-    if ($country) $sql=" AND country='$country' "; else $sql="";
-    if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
-    $view["callee"]=$callee;
     render("campaigncall2");
   }
 

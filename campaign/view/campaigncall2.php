@@ -1,0 +1,101 @@
+
+<?php require_once("head.php"); ?>
+
+
+<h3><?php echo $view["campaign"]["name"]; ?></h3>
+
+<?php show_messages(); ?>
+
+<div id="abstract">
+   <?php 
+   if ($view["campaign"]["description-".$view["lang"]]) {
+     echo $view["campaign"]["description-".$view["lang"]]; 
+   } else {
+     echo $view["campaign"]["description"];
+   }
+
+?>
+</div>
+
+<?php
+$us=@unserialize($view["callee"]["meta"]);
+?>
+<div id="mep">
+  <p class="left"><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep"></p>
+  <div class="right">
+   <p id="name"><?php echo $view["callee"]["name"]; ?></p>
+      <ul id="resume">
+   <!--        <li id="age">51 years old</li> -->
+   <?php $calleephone=preg_replace("#^00#","+",$view["callee"]["phone"]); ?>
+   <li id="phone"><?php __("Phone number: "); ?><a href="callto://<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
+   <?php if (isset($us["group"])) { ?> <li id="group"><span>Political group:</span> <?php echo $us["group"]; ?></li> <?php } ?>
+   <?php if (isset($us["party"])) { ?> <li id="party"><span> National party:</span> <?php echo $us["party"]; ?></li> <?php } ?>
+   <?php if (isset($us["country"])) { ?> <li id="country"><span> Country:</span> <?php echo $us["country"]; ?></li> <?php } ?>
+<!--        <li id="score"><span>Score:</span> 25 / 100</li> -->
+      </ul>
+   <?php if (isset($us["committee"])) { ?>
+      <ul id="committee" title="Committee this MEP is a member of">
+	 <?php foreach($us["committee"] as $com) { ?>        <li><?php echo $com; ?></li> <?php } ?>
+      </ul>
+	 <?php } ?>
+    <p id="info"><a href="https://memopol.lqdn.fr/europe/parliament/deputy/<?php echo $us["url"]; ?>/">Get more info…</a></p>
+  </div>
+</div>
+
+<div id="callbox">
+  <div class="left">
+    <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>">
+      <h5><?php __("Call for free"); ?></h5>
+      <p><?php __("If you want to call fo free, you must provide us with your phone number (the PiPhone will call that number to initiate the communication).");?></p>
+      <?php if ($view["message"]) { ?><p class="caption"><? echo $view["message"]; ?></p> <?php }?>
+      <p><label for="phone"><?php __("Your phone number:"); ?></label> <input type="text" name="phone" id="phone" placeholder="+33123456789001" <?php if ($view["phone"]) { ?>value="<?php echo $view["phone"]; } ?>"></p>
+      <p class="caption">Starting with your <a href="http://en.wikipedia.org/wiki/List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe">country code</a>, without
+      <p class="button"><input type="submit" value="I'm ready, call me" class="green" /></p>
+
+      <h5><?php __("Call at your expense"); ?></h5>
+      <p><?php __("If you don't want to call for free, here is the number of the current MEP (you can either dial it from your phone or push the button if any VoIP client is installed"); ?></p>
+      <p class="button"><a href="callto://<?php echo $view["callee"]["phone"]; ?>" class="blue" target="_blank">☎ <?php echo $view["callee"]["phone"]; ?></a></p>
+    </form>
+  </div>
+  <div class="right">
+    <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/<?php echo $view["callid"]; ?>">
+      <h5><?php __("Feedback"); ?></h5>
+      <p><?php __("Please take a second to give us your feedback."); ?></p>
+      <p><?php __("Were you able to reach somebody or not? How long did the conversation last? What information did you get?"); ?></p>
+      <p><label for="feedback"><?php __("Your feedback:"); ?></label> <textarea id="feedback" name="feedback">No one answered the call -- default</textarea></p>
+      <p class="button"><input type="submit" value="Send" class="green" /></p>
+    </form>
+  </div>
+</div>
+<!-- Shoot at random -->
+<form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>#mep" id="selcountry">
+  <p style="text-align: center;">
+    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$_REQUEST["country"]); ?></select>
+  </p>
+  <p class="action button">
+    <?php if ($view["callid"]) { ?>
+      <input type="button" class="blue" id="callnow" type="submit" name="go" value="<?php __("Show Popup"); ?>" />
+    <?php } else { ?>
+      <input type="button" class="green" id="callnow" type="submit" name="go" value="<?php __("Call Now"); ?>" />
+      <span> or </span>
+      <input type="submit" class="blue" href="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>" value="<?php __("Choose another random MEP"); ?>" />
+    <?php } ?>
+  </p>
+</form>
+
+<!--Clicka convi things -->
+<script src="js/jquery-1-7-2.min.js"></script>
+<script>
+$('html').removeClass('nojs').addClass('js');
+$('#callbox').hide();
+$('#callnow').bind('click', function() {
+  $('body').append('<div id="background" />');
+  $('#callbox').show();
+});
+$('#background').live('click', function() {
+  $(this).hide();
+  $('#callbox').hide();
+});
+</script>
+
+<?php require_once("foot.php"); ?>
