@@ -194,11 +194,37 @@ class campaignController extends abstractController {
     }
 
     $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
-    mq("UPDATE calls SET uuid='$uuid' WHERE id='".$callid."';");
+    mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
     $view["frame"]=1;
+    $view["message"]="CALL:".$view["callid"];
     $this->go2Action();
     //echo "OK";
   }
+
+/********
+ * Feedback
+ */
+function feedback2Action() {
+    global $view,$params;
+    // Check the campaign
+    if (!isset($params[0])) not_found();
+    $slug=addslashes(trim($params[0]));
+    $view["campaign"]=$this->_getCampaign($slug); // Exit in case of error
+    // Check the call : 
+    if (!isset($params[1])) not_found();
+    $view["callid"]=$cid=intval($params[1]);
+    $call=mqone("SELECT * FROM calls WHERE id='".$view["callid"]."';");
+    if ($call["feedback"]) {
+      $view["error"]=_("A feedback has already been given for that call, sorry");
+      $this->go2Action();
+      exit();
+    }
+    mq("UPDATE calls SET feedback='".addslashes($_REQUEST["feedback"])."' WHERE id='".$view["callid"]."';");
+    $view["message"]=_("Your feedback has been sent to us, thanks for your participation! CALLID:".$view["callid"]);
+    render("campaigngo2");
+  }
+
+
 
   /* ************************************************************************ */
   /** IFRAME to SHOW the FORM to enter your number and country 

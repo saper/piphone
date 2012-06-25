@@ -47,7 +47,7 @@ echo $view["callee"]["name"];
        </form>
       </div>
       <div class="right">
-       <form method="post" action="/campaign/feedback2/<?php echo $view["campaign"]["slug"]; ?>">
+       <form method="post" action="/campaign/feedback2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callid"]; ?>">
         <h5>Feedback</h5>
         <p>Please take a second to give us your feedback.</p>
         <p>Were you able to reach somebody or not? How long did the conversation last? What information did you get?</p>
