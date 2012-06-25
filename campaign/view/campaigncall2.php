@@ -49,8 +49,8 @@ $us=@unserialize($view["callee"]["meta"]);
       <p><?php __("If you want to call fo free, you must provide us with your phone number (the PiPhone will call that number to initiate the communication).");?></p>
       <?php if ($view["message"]) { ?><p class="caption"><? echo $view["message"]; ?></p> <?php }?>
       <p><label for="phone"><?php __("Your phone number:"); ?></label> <input type="text" name="phone" id="phone" placeholder="+33123456789001" <?php if ($view["phone"]) { ?>value="<?php echo $view["phone"]; } ?>"></p>
-      <p class="caption">Starting with your <a href="http://en.wikipedia.org/wiki/List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe">country code</a>, without
-      <p class="button"><input type="submit" value="I'm ready, call me" class="green" /></p>
+      <p class="caption"><?php __('Starting with your <a href="http://en.wikipedia.org/wiki/List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe">country code</a>, without the initial 0'); ?>
+      <p class="button"><input type="submit" value="<?php __("I'm ready, call me"); ?>" class="green" /></p>
 
       <h5><?php __("Call at your expense"); ?></h5>
       <p><?php __("If you don't want to call for free, here is the number of the current MEP (you can either dial it from your phone or push the button if any VoIP client is installed"); ?></p>
@@ -62,7 +62,7 @@ $us=@unserialize($view["callee"]["meta"]);
       <h5><?php __("Feedback"); ?></h5>
       <p><?php __("Please take a second to give us your feedback."); ?></p>
       <p><?php __("Were you able to reach somebody or not? How long did the conversation last? What information did you get?"); ?></p>
-      <p><label for="feedback"><?php __("Your feedback:"); ?></label> <textarea id="feedback" name="feedback">No one answered the call -- default</textarea></p>
+      <p><label for="feedback"><?php __("Your feedback:"); ?></label> <textarea id="feedback" name="feedback"></textarea></p>
       <p class="button"><input type="submit" value="Send" class="green" /></p>
     </form>
   </div>

@@ -19,16 +19,6 @@
 <body<?php if (isset($body)) echo $body; ?>>
 
 
-<div style="float: right; padding: 10px;">
-   <?php if (is_admin()) { ?>
-   <p><ul>
-<li><a href="/admin"><?php __("Campaign Admin"); ?></a></li>
-<li><a href="/user"><?php __("User Admin"); ?></a></li>
-</ul>
-</p>
-    <?php } ?>
-<!--   <img src="/static/piphone_final.png" alt="Le PiPhone de La Quadrature du Net" /> -->
-</div>
 
 <div style="padding: 10px">
    [<a href="?setlang=en">English</a>] 
@@ -37,7 +27,7 @@
 
 <div id="wrapper">
 <div id="header">
-<h1>PiPhone </h1><h2>Call MEPs for free \ and make yourself heard</h2>
+   <h1><?php __("PiPhone"); ?> </h1><h2><?php __("Call MEPs for free - and make yourself heard"); ?></h2>
 </div>
 <?php /*
 <div class="error flash">
@@ -48,9 +38,21 @@
 <div id="global">
 
 <div style="float: right;" id="logo">
+<!-- Banner -->
    <?php if ($GLOBALS["lang"]=="fr_FR") { ?>
 <a href="https://soutien.laquadrature.net/" title="Soutenez La Quadrature du Net contre ACTA et au-delà !" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !"><img src="https://soutien.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Soutenez La Quadrature du Net contre ACTA et au-delà !" /></a>
    <?php } else { ?>
 <a href="https://support.laquadrature.net/" title="Support La Quadrature du Net against ACTA and beyond!" alt="Support La Quadrature du Net against ACTA and beyond!"><img src="https://support.laquadrature.net/images/LQDN_support_against_ACTA_and_beyond_468*60.gif" alt="Support La Quadrature du Net against ACTA and beyond!" /></a>
 <?php } ?>
+<!-- /Bennar -->
 </div>
+
+   <?php if (is_admin()) { ?>
+<div style="float: right; padding: 10px;">
+   <p><ul>
+<li><a href="/admin"><?php __("Campaign Admin"); ?></a></li>
+<li><a href="/user"><?php __("User Admin"); ?></a></li>
+</ul>
+</p>
+</div>
+    <?php } ?>

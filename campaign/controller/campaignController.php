@@ -106,7 +106,7 @@ class campaignController extends abstractController {
     if ($country) $sql=" AND country='$country' "; else $sql="";
     if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC, RAND();");
     $view["callee"]=$callee;
-    $view["message"]=$country;
+    //    $view["message"]=$country;
 
     // If I have a callid, it means call has been done
     if ($params[2]) $callid=trim($params[2]);
