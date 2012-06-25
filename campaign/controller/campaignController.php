@@ -85,7 +85,7 @@ class campaignController extends abstractController {
   /* ************************************************************************ */
   /* Changing everything /o/
    */
-  function go2Action() {
+  function call2Action() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $slug=addslashes(trim($params[0]));
@@ -97,38 +97,79 @@ class campaignController extends abstractController {
     }
     $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
     $view["lang"]=substr($GLOBALS["lang"],0,2);
+
+    // If a mep is already set, choose it
+    if ($params[1]) $callee=mqone("SELECT * FROM lists WHERE id='".trim($params[1])."';");
+
+    // If I have a callid, it means call has been done
+    if ($params[2]) $callid=trim($params[2]);
+    if ($callid) $view["callid"]=$callid;
+
+    // If I have a callee but no callid, then check things
+    if ($callee && (!isset($callid))) {
+      // Check that the phone number is valid
+      $phone=trim(str_replace(" ","",$_REQUEST["phone"]));
+      if ($phone) {
+        if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) {
+            $view["message"]=_("Your phone number look strange, please check it");
+            render("campaigncall2");
+	    exit();
+	}
+	$found="";
+	foreach($this->countryPhoneCodes as $c=>$v) {
+          if (substr($phone,0,strlen($c))==$c) {
+	    $found=$v;
+	    break;
+	  }
+	}
+	if (!$found) {
+	  $view["message"]=_("Your phone number is from an unsupported country, sorry for that");
+	  render("campaigncall2");
+          exit();
+	}
+      }
+    }
+
+    // So, I have a callee AND a callid. SO it's feedback time
+    if ($callee && $callid) {
+      $view["call"]=mq("SELECT * FROM calls WHERE id='".$callid."';");
+      if ($call["feedback"]) {
+        $view["error"]=_("A feedback has already been given for that call, sorry");
+        $this->call2Action();
+        exit();
+      }
+      mq("UPDATE calls SET feedback='".addslashes($_REQUEST["feedback"])."',dateend=NOW() WHERE id='".$callid."';");
+      $view["message"]=_("Your feedback has been sent to us, thanks for your participation!"); 
+      unset $view["callid"]
+      unset $view["callee"]
+    }  
+
     // Set or reset the cookie : 
     if ($_COOKIE["piphone"] && preg_match("#^[a-z]{32}$#",$_COOKIE["piphone"])) {
-    $cookie=$_COOKIE["piphone"];
+      $cookie=$_COOKIE["piphone"];
     } else {
-    $cookie=$this->_getRand();
+      $cookie=$this->_getRand();
     }
     setCookie("piphone",$cookie,time()+86400*365,"/");
     mq("REPLACE INTO cookies SET cookie='$cookie', country='$country', phone='$phone';");
 
-    // Step 0: show a MEP to call
-    switch(intval($_REQUEST["step"])) {
-    case 0:
-        if ($country) $sql=" AND country='$country' "; else $sql="";
-        // Find a MEP to call : 
-        $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
-        $view["callee"]=$callee;
-        setCookie("callee",$callee["id"],time()+86400*365,"/");
-        // Now proceed to call ...
-        render("campaigngo2");
-        exit();
-    // Step 1: show the frame to issue the call, have the feedback,etc
-    case 1:
-        // Let's retrieve the callee from cookie
-        if ($_COOKIE["callee"]) {
-            $cookie=$_COOKIE["callee"];
-        }
-        $callee=mqone("SELECT * FROM lists WHERE id='".$cookie."';");
-        $view["callee"]=$callee;
-        $view["frame"]=1;
-        render("campaigngo2");
-        exit();
+    // If I have a phone and a callee, then, everything is ok
+    if ($callee && $phone && (!isset($callid))) {
+      mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
+      $realphone=preg_replace("#^\+#","00",$view["phone"]);
+      $realcallee=preg_replace("#^\+#","00",$view["callee"]["phone"]);
+      mq("INSERT INTO calls SET caller='$phone', callee='".$view["callee"]["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
+      $view["callid"]=mysql_insert_id();
+      $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
+      mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
+      $view["phone"]=$phone;
     }
+
+    // Find a MEP to call if none has been chosen already
+    if ($country) $sql=" AND country='$country' "; else $sql="";
+    if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC;");
+    $view["callee"]=$callee;
+    render("campaigncall2");
   }
 
   /**********************************************************
@@ -139,14 +180,12 @@ class campaignController extends abstractController {
     if (!isset($params[0])) not_found();
     $slug=addslashes(trim($params[0]));
     $view["campaign"]=$this->_getCampaign($slug);
-
-      // Check that the phone number isvalid
-      $phone=trim(str_replace(" ","",$_REQUEST["phone"]));
-      if ($phone) {
-	if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) {
-	  $view["message"]=_("Your phone number look strange, please check it");
-          $view["frame"]=1;
- 	  $this->go2Action();
+    // Check that the phone number isvalid
+    $phone=trim(str_replace(" ","",$_REQUEST["phone"]));
+    if ($phone) {
+      if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) {
+          $view["message"]=_("Your phone number look strange, please check it");
+ 	  $this->call2Action();
 	  exit();
 	}
 	$found="";
@@ -158,8 +197,7 @@ class campaignController extends abstractController {
 	}
 	if (!$found) {
 	  $view["message"]=_("Your phone number is from an unsupported country, sorry for that");
-          $view["frame"]=1;
-	  $this->go2Action();
+	  $this->call2Action();
           exit();
 	}
       }
@@ -167,7 +205,7 @@ class campaignController extends abstractController {
       $country=trim($_REQUEST["country"]);
       if ($country && !array_key_exists($country,$view["countries"])) {
 	$view["message"]=_("Country not found, please check"); 
-	$this->go2Action();
+	$this->call2Action();
 	exit();
       }
     // Get the callee back
@@ -196,8 +234,7 @@ class campaignController extends abstractController {
     $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
     mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
     $view["frame"]=1;
-    $view["message"]="CALL:".$view["callid"];
-    $this->go2Action();
+    $this->call2Action();
     //echo "OK";
   }
 
@@ -216,12 +253,12 @@ function feedback2Action() {
     $call=mqone("SELECT * FROM calls WHERE id='".$view["callid"]."';");
     if ($call["feedback"]) {
       $view["error"]=_("A feedback has already been given for that call, sorry");
-      $this->go2Action();
+      $this->call2Action();
       exit();
     }
     mq("UPDATE calls SET feedback='".addslashes($_REQUEST["feedback"])."' WHERE id='".$view["callid"]."';");
-    $view["message"]=_("Your feedback has been sent to us, thanks for your participation! CALLID:".$view["callid"]);
-    render("campaigngo2");
+    $view["message"]=_("Your feedback has been sent to us, thanks for your participation! CALLID:");
+    render("campaigncall2");
   }
 
 
