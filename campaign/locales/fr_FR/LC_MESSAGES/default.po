@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LQDN Support\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-26 14:32+0200\n"
+"POT-Creation-Date: 2012-06-26 16:17+0200\n"
 "PO-Revision-Date: 2012-06-26 10:04+0000\n"
 "Last-Translator: meli_melo <mr@laquadrature.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/lqdnsupport/"
@@ -213,7 +213,7 @@ msgstr ""
 
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
-#: view/campaigncall2.php:113
+#: view/campaigncall2.php:113 view/campaigncall2.php:85
 msgid "-- All Europe --"
 msgstr "-- Toute l'Europe --"
 
@@ -292,13 +292,13 @@ msgstr "Agissez maintenant ! "
 
 #: view/campaigngo2.php:68 view/campaigncall2.php:79
 #: view/campaigncall2.php:112 view/campaigngo2.php:75
-#: view/campaigncall2.php:119
+#: view/campaigncall2.php:119 view/campaigncall2.php:91
 msgid "Call Now"
 msgstr "Appelez maintenant"
 
 #: view/campaigngo2.php:70 view/campaigncall2.php:81
 #: view/campaigncall2.php:114 view/campaigngo2.php:77
-#: view/campaigncall2.php:121
+#: view/campaigncall2.php:121 view/campaigncall2.php:93
 msgid "Choose another random MEP"
 msgstr "Choisir un autre député au hasard"
 
@@ -308,12 +308,12 @@ msgid "Phone number: "
 msgstr "Numéro de téléphone : "
 
 #: view/campaigncall2.php:48 view/campaigncall2.php:79
-#: view/campaigncall2.php:86
+#: view/campaigncall2.php:86 view/campaigncall2.php:102
 msgid "Call for free"
 msgstr "Appeler gratuitement"
 
 #: view/campaigncall2.php:49 view/campaigncall2.php:80
-#: view/campaigncall2.php:87
+#: view/campaigncall2.php:87 view/campaigncall2.php:103
 msgid ""
 "If you want to call fo free, you must provide us with your phone number (the "
 "PiPhone will call that number to initiate the communication)."
@@ -322,12 +322,12 @@ msgstr ""
 "téléphone (le PiPhone rappellera ce numéro pour démarrer la communication)."
 
 #: view/campaigncall2.php:51 view/campaigncall2.php:82
-#: view/campaigncall2.php:89
+#: view/campaigncall2.php:89 view/campaigncall2.php:105
 msgid "Your phone number:"
 msgstr "Votre numéro de téléphone : "
 
 #: view/campaigncall2.php:52 view/campaigncall2.php:83
-#: view/campaigncall2.php:90
+#: view/campaigncall2.php:90 view/campaigncall2.php:106
 msgid ""
 "Starting with your <a href=\"http://en.wikipedia.org/wiki/"
 "List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe\">country code</"
@@ -338,17 +338,17 @@ msgstr ""
 "de votre pays, sans le premier 0 "
 
 #: view/campaigncall2.php:53 view/campaigncall2.php:85
-#: view/campaigncall2.php:92
+#: view/campaigncall2.php:92 view/campaigncall2.php:108
 msgid "I'm ready, call me"
 msgstr "Je suis prêt(e), appelez-moi"
 
 #: view/campaigncall2.php:55 view/campaigncall2.php:87
-#: view/campaigncall2.php:94
+#: view/campaigncall2.php:94 view/campaigncall2.php:110
 msgid "Call at your expense"
 msgstr "Appelez à vos frais"
 
 #: view/campaigncall2.php:56 view/campaigncall2.php:88
-#: view/campaigncall2.php:95
+#: view/campaigncall2.php:95 view/campaigncall2.php:111
 msgid ""
 "If you don't want to call for free, here is the number of the current MEP "
 "(you can either dial it from your phone or push the button if any VoIP "
@@ -359,17 +359,17 @@ msgstr ""
 "dessus si vous avez installé un client VoIP)"
 
 #: view/campaigncall2.php:62 view/campaigncall2.php:94
-#: view/campaigncall2.php:101
+#: view/campaigncall2.php:101 view/campaigncall2.php:117
 msgid "Feedback"
 msgstr "Retour"
 
 #: view/campaigncall2.php:63 view/campaigncall2.php:95
-#: view/campaigncall2.php:102
+#: view/campaigncall2.php:102 view/campaigncall2.php:118
 msgid "Please take a second to give us your feedback."
 msgstr "Merci de prendre une minute pour résumer votre appel"
 
 #: view/campaigncall2.php:64 view/campaigncall2.php:96
-#: view/campaigncall2.php:103
+#: view/campaigncall2.php:103 view/campaigncall2.php:119
 msgid ""
 "Were you able to reach somebody or not? How long did the conversation last? "
 "What information did you get?"
@@ -378,7 +378,7 @@ msgstr ""
 "duré ? Quelle information avez-vous obtenu ?"
 
 #: view/campaigncall2.php:65 view/campaigncall2.php:97
-#: view/campaigncall2.php:104
+#: view/campaigncall2.php:104 view/campaigncall2.php:120
 msgid "Your feedback:"
 msgstr "Votre  retour : "
 
@@ -386,11 +386,11 @@ msgstr "Votre  retour : "
 msgid "Show Popup"
 msgstr "Afficher les Popups"
 
-#: view/head.php:30
+#: view/head.php:30 view/head.php:25
 msgid "PiPhone"
 msgstr "PiPhone"
 
-#: view/head.php:30
+#: view/head.php:30 view/head.php:25
 msgid "Call MEPs for free - and make yourself heard"
 msgstr "Appelez les eurodéputés gratuitement - et faites entendre votre voix"
 
@@ -402,14 +402,17 @@ msgstr ""
 "ID de l'appel : "
 
 #: view/campaigncall2.php:84 view/campaigncall2.php:91
+#: view/campaigncall2.php:107
 msgid "Call in progress."
 msgstr "Appel en cours."
 
 #: view/campaigncall2.php:94 view/campaigncall2.php:101
+#: view/campaigncall2.php:117
 msgid "X"
 msgstr "X"
 
 #: view/campaigncall2.php:110 view/campaigncall2.php:117
+#: view/campaigncall2.php:89
 msgid "Show Call & Feedback Popup"
 msgstr "Afficher l'appel et le formulaire de retour"
 
@@ -430,9 +433,18 @@ msgid "Get more info…"
 msgstr "Plus d'information…"
 
 #: view/campaigncall2.php:98 view/campaigncall2.php:105
+#: view/campaigncall2.php:121
 msgid "Send"
 msgstr "Envoyer"
 
 #: view/campaigncall2.php:113 view/campaigncall2.php:120
 msgid "or"
 msgstr "ou"
+
+#: view/campaigncall2.php:70
+msgid "Country: "
+msgstr "Pays : "
+
+#: view/campaigncall2.php:85
+msgid "Choose a Country:"
+msgstr "Choisissez un pays : "

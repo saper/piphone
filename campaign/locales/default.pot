@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-26 14:32+0200\n"
+"POT-Creation-Date: 2012-06-26 16:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,8 +53,7 @@ msgstr ""
 
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
-#: view/campaigncall2.php:113 view/campaigngo2.php:72
-#: view/campaigncall2.php:113 view/campaignform.php:20
+#: view/campaigncall2.php:113 view/campaigngo2.php:72 view/campaignform.php:20
 msgid "Choose your Country:"
 msgstr ""
 
@@ -108,7 +107,8 @@ msgstr ""
 
 #: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
 #: view/campaigncall.php:55 view/campaigncall.php:56 view/campaigncall.php:57
-#: view/feedbackform.php:15 view/adminform.php:46 view/campaigncall.php:57
+#: view/adminform.php:46 view/feedbackform.php:15 view/adminform.php:46
+#: view/campaigncall.php:57
 msgid "Cancel"
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr ""
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
 #: view/campaigncall2.php:113 view/campaigngo2.php:72
-#: view/campaigncall2.php:113 view/campaignform.php:20
+#: view/campaigncall2.php:85 view/campaignform.php:20
 msgid "-- All Europe --"
 msgstr ""
 
@@ -277,14 +277,14 @@ msgstr ""
 #: view/campaigngo2.php:68 view/campaigncall2.php:79
 #: view/campaigncall2.php:112 view/campaigngo2.php:75
 #: view/campaigncall2.php:119 view/campaigngo2.php:75
-#: view/campaigncall2.php:119
+#: view/campaigncall2.php:91
 msgid "Call Now"
 msgstr ""
 
 #: view/campaigngo2.php:70 view/campaigncall2.php:81
 #: view/campaigncall2.php:114 view/campaigngo2.php:77
 #: view/campaigncall2.php:121 view/campaigngo2.php:77
-#: view/campaigncall2.php:121
+#: view/campaigncall2.php:93
 msgid "Choose another random MEP"
 msgstr ""
 
@@ -294,24 +294,24 @@ msgid "Phone number: "
 msgstr ""
 
 #: view/campaigncall2.php:48 view/campaigncall2.php:79
-#: view/campaigncall2.php:86 view/campaigncall2.php:86
+#: view/campaigncall2.php:86 view/campaigncall2.php:102
 msgid "Call for free"
 msgstr ""
 
 #: view/campaigncall2.php:49 view/campaigncall2.php:80
-#: view/campaigncall2.php:87 view/campaigncall2.php:87
+#: view/campaigncall2.php:87 view/campaigncall2.php:103
 msgid ""
 "If you want to call fo free, you must provide us with your phone number (the "
 "PiPhone will call that number to initiate the communication)."
 msgstr ""
 
 #: view/campaigncall2.php:51 view/campaigncall2.php:82
-#: view/campaigncall2.php:89 view/campaigncall2.php:89
+#: view/campaigncall2.php:89 view/campaigncall2.php:105
 msgid "Your phone number:"
 msgstr ""
 
 #: view/campaigncall2.php:52 view/campaigncall2.php:83
-#: view/campaigncall2.php:90 view/campaigncall2.php:90
+#: view/campaigncall2.php:90 view/campaigncall2.php:106
 msgid ""
 "Starting with your <a href=\"http://en.wikipedia.org/wiki/"
 "List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe\">country code</"
@@ -319,17 +319,17 @@ msgid ""
 msgstr ""
 
 #: view/campaigncall2.php:53 view/campaigncall2.php:85
-#: view/campaigncall2.php:92 view/campaigncall2.php:92
+#: view/campaigncall2.php:92 view/campaigncall2.php:108
 msgid "I'm ready, call me"
 msgstr ""
 
 #: view/campaigncall2.php:55 view/campaigncall2.php:87
-#: view/campaigncall2.php:94 view/campaigncall2.php:94
+#: view/campaigncall2.php:94 view/campaigncall2.php:110
 msgid "Call at your expense"
 msgstr ""
 
 #: view/campaigncall2.php:56 view/campaigncall2.php:88
-#: view/campaigncall2.php:95 view/campaigncall2.php:95
+#: view/campaigncall2.php:95 view/campaigncall2.php:111
 msgid ""
 "If you don't want to call for free, here is the number of the current MEP "
 "(you can either dial it from your phone or push the button if any VoIP "
@@ -337,24 +337,24 @@ msgid ""
 msgstr ""
 
 #: view/campaigncall2.php:62 view/campaigncall2.php:94
-#: view/campaigncall2.php:101 view/campaigncall2.php:101
+#: view/campaigncall2.php:101 view/campaigncall2.php:117
 msgid "Feedback"
 msgstr ""
 
 #: view/campaigncall2.php:63 view/campaigncall2.php:95
-#: view/campaigncall2.php:102 view/campaigncall2.php:102
+#: view/campaigncall2.php:102 view/campaigncall2.php:118
 msgid "Please take a second to give us your feedback."
 msgstr ""
 
 #: view/campaigncall2.php:64 view/campaigncall2.php:96
-#: view/campaigncall2.php:103 view/campaigncall2.php:103
+#: view/campaigncall2.php:103 view/campaigncall2.php:119
 msgid ""
 "Were you able to reach somebody or not? How long did the conversation last? "
 "What information did you get?"
 msgstr ""
 
 #: view/campaigncall2.php:65 view/campaigncall2.php:97
-#: view/campaigncall2.php:104 view/campaigncall2.php:104
+#: view/campaigncall2.php:104 view/campaigncall2.php:120
 msgid "Your feedback:"
 msgstr ""
 
@@ -362,11 +362,11 @@ msgstr ""
 msgid "Show Popup"
 msgstr ""
 
-#: view/head.php:30 view/head.php:30
+#: view/head.php:30 view/head.php:25
 msgid "PiPhone"
 msgstr ""
 
-#: view/head.php:30 view/head.php:30
+#: view/head.php:30 view/head.php:25
 msgid "Call MEPs for free - and make yourself heard"
 msgstr ""
 
@@ -377,17 +377,17 @@ msgid ""
 msgstr ""
 
 #: view/campaigncall2.php:84 view/campaigncall2.php:91
-#: view/campaigncall2.php:91
+#: view/campaigncall2.php:107
 msgid "Call in progress."
 msgstr ""
 
 #: view/campaigncall2.php:94 view/campaigncall2.php:101
-#: view/campaigncall2.php:101
+#: view/campaigncall2.php:117
 msgid "X"
 msgstr ""
 
 #: view/campaigncall2.php:110 view/campaigncall2.php:117
-#: view/campaigncall2.php:117
+#: view/campaigncall2.php:89
 msgid "Show Call & Feedback Popup"
 msgstr ""
 
@@ -402,7 +402,6 @@ msgid "National party:"
 msgstr ""
 
 #: view/campaigncall2.php:63 view/campaigncall2.php:70
-#: view/campaigncall2.php:70
 msgid "Country:"
 msgstr ""
 
@@ -412,11 +411,18 @@ msgid "Get more info…"
 msgstr ""
 
 #: view/campaigncall2.php:98 view/campaigncall2.php:105
-#: view/campaigncall2.php:105
+#: view/campaigncall2.php:121
 msgid "Send"
 msgstr ""
 
 #: view/campaigncall2.php:113 view/campaigncall2.php:120
-#: view/campaigncall2.php:120
 msgid "or"
+msgstr ""
+
+#: view/campaigncall2.php:70
+msgid "Country: "
+msgstr ""
+
+#: view/campaigncall2.php:85
+msgid "Choose a Country:"
 msgstr ""
