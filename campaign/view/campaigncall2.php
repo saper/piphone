@@ -60,7 +60,7 @@ $us=@unserialize($view["callee"]["meta"]);
    <li id="phone"><?php __("Phone number: "); ?><a href="callto://<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
 <?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span> <?php echo $us["group"]; ?></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("National party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
-<?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country:"); ?></span> <?php echo $us["country"]; ?></li> <?php } ?>
+<?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="16" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
 <!--        <li id="score"><span>Score:</span> 25 / 100</li> -->
       </ul>
    <?php if (isset($us["committee"])) { ?>
