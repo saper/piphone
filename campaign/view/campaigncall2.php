@@ -1,4 +1,29 @@
+<?php
 
+
+$acommittee = array(
+		    "AFET" => "Committee on Foreign Affairs",
+		    "ITRE" => "Committee on Industry, Research and Energy",
+		    "LIBE" => "Committee on Civil Liberties, Justice and Home Affairs",
+		    "EMPL" => "Committee on Employment and Social Affairs",
+		    "REGI" => "Committee on Regional Development",
+		    "ECON" => "Committee on Economic and Monetary Affairs",
+		    "TRAN" => "Committee on Transport and Tourism",
+		    "AGRI" => "Committee on Agriculture and Rural Development",
+		    "BUDG" => "Committee on Budgets",
+		    "IMCO" => "Committee on the Internal Market and Consumer Protection",
+		    "FEMM" => "Committee on Women's Rights and Gender Equality",
+		    "PETI" => "Committee on Petitions",
+		    "INTA" => "Committee on International Trade",
+		    "CULT" => "Committee on Culture and Education",
+		    "DEVE" => "Committee on Development",
+		    "CONT" => "Committee on Budgetary Control",
+		    "JURI" => "Committee on Legal Affairs",
+		    "PECH" => "Committee on Fisheries",
+		    "AFCO" => "Committee on Constitutional Affairs",
+		    );
+
+?>
 <?php require_once("head.php"); ?>
 
 
@@ -39,8 +64,8 @@ $us=@unserialize($view["callee"]["meta"]);
 <!--        <li id="score"><span>Score:</span> 25 / 100</li> -->
       </ul>
    <?php if (isset($us["committee"])) { ?>
-      <ul id="committee" title="Committee this MEP is a member of">
-	 <?php foreach($us["committee"] as $com) { ?>        <li><?php echo $com; ?></li> <?php } ?>
+      <ul id="committee">
+	 <?php foreach($us["committee"] as $com) { ?>        <li title="<?php echo $acommittee[$com]; ?>"><?php echo $com; ?></li> <?php } ?>
       </ul>
 	 <?php } ?>
     <p id="info"><a href="https://memopol.lqdn.fr/europe/parliament/deputy/<?php echo $us["url"]; ?>/">Get more info…</a></p>
