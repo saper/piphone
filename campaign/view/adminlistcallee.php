@@ -6,21 +6,26 @@
 
 <form method="post" action="/admin/dolist">
 <input type="hidden" id="id" name="id" value="<?php eher($view["campaign"]["id"]); ?>" />
-<table class="list">
+<table class="list sortable">
 <tr>
   <th>Enabled</th>
   <th>Disabled</th>
   <th>Name</th>
   <th>Country</th>
+  <th>Group</th>
   <th>Number</th>
   <th>CallCount</th>
 </tr>
-   <?php foreach($view["list"] as $callee) { ?>
+   <?php foreach($view["list"] as $callee) { 
+
+$us=unserialize($callee["meta"]);
+?>
 <tr>
 <td><input type="radio" name="callee[<?php echo $callee["id"]; ?>]" value="1" id="callee<?php echo $callee["id"]; ?>_1"<?php checked($callee["enabled"]); ?> /><label class="radio" for="callee<?php echo $callee["id"]; ?>_1">Enabled</label></td>
 <td><input type="radio" name="callee[<?php echo $callee["id"]; ?>]" value="0" id="callee<?php echo $callee["id"]; ?>_0"<?php checked(!$callee["enabled"]); ?> /><label class="radio" for="callee<?php echo $callee["id"]; ?>_0">Disable</label></td>
    <td><?php echo $callee["name"]; ?></td>
    <td><?php echo $callee["country"]; ?></td>
+   <td><?php echo $us["group"]; ?></td>
    <td><?php echo $callee["phone"]; ?></td>
    <td><?php echo $callee["callcount"]; ?></td>
 </tr>

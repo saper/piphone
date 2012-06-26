@@ -73,6 +73,9 @@ class campaignController extends abstractController {
     if (!isset($params[0])) not_found();
     $slug=addslashes(trim($params[0]));
 
+    header("Location: /campaign/call2/".$slug);
+    exit();
+
     $view["campaign"]=$this->_getCampaign($slug); // Exit in case of error
     $view["countries"]=$this->_getCampaignCountries($campaign["id"]);
     
