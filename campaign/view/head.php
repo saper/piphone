@@ -33,8 +33,8 @@
 <div id="global">
 
 <div class="left">
-   <a href="?setlang=en"><img src="/static/ui-2.0/flags/GB.png" alt="English" /></a>
-   <a href="?setlang=fr"><img src="/static/ui-2.0/flags/FR.png" alt="Français" /></a>
+   [<a href="?setlang=en">English</a>|
+   <a href="?setlang=fr">Français</a>]
 </div>
 
 <div style="float: right;" id="logo">
