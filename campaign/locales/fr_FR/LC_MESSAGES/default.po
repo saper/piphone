@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LQDN Support\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-26 14:12+0200\n"
+"POT-Creation-Date: 2012-06-26 14:21+0200\n"
 "PO-Revision-Date: 2012-06-26 10:04+0000\n"
 "Last-Translator: meli_melo <mr@laquadrature.net>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/lqdnsupport/"
@@ -394,4 +394,28 @@ msgstr ""
 
 #: view/campaigncall2.php:110
 msgid "Show Call & Feedback Popup"
+msgstr ""
+
+#: view/campaigncall2.php:61
+msgid "Political group:"
+msgstr ""
+
+#: view/campaigncall2.php:62
+msgid "National party:"
+msgstr ""
+
+#: view/campaigncall2.php:63
+msgid "Country:"
+msgstr ""
+
+#: view/campaigncall2.php:71
+msgid "Get more info…"
+msgstr ""
+
+#: view/campaigncall2.php:98
+msgid "Send"
+msgstr ""
+
+#: view/campaigncall2.php:113
+msgid "or"
 msgstr ""
