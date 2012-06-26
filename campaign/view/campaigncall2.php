@@ -18,6 +18,11 @@
 </div>
 
 <?php
+if (isset($_COOKIE["piphone-phone"])) {$view["phone"]=$_COOKIE["piphone-phone"];}
+if (isset($_COOKIE["piphone-country"])) {$view["country"]=$_COOKIE["piphone-country"];}
+if (isset($_REQUEST["country"])) {$view["country"]=$_REQUEST["country"];}
+?>
+<?php
 $us=@unserialize($view["callee"]["meta"]);
 ?>
 <div id="mep">
@@ -70,7 +75,7 @@ $us=@unserialize($view["callee"]["meta"]);
 <!-- Shoot at random -->
 <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>#mep" id="selcountry">
   <p style="text-align: center;">
-    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$_REQUEST["country"]); ?></select>
+    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$view["country"]); ?></select>
   </p>
   <p class="action button">
     <?php if ($view["callid"]) { ?>

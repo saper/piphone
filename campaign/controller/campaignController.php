@@ -149,16 +149,21 @@ class campaignController extends abstractController {
       $view["message"]=_("Your feedback has been sent to us, thanks for your participation!"); 
       unset($view["callid"]);
       unset($view["callee"]);
+      header("Location: /campaign/call2/".$view["campaign"]["slug"]."/#mep");
     }  
 
     // Set or reset the cookie : 
-    if ($_COOKIE["piphone"] && preg_match("#^[a-z]{32}$#",$_COOKIE["piphone"])) {
-      $cookie=$_COOKIE["piphone"];
-    } else {
-      $cookie=$this->_getRand();
-    }
-    setCookie("piphone",$cookie,time()+86400*365,"/");
-    mq("REPLACE INTO cookies SET cookie='$cookie', country='$country', phone='$phone';");
+    //if ($_COOKIE["piphone"] && preg_match("#^[a-z]{32}$#",$_COOKIE["piphone"])) {
+    //  $cookie=$_COOKIE["piphone"];
+    //} else {
+    //  $cookie=$this->_getRand();
+    //}
+    //setCookie("piphone",$cookie,time()+86400*365,"/");
+
+    // store the phone and country into the cookie
+    if ($phone) {setCookie("piphone-phone",$phone,time()+86400*365,"/");}
+    if ($country) {setCookie("piphone-country",$country,time()+86400*365,"/");}
+    //mq("REPLACE INTO cookies SET cookie='$cookie', country='$country', phone='$phone';");
 
     // If I have a phone and a callee, then, everything is ok
     if ($callee && $phone && (!isset($callid))) {
