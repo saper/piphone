@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="nojs">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
    <title><?php echo PROJECTNAME; ?> <?php if (isset($view["title"])) echo " - ".$view["title"]; ?></title>
@@ -20,11 +20,6 @@
 
 
 
-<div style="padding: 10px">
-   [<a href="?setlang=en">English</a>] 
-   [<a href="?setlang=fr">Français</a>] 
-</div>
-
 <div id="wrapper">
 <div id="header">
    <h1><?php __("PiPhone"); ?> </h1><h2><?php __("Call MEPs for free - and make yourself heard"); ?></h2>
@@ -36,6 +31,11 @@
 </div>
       */ ?>
 <div id="global">
+
+<div class="left" style="float: left;">
+   [<a href="?setlang=en">English</a>|
+   <a href="?setlang=fr">Français</a>]
+</div>
 
 <div style="float: right;" id="logo">
 <!-- Banner -->
