@@ -47,6 +47,22 @@ $us=@unserialize($view["callee"]["meta"]);
   </div>
 </div>
 
+<!-- Shoot at random -->
+<form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>#mep" id="selcountry">
+  <p style="text-align: center;">
+    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$view["country"]); ?></select>
+  </p>
+  <p class="action button">
+    <?php if ($view["callid"]) { ?>
+      <input type="button" class="blue" id="callnow" type="submit" name="go" value="<?php __("Show Call & Feedback Popup"); ?>" />
+    <?php } else { ?>
+      <input type="button" class="green" id="callnow" type="submit" name="go" value="<?php __("Call Now"); ?>" />
+      <span> or </span>
+      <input type="submit" class="blue" href="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>" value="<?php __("Choose another random MEP"); ?>" />
+    <?php } ?>
+  </p>
+</form>
+
 <!-- Da callbox. Not blue, not a TARDIS. -->
 <div id="callbox">
   <div class="left">
@@ -74,22 +90,6 @@ $us=@unserialize($view["callee"]["meta"]);
     </form>
   </div>
 </div>
-
-<!-- Shoot at random -->
-<form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>#mep" id="selcountry">
-  <p style="text-align: center;">
-    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$view["country"]); ?></select>
-  </p>
-  <p class="action button">
-    <?php if ($view["callid"]) { ?>
-      <input type="button" class="blue" id="callnow" type="submit" name="go" value="<?php __("Show Call & Feedback Popup"); ?>" />
-    <?php } else { ?>
-      <input type="button" class="green" id="callnow" type="submit" name="go" value="<?php __("Call Now"); ?>" />
-      <span> or </span>
-      <input type="submit" class="blue" href="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>" value="<?php __("Choose another random MEP"); ?>" />
-    <?php } ?>
-  </p>
-</form>
 
 <!--Clicka convi things -->
 <script src="js/jquery-1-7-2.min.js"></script>

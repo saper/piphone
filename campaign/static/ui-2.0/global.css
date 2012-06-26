@@ -31,7 +31,7 @@ body {
   border: 1px solid rgba(0, 0, 0, .15);
   border-bottom: none;
 }
-#header h1, #header h2 {
+h1, h2 {
   position: absolute;
   left: 250px;
   padding: 0 .5em;
@@ -39,8 +39,8 @@ body {
   text-shadow: 0 1px 3px #000;
   background: rgba(0, 0, 0, .5);
 }
-#header h1 { top: 75px; }
-#header h2 {
+h1 { top: 75px; }
+h2 {
   top: 120px;
   font-weight: normal;
 }
@@ -127,6 +127,9 @@ a:focus {
 }
 .green:active {
   box-shadow: 0 1px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset, 0 0 100px rgba(255, 255, 255, 0.2) inset;
+}
+.center {
+  text-align: center;
 }
 
 /* content
@@ -220,7 +223,11 @@ a:focus {
 }
 .action span {
   display: inline-block;
-  padding: .5em .8em; 
+  padding: .5em .8em;
+}
+.nojs .action #callnow,
+.nojs .action span {
+  display: none;
 }
 
 /* campaign: mep */
@@ -297,11 +304,11 @@ a:focus {
   background: #ccc;
   border-right-color: #ccc;
   border-bottom-color: #ccc;
-} 
+}
 
 /* campaign: callbox */
 
-#background {
+.js #background {
   position: fixed;
   top: 0;
   left: 0;
@@ -311,7 +318,7 @@ a:focus {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAAAAABX3VL4AAAAAnRSTlMA/1uRIrUAAAAMSURBVHjaY2D4D4QABgAB/60sNyUAAAAASUVORK5CYII=');
   background: rgba(0, 0, 0, .5);
 }
-#callbox {
+.js #callbox {
   position: fixed;
   top: 10%;
   left: 50%;
@@ -323,7 +330,7 @@ a:focus {
   border-radius: 6px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.5) inset;
 }
-#callbox h5 {
+.js #callbox h5 {
   margin: 0 auto;
   padding: 8px 12px;
   font-weight: bold;
@@ -341,13 +348,13 @@ a:focus {
   border-bottom: 1px solid #ddd;
   box-shadow: 0 1px 0 #fff inset;
 }
-#callbox h5:first-child {
+.js #callbox h5:first-child {
   margin-top: 0;
 }
-#callbox p + h5 {
+.js #callbox p + h5 {
   border-top: 1px solid #ddd;
 }
-#callbox p {
+.js #callbox p {
   padding: 0 12px;
 }
 label[for=phone],
@@ -360,14 +367,26 @@ label[for=phone],
 label[for=feedback] {
   font-weight: bold;
 }
+.nojs label[for=phone],
+.nojs label[for=feedback] {
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 8px;
+  font-weight: normal;
+}
 #phone,
 #feedback,
 #callbox .caption {
-  width: 82%;  
+  width: 82%;
 }
 #phone,
 #feedback {
   margin: 10px auto 0 auto;
+}
+.nojs #phone,
+.nojs #feedback {
+  margin: 0 auto;
 }
 #phone {
   padding: .2em;
@@ -376,25 +395,25 @@ label[for=feedback] {
   text-align: center;
 }
 #callbox .caption {
-  margin: -8px auto 0 auto;  
+  margin: -8px auto 0 auto;
 }
-#callbox .left,
-#callbox .right {
+.js #callbox .left,
+.js #callbox .right {
   display: inline-block;
   vertical-align: top;
   font-size: 14px;
 }
-#callbox .left {
+.js #callbox .left {
   width: 400px;
   border-right: 1px solid #ccc;
 }
-#callbox .left h5:first-child {
+.js #callbox .left h5:first-child {
   border-radius: 6px 0 0 0;
 }
-#callbox .right {
+.js #callbox .right {
   width: 399px;
 }
-#callbox .right h5:first-child {
+.js #callbox .right h5:first-child {
   border-radius: 0 6px 0 0;
 }
 #feedback {
@@ -427,7 +446,7 @@ label[for=feedback] {
   color: #fff;
   background: #669bE1;
 }
-#i9 * {
+.ie9 * {
   filter: none;
 }
 
@@ -438,200 +457,4 @@ label[for=feedback] {
   font-style: normal;
   font-weight: normal;
   src: local('Francois One Regular'), local('FrancoisOne-Regular'), url('fonts/FrancoisOne.woff') format('woff');
-}
-
-/* ADMIN */
-
-table.list td.live { vertical-align: middle ; }
-
-/***** Flash & error messages ****/
-#errorExplanation, div.flash, .nodata, .warning {
-    padding: 4px 4px 4px 30px;
-    margin-bottom: 12px;
-    font-size: 1.1em;
-    border: 2px solid;
-}
-
-div.flash {margin-top: 8px;}
-
-div.flash.error, #errorExplanation {
-    background: url(../images/exclamation.png) 8px 50% no-repeat;
-    background-color: #ffe3e3;
-    border-color: #dd0000;
-    color: #880000;
-}
-
-div.flash.notice {
-    background: url(../images/true.png) 8px 5px no-repeat;
-    background-color: #dfffdf;
-    border-color: #9fcf9f;
-    color: #005f00;
-}
-
-div.flash.warning {
-  background: url(../images/warning.png) 8px 5px no-repeat;
-    background-color: #FFEBC1;
-    border-color: #FDBF3B;
-    color: #A6750C;
-  text-align: left;
-}
-
-.nodata, .warning {
-    text-align: center;
-    background-color: #FFEBC1;
-    border-color: #FDBF3B;
-    color: #A6750C;
-}
-
-
-/***** Tables *****/
-table.list { border: 1px solid #e4e4e4;  border-collapse: collapse; margin-bottom: 4px; }
-table.list th {  background-color:#EEEEEE; padding: 4px; white-space:nowrap; }
-table.list td { vertical-align: top; }
-table.list td.id { width: 2%; text-align: center;}
-table.list td.checkbox { width: 15px; padding: 2px 0 0 0; }
-table.list td.checkbox input {padding:0px;}
-table.list td.buttons { width: 15%; white-space:nowrap; text-align: right; }
-table.list td.buttons a { padding-right: 0.6em; }
-table.list caption { text-align: left; padding: 0.5em 0.5em 0.5em 0; }
-
-/***** Icons *****/
-.icon {
-background-position: 0% 50%;
-background-repeat: no-repeat;
-padding-left: 20px;
-padding-top: 2px;
-padding-bottom: 3px;
-}
-
-.icon-add { background-image: url(/static/images/add.png); }
-.icon-edit { background-image: url(/static/images/edit.png); }
-.icon-copy { background-image: url(/static/images/copy.png); }
-.icon-duplicate { background-image: url(/static/images/duplicate.png); }
-.icon-del { background-image: url(/static/images/delete.png); }
-.icon-move { background-image: url(/static/images/move.png); }
-.icon-save { background-image: url(/static/images/save.png); }
-.icon-cancel { background-image: url(/static/images/cancel.png); }
-.icon-multiple { background-image: url(/static/images/table_multiple.png); }
-.icon-folder { background-image: url(/static/images/folder.png); }
-.open .icon-folder { background-image: url(/static/images/folder_open.png); }
-.icon-package { background-image: url(/static/images/package.png); }
-.icon-user { background-image: url(/static/images/user.png); }
-.icon-projects { background-image: url(/static/images/projects.png); }
-.icon-help { background-image: url(/static/images/help.png); }
-.icon-attachment  { background-image: url(/static/images/attachment.png); }
-.icon-history  { background-image: url(/static/images/history.png); }
-.icon-time  { background-image: url(/static/images/time.png); }
-.icon-time-add  { background-image: url(/static/images/time_add.png); }
-.icon-stats  { background-image: url(/static/images/stats.png); }
-.icon-warning  { background-image: url(/static/images/warning.png); }
-.icon-fav  { background-image: url(/static/images/fav.png); }
-.icon-fav-off  { background-image: url(/static/images/fav_off.png); }
-.icon-reload  { background-image: url(/static/images/reload.png); }
-.icon-lock  { background-image: url(/static/images/locked.png); }
-.icon-unlock  { background-image: url(/static/images/unlock.png); }
-.icon-checked  { background-image: url(/static/images/true.png); }
-.icon-details  { background-image: url(/static/images/zoom_in.png); }
-.icon-report  { background-image: url(/static/images/report.png); }
-.icon-comment  { background-image: url(/static/images/comment.png); }
-.icon-summary  { background-image: url(/static/images/lightning.png); }
-.icon-server-authentication { background-image: url(/static/images/server_key.png); }
-.icon-issue { background-image: url(/static/images/ticket.png); }
-.icon-zoom-in { background-image: url(/static/images/zoom_in.png); }
-.icon-zoom-out { background-image: url(/static/images/zoom_out.png); }
-.icon-passwd { background-image: url(/static/images/textfield_key.png); }
-
-.icon-file { background-image: url(/static/images/files/default.png); }
-.icon-file.text-plain { background-image: url(/static/images/files/text.png); }
-.icon-file.text-x-c { background-image: url(/static/images/files/c.png); }
-.icon-file.text-x-csharp { background-image: url(/static/images/files/csharp.png); }
-.icon-file.text-x-php { background-image: url(/static/images/files/php.png); }
-.icon-file.text-x-ruby { background-image: url(/static/images/files/ruby.png); }
-.icon-file.text-xml { background-image: url(/static/images/files/xml.png); }
-.icon-file.image-gif { background-image: url(/static/images/files/image.png); }
-.icon-file.image-jpeg { background-image: url(/static/images/files/image.png); }
-.icon-file.image-png { background-image: url(/static/images/files/image.png); }
-.icon-file.image-tiff { background-image: url(/static/images/files/image.png); }
-.icon-file.application-pdf { background-image: url(/static/images/files/pdf.png); }
-.icon-file.application-zip { background-image: url(/static/images/files/zip.png); }
-.icon-file.application-x-gzip { background-image: url(/static/images/files/zip.png); }
-
-
-table.list tbody tr:hover { background-color:#ffffdd; }
-table.list tbody tr.group:hover { background-color:inherit; }
-table td {padding:4px;}
-table p {margin:0;}
-.odd {background-color:#e6e7e8;}
-.even {background-color: #fff;}
-
-a.sort { padding-right: 16px; background-position: 100% 50%; background-repeat: no-repeat; }
-a.sort.asc  { background-image: url(/static/images/sort_asc.png); }
-a.sort.desc { background-image: url(/static/images/sort_desc.png); }
-
-
-
-/* THESE ARE NOT REDMINE-IMPORTED CSS */
-table.list td.right, table.list td.enabled {
-    text-align: center;
-}
-
-table.form th {
-    height: 1em;
-    text-align: left;
-    vertical-align: top;
-}
-table.form td {
-    text-align: left;
-    vertical-align: top;
-    padding-bottom: 5px;
-}
-
-tr.bigdoc td {
-    font-size: small;
-}
-
-tr.warning td {
-    background-color: #FFEBC1;
-}
-tr.error td {
-    background-color: #FFE3E3;
-}
-
-tr.notice td {
-    background-color: #dfffdf;
-}
-
-table.sortable thead {
-    /*background-color:#eee;*/
-    text-decoration:underline;
-    cursor: pointer;
-}
-
-label.radio {
-    display: inline;
-}
-div#callee {
-    font-size: 14px; 
-    font-weight: bold;
-    border: 1px solid #ff3030;
-    padding: 4px;
-    width: 80%;
-    margin-right: 20px;
-}
-
-div#status {
-    font-size: 14px; 
-    font-weight: bold;
-    border: 1px solid #ff3030;
-    padding: 4px;
-    width: 80%;
-    margin-right: 20px;
-}
-table, table td, table tr, table th {
-    border-collapse: collapse;
-}
-
-#logo {
-    float: right; 
-    padding: 20px 100px 20px 20px;
 }
