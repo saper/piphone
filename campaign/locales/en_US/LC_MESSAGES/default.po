@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-26 01:59+0200\n"
+"POT-Creation-Date: 2012-06-26 14:21+0200\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -50,6 +50,7 @@ msgid "Campaign's list"
 msgstr ""
 
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
+#: view/campaigncall2.php:106
 msgid "Choose your Country:"
 msgstr ""
 
@@ -109,12 +110,15 @@ msgstr ""
 #: controller/campaignController.php:265 controller/campaignController.php:285
 #: controller/campaignController.php:144 controller/campaignController.php:258
 #: controller/campaignController.php:445 controller/campaignController.php:465
+#: controller/campaignController.php:147 controller/campaignController.php:266
+#: controller/campaignController.php:459 controller/campaignController.php:479
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
 #: controller/campaignController.php:290 controller/campaignController.php:149
-#: controller/campaignController.php:470
+#: controller/campaignController.php:470 controller/campaignController.php:152
+#: controller/campaignController.php:484
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 
@@ -129,18 +133,21 @@ msgstr ""
 
 #: controller/campaignController.php:131 controller/campaignController.php:139
 #: controller/campaignController.php:121 controller/campaignController.php:190
-#: controller/campaignController.php:321
+#: controller/campaignController.php:321 controller/campaignController.php:124
+#: controller/campaignController.php:198 controller/campaignController.php:329
 msgid "Your phone number look strange, please check it"
 msgstr ""
 
 #: controller/campaignController.php:143 controller/campaignController.php:151
 #: controller/campaignController.php:133 controller/campaignController.php:202
-#: controller/campaignController.php:333
+#: controller/campaignController.php:333 controller/campaignController.php:136
+#: controller/campaignController.php:210 controller/campaignController.php:341
 msgid "Your phone number is from an unsupported country, sorry for that"
 msgstr ""
 
 #: controller/campaignController.php:151 controller/campaignController.php:159
 #: controller/campaignController.php:210 controller/campaignController.php:341
+#: controller/campaignController.php:218 controller/campaignController.php:349
 msgid "Country not found, please check"
 msgstr ""
 
@@ -178,6 +185,7 @@ msgid ""
 msgstr ""
 
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
+#: view/campaigncall2.php:106
 msgid "-- All Europe --"
 msgstr ""
 
@@ -249,68 +257,70 @@ msgid "Act now!"
 msgstr ""
 
 #: view/campaigngo2.php:68 view/campaigncall2.php:79
+#: view/campaigncall2.php:112
 msgid "Call Now"
 msgstr ""
 
 #: view/campaigngo2.php:70 view/campaigncall2.php:81
+#: view/campaigncall2.php:114
 msgid "Choose another random MEP"
 msgstr ""
 
-#: view/campaigncall2.php:30
+#: view/campaigncall2.php:30 view/campaigncall2.php:60
 msgid "Phone number: "
 msgstr ""
 
-#: view/campaigncall2.php:48
+#: view/campaigncall2.php:48 view/campaigncall2.php:79
 msgid "Call for free"
 msgstr ""
 
-#: view/campaigncall2.php:49
+#: view/campaigncall2.php:49 view/campaigncall2.php:80
 msgid ""
 "If you want to call fo free, you must provide us with your phone number (the "
 "PiPhone will call that number to initiate the communication)."
 msgstr ""
 
-#: view/campaigncall2.php:51
+#: view/campaigncall2.php:51 view/campaigncall2.php:82
 msgid "Your phone number:"
 msgstr ""
 
-#: view/campaigncall2.php:52
+#: view/campaigncall2.php:52 view/campaigncall2.php:83
 msgid ""
 "Starting with your <a href=\"http://en.wikipedia.org/wiki/"
 "List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe\">country code</"
 "a>, without the initial 0"
 msgstr ""
 
-#: view/campaigncall2.php:53
+#: view/campaigncall2.php:53 view/campaigncall2.php:85
 msgid "I'm ready, call me"
 msgstr ""
 
-#: view/campaigncall2.php:55
+#: view/campaigncall2.php:55 view/campaigncall2.php:87
 msgid "Call at your expense"
 msgstr ""
 
-#: view/campaigncall2.php:56
+#: view/campaigncall2.php:56 view/campaigncall2.php:88
 msgid ""
 "If you don't want to call for free, here is the number of the current MEP "
 "(you can either dial it from your phone or push the button if any VoIP "
 "client is installed"
 msgstr ""
 
-#: view/campaigncall2.php:62
+#: view/campaigncall2.php:62 view/campaigncall2.php:94
 msgid "Feedback"
 msgstr ""
 
-#: view/campaigncall2.php:63
+#: view/campaigncall2.php:63 view/campaigncall2.php:95
 msgid "Please take a second to give us your feedback."
 msgstr ""
 
-#: view/campaigncall2.php:64
+#: view/campaigncall2.php:64 view/campaigncall2.php:96
 msgid ""
 "Were you able to reach somebody or not? How long did the conversation last? "
 "What information did you get?"
 msgstr ""
 
-#: view/campaigncall2.php:65
+#: view/campaigncall2.php:65 view/campaigncall2.php:97
 msgid "Your feedback:"
 msgstr ""
 
@@ -326,7 +336,43 @@ msgstr ""
 msgid "Call MEPs for free - and make yourself heard"
 msgstr ""
 
-#: controller/campaignController.php:263
+#: controller/campaignController.php:263 controller/campaignController.php:271
 msgid ""
 "Your feedback has been sent to us, thanks for your participation! CALLID:"
+msgstr ""
+
+#: view/campaigncall2.php:84
+msgid "Call in progress."
+msgstr ""
+
+#: view/campaigncall2.php:94
+msgid "X"
+msgstr ""
+
+#: view/campaigncall2.php:110
+msgid "Show Call & Feedback Popup"
+msgstr ""
+
+#: view/campaigncall2.php:61
+msgid "Political group:"
+msgstr ""
+
+#: view/campaigncall2.php:62
+msgid "National party:"
+msgstr ""
+
+#: view/campaigncall2.php:63
+msgid "Country:"
+msgstr ""
+
+#: view/campaigncall2.php:71
+msgid "Get more info…"
+msgstr ""
+
+#: view/campaigncall2.php:98
+msgid "Send"
+msgstr ""
+
+#: view/campaigncall2.php:113
+msgid "or"
 msgstr ""

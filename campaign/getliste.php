@@ -15,7 +15,8 @@ require_once(dirname(__FILE__)."/lang.php");
 
 $picdir=__DIR__."/static/pics/";
 
-mep_step1("https://memopol.lqdn.fr/europe/parliament/committee/INTA/",3);
+//mep_step1("https://memopol.lqdn.fr/europe/parliament/committee/INTA/",3);
+mep_step1("https://memopol.lqdn.fr/europe/parliament/names/",14);
 
 			 
 
