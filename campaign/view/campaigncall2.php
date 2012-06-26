@@ -27,7 +27,14 @@ $acommittee = array(
 <?php require_once("head.php"); ?>
 
 
-<h3><?php echo $view["campaign"]["name"]; ?></h3>
+<h3><?php
+if ($view["campaign"]["name-".$view["lang"]]) {   
+  echo $view["campaign"]["name-".$view["lang"]];
+} else {
+  echo $view["campaign"]["name"];
+}
+
+?></h3>
 
 <?php show_messages(); ?>
 

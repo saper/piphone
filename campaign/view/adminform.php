@@ -9,6 +9,8 @@
 <table class="form">
 <tr><th><label for="name">Name</label></th></tr>
 <tr><td><input size="32" type="text" id="name" name="name" value="<?php eher($view["campaign"]["name"]); ?>" /></td></tr>
+<tr><th><label for="name">Name FR</label></th></tr>
+<tr><td><input size="32" type="text" id="name-fr" name="name-fr" value="<?php eher($view["campaign"]["name-fr"]); ?>" /></td></tr>
 
 <tr><th><label for="slug">Slug</label></th></tr>
 <tr><td><input size="32" type="text" id="slug" name="slug" value="<?php eher($view["campaign"]["slug"]); ?>" /></td></tr>
