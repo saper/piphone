@@ -56,7 +56,8 @@ $us=@unserialize($view["callee"]["meta"]);
       <?php if ($view["message"]) { ?><p class="caption"><? echo $view["message"]; ?></p> <?php }?>
       <p><label for="phone"><?php __("Your phone number:"); ?></label> <input type="text" name="phone" id="phone" placeholder="+33123456789001" <?php if ($view["phone"]) { ?>value="<?php echo $view["phone"]; } ?>"></p>
       <p class="caption"><?php __('Starting with your <a href="http://en.wikipedia.org/wiki/List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe">country code</a>, without the initial 0'); ?>
-      <p id="callme" class="button"><input type="submit" value="<?php __("I'm ready, call me"); ?>" class="green" /></p>
+      <?php if ($view["callid"]) {?><p id="callme" class="button"><input type="submit" disabled="disabled" value="<?php __("Call in progress."); ?>" class="green" /></p>
+      <?php } else { ?><p id="callme" class="button"><input type="submit" value="<?php __("I'm ready, call me"); ?>" class="green" /></p><?php } ?>
 
       <h5><?php __("Call at your expense"); ?></h5>
       <p><?php __("If you don't want to call for free, here is the number of the current MEP (you can either dial it from your phone or push the button if any VoIP client is installed"); ?></p>
@@ -95,18 +96,27 @@ $us=@unserialize($view["callee"]["meta"]);
 <script>
 $('html').removeClass('nojs').addClass('js');
 $('#callbox').hide();
-$('#pophide').bind('click', function() {
-  $('#background').hide();
-  $('#callbox').hide();
-});
 $('#callnow').bind('click', function() {
   $('body').append('<div id="background" />');
   $('#callbox').show();
+});
+$('#pophide').bind('click', function() {
+  $('#callbox').hide();
+  $('#background').hide();
 });
 $('#background').live('click', function() {
   $(this).hide();
   $('#callbox').hide();
 });
 </script>
-
+<!-- if call is in progress, show the popup -->
+<?php
+if ($view["callid"]) { ?>
+<script>
+  $('body').append('<div id="background" />');
+  $('#callbox').show();
+</script>
+<?php
+}
+?>
 <?php require_once("foot.php"); ?>
