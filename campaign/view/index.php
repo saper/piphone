@@ -1,4 +1,12 @@
+<?php
 
+// Only one campaign => redirect
+if (count($view["campaign"])==1) {
+  header("Location: /campaign/call2/".$view["campaign"][0]["slug"]);
+  exit();
+}
+
+?>
 <?php require_once("head.php"); ?>
 
 
@@ -17,7 +25,14 @@ foreach($view["campaign"] as $c) {
 if ($row=="odd") $row="even"; else $row="odd";
 ?>
 <div id="campaign-<?php echo $c["id"]; ?>" class="campaign">
-	<h4><?php echo $c["name"] ?></h4>
+	<h4><?php
+if ($c["name-".$view["lang"]]) {   
+  echo $c["name-".$view["lang"]];
+} else {
+  echo $c["name"];
+}
+
+?></h4>
 	<p><?php
 //				       echo $GLOBALS["lang"];
 	  if ($c["longname-".substr($GLOBALS["lang"],0,2)]) {
