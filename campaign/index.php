@@ -1,6 +1,6 @@
 <?php
 
-define("PIPHONE_VERSION","0.1 [codename Graham]");
+define("PIPHONE_VERSION","1.2 [codename Turing]");
 
 require_once("config.php");
 

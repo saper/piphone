@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LQDN Support\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-22 20:32+0200\n"
+"POT-Creation-Date: 2012-06-26 01:59+0200\n"
 "PO-Revision-Date: 2012-06-14 09:52+0000\n"
 "Last-Translator: Benjamin Sonntag <benjamin@sonntag.fr>\n"
 "Language-Team: French (http://www.transifex.net/projects/p/lqdnsupport/"
@@ -20,6 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: view/campaigncall.php:17 view/campaigncall.php:21 view/campaigncall.php:22
+#: view/campaigngo2.php:25
 msgid "has phone number"
 msgstr "a le numéro de téléphone"
 
@@ -55,7 +56,7 @@ msgstr "Lorsque l'appel sera terminé, vous pouvez"
 msgid "Campaign's list"
 msgstr "Liste des campagnes"
 
-#: view/campaignform.php:20
+#: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 msgid "Choose your Country:"
 msgstr "Choisissez votre pays : "
 
@@ -97,7 +98,7 @@ msgid "Feedback Form"
 msgstr "Formulaire de Rapport"
 
 #: view/feedbackform.php:7 view/campaigncall.php:39 view/campaigncall.php:43
-#: view/campaigncall.php:47 view/campaigncall.php:48
+#: view/campaigncall.php:47 view/campaigncall.php:48 view/campaigncall.php:49
 msgid ""
 "Please tell us what happened if you was able to talk to someone. Your "
 "feedback is important to us."
@@ -106,23 +107,26 @@ msgstr ""
 "quelqu'un. Votre retour nous est crucial."
 
 #: view/feedbackform.php:14 view/campaigncall.php:46 view/campaigncall.php:50
-#: view/campaigncall.php:54 view/campaigncall.php:55
+#: view/campaigncall.php:54 view/campaigncall.php:55 view/campaigncall.php:56
 msgid "Send my feedback"
 msgstr "Envoyer mon retour d'expérience"
 
 #: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
-#: view/campaigncall.php:55 view/campaigncall.php:56
+#: view/campaigncall.php:55 view/campaigncall.php:56 view/campaigncall.php:57
 msgid "Cancel"
 msgstr "Annuler"
 
 #: controller/campaignController.php:233 controller/campaignController.php:253
 #: controller/campaignController.php:264 controller/campaignController.php:284
 #: controller/campaignController.php:265 controller/campaignController.php:285
+#: controller/campaignController.php:144 controller/campaignController.php:258
+#: controller/campaignController.php:445 controller/campaignController.php:465
 msgid "A feedback has already been given for that call, sorry"
 msgstr "Un retour a déjà été envoyé pour cet appel, désolé."
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
-#: controller/campaignController.php:290
+#: controller/campaignController.php:290 controller/campaignController.php:149
+#: controller/campaignController.php:470
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr "Votre retour nous a été envoyé. Merci de votre participation !"
 
@@ -138,15 +142,20 @@ msgstr ""
 "ne soit trop tard !"
 
 #: controller/campaignController.php:131 controller/campaignController.php:139
+#: controller/campaignController.php:121 controller/campaignController.php:190
+#: controller/campaignController.php:321
 msgid "Your phone number look strange, please check it"
 msgstr "Votre numéro de téléphone semble incorrect, vérifiez"
 
 #: controller/campaignController.php:143 controller/campaignController.php:151
+#: controller/campaignController.php:133 controller/campaignController.php:202
+#: controller/campaignController.php:333
 msgid "Your phone number is from an unsupported country, sorry for that"
 msgstr ""
 "Votre numéro de téléphone est d'un pays non supporté, nous en sommes désolé"
 
 #: controller/campaignController.php:151 controller/campaignController.php:159
+#: controller/campaignController.php:210 controller/campaignController.php:341
 msgid "Country not found, please check"
 msgstr "Pays non trouvé, vérifiez"
 
@@ -171,10 +180,12 @@ msgstr ""
 "avec cette personne."
 
 #: view/campaigncall.php:30 view/campaigncall.php:34 view/campaigncall.php:35
+#: view/campaigncall.php:36
 msgid "Call me"
 msgstr "Appelez moi"
 
 #: view/campaigncall.php:35 view/campaigncall.php:39 view/campaigncall.php:40
+#: view/campaigncall.php:43
 msgid ""
 "You should call him now, and fill the form below to give us some feedback "
 "about that call."
@@ -183,14 +194,14 @@ msgstr ""
 "dessous afin de nous faire rapporter le contenu de votre conversation."
 
 #: view/campaigncall.php:53 view/campaigncall.php:57 view/campaigncall.php:61
-#: view/campaigncall.php:62
+#: view/campaigncall.php:62 view/campaigncall.php:63
 msgid ""
 "We are now calling you, you will be connected to the phone above soon..."
 msgstr ""
 "Nous sommes an train de vous appeler, et vous serez très bientôt en relation "
 "téléphonique avec la personne ci-dessus."
 
-#: view/campaignform.php:20
+#: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 msgid "-- All Europe --"
 msgstr "-- Toute l'Europe --"
 
@@ -203,6 +214,7 @@ msgid "If you prefer to call another MEP, click the button below"
 msgstr "Si vous préférez appeler un autre député, cliquez le bouton ci-dessous"
 
 #: view/campaigncall.php:41 view/campaigncall.php:45 view/campaigncall.php:46
+#: view/campaigncall.php:39
 msgid "Call another one"
 msgstr "Appeler quelqu'un d'autre"
 
@@ -250,10 +262,110 @@ msgstr "Gérer les campagnes"
 msgid "This campaign is expired."
 msgstr "Cette campagne est terminée."
 
-#: view/head.php:24
+#: view/head.php:24 view/head.php:53
 msgid "Campaign Admin"
 msgstr "Administration des campagnes"
 
-#: view/head.php:25
+#: view/head.php:25 view/head.php:54
 msgid "User Admin"
 msgstr "Administration des utilisateurs"
+
+#: view/campaigncall.php:48
+#, fuzzy
+msgid "Feeback"
+msgstr "Formulaire de Rapport"
+
+#: view/index.php:31
+msgid "Act now!"
+msgstr ""
+
+#: view/campaigngo2.php:68 view/campaigncall2.php:79
+#, fuzzy
+msgid "Call Now"
+msgstr "Appelez moi"
+
+#: view/campaigngo2.php:70 view/campaigncall2.php:81
+msgid "Choose another random MEP"
+msgstr ""
+
+#: view/campaigncall2.php:30
+#, fuzzy
+msgid "Phone number: "
+msgstr "a le numéro de téléphone"
+
+#: view/campaigncall2.php:48
+#, fuzzy
+msgid "Call for free"
+msgstr "Appeler quelqu'un d'autre"
+
+#: view/campaigncall2.php:49
+msgid ""
+"If you want to call fo free, you must provide us with your phone number (the "
+"PiPhone will call that number to initiate the communication)."
+msgstr ""
+
+#: view/campaigncall2.php:51
+#, fuzzy
+msgid "Your phone number:"
+msgstr "a le numéro de téléphone"
+
+#: view/campaigncall2.php:52
+msgid ""
+"Starting with your <a href=\"http://en.wikipedia.org/wiki/"
+"List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe\">country code</"
+"a>, without the initial 0"
+msgstr ""
+
+#: view/campaigncall2.php:53
+msgid "I'm ready, call me"
+msgstr ""
+
+#: view/campaigncall2.php:55
+#, fuzzy
+msgid "Call at your expense"
+msgstr "Appeler quelqu'un d'autre"
+
+#: view/campaigncall2.php:56
+msgid ""
+"If you don't want to call for free, here is the number of the current MEP "
+"(you can either dial it from your phone or push the button if any VoIP "
+"client is installed"
+msgstr ""
+
+#: view/campaigncall2.php:62
+#, fuzzy
+msgid "Feedback"
+msgstr "Formulaire de Rapport"
+
+#: view/campaigncall2.php:63
+msgid "Please take a second to give us your feedback."
+msgstr ""
+
+#: view/campaigncall2.php:64
+msgid ""
+"Were you able to reach somebody or not? How long did the conversation last? "
+"What information did you get?"
+msgstr ""
+
+#: view/campaigncall2.php:65
+#, fuzzy
+msgid "Your feedback:"
+msgstr "Envoyer mon retour d'expérience"
+
+#: view/campaigncall2.php:77
+msgid "Show Popup"
+msgstr ""
+
+#: view/head.php:30
+msgid "PiPhone"
+msgstr ""
+
+#: view/head.php:30
+msgid "Call MEPs for free - and make yourself heard"
+msgstr ""
+
+#: controller/campaignController.php:263
+#, fuzzy
+msgid ""
+"Your feedback has been sent to us, thanks for your participation! CALLID:"
+msgstr "Votre retour nous a été envoyé. Merci de votre participation !"

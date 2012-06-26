@@ -1,10 +1,10 @@
 
 <?php require_once("head.php"); ?>
-<h2><?php echo $view["campaign"]["name"]; ?></h2>
+<h3><?php echo $view["campaign"]["name"]; ?></h3>
 
 <?php show_messages(); ?>
 
-<div id="campaigndescription">
+<div id="abstract">
    <?php 
    if ($view["campaign"]["description-".$view["lang"]]) {
      echo $view["campaign"]["description-".$view["lang"]]; 
@@ -15,7 +15,7 @@
 ?>
 </div>
 
-<div id="callframe" style="padding: 4px 4px 4px 50px">
+<div id="callbox" style="padding: 4px 4px 4px 50px">
 <iframe src="/campaign/call/<?php echo $view["campaign"]["slug"]; ?>" style="border: 0; padding:0; margin: 0; width: 750px; height: 400px; overflow: hidden" scrollbars="auto">
 </iframe>
 </div>
