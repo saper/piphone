@@ -32,7 +32,7 @@
       */ ?>
 <div id="global">
 
-<div class="left">
+<div class="left" style="float: left;">
    [<a href="?setlang=en">English</a>|
    <a href="?setlang=fr">Français</a>]
 </div>
