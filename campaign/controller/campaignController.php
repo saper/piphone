@@ -168,11 +168,11 @@ class campaignController extends abstractController {
     // If I have a phone and a callee, then, everything is ok
     if ($callee && $phone && (!isset($callid))) {
       mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
-      $realphone=preg_replace("#^\+#","00",$view["phone"]);
+      $realphone=preg_replace("#^\+#","00",$phone);
       $realcallee=preg_replace("#^\+#","00",$view["callee"]["phone"]);
       mq("INSERT INTO calls SET caller='$phone', callee='".$view["callee"]["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
       $view["callid"]=mysql_insert_id();
-      $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
+      $uuid=$this->_callback($realphone,$realcallee,$view["campaign"]["wavfile"],substr($GLOBALS["lang"],0,2));
       mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
       $view["phone"]=$phone;
     }
@@ -420,7 +420,7 @@ function callmeAction() {
     if (file_exists("/usr/local/freeswitch/sounds/".str_replace(".wav","-".$lang.".wav",$wavfile))) {
       $wavfile=str_replace(".wav","-".$lang.".wav",$wavfile);
     }
-
+    //    $this->log($bridge_id."/".$from."/".$to."/".$wavfile);
     // WARNING : I don't use wintermew bridge.lua anymore, modified for SIP trunk on nnx ...
     $params = array( 'command' => "luarun bridge.lua $bridge_id $from $to $wavfile",'bg' => 'true');
     try {
@@ -435,6 +435,12 @@ function callmeAction() {
 
   } // function _callback
 
+
+  function log($str) {
+    $f=fopen("/tmp/log","ab");
+    fputs($f,date("Y/m/d H:i:s")." ".$str."\n");
+    fclose($f);
+  }
 
   function feedbackAction() {
     global $view,$params;
