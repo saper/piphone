@@ -43,7 +43,7 @@
 </table>
 
 <input type="submit" name="go" value="<?php echo $view["actionname"]; ?>" />
-<input type="button" name="cancel" value="Cancel" onclick="document.location='/admin'" />
+<input type="button" name="cancel" value="<?php __("Cancel"); ?>" onclick="document.location='/admin'" />
 
 </form>
 
