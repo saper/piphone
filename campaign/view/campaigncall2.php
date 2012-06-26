@@ -58,14 +58,14 @@ $us=@unserialize($view["callee"]["meta"]);
    <!--        <li id="age">51 years old</li> -->
    <?php $calleephone=preg_replace("#^00#","+",$view["callee"]["phone"]); ?>
    <li id="phone"><?php __("Phone number: "); ?><a href="callto://<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span> <?php echo $us["group"]; ?></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol/lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="24" alt="<?php echo $us["group"]; ?>" /></a></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("National party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
-<?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="16" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
+<?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
 <!--        <li id="score"><span>Score:</span> 25 / 100</li> -->
       </ul>
    <?php if (isset($us["committee"])) { ?>
       <ul id="committee">
-	 <?php foreach($us["committee"] as $com) { ?>        <li title="<?php echo $acommittee[$com]; ?>"><?php echo $com; ?></li> <?php } ?>
+	 <?php foreach($us["committee"] as $com) { ?>        <li title="<?php echo $acommittee[$com]; ?>"><a href="https://memopol.lqdn.fr/europe/parliament/committee/<?php echo $com; ?>/" style="color: white;"><?php echo $com; ?></a></li> <?php } ?>
       </ul>
 	 <?php } ?>
 	 <p id="info"><a href="https://memopol.lqdn.fr/europe/parliament/deputy/<?php echo $us["url"]; ?>/"><?php __("Get more info…"); ?></a></p>
