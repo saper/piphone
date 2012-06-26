@@ -31,7 +31,7 @@ body {
   border: 1px solid rgba(0, 0, 0, .15);
   border-bottom: none;
 }
-h1, h2 {
+#header h1, #header h2 {
   position: absolute;
   left: 250px;
   padding: 0 .5em;
@@ -39,8 +39,8 @@ h1, h2 {
   text-shadow: 0 1px 3px #000;
   background: rgba(0, 0, 0, .5);
 }
-h1 { top: 75px; }
-h2 {
+#header h1 { top: 75px; }
+#header h2 {
   top: 120px;
   font-weight: normal;
 }
