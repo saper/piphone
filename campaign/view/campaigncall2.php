@@ -58,7 +58,7 @@ $us=@unserialize($view["callee"]["meta"]);
    <!--        <li id="age">51 years old</li> -->
    <?php $calleephone=preg_replace("#^00#","+",$view["callee"]["phone"]); ?>
    <li id="phone"><?php __("Phone number: "); ?><a href="callto://<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol/lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="24" alt="<?php echo $us["group"]; ?>" /></a></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="24" alt="<?php echo $us["group"]; ?>" /></a> - <?php echo $us["group"]; ?></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("National party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
 <?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
 <!--        <li id="score"><span>Score:</span> 25 / 100</li> -->
@@ -75,7 +75,7 @@ $us=@unserialize($view["callee"]["meta"]);
 <!-- Shoot at random -->
 <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>#mep" id="selcountry">
   <p style="text-align: center;">
-    <label for="country"><?php __("Choose your Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$view["country"]); ?></select>
+    <label for="country"><?php __("Choose a Country:"); ?></label> <select name="country" id="country" onchange="$('#selcountry').submit()"><option value=""><?php __("-- All Europe --"); ?> <?php eoption($view["countries"],$view["country"]); ?></select>
   </p>
   <p class="action button">
     <?php if ($view["callid"]) { ?>
