@@ -184,6 +184,21 @@ class campaignController extends abstractController {
   }
 
   /**********************************************************
+   * Fancy widget are fancies
+   */
+
+  function widget2Action() {
+    global $view,$params;
+    if (!isset($params[0])) not_found();
+    $slug=addslashes(trim($params[0]));
+    $view["campaign"]=$this->_getCampaign($slug);
+
+    // Now, we need a mep
+    $view["callee"]=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 ORDER BY callcount ASC, RAND();");
+    render("campaignwidget2");
+   }
+
+  /**********************************************************
    * Call people, but check their number first
    */
   function callme2Action() {
