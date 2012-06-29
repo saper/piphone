@@ -193,6 +193,8 @@ class campaignController extends abstractController {
     $slug=addslashes(trim($params[0]));
     $view["campaign"]=$this->_getCampaign($slug);
 
+    if (isset($params[1]) and (strcmp($params[1], "horiz") $view["orientation"]="horiz"; else $view["orientation"]="vert";
+
     // Now, we need a mep
     $view["callee"]=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 ORDER BY callcount ASC, RAND();");
     render("campaignwidget2");
