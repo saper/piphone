@@ -36,28 +36,28 @@ $acommittee = array(
    <?php if (isset($head)) echo $head; ?>
 </head>
 <body<?php if (isset($body)) echo $body; ?>>
-<div id="global" style="max-width: 250px">
-<h3><?php
-if ($view["campaign"]["name-".$view["lang"]]) {   
-  echo $view["campaign"]["name-".$view["lang"]];
+<div id="global" style="width: 200px; height: 300px; padding: 5px;">
+<h3 style="font-size: 100%; height: 20%;"><?php
+if ($view["campaign"]["longname-".$view["lang"]]) {   
+  echo $view["campaign"]["longname-".$view["lang"]];
 } else {
-  echo $view["campaign"]["name"];
+  echo $view["campaign"]["longname"];
 }
 
 ?></h3>
 <?php
 $us=@unserialize($view["callee"]["meta"]);
 ?>
-<div id="mep"> 
-  <p class="left"><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style="height: 90px; width: 67px;" /></p>
-  <div class="right" style="float:right;" >
-   <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?></p>
-<?php if (isset($us["country"])) { ?> <p><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></p> <?php } ?>
+<div id="mep" style="height: 45%;" > 
+  <p class="left" style="width: 30%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%;" /></p>
+  <div class="right" style="float:right; width: 70%;">
+   <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
+<?php if (isset($us["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="18" alt="<?php echo $us["country"]; ?>" /> <?php } ?></p>
   </div>
-  <div class="right">
+  <div class="right" style="width: 100%; padding: 0px;" >
       <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="20" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></li> <?php } ?>
-<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 80%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 80%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
   <div style="clear: both;"></div>
@@ -65,7 +65,7 @@ $us=@unserialize($view["callee"]["meta"]);
 
 <!-- Shoot at random -->
 <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
-  <p class="action button">
+  <p class="action button" style="height: 15%;">
     <input type="submit" class="green" name="go" value="<?php __("Call, free of charge!");?>" />
   </p>
 </form>
