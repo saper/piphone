@@ -58,15 +58,15 @@ $us=@unserialize($view["callee"]["meta"]);
 ?>
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
 <div id="mep" style="height: 45%; width: 60%; float: left;"> 
-  <p class="left" style="width: 20%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style="width: 70%;"/></p>
+  <p class="left" style="width: 20%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style="width: 85%; margin-right: 5px;"/></p>
   <div class="right" style="float: both; width: 25%; margin-right: 10px;">
    <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
 <?php if (isset($us["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="18" alt="<?php echo $us["country"]; ?>" /> <?php } ?></p>
   </div>
   <div class="right" style="float: none; width: 40%; padding: 0px; margin: 0px;" >
       <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 80%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
-<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 80%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
 </div>
@@ -81,15 +81,16 @@ $us=@unserialize($view["callee"]["meta"]);
 </form>
 <?php } else { ?>
 <div id="mep" style="height: 45%;" > 
-  <p class="left" style="width: 30%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%;" /></p>
+  <p class="left" style="width: 30%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%; margin-right: 5px;" /></p>
   <div class="right" style="float:right; width: 70%;">
    <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
 <?php if (isset($us["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="18" alt="<?php echo $us["country"]; ?>" /> <?php } ?></p>
   </div>
   <div class="right" style="width: 100%; padding: 0px;" >
       <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 80%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
-<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 80%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span>
+        <span style="font-size: 85%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
   <div style="clear: both;"></div>
