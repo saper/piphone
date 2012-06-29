@@ -39,12 +39,12 @@ $acommittee = array(
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
 <div id="global" style="width: 600px; height: 170px; padding: 5px;">
 <?php } else { ?>
-<div id="global" style="width: 200px; height: 300px; padding: 5px;">
+<div id="global" style="width: 200px; height: 350px; padding: 5px;">
 <?php } ?>
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
-<h3 style="font-size: 130%; height: 10%;">
+<h4 style="font-size: 100%; height: 10%;">
 <?php } else { ?>
-<h3 style="font-size: 130%; height: 20%;"><?php
+<h4 style="font-size: 100%; height: 30%;"><?php
 }
 if ($view["campaign"]["longname-".$view["lang"]]) {   
   echo $view["campaign"]["longname-".$view["lang"]];
@@ -80,7 +80,7 @@ $us=@unserialize($view["callee"]["meta"]);
   </p>
 </form>
 <?php } else { ?>
-<div id="mep" style="height: 45%;" > 
+<div id="mep" style="height: 38%;" > 
   <p class="left" style="width: 30%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%; margin-right: 5px;" /></p>
   <div class="right" style="float:right; width: 70%;">
    <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
