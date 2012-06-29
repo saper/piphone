@@ -42,9 +42,9 @@ $acommittee = array(
 <div id="global" style="width: 200px; height: 300px; padding: 5px;">
 <?php } ?>
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
-<h3 style="font-size: 100%; height: 10%;">
+<h3 style="font-size: 130%; height: 10%;">
 <?php } else { ?>
-<h3 style="font-size: 100%; height: 20%;"><?php
+<h3 style="font-size: 130%; height: 20%;"><?php
 }
 if ($view["campaign"]["longname-".$view["lang"]]) {   
   echo $view["campaign"]["longname-".$view["lang"]];
