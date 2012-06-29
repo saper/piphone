@@ -71,7 +71,7 @@ $us=@unserialize($view["callee"]["meta"]);
   </div>
 </div>
 <!-- Shoot at random -->
-<form method="post" style="width: 10%; float: left; margin-left: 20px;" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
+<form target="_blank" method="post" style="width: 10%; float: left; margin-left: 20px;" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
   <p class="action button">
     <br />
     <br />
@@ -99,7 +99,7 @@ $us=@unserialize($view["callee"]["meta"]);
 
 <?php if (strcmp($view["orientation"],"horiz") != 0) { ?>
 <!-- Shoot at random -->
-<form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
+<form target="_balnk" method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
   <p class="action button" style="height: 15%;">
     <input type="submit" class="green" name="go" value="<?php __("Call, free of charge!");?>" />
   </p>
