@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-26 16:17+0200\n"
+"POT-Creation-Date: 2012-06-30 04:27+0200\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -114,13 +114,15 @@ msgstr ""
 #: controller/campaignController.php:445 controller/campaignController.php:465
 #: controller/campaignController.php:147 controller/campaignController.php:266
 #: controller/campaignController.php:459 controller/campaignController.php:479
+#: controller/campaignController.php:294 controller/campaignController.php:487
+#: controller/campaignController.php:507
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
 
 #: controller/campaignController.php:258 controller/campaignController.php:289
 #: controller/campaignController.php:290 controller/campaignController.php:149
 #: controller/campaignController.php:470 controller/campaignController.php:152
-#: controller/campaignController.php:484
+#: controller/campaignController.php:484 controller/campaignController.php:512
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 
@@ -137,6 +139,7 @@ msgstr ""
 #: controller/campaignController.php:121 controller/campaignController.php:190
 #: controller/campaignController.php:321 controller/campaignController.php:124
 #: controller/campaignController.php:198 controller/campaignController.php:329
+#: controller/campaignController.php:226 controller/campaignController.php:357
 msgid "Your phone number look strange, please check it"
 msgstr ""
 
@@ -144,12 +147,14 @@ msgstr ""
 #: controller/campaignController.php:133 controller/campaignController.php:202
 #: controller/campaignController.php:333 controller/campaignController.php:136
 #: controller/campaignController.php:210 controller/campaignController.php:341
+#: controller/campaignController.php:238 controller/campaignController.php:369
 msgid "Your phone number is from an unsupported country, sorry for that"
 msgstr ""
 
 #: controller/campaignController.php:151 controller/campaignController.php:159
 #: controller/campaignController.php:210 controller/campaignController.php:341
 #: controller/campaignController.php:218 controller/campaignController.php:349
+#: controller/campaignController.php:246 controller/campaignController.php:377
 msgid "Country not found, please check"
 msgstr ""
 
@@ -354,6 +359,7 @@ msgid "Call MEPs for free - and make yourself heard"
 msgstr ""
 
 #: controller/campaignController.php:263 controller/campaignController.php:271
+#: controller/campaignController.php:299
 msgid ""
 "Your feedback has been sent to us, thanks for your participation! CALLID:"
 msgstr ""
@@ -404,4 +410,20 @@ msgstr ""
 
 #: view/campaigncall2.php:85
 msgid "Choose a Country:"
+msgstr ""
+
+#: view/campaignaddwidget2.php:42
+msgid "Add the piphone widget to your website and spread the word."
+msgstr ""
+
+#: view/campaignwidget2.php:75 view/campaignwidget2.php:98
+msgid "Group:"
+msgstr ""
+
+#: view/campaignwidget2.php:76 view/campaignwidget2.php:100
+msgid "Party:"
+msgstr ""
+
+#: view/campaignwidget2.php:86 view/campaignwidget2.php:111
+msgid "Call, free of charge!"
 msgstr ""
