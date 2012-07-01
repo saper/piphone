@@ -17,6 +17,7 @@ require_once(dirname(__FILE__)."/functions_iso.php");
 require_once(dirname(__FILE__)."/functions.php");
 require_once(dirname(__FILE__)."/lang.php");
 
+/*
 $r=mq("SELECT * FROM lists where campaign=".$campaign.";");
 while ($c=mysql_fetch_array($r)) {
   $us=unserialize($c["meta"]);
@@ -28,5 +29,21 @@ while ($c=mysql_fetch_array($r)) {
   }
 }
 echo "\n";
+*/
+
+/* Retournement des appels de lists ... evite de peter les stats > oui c'est crade :)
+$r=mq("SELECT * FROM lists where campaign=".$campaign.";");
+while ($c=mysql_fetch_array($r)) {
+  $us=unserialize($c["meta"]);
+  //  echo $us["bxl"];
+  if (isset($us["stb"]) && isset($us["bxl"])) {
+    $us["stb"]=str_replace("+","00",$us["stb"]);
+    $us["bxl"]=str_replace("+","00",$us["bxl"]);
+    mq("UPDATE calls SET callee='".$us["stb"]."' WHERE callee='".$us["bxl"]."' AND campaign=".$campaign);
+    echo "."; flush();
+  }
+}
+echo "\n";
+*/
 
 
