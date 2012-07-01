@@ -251,7 +251,7 @@ class adminController extends abstractController {
     $campaign=mqone("SELECT name FROM campaign WHERE id=$id;");
     if (!$campaign) not_found();
     $view["title"]="Showing stats for campaign ".$campaign["name"];
-    $view["rawstats"]=mqlist("SELECT calls.*, CONCAT(lists.name, ' ', calls.callee) as callee2 FROM calls INNER JOIN lists ON calls.callee = lists.phone WHERE calls.campaign=$id and lists.campaign=$id");
+    $view["rawstats"]=mqlist("SELECT calls.*, CONCAT(lists.name, ' ', calls.callee) as callee2 FROM calls INNER JOIN lists ON calls.callee = lists.phone WHERE calls.campaign=$id and lists.campaign=$id ORDER BY datestart DESC");
     $view["withuuid"]=array_filter($view["rawstats"],function($a) {return($a["uuid"]!="");});
     $view["withfeedback"]=array_filter($view["rawstats"],function($a) {return($a["feedback"]!="");});
     render("adminstats");
