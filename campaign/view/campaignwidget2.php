@@ -1,5 +1,10 @@
 <?php
-
+$lang = "en_US";
+if ($view['lang'] == "fr") $lang = "fr_FR";
+putenv("LC_MESSAGES=".$lang);
+putenv("LANG=".$lang);
+putenv("LANGUAGE=".$lang);
+setlocale(LC_ALL,$lang);
 
 $acommittee = array(
 		    "AFET" => "Committee on Foreign Affairs",
@@ -42,17 +47,22 @@ $acommittee = array(
 <div id="global" style="width: 200px; height: 350px; padding: 5px;">
 <?php } ?>
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
-<h4 style="font-size: 100%; height: 10%;">
+<h4 style="font-size: 100%; height: 10%;margin-top: 0.8em;">
 <?php } else { ?>
-<h4 style="font-size: 100%; height: 30%;"><?php
+<h4 style="font-size: 90%; height: 25%;margin: 0.33em 0"><?php
 }
-if ($view["campaign"]["longname-".$view["lang"]]) {   
+/*if ($view["campaign"]["longname-".$view["lang"]]) {   
   echo $view["campaign"]["longname-".$view["lang"]];
 } else {
   echo $view["campaign"]["longname"];
 }
-
-?></h3>
+*/
+if ($view['lang'] == 'fr'):?>
+<a href="http://piphone.lqdn.fr" target="_blank">Appelez</a> les eurodéputés&nbsp;! Demandez le rejet d'<a href="http://laquadrature.net/ACTA" target="_blank">ACTA</a> (vote final le 4 juillet) et une <a href="https://www.laquadrature.net/fr/propositions#le-partage-de-la-culture-et-des-connaissances" target="_blank">réforme du droit d'auteur</a>&nbsp;!
+<?php else: ?>
+<a href="http://piphone.lqdn.fr" target="_blank">Call</a> Members of the EU Parliament! Urge them to reject <a href="http://laquadrature.net/ACTA" target="_blank">ACTA</a> (final vote Jul.4th) and <a href="https://www.laquadrature.net/en/proposals#sharing-of-culture-and-knowledge" target="_blank">reform copyright</a>!
+<?php endif; ?>
+</h4>
 <?php
 $us=@unserialize($view["callee"]["meta"]);
 ?>
@@ -65,7 +75,7 @@ $us=@unserialize($view["callee"]["meta"]);
   </div>
   <div class="right" style="float: none; width: 40%; padding: 0px; margin: 0px;" >
       <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/" target="_blank"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
@@ -80,7 +90,7 @@ $us=@unserialize($view["callee"]["meta"]);
   </p>
 </form>
 <?php } else { ?>
-<div id="mep" style="height: 38%;" > 
+<div id="mep" style="height: 42%;" > 
   <p class="left" style="width: 30%; margin: 0;" ><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%; margin-right: 5px;" /></p>
   <div class="right" style="float:right; width: 70%;">
    <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
@@ -89,7 +99,7 @@ $us=@unserialize($view["callee"]["meta"]);
   <div class="right" style="width: 100%; padding: 0px;" >
       <ul id="resume">
 <?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span>
-        <span style="font-size: 85%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+        <span style="font-size: 85%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/" target="_blank"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
@@ -99,7 +109,7 @@ $us=@unserialize($view["callee"]["meta"]);
 
 <?php if (strcmp($view["orientation"],"horiz") != 0) { ?>
 <!-- Shoot at random -->
-<form target="_balnk" method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
+<form target="_blank" method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
   <p class="action button" style="height: 15%;">
     <input type="submit" class="green" name="go" value="<?php __("Call, free of charge!");?>" />
   </p>
@@ -109,5 +119,9 @@ $us=@unserialize($view["callee"]["meta"]);
 <!--Clicka convi things -->
 <div style="clear:both;"></div>
 </div>
+<p style="font-size:8pt;padding:0;margin:0;text-align:right">
+<?php if($view['lang']=='fr'):?><a href="http://piphone.lqdn.fr/campaign/addwidget2/acta-final-vote?setlang=fr" target="_blank">Partagez sur votre site</a>
+<?php else:?><a href="http://piphone.lqdn.fr/campaign/addwidget2/acta-final-vote?setlang=en" target="_blank">Share this on your site</a></p>
+<?php endif;?>
 </body>
 </html>
