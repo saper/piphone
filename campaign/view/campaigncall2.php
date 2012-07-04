@@ -94,8 +94,8 @@ $us=@unserialize($view["callee"]["meta"]);
     <?php } ?>
   </p>
 </form>
+<p class="action button"><a class="blue" href="/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>">Add a widget on your website</a></p>
 
-<p><a href="/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>">Add a widget on your website</a></p>
 <!-- Da callbox. Not blue, not a TARDIS. -->
 <div id="callbox">
   <div class="left">
