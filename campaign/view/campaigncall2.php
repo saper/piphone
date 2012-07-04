@@ -115,7 +115,7 @@ $us=@unserialize($view["callee"]["meta"]);
   </div>
   <div class="right">
     <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/<?php echo $view["callid"]; ?>">
-      <h5><?php __("Feedback"); ?><span id="pophide" style="float: right;" onMouseOver="this.style.cursor='pointer'"><? __("X");?></span></h5>
+      <h5><?php __("Feedback"); ?><span id="pophide" style="display: none; float: right;" onMouseOver="this.style.cursor='pointer'"><? __("X");?></span></h5>
       <p><?php __("Please take a second to give us your feedback."); ?></p>
       <p><?php __("Were you able to reach somebody or not? How long did the conversation last? What information did you get?"); ?></p>
       <p><label for="feedback"><?php __("Your feedback:"); ?></label> <textarea id="feedback" name="feedback"></textarea></p>
@@ -129,6 +129,7 @@ $us=@unserialize($view["callee"]["meta"]);
 <script src="js/jquery-1-7-2.min.js"></script>
 <script>
 $('#callbox').hide();
+$('#pophide').show();
 $('#callnow').bind('click', function() {
   $('body').append('<div id="background" />');
   $('#callbox').show();
