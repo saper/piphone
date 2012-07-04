@@ -33,30 +33,46 @@ if ($view["campaign"]["name-".$view["lang"]]) {
 } else {
   echo $view["campaign"]["name"];
 }
+$lang = 'en';
+if($GLOBALS["lang"]=="fr_FR")$lang = 'fr';
 
 ?></h3>
 
 <div id="abstract">
   <h4><?php __("Add the piphone widget to your website and spread the word."); ?></h4>
-  <p><?php __("We are providing you with two widgets, one horizontal, one vertical, to insert on your website. It will allow people visiting your website to call using the piphone one European Parliament Member, picked at random in our listings."); ?></p>
+  <p><?php if($lang=="fr"):?>
+Vous pouvez insérer l'un de ces "widgets" sur votre site web pour permettre à vos amis et visiteurs d'appeler des Membres du Parlement européen, choisis au hasard parmi ceux qui restent à convaincre, <strong>gratuitement</strong> !
+<?php else:?>
+You can insert one of these two widgets on your website to allow your friends and visitors to call Members of the European Parliament, picked at random from the ones left to convince, <strong>free of charge</strong>!
+<?php endif;?>
+</p>
   <div>
     <div id="left" style="float: left;">
-      <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>" width="215" height="380"></object>
+      <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz/<?php echo $lang ?>" width="630" height="200"></object>
     </div>
     <div id="right">
-      <textarea rows="4" cols="60" onclick="this.select()" onfocus="this.select()"><object data="http://piphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>" width="215" height="380"></object></textarea>
+      <textarea rows="9" cols="20" onclick="this.select()" onfocus="this.select()"><object data="http://piphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz/<?php echo $lang ?>" width="630" height="200"></object></textarea>
     </div>
   </div>
   <div style="clear: both;"></div>
   <div>
     <div id="left" style="float: left;">
-      <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz" width="630" height="200"></object>
+      <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/verti/<?php echo $lang?>" width="215" height="380"></object>
     </div>
     <div id="right">
-      <textarea rows="9" cols="20" onclick="this.select()" onfocus="this.select()"><object data="http://piphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz" width="630" height="200"></object></textarea>
+      <textarea rows="10" cols="25" onclick="this.select()" onfocus="this.select()"><object data="http://piphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/verti/<?php echo $lang ?>" width="215" height="380"></object></textarea>
     </div>
   </div>
   <div style="clear: both;"></div>
+<p>
+<?php if ($lang == 'fr'):?>
+Le contenu de cette boîte changera lorsque la campagne d'appels sera 
+            terminée, pour s'adapter à d'autres campagnes.
+<?php else: ?>
+The content of this widget will change once this calling campaign is over, to adapt 
+            to other campaigns
+<?php endif ?>
+</p>
 </div>
 
 
