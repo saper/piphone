@@ -125,9 +125,9 @@ $us=@unserialize($view["callee"]["meta"]);
 </div>
 
 <!--Clicka convi things -->
+<?php if (strpos($_SERVER['HTTP_USER_AGENT'],'Mobile') === false) { ?>
 <script src="js/jquery-1-7-2.min.js"></script>
 <script>
-$('html').removeClass('nojs').addClass('js');
 $('#callbox').hide();
 $('#callnow').bind('click', function() {
   $('body').append('<div id="background" />');
@@ -150,6 +150,7 @@ if ($view["callid"]) { ?>
   $('#callbox').show();
 </script>
 <?php
+}
 }
 ?>
 <?php require_once("foot.php"); ?>
