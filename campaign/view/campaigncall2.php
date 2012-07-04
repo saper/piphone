@@ -64,7 +64,7 @@ $us=@unserialize($view["callee"]["meta"]);
       <ul id="resume">
    <!--        <li id="age">51 years old</li> -->
    <?php $calleephone=preg_replace("#^00#","+",$view["callee"]["phone"]); ?>
-   <li id="phone"><?php __("Phone number: "); ?><a href="callto://<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
+   <li id="phone"><?php __("Phone number: "); ?><a href="tel:<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
 <?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="24" alt="<?php echo $us["group"]; ?>" /></a> - <?php echo $us["group"]; ?></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("National party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
 <?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
@@ -110,7 +110,7 @@ $us=@unserialize($view["callee"]["meta"]);
 
       <h5><?php __("Call at your expense"); ?></h5>
       <p><?php __("If you don't want to call for free, here is the number of the current MEP (you can either dial it from your phone or push the button if any VoIP client is installed"); ?></p>
-      <p class="button"><a href="callto://<?php echo $view["callee"]["phone"]; ?>" class="blue" target="_blank">☎ <?php echo $view["callee"]["phone"]; ?></a></p>
+      <p class="button"><a href="tel:<?php echo $view["callee"]["phone"]; ?>" class="blue" target="_blank">☎ <?php echo $view["callee"]["phone"]; ?></a></p>
     </form>
   </div>
   <div class="right">
