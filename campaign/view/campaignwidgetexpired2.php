@@ -5,6 +5,18 @@ putenv("LC_MESSAGES=".$lang);
 putenv("LANG=".$lang);
 putenv("LANGUAGE=".$lang);
 setlocale(LC_ALL,$lang);
+
+$view["campaign"]=mqone("SELECT * FROM campaign WHERE datestop >= NOW() ORDER BY datestop ASC;");
+if ($view["campaign"])
+{
+    if(strcmp($view["orientation"],"horiz") == 0)
+    {
+        header("Location: /campaign/widget2/".$view["campaign"]["slug"]."/horiz");
+        exit();
+    }
+    header("Location: /campaign/widget2/".$view["campaign"]["slug"]);
+    exit();
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="nojs">
