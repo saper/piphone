@@ -170,7 +170,7 @@ class campaignController extends abstractController {
 
     // If I have a phone and a callee, then, everything is ok
     if ($callee && $phone && (!isset($callid))) {
-      mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
+      // mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
       $realphone=preg_replace("#^\+#","00",$phone);
       $realcallee=preg_replace("#^\+#","00",$view["callee"]["phone"]);
       mq("INSERT INTO calls SET caller='$phone', callee='".$view["callee"]["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
@@ -294,12 +294,14 @@ function feedback2Action() {
     if (!isset($params[1])) not_found();
     $view["callid"]=$cid=intval($params[1]);
     $call=mqone("SELECT * FROM calls WHERE id='".$view["callid"]."';");
+    $callee=mqone("SELECT * FROM lists WHERE phone='(".$call["callee"].")';");
     if ($call["feedback"]) {
       $view["error"]=_("A feedback has already been given for that call, sorry");
       $this->call2Action();
       exit();
     }
     mq("UPDATE calls SET feedback='".addslashes($_REQUEST["feedback"])."' WHERE id='".$view["callid"]."';");
+    mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."');");
     $view["message"]=_("Your feedback has been sent to us, thanks for your participation! CALLID:");
     render("campaigncall2");
   }
