@@ -56,19 +56,12 @@ class campaignController extends abstractController {
     $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."';");
     $threshold=mt_rand(0,$high_score);
     if ($high_score == 0) $threshold = 0;
-    $totalcall=mqonefield("SELECT count(id) FROM calls where campaign='".$campaign_id."';");
 
     // lists contains the mep, they have score and pond_score as fields
     $query="SELECT id FROM lists WHERE campaign='".$campaign_id."'";
     if ($_REQUEST["country"]) $country=$_REQUEST["country"];
 	if (isset($country)) { $query .= " AND country='".$country."'"; }
-	if ($totalcall == 0) {
-	  $query.=" AND pond_scores >= '".$threshold."'";
-	}
-	else
-	{
-	  $query.=" AND pond_scores * (1.0 - callcount/".$totalcall.") >= '".$threshold."'";
-	}
+	$query.=" AND pond_scores >= '".$threshold."'";
     $query.=" ORDER BY RAND() LIMIT 1;";
     $mep=mqonefield($query);
 
@@ -231,71 +224,6 @@ class campaignController extends abstractController {
     $view["campaign"]=$this->_getCampaign($slug);
     render("campaignaddwidget2");
     exit();
-  }
-
-  /**********************************************************
-   * Call people, but check their number first
-   */
-  function callme2Action() {
-    global $view,$params;
-    if (!isset($params[0])) not_found();
-    $slug=addslashes(trim($params[0]));
-    $view["campaign"]=$this->_getCampaign($slug);
-    // Check that the phone number isvalid
-    $phone=trim(str_replace(" ","",$_REQUEST["phone"]));
-    if ($phone) {
-      if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) {
-          $view["message"]=_("Your phone number look strange, please check it");
- 	  $this->call2Action();
-	  exit();
-	}
-	$found="";
-	foreach($this->countryPhoneCodes as $c=>$v) {
-	  if (substr($phone,0,strlen($c))==$c) {
-	    $found=$v;
-	    break;
-	  }
-	}
-	if (!$found) {
-	  $view["message"]=_("Your phone number is from an unsupported country, sorry for that");
-	  $this->call2Action();
-          exit();
-	}
-      }
-      // Check the country
-      $country=trim($_REQUEST["country"]);
-      if ($country && !array_key_exists($country,$view["countries"])) {
-	$view["message"]=_("Country not found, please check"); 
-	$this->call2Action();
-	exit();
-      }
-    // Get the callee back
-        if ($_COOKIE["callee"]) {
-            $cookie=$_COOKIE["callee"];
-        }
-    $callee=mqone("SELECT * FROM lists WHERE id='".$cookie."';");
-    mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
-    mq("INSERT INTO calls SET caller='$phone', callee='".$callee["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
-    $view["callid"]=mysql_insert_id();
-    $view["phone"]=$phone;
-    //$callid=intval(trim($params[0]));
-    $call=mqone("SELECT * FROM calls WHERE id=".$view["callid"]." AND uuid='';");
-    $campaign=mqone("SELECT * FROM campaign WHERE id=".$call["campaign"].";");
-    if (!$call || !$campaign) {
-      not_found();
-    }
-    $realphone=preg_replace("#^\+#","00",$call["caller"]);
-    $realcallee=preg_replace("#^\+#","00",$call["callee"]);
-
-    // FORCE for PREPROD : 
-    if (defined("FORCETO")) {
-      $realcallee=FORCETO;
-    }
-
-    $uuid=$this->_callback($realphone,$realcallee,$campaign["wavfile"],substr($GLOBALS["lang"],0,2));
-    mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
-    $view["frame"]=1;
-    $this->call2Action();
   }
 
 /********
