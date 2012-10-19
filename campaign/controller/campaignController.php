@@ -123,7 +123,7 @@ class campaignController extends abstractController {
     if ($params[1]) $callee=mqone("SELECT * FROM lists WHERE id='".trim($params[1])."';");
 
     // Find a MEP to call if none has been chosen already
-	$mep_id = _getRandomMep($view["campaign"]["id"])
+	$mep_id = _getRandomMep($view["campaign"]["id"]);
     if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 AND lists.id='".$mep_id"';");
     $view["callee"]=$callee;
 
