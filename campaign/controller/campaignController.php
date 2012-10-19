@@ -59,7 +59,7 @@ class campaignController extends abstractController {
     // lists contains the mep, they have score and pond_score as fields
     $query="SELECT id FROM lists WHERE campaign='".$totalcall."'";
     if ($_REQUEST["country"]) $country=$_REQUEST["country"];
-	if (isset($country) { $query .= " AND country='".$country."'"; }
+	if (isset($country)) { $query .= " AND country='".$country."'"; }
 	if ($totalcall == 0) {
 	  $query.=" AND pond_score >= '".$threshold."'";
 	}
