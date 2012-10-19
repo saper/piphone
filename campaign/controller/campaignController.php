@@ -45,6 +45,33 @@ class campaignController extends abstractController {
     return $countries;
   }
 
+  private function _getRandomMep($campaign_id) {
+	/*
+	 * Simply put, we need to find a random MEP giving is score.
+	 * So we generate a 0<=x<=100 random x and then we pick one mep 
+	 * among the ones who have a score greater or equal to x.
+	 * We will ponderate the scores with the number of call received divided
+	 * by the total number of call related to the campaign.
+	 */
+    $threshold=mt_rand(0,100);
+	$totalcall=mqonefield("SELECT count(id) FROM calls where campaign='".$campaign_id."';");
+
+    // lists contains the mep, they have score and pond_score as fields
+    $query="SELECT id FROM lists WHERE campaign='".$totalcall."'";
+    if ($_REQUEST["country"]) $country=$_REQUEST["country"];
+	if (isset($country) { $query .= " AND country='".$country."'"; }
+	if ($totalcall == 0) {
+	  $query.=" AND pond_score >= '".$threshold."'";
+	}
+	else
+	{
+	  $query.=" AND pond_score * (1.0 - callcount/".$totalcall.") >= '".$threshold."'";
+	}
+	$query.=" ORDER BY RAND() LIMIT 1;"
+    $mep_id=mqonefield($query);
+
+    return $mep_id;
+  }
 
   private function _getCampaign($slug) {
     global $view;
@@ -96,11 +123,9 @@ class campaignController extends abstractController {
     if ($params[1]) $callee=mqone("SELECT * FROM lists WHERE id='".trim($params[1])."';");
 
     // Find a MEP to call if none has been chosen already
-    if ($_REQUEST["country"]) $country=$_REQUEST["country"];
-    if ($country) $sql=" AND country='$country' "; else $sql="";
-    if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 $sql ORDER BY callcount ASC, RAND();");
+	$mep_id = _getRandomMep($view["campaign"]["id"])
+    if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 AND lists.id='".$mep_id"';");
     $view["callee"]=$callee;
-    //    $view["message"]=$country;
 
     // If I have a callid, it means call has been done
     if ($params[2]) $callid=trim($params[2]);
