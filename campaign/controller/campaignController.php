@@ -67,7 +67,7 @@ class campaignController extends abstractController {
 	{
 	  $query.=" AND pond_score * (1.0 - callcount/".$totalcall.") >= '".$threshold."'";
 	}
-	$query.=" ORDER BY RAND() LIMIT 1;"
+	$query.=" ORDER BY RAND() LIMIT 1;";
     $mep_id=mqonefield($query);
 
     return $mep_id;
