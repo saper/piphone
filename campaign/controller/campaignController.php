@@ -61,13 +61,14 @@ class campaignController extends abstractController {
     if ($_REQUEST["country"]) $country=$_REQUEST["country"];
 	if (isset($country)) { $query .= " AND country='".$country."'"; }
 	if ($totalcall == 0) {
-	  $query.=" AND pond_score >= '".$threshold."'";
+	  $query.=" AND pond_scores >= '".$threshold."'";
 	}
 	else
 	{
-	  $query.=" AND pond_score * (1.0 - callcount/".$totalcall.") >= '".$threshold."'";
+	  $query.=" AND pond_scores * (1.0 - callcount/".$totalcall.") >= '".$threshold."'";
 	}
 	$query.=" ORDER BY RAND() LIMIT 1;";
+    echo $query;
     $mep_id=mqonefield($query);
 
     return $mep_id;
