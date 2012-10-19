@@ -124,7 +124,8 @@ class campaignController extends abstractController {
 
     // Find a MEP to call if none has been chosen already
 	$mep_id=$this->_getRandomMep($view["campaign"]["id"]);
-    if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 AND lists.id='".$mep_id"';");
+    //if (!isset($callee)) $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 AND lists.id='".$mep_id"';");
+    $callee=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 AND lists.id='".$mep_id"';");
     $view["callee"]=$callee;
 
     // If I have a callid, it means call has been done
