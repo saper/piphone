@@ -54,7 +54,7 @@ class campaignController extends abstractController {
 	 * by the total number of call related to the campaign.
 	 */
     $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."';");
-    $threshold=mt_rand(0,$high_score);
+    $threshold=mt_rand(1,$high_score);
     if ($high_score == 0) $threshold = 0;
 
     // lists contains the mep, they have score and pond_score as fields
