@@ -71,6 +71,9 @@ $us=@unserialize($view["callee"]["meta"]);
 <!--        <li id="score"><span>Score:</span> 25 / 100</li> -->
       </ul>
    <?php if (isset($us["committee"])) { ?>
+      <ul id="score">
+        <?php __("Score: "); echo $view["callee"]["pond_scores"];?>
+      </ul>
       <ul id="committee">
 	 <?php foreach($us["committee"] as $com) { ?>        <li title="<?php echo $acommittee[$com]; ?>"><a href="https://memopol.lqdn.fr/europe/parliament/committee/<?php echo $com; ?>/" style="color: white;"><?php echo $com; ?></a></li> <?php } ?>
       </ul>
