@@ -53,11 +53,13 @@ class campaignController extends abstractController {
 	 * We will ponderate the scores with the number of call received divided
 	 * by the total number of call related to the campaign.
 	 */
-    $threshold=mt_rand(0,100);
-	$totalcall=mqonefield("SELECT count(id) FROM calls where campaign='".$campaign_id."';");
+    $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."';");
+    $threshold=mt_rand(0,$high_score);
+    if ($high_score == 0) $threshold = 0;
+    $totalcall=mqonefield("SELECT count(id) FROM calls where campaign='".$campaign_id."';");
 
     // lists contains the mep, they have score and pond_score as fields
-    $query="SELECT id FROM lists WHERE campaign='".$totalcall."'";
+    $query="SELECT id FROM lists WHERE campaign='".$campaign_id."'";
     if ($_REQUEST["country"]) $country=$_REQUEST["country"];
 	if (isset($country)) { $query .= " AND country='".$country."'"; }
 	if ($totalcall == 0) {
@@ -67,11 +69,10 @@ class campaignController extends abstractController {
 	{
 	  $query.=" AND pond_scores * (1.0 - callcount/".$totalcall.") >= '".$threshold."'";
 	}
-	$query.=" ORDER BY RAND() LIMIT 1;";
-    echo $query;
-    $mep_id=mqonefield($query);
+    $query.=" ORDER BY RAND() LIMIT 1;";
+    $mep=mqone($query);
 
-    return $mep_id;
+    return $mep;
   }
 
   private function _getCampaign($slug) {
@@ -295,7 +296,6 @@ class campaignController extends abstractController {
     mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
     $view["frame"]=1;
     $this->call2Action();
-    //echo "OK";
   }
 
 /********
