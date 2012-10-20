@@ -78,16 +78,15 @@ class adminController extends abstractController {
   /** Show the form to import a csv in this campaign */
   /** the csv is field separated by semi colon and each field is surrounded by "*/
   function importAction() {
-    global $viewn, $params;
+    global $view, $params;
 	if (!isset($params[0])) not_found();
 	$id=intval($params[0]);
 	if (!$id) not_found();
 	$campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
 	if (!$campaign) not_found();
 	$view["title"]="Importing a CSV to populate the campaign ".$campaign["name"];
-	$view["actionname"]="Replace the campaign lists with this one";
+	$view["actionname"]="Replace the campaign list with this one";
 	$view["campaign"]=$campaign;
-	$view["list"]=$list;
 	render("adminlistimport");
   }
 
@@ -121,60 +120,63 @@ class adminController extends abstractController {
   /* ************************************************************************ */
   /** Receive a POST to import a CSV into a campaign */
   function doimportAction() {
-    global $view, $errors;
+    global $view;
 
-	$id=intval($_REQUEST["$id"]);
-	if (!$id) not_found();
-	$campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
-	if (!$campaign) not_found();
+    $id=intval($_REQUEST["id"][0]);
+    if (!$id) not_found();
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
 
-	// get the file. We do notwant to save it, so tmp ones are good.
-	if (!$_FILES["file"]["error"]) not_found();
-	$filename="/csv/".$view["campaign"]["slug"].".csv";
-	if (move_uploaded_files($_FILES["file"]["tmp_name"], $filename) != True ) not_found();
+    // get the file. 
+    if ($_FILES["file"]["error"] != 0 ) not_found();
+    $filename="/home/okhin/pp/campaign/csv/".$campaign["slug"].".csv";
+    if (!move_uploaded_file($_FILES["file"]["tmp_name"], $filename)) not_found();
 	
-	// Before going further, we want to trash the existing campaign
-	mq("DELETE FROM lists WHERE campaign=$id;");
-	// parse everything
+    // Before going further, we want to trash the existing campaign
+    mq("DELETE FROM lists WHERE campaign=$id;");
+    // parse everything
     if (($file = fopen("$filename","r")) == False) not_found();
-	$errors=array();
-    $line_number=0
+    $errors=array();
+    $line_number=0;
 
-	foreach (fgetcsv($file, '2000', ';', '"', '\\') as $csv) {
-	  // The data in the CSV are the mandatory field for the list table,in this order:
-	  // "name";"url";"phone number";"country code";"score"
-	  if (count($csv) < 5) {
-	    $errors[$line_number] = "$csv";
-		continue;
+    while (($csv = fgetcsv($file)) == True) {
+      // The data in the CSV are the mandatory field for the list table,in this order:
+      // "name";"url";"phone number";"country code";"score"
+      var_dump($csv);
+      if (count($csv) < 5) {
+        $errors[$line_number] = "$csv";
+	continue;
       }
 
-	  $name=$csv[0];
-	  $url=$csv[1];
-	  $phone=$csv[2];
-	  $country=$csv[3];
-	  $score=$csv[4];
-	  $line_number++;
+      $name=$csv[0];
+      $url=$csv[1];
+      $phone=$csv[2];
+      $country=$csv[3];
+      $score=$csv[4];
+      $line_number++;
 
       // Validation
 	  // TODO
 
 	  // INSERT
-	  mq("INSERT INTO lists SET
-	    campaign='$id',
-		name='$name',
-		url='$url',
-		phone='$phone',
-		scores='$score',
-		pond_scores='$score',
-		country='$country',
-		callcount=0, enabled=1
-		;"
+      mq("INSERT INTO lists SET
+        campaign='$id',
+	name='$name',
+	url='$url',
+	phone='$phone',
+	scores='$score',
+	pond_scores='$score',
+	country='$country',
+	callcount=0, enabled=1
+	;"
       );
-	}
+    }
+    fclose($file);
     $view["title"] = "Import status for campaign " . $campaign["name"];
-	$view["campaign"] = $campaign;
-	$view["lines"] = $line_number;
-    render("adminlistimported");
+    $view["campaign"] = $campaign;
+    $view["lines"] = $line_number;
+    $view["errors"] = $errors;
+    //render("adminlistimported");
   }
 
   /* ************************************************************************ */
