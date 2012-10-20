@@ -212,7 +212,8 @@ class campaignController extends abstractController {
       exit();
     }
     // Now, we need a mep
-    $view["callee"]=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 ORDER BY callcount ASC, RAND();");
+    $mep_id=$this->_getRandomMep($view["campaign"]["id"]);
+    $view["callee"]=mqone("SELECT * FROM lists WHERE campaign='".$view["campaign"]["id"]."' AND lists.enabled=1 AND lists.id='".$mep_id."';");
     render("campaignwidget2");
     exit();
    }
