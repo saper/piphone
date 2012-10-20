@@ -108,9 +108,9 @@ class adminController extends abstractController {
       if ($list[$cid]!=$action) {
 	mq("UPDATE lists SET enabled='$action' WHERE campaign=$id AND id='$cid';");
 	if ($action) { 
-	  $view["message"].="$cid enabled. ";
+	  $view["messages"].="$cid enabled. ";
 	} else {
-	  $view["message"].="$cid disabled. ";
+	  $view["messages"].="$cid disabled. ";
 	}
       }
     }
@@ -120,7 +120,7 @@ class adminController extends abstractController {
         if ($pscore > 100) $pscore = 100;
         if ($pscore < 0) $pscore = 0;
         mq("UPDATE lists SET pond_scores='$pscore' WHERE campaign=$id AND id='$cid';");
-        $view["message"].="$cid score is $pscore. ";
+        $view["messages"].="$cid score is $pscore. ";
       }
     }
 
