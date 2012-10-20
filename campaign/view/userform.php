@@ -19,6 +19,9 @@
 <tr><th><label for="email">Email</label></th></tr>
 <tr><td><input size="60" type="text" id="email" name="email" value="<?php eher($view["user"]["email"]); ?>" /></td></tr>
 
+<?php
+  check_user_identity();
+  if (is_admin()) { ?>
 <tr><th><label for="enabled">Enabled ?</label>
   <input type="checkbox" id="enabled" name="enabled"<?php checked($view["user"]["enabled"]); ?> value="1" />
 </th></tr>
@@ -26,7 +29,7 @@
 <tr><th><label for="admin">Admin ?</label>
   <input type="checkbox" id="admin" name="admin"<?php checked($view["user"]["admin"]); ?> value="1" />
 </th></tr>
-
+<?php } ?>
 
 </table>
 

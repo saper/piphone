@@ -2,7 +2,7 @@
 
 class userController extends abstractController {
 
-  private _protected() {
+  private function _protected() {
     check_user_identity();
     if (!is_admin()) {
       error("Permission Denied on userController");
@@ -20,7 +20,7 @@ class userController extends abstractController {
   /* ************************************************************************ */
   /** Get the list of user accounts */
   function indexAction() {
-    _protected();
+    $this->_protected();
     global $view;
     $view["user"]=mqlist("SELECT user.* FROM user ORDER BY user.login;");
     render("userlist");
@@ -38,7 +38,7 @@ class userController extends abstractController {
   /* ************************************************************************ */
   /** Show the form to edit an existing user account */
   function editAction() {
-    _protected();
+    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -116,7 +116,7 @@ class userController extends abstractController {
   /* ************************************************************************ */
   /** Show the form to confirm when deleting a user */
   function delAction() {
-    _protected();
+    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -131,7 +131,7 @@ class userController extends abstractController {
   /* ************************************************************************ */
   /** Receive a POST to del a user account */
   function dodelAction() {
-    _protected();
+    $this->_protected();
     global $view;
     $id=intval($_REQUEST["id"]);
     $user=mqone("SELECT * FROM user WHERE id=$id;");
@@ -144,7 +144,7 @@ class userController extends abstractController {
   /* ************************************************************************ */
   /** Receive a URL to disable a user account */
   function disableAction() {
-    _protected();
+    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -158,7 +158,7 @@ class userController extends abstractController {
   /* ************************************************************************ */
   /** Receive a URL to enable a user account */
   function enableAction() {
-    _protected();
+    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
