@@ -58,7 +58,7 @@ if (isset($_REQUEST["country"])) {$view["country"]=$_REQUEST["country"];}
 $us=@unserialize($view["callee"]["meta"]);
 ?>
 <div id="mep">
-  <p class="left"><img src="/static/pics/<?php echo $us["picurl"]; ?>" alt="mep"></p>
+  <p class="left"><img src="<?php echo $us["picurl"]; ?>" alt="mep"></p>
   <div class="right">
    <p id="name"><?php echo $view["callee"]["name"]; ?></p>
       <ul id="resume">

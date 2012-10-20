@@ -179,16 +179,17 @@ class adminController extends abstractController {
 
 	  $mep["stb"] = $parl_mep["Addresses"]["Strasbourg"]["Phone"];
 	  $mep["bxl"] = $parl_mep["Addresses"]["Strasbourg"]["Phone"];
-	  $mep["group"] = $parl_mep["Groups"]["groupid"];
+	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
 	  $mep["name"] = $parl_mep["Name"]["full"];
 	  $mep["url"] = $parl_mep["Homepage"];
-	  $mep["country"] = $parl_mep["Constituencies"]["country"];
-	  $mep["party"] = $parl_mep["Constituencies"]["party"];
+	  $mep["country"] = strtoupper(substr($parl_mep["Constituencies"][0]["country"],0,2));
+	  $mep["party"] = $parl_mep["Constituencies"][0]["party"];
 	  foreach ($parl_mep["Committees"]["abbr"] as $committee){
 	    $mep["committee"][] = $committee;
 	  }
+          $mep["picurl"] = $parl_track["Photo"];
 
-	  $var_dump($mep);
+	  //var_dump($mep);
 	  $meta=@serialize($mep);
 	  fclose($parltrack);
 
@@ -205,7 +206,6 @@ class adminController extends abstractController {
 	callcount=0, enabled=1
 	;"
       );
-
 
     }
     fclose($file);
