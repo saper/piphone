@@ -16,7 +16,7 @@
   <th>Number</th>
   <th>CallCount</th>
   <th>Imported Score</th>
-  <th>POnderated Score</th>
+  <th>Ponderated Score</th>
 </tr>
    <?php foreach($view["list"] as $callee) { 
 
