@@ -117,7 +117,9 @@ class adminController extends abstractController {
     foreach($_REQUEST["score"] as $cid=>$pscore) {
       $cid=intval($cid); $pscore=intval($pscore);
       if ($score[$cid]!=$pscore) {
-        mq("UPDATE lists SET pond_score='$pscore' WHERE campaign=$id AND id='$cid';");
+        if ($pscore > 100) $pscore = 100;
+        if ($pscore < 0) $pscore = 0;
+        mq("UPDATE lists SET pond_scores='$pscore' WHERE campaign=$id AND id='$cid';");
         $view["message"].="$cid score is $pscore. ";
       }
     }
@@ -178,7 +180,7 @@ class adminController extends abstractController {
       );
     }
     fclose($file);
-    $view["messages"] .= "Imported $line_number lines from file."
+    $view["messages"] .= "Imported $line_number lines from file.";
     $this->indexAction();
   }
 

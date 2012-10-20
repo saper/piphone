@@ -22,7 +22,7 @@
 $us=unserialize($callee["meta"]);
 ?>
 <tr>
-<td><input type="checkbox" name="callee[<?php echo $callee["id"]; ?>]" value="1" id="callee<?php echo $callee["id"]; ?>_1"<?php checked($callee["enabled"]); ?> /></td>
+<td><input type="checkbox" name="callee[<?php echo $callee["id"]; ?>]" value="<?php echo$callee["enable"]; ?>" id="callee<?php echo $callee["id"]; ?>_1" /></td>
    <td><?php echo $callee["name"]; ?></td>
    <td><?php echo $callee["country"]; ?></td>
    <td><?php echo $us["group"]; ?></td>
