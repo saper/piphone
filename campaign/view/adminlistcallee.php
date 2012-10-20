@@ -8,8 +8,7 @@
 <input type="hidden" id="id" name="id" value="<?php eher($view["campaign"]["id"]); ?>" />
 <table class="list sortable">
 <tr>
-  <th>Enabled</th>
-  <th>Disabled</th>
+  <th>Enabled ?</th>
   <th>Name</th>
   <th>Country</th>
   <th>Group</th>
@@ -23,15 +22,14 @@
 $us=unserialize($callee["meta"]);
 ?>
 <tr>
-<td><input type="radio" name="callee[<?php echo $callee["id"]; ?>]" value="1" id="callee<?php echo $callee["id"]; ?>_1"<?php checked($callee["enabled"]); ?> /><label class="radio" for="callee<?php echo $callee["id"]; ?>_1">Enabled</label></td>
-<td><input type="radio" name="callee[<?php echo $callee["id"]; ?>]" value="0" id="callee<?php echo $callee["id"]; ?>_0"<?php checked(!$callee["enabled"]); ?> /><label class="radio" for="callee<?php echo $callee["id"]; ?>_0">Disable</label></td>
+<td><input type="checkbox" name="callee[<?php echo $callee["id"]; ?>]" value="1" id="callee<?php echo $callee["id"]; ?>_1" <?php if ($callee["enabled"] == 1) { ?> checked="1" <?php } ?>/></td>
    <td><?php echo $callee["name"]; ?></td>
    <td><?php echo $callee["country"]; ?></td>
    <td><?php echo $us["group"]; ?></td>
    <td><?php echo $callee["phone"]; ?></td>
    <td><?php echo $callee["callcount"]; ?></td>
    <td><?php echo $callee["scores"]; ?></td>
-   <td><?php echo $callee["pond_scores"]; ?></td>
+   <td><input type="text" name="score[<?php echo $callee["id"]; ?>]" value="<?php echo $callee["pond_scores"]; ?>" /></td>
 </tr>
  <?php } ?>
 

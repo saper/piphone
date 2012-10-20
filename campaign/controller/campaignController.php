@@ -53,7 +53,13 @@ class campaignController extends abstractController {
 	 * We will ponderate the scores with the number of call received divided
 	 * by the total number of call related to the campaign.
 	 */
-    $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."';");
+    if ($_REQUEST["country"]) $country=$_REQUEST["country"];
+    if (isset($country)) {
+        $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."' AND country='$country';");
+    } else {
+        $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."';");
+    }
+
     $threshold=mt_rand(1,$high_score);
     if ($high_score == 0) $threshold = 0;
 

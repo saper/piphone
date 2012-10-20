@@ -204,6 +204,7 @@ function error($str) {
 function not_found() {
   header("HTTP/1.0 404 Not Found");
   echo "<h1>"._("Page Not Found")."</h1>\n<p>"._("The requested page has not been found or an error happened. Please check")."</p>\n";
+  print_r($_REQUEST);
   exit(); 
 }
 
