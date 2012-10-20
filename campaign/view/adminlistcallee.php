@@ -15,6 +15,8 @@
   <th>Group</th>
   <th>Number</th>
   <th>CallCount</th>
+  <th>Imported Score</th>
+  <th>POnderated Score</th>
 </tr>
    <?php foreach($view["list"] as $callee) { 
 
@@ -28,6 +30,8 @@ $us=unserialize($callee["meta"]);
    <td><?php echo $us["group"]; ?></td>
    <td><?php echo $callee["phone"]; ?></td>
    <td><?php echo $callee["callcount"]; ?></td>
+   <td><?php echo $callee["scores"]; ?></td>
+   <td><?php echo $callee["pond_scores"]; ?></td>
 </tr>
  <?php } ?>
 
