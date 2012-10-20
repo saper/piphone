@@ -100,6 +100,7 @@ class adminController extends abstractController {
       if (!$old) not_found();
     }
     $list=mqassoc("SELECT id,enabled FROM lists WHERE campaign=$id;");
+    $score=mqassoc("SELECT id,pond_scores FROM lists WHERE campaign=$id;");
     
     // Validate the fields : 
     foreach($_REQUEST["callee"] as $cid=>$action) {
@@ -111,6 +112,13 @@ class adminController extends abstractController {
 	} else {
 	  $view["message"].="$cid disabled. ";
 	}
+      }
+    }
+    foreach($_REQUEST["score"] as $cid=>$pscore) {
+      $cid=intval($cid); $pscore=intval($pscore);
+      if ($score[$cid]!=$pscore) {
+        mq("UPDATE lists SET pond_score='$pscore' WHERE campaign=$id AND id='$cid';");
+        $view["message"].="$cid score is $pscore. ";
       }
     }
 
@@ -136,15 +144,13 @@ class adminController extends abstractController {
     mq("DELETE FROM lists WHERE campaign=$id;");
     // parse everything
     if (($file = fopen("$filename","r")) == False) not_found();
-    $errors=array();
     $line_number=0;
 
-    while (($csv = fgetcsv($file)) == True) {
+    while (($csv = fgetcsv($file,0,';')) == True) {
       // The data in the CSV are the mandatory field for the list table,in this order:
       // "name";"url";"phone number";"country code";"score"
-      var_dump($csv);
       if (count($csv) < 5) {
-        $errors[$line_number] = "$csv";
+        $view["messages"] .= "Error on line $line_number: $csv. ";
 	continue;
       }
 
@@ -172,11 +178,8 @@ class adminController extends abstractController {
       );
     }
     fclose($file);
-    $view["title"] = "Import status for campaign " . $campaign["name"];
-    $view["campaign"] = $campaign;
-    $view["lines"] = $line_number;
-    $view["errors"] = $errors;
-    //render("adminlistimported");
+    $view["messages"] .= "Imported $line_number lines from file."
+    $this->indexAction();
   }
 
   /* ************************************************************************ */
