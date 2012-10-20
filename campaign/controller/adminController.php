@@ -3,6 +3,18 @@
 class adminController extends abstractController {
 
 
+  private $countryCodes = array(
+     "Austria" => "AU",     "Belgium" => "BE",     "Chyprus" => "CY",
+     "Czech" => "CZ" ,     "Denmark" => "DK",     "Estonia" => "EE",
+     "Finland" => "FI",      "France" => "FR",     "Germany" => "DE",
+     "Greece" => "GR",     "Hungary" => "HU",     "Ireland" => "IE",
+     "Italy" => "IT",     "Latvia" => "LV",     "Lithuania" => "LT",
+     "Luxembourg" => "LU",     "Malta" => "MT",     "Netherlands" => "NL",
+     "Poland" => "PL",     "Portugal" => "PT",     "Slovakia" => "SK",
+     "Slovenia" => "SI",     "Spain" => "SP",     "Sweden" => "SE",
+     "United Kingdom" => "UK",
+                                     );
+
   /* ************************************************************************ */
   /** This entire controller requires the RIGHT_USER
    __constructor : 
@@ -177,19 +189,18 @@ class adminController extends abstractController {
 	    $mep["mail"][] = $mail;
 	  }
 
-	  $mep["stb"] = $parl_mep["Addresses"]["Strasbourg"]["Phone"];
-	  $mep["bxl"] = $parl_mep["Addresses"]["Strasbourg"]["Phone"];
+	  $mep["stb"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
+	  $mep["bxl"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
 	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
 	  $mep["name"] = $parl_mep["Name"]["full"];
 	  $mep["url"] = $parl_mep["Homepage"];
-	  $mep["country"] = strtoupper(substr($parl_mep["Constituencies"][0]["country"],0,2));
+	  $mep["country"] = $this->countryCodes[$parl_mep["Constituencies"][0]["country"]];
 	  $mep["party"] = $parl_mep["Constituencies"][0]["party"];
-	  foreach ($parl_mep["Committees"]["abbr"] as $committee){
-	    $mep["committee"][] = $committee;
+	  foreach ($parl_mep["Committees"] as $committee){
+	    $mep["committee"][] = $committee["abbr"];
 	  }
-          $mep["picurl"] = $parl_track["Photo"];
+          $mep["picurl"] = $parl_mep["Photo"];
 
-	  //var_dump($mep);
 	  $meta=@serialize($mep);
 	  fclose($parltrack);
 
@@ -201,7 +212,7 @@ class adminController extends abstractController {
 	phone='$phone',
 	scores='$score',
 	pond_scores='$score',
-	country='$country',
+	country='".$mep["country"]."',
 	meta='$meta',
 	callcount=0, enabled=1
 	;"
