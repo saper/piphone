@@ -166,6 +166,32 @@ class adminController extends abstractController {
       // Validation
 	  // TODO
 
+	  // Parse the parltrack URL
+	  $parltrack=fopen("$url","r");
+      while (($line = fgets($parltrack)) !== False) {
+	    $json .= $line;
+	  }
+
+	  $parl_mep=json_decode($json, true);
+	  foreach ($parl_mep["Mail"] as $mail) {
+	    $mep["mail"][] = $mail;
+	  }
+
+	  $mep["stb"] = $parl_mep["Addresses"]["Strasbourg"]["Phone"];
+	  $mep["bxl"] = $parl_mep["Addresses"]["Strasbourg"]["Phone"];
+	  $mep["group"] = $parl_mep["Groups"]["groupid"];
+	  $mep["name"] = $parl_mep["Name"]["full"];
+	  $mep["url"] = $parl_mep["Homepage"];
+	  $mep["country"] = $parl_mep["Constituencies"]["country"];
+	  $mep["party"] = $parl_mep["Constituencies"]["party"];
+	  foreach ($parl_mep["Committees"]["abbr"] as $committee){
+	    $mep["committee"][] = $committee;
+	  }
+
+	  $var_dump($mep);
+	  $meta=@serialize($mep);
+	  fclose($parltrack);
+
 	  // INSERT
       mq("INSERT INTO lists SET
         campaign='$id',
@@ -175,9 +201,12 @@ class adminController extends abstractController {
 	scores='$score',
 	pond_scores='$score',
 	country='$country',
+	meta='$meta',
 	callcount=0, enabled=1
 	;"
       );
+
+
     }
     fclose($file);
     $view["messages"] .= "Imported $line_number lines from file.";
