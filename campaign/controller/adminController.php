@@ -3,17 +3,6 @@
 class adminController extends abstractController {
 
 
-  private $countryCodes = array(
-     "Austria" => "AU",     "Belgium" => "BE",     "Chyprus" => "CY",
-     "Czech" => "CZ" ,     "Denmark" => "DK",     "Estonia" => "EE",
-     "Finland" => "FI",      "France" => "FR",     "Germany" => "DE",
-     "Greece" => "GR",     "Hungary" => "HU",     "Ireland" => "IE",
-     "Italy" => "IT",     "Latvia" => "LV",     "Lithuania" => "LT",
-     "Luxembourg" => "LU",     "Malta" => "MT",     "Netherlands" => "NL",
-     "Poland" => "PL",     "Portugal" => "PT",     "Slovakia" => "SK",
-     "Slovenia" => "SI",     "Spain" => "SP",     "Sweden" => "SE",
-     "United Kingdom" => "UK",
-                                     );
 
   /* ************************************************************************ */
   /** This entire controller requires the RIGHT_USER
@@ -193,7 +182,7 @@ class adminController extends abstractController {
 	phone='$phone',
 	scores='$score',
 	pond_scores='$score',
-	country='".$mep["country"]."',
+	country='$country',
 	meta='$meta',
 	callcount=0, enabled=1
 	;"

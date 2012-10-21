@@ -11,6 +11,18 @@ if (count($view["campaign"])==1) {
 
 
 <?php
+if (empty($view['campain'])){
+  header('Location: http://demo.piphone.eu');
+  exit;
+}
+if (count($view['campain'])<2){
+  $c = array_shift($view['campain']);
+  $url = '/campaign/call2/'. $c["slug"]; 
+  header('Location: '.$url);
+  exit;
+}
+
+
 if (count($view["campaign"])) {
 ?>
 <h3><?php __("Campaign's list"); ?></h2>
@@ -18,8 +30,6 @@ if (count($view["campaign"])) {
 <?php show_messages(); ?>
 
    <?php 
-
-
    $row="odd";
 foreach($view["campaign"] as $c) { 
 if ($row=="odd") $row="even"; else $row="odd";
