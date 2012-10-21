@@ -256,5 +256,35 @@ function is_admin() {
   return ($GLOBALS["me"]["admin"]!=0);
 }
 
+/* ************************************************************ */
+/** Here be parsers for meta. All those functiosn return an array */
+/** that is then serialized and used later to populate the person */
+/** frame. it takes an URL as an argument */
+function _parseparltrack($url) {
+	  // Parse the parltrack URL
+	  if (($parltrack=fopen("$url","r")) !== True) return null;
+      while (($line = fgets($parltrack)) !== False) {
+	    $json .= $line;
+	  }
 
+	  $parl_mep=json_decode($json, true);
+	  foreach ($parl_mep["Mail"] as $mail) {
+	    $mep["mail"][] = $mail;
+	  }
 
+	  $mep["stb"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
+	  $mep["bxl"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
+	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
+	  $mep["name"] = $parl_mep["Name"]["full"];
+	  $mep["url"] = $parl_mep["Homepage"];
+	  $mep["country"] = $this->countryCodes[$parl_mep["Constituencies"][0]["country"]];
+	  $mep["party"] = $parl_mep["Constituencies"][0]["party"];
+	  foreach ($parl_mep["Committees"] as $committee){
+	    $mep["committee"][] = $committee["abbr"];
+	  }
+          $mep["picurl"] = $parl_mep["Photo"];
+
+	  $meta=@serialize($mep);
+	  fclose($parltrack);
+	  return $mep;
+}_
