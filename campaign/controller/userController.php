@@ -2,29 +2,28 @@
 
 class userController extends abstractController {
 
-  private function _protected() {
-    check_user_identity();
-    if (!is_admin()) {
-      error("Permission Denied on userController");
-      not_found();
-    }
-  }
 
   /* ************************************************************************ */
   /** This entire controller requires the RIGHT_USER
    __constructor : 
   */
   function userController() {
+    check_user_identity();
+    if (!is_admin()) {
+      error("Permission Denied on userController");
+      not_found();
+    }
   }
+  
 
   /* ************************************************************************ */
   /** Get the list of user accounts */
   function indexAction() {
-    $this->_protected();
     global $view;
     $view["user"]=mqlist("SELECT user.* FROM user ORDER BY user.login;");
     render("userlist");
   }
+
 
   /* ************************************************************************ */
   /** Show the form to add a new user account */
@@ -35,10 +34,10 @@ class userController extends abstractController {
     render("userform");
   }
 
+
   /* ************************************************************************ */
   /** Show the form to edit an existing user account */
   function editAction() {
-    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -52,6 +51,7 @@ class userController extends abstractController {
     unset($view["user"]["pass"]);
     render("userform");
   }
+  
 
   /* ************************************************************************ */
   /** Receive a POST to add or edit a user account */
@@ -100,6 +100,7 @@ class userController extends abstractController {
     $this->indexAction();
   } // doAction
 
+
   // Go back to the form, having the right params : 
   private function _cancelform($id,$login="") {
     global $view;
@@ -113,10 +114,10 @@ class userController extends abstractController {
     render("userform");
   }
 
+
   /* ************************************************************************ */
   /** Show the form to confirm when deleting a user */
   function delAction() {
-    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -128,10 +129,10 @@ class userController extends abstractController {
     render("userdel");
   }
 
+
   /* ************************************************************************ */
   /** Receive a POST to del a user account */
   function dodelAction() {
-    $this->_protected();
     global $view;
     $id=intval($_REQUEST["id"]);
     $user=mqone("SELECT * FROM user WHERE id=$id;");
@@ -141,10 +142,13 @@ class userController extends abstractController {
     $this->indexAction();
   } // dodelAction
 
+
+
+
+
   /* ************************************************************************ */
   /** Receive a URL to disable a user account */
   function disableAction() {
-    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -155,10 +159,10 @@ class userController extends abstractController {
     $this->indexAction();
   }
 
+
   /* ************************************************************************ */
   /** Receive a URL to enable a user account */
   function enableAction() {
-    $this->_protected();
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
@@ -168,4 +172,7 @@ class userController extends abstractController {
     $view["message"]="The user has been enabled successfully";
     $this->indexAction();
   }
+
+
 }
+

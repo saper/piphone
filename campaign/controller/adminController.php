@@ -3,17 +3,6 @@
 class adminController extends abstractController {
 
 
-  private $countryCodes = array(
-     "Austria" => "AU",     "Belgium" => "BE",     "Chyprus" => "CY",
-     "Czech" => "CZ" ,     "Denmark" => "DK",     "Estonia" => "EE",
-     "Finland" => "FI",      "France" => "FR",     "Germany" => "DE",
-     "Greece" => "GR",     "Hungary" => "HU",     "Ireland" => "IE",
-     "Italy" => "IT",     "Latvia" => "LV",     "Lithuania" => "LT",
-     "Luxembourg" => "LU",     "Malta" => "MT",     "Netherlands" => "NL",
-     "Poland" => "PL",     "Portugal" => "PT",     "Slovakia" => "SK",
-     "Slovenia" => "SI",     "Spain" => "SP",     "Sweden" => "SE",
-     "United Kingdom" => "UK",
-                                     );
 
   /* ************************************************************************ */
   /** This entire controller requires the RIGHT_USER
@@ -164,7 +153,7 @@ class adminController extends abstractController {
       // The data in the CSV are the mandatory field for the list table,in this order:
       // "name";"url";"phone number";"country code";"score"
       if (count($csv) < 5) {
-        $view["messages"] .= "Error on line $line_number: $csv. ";
+        $view["warning"] .= "Error on line $line_number: $csv. ";
 	continue;
       }
 
@@ -178,32 +167,13 @@ class adminController extends abstractController {
       // Validation
 	  // TODO
 
-	  // Parse the parltrack URL
-	  $parltrack=fopen("$url","r");
-      while (($line = fgets($parltrack)) !== False) {
-	    $json .= $line;
+	  switch ($_REQUEST["meta_engine"]) {
+	    case "parltrack":
+		    $meta = _parseParltrack($url);
+			break;
 	  }
 
-	  $parl_mep=json_decode($json, true);
-	  foreach ($parl_mep["Mail"] as $mail) {
-	    $mep["mail"][] = $mail;
-	  }
-
-	  $mep["stb"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
-	  $mep["bxl"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
-	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
-	  $mep["name"] = $parl_mep["Name"]["full"];
-	  $mep["url"] = $parl_mep["Homepage"];
-	  $mep["country"] = $this->countryCodes[$parl_mep["Constituencies"][0]["country"]];
-	  $mep["party"] = $parl_mep["Constituencies"][0]["party"];
-	  foreach ($parl_mep["Committees"] as $committee){
-	    $mep["committee"][] = $committee["abbr"];
-	  }
-          $mep["picurl"] = $parl_mep["Photo"];
-
-	  $meta=@serialize($mep);
-	  fclose($parltrack);
-
+	  if ($meta == null) $view["warning"] .= "$url does not look like a " . $_REQUEST["meta_engine"] . " one";
 	  // INSERT
       mq("INSERT INTO lists SET
         campaign='$id',
@@ -212,7 +182,7 @@ class adminController extends abstractController {
 	phone='$phone',
 	scores='$score',
 	pond_scores='$score',
-	country='".$mep["country"]."',
+	country='$country',
 	meta='$meta',
 	callcount=0, enabled=1
 	;"
