@@ -201,6 +201,25 @@ class campaignController extends abstractController {
   }
 
   /**********************************************************
+   * Hall of fame per campaign
+   */
+  function hof2Action() {
+    global $view,$params;
+    if (!isset($params[0])) not_found();
+    $slug=addslashes(trim($params[0]));
+
+    $view["campaign"]=$this->_getCampaign($slug); // Exit in case of error
+    $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
+    $view["lang"]=substr($GLOBALS["lang"],0,2);
+
+	// Get the 10 best scores
+	$hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedack IS NOT null AND calls.uuid > 0 AND calls.uuid = user.id AND calls.campaign = ".$view["campaign"]["id"]." ORDER BY score LIMIT 10;");
+    $view["hof"] $ $hof;
+
+	render("campaignhof2");
+  }
+
+  /**********************************************************
    * Fancy widget are fancies
    */
 
