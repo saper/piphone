@@ -14,7 +14,7 @@ if ($view["campaign"]["name-".$view["lang"]]) {
    <thead><tr>
    <th>#</th>
    <th>Name</th>
-   <th>Scoe</th>
+   <th>Score</th>
    </tr></thead>
 
    <tbody>
@@ -27,7 +27,7 @@ if ($view["campaign"]["name-".$view["lang"]]) {
 	 <tr class="<?php echo $row; ?> user enabled">
 	   <td class="id"><?php echo $rank; ?></td>
 	   <td class="name"><?php echo $entry[0]; ?></td>
-	   <td class="calls"><?php echo $entry10]; ?></td>
+	   <td class="calls"><?php echo $entry[1]; ?></td>
 	 </tr>
 	 <?php $rank++;
 	 }

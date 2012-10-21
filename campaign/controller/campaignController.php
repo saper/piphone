@@ -213,8 +213,8 @@ class campaignController extends abstractController {
     $view["lang"]=substr($GLOBALS["lang"],0,2);
 
 	// Get the 10 best scores
-	$hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedack IS NOT null AND calls.uuid > 0 AND calls.uuid = user.id AND calls.campaign = ".$view["campaign"]["id"]." ORDER BY score LIMIT 10;");
-    $view["hof"] $ $hof;
+	$hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uuid = user.id AND calls.campaign = ".$view["campaign"]["id"]." ORDER BY score LIMIT 10;");
+    $view["hof"] = $hof;
 
 	render("campaignhof2");
   }
