@@ -35,6 +35,15 @@
 <div class="left" style="float: left;">
    [<a href="?setlang=en">English</a>|
    <a href="?setlang=fr">Français</a>]
+   |<?php
+      if (isset($_SERVER['PHP_AUTH_USER'])) {
+        $GLOBALS["me"] = mqone("SELECT * FROM user WHERE login='".mquote($_SERVER['PHP_AUTH_USER'])."' AND pass=PASSWORD('".mquote($_SERVER['PHP_AUTH_PW'])."') AND enabled=1;");
+        ?><span> [Hello <b><?php echo $GLOBALS["me"]["login"]; ?></b>!][<a href="http://anonymouss@<?php echo $_SERVER["SERVER_NAME"]; ?>">Logout</a>]</span>
+     <?php
+     } else {
+        ?>[<a href="/login/auth/">Login</a> or <a href="/login/register/">Register</a> or stay anonymous.]
+     <?php } ?>
+         
 </div>
 
 <div style="float: right;" id="logo">

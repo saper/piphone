@@ -33,5 +33,8 @@ if ($view["campaign"]["name-".$view["lang"]]) {
 	 }
 	 ?>
   </table>
+  <h3>Can't find yourself in here? </h3><h4>Raise your score and make yourself heard!</h4>
+  <p class="button"><a href="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a></p>
+  </p>
 
 <?php require_once("foot.php"); ?>

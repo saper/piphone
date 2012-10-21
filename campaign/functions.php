@@ -208,9 +208,6 @@ function pager($offset,$count,$total,$url,$before="",$after="") {
   echo $after;
 }
 
-
-
-
 function error($str) { 
   echo "ERR: ".$str."\n"; 
 }
@@ -243,7 +240,6 @@ function render($viewname) {
   chdir($cur); 
 }
 
-
 function check_user_identity() {
   if (!isset($_SERVER['PHP_AUTH_USER'])) {
     header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
@@ -261,7 +257,6 @@ function check_user_identity() {
   }
   //  mq("UPDATE user SET lastlogin=NOW() WHERE id='".$GLOBALS["me"]["id"]."';");
 }
-
 
 /* ************************************************************ */
 /** Returns TRUE if the current user is an administrator
