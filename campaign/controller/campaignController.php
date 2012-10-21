@@ -205,7 +205,13 @@ class campaignController extends abstractController {
    */
   function hof2Action() {
     global $view,$params;
-    if (!isset($params[0])) not_found();
+    if (!isset($params[0])) {
+      // All star hall of fame
+      $hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uuid = user.id ORDER BY score LIMIT 10;");
+      $view["hof"] = $hof;
+
+      render("campaignhof2");
+    } else {  
     $slug=addslashes(trim($params[0]));
 
     $view["campaign"]=$this->_getCampaign($slug); // Exit in case of error
@@ -214,9 +220,10 @@ class campaignController extends abstractController {
 
 	// Get the 10 best scores
 	$hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uuid = user.id AND calls.campaign = ".$view["campaign"]["id"]." ORDER BY score LIMIT 10;");
-    $view["hof"] = $hof;
+        $view["hof"] = $hof;
 
 	render("campaignhof2");
+    }
   }
 
   /**********************************************************

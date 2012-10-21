@@ -1,4 +1,5 @@
 <?php require_once("head.php"); ?>
+<?php if (isset($view["campaign"])) { ?>
 <h3>Hall of Fame for campaign <?php
 if ($view["campaign"]["name-".$view["lang"]]) {
   echo $view["campaign"]["name-".$view["lang"]];
@@ -6,6 +7,9 @@ if ($view["campaign"]["name-".$view["lang"]]) {
   echo $view["campaign"]["name"];
 }
 ?></h3>
+<? } else { ?>
+<h3> All star Hall of fame </h3>
+<?php } ?>
 
 <?php show_messages(); ?>
 
@@ -33,8 +37,10 @@ if ($view["campaign"]["name-".$view["lang"]]) {
 	 }
 	 ?>
   </table>
+  <?php if(isset($view["campaign"])) { ?>
   <h3>Can't find yourself in here? </h3><h4>Raise your score and make yourself heard!</h4>
   <p class="button"><a href="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a></p>
+  <?php } ?>
   </p>
 
 <?php require_once("foot.php"); ?>

@@ -1,3 +1,4 @@
+<p class=button><a class=blue href="/campaign/hof2/">All star Hall of Fame</a></p>
 
 </div>
         <div style="clear:both;"></div>
