@@ -11,11 +11,11 @@ if (count($view["campaign"])==1) {
 
 
 <?php
-if (empty($view['campain'])){
+if (empty($view['campaign'])){
   header('Location: http://demo.piphone.eu');
   exit;
 }
-if (count($view['campain'])<2){
+if (count($view['campaign'])<2){
   $c = array_shift($view['campain']);
   $url = '/campaign/call2/'. $c["slug"]; 
   header('Location: '.$url);
