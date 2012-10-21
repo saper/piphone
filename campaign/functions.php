@@ -1,4 +1,18 @@
 <?php
+function countryCodes($country) {
+  $countryCodes = array(
+     "Austria" => "AU",     "Belgium" => "BE",     "Chyprus" => "CY",
+     "Czech" => "CZ" ,     "Denmark" => "DK",     "Estonia" => "EE",
+     "Finland" => "FI",      "France" => "FR",     "Germany" => "DE",
+     "Greece" => "GR",     "Hungary" => "HU",     "Ireland" => "IE",
+     "Italy" => "IT",     "Latvia" => "LV",     "Lithuania" => "LT",
+     "Luxembourg" => "LU",     "Malta" => "MT",     "Netherlands" => "NL",
+     "Poland" => "PL",     "Portugal" => "PT",     "Slovakia" => "SK",
+     "Slovenia" => "SI",     "Spain" => "SP",     "Sweden" => "SE",
+     "United Kingdom" => "UK",
+  );
+  return $countryCodes[$country];
+}
 
 function show_messages() {
   global $view;
@@ -262,8 +276,9 @@ function is_admin() {
 /** frame. it takes an URL as an argument */
 function _parseparltrack($url) {
 	  // Parse the parltrack URL
-	  if (($parltrack=fopen("$url","r")) !== True) return null;
-      while (($line = fgets($parltrack)) !== False) {
+          $json = "";
+	  $parltrack = fopen("$url","r");
+          while (($line = fgets($parltrack)) !== False) {
 	    $json .= $line;
 	  }
 
@@ -277,14 +292,17 @@ function _parseparltrack($url) {
 	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
 	  $mep["name"] = $parl_mep["Name"]["full"];
 	  $mep["url"] = $parl_mep["Homepage"];
-	  $mep["country"] = $this->countryCodes[$parl_mep["Constituencies"][0]["country"]];
+	  $mep["country"] = countryCodes($parl_mep["Constituencies"][0]["country"]);
 	  $mep["party"] = $parl_mep["Constituencies"][0]["party"];
 	  foreach ($parl_mep["Committees"] as $committee){
 	    $mep["committee"][] = $committee["abbr"];
 	  }
           $mep["picurl"] = $parl_mep["Photo"];
 
+          //FIXME Green party is Verts in parltrack and Green in memopol
+          if (strcmp($mep["group"], "Verts/ALE") == 0) $mep["group"]="Greens/EFA";
+
 	  $meta=@serialize($mep);
 	  fclose($parltrack);
-	  return $mep;
-}_
+	  return $meta;
+}
