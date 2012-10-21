@@ -53,8 +53,8 @@ if ($c["name-".$view["lang"]]) {
 	?>
 	</p>
 	<p class="deadline"><?php echo $c["datestop"]; ?></p>
-	<p class="button"><a href="/campaign/call2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a></p>
-	<p class="button"><a href="/campaign/hof2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Hall of Fame"); ?></a></p>
+	<p class="button"><a href="/campaign/call2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a>
+	<a href="/campaign/hof2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Hall of Fame"); ?></a></p>
 </div>
 <?php
     }
