@@ -11,15 +11,15 @@ such as pasword or email adresses here.
 <!-- Display the user id, email and passwordon left, and the connection on right -->
 <div id="mep">
   <div class="left">
-   <form method="post" action="/login/update/<?php echo $view["login"]["id"]; ?>">
+   <form method="post" action="/login/update/">
      <h5>Account details</h5>
-	 <p><label for="login">Your username is: </label><input type="text" name="login" id="login" placeholder="<?php echo $view["login"]["login"]; ?>" /></p>
-     <p><label for="email">Your email address: </label><input type="text" name="email" id="email" placeholder="<?php echo $view["login"]["email"]; ?>" /></p>
+	 <p><label for="login">Your username is: </label><input type="text" name="login" id="login" placeholder="<?php echo $_SESSION["id"]["login"]; ?>" /></p>
+     <p><label for="email">Your email address: </label><input type="text" name="email" id="email" placeholder="<?php echo $_SESSION["id"]["email"]; ?>" /></p>
      <p class="button"><input type="submit" value="Update" class="green" /></p>
    </form>
  </div>
  <div class="right">
-   <form method="post" action="/login/pwchange/<?php echo $view["login"]["id"]; ?>">
+   <form method="post" action="/login/pwchange/">
      <h5>Authentification method</h5>
        <p class="caption">Classic HTTP auth using a password.</p>
 	   <p><label for="current_pw">Enter your current password: </label><input type="password" name="current_pw" id="current_pw" value="placeholder" /></p>
@@ -27,7 +27,7 @@ such as pasword or email adresses here.
 	   <p><label for="new_pw2">Re-enter your new password: </label><input type="password" name="new_pw2" id="new_pw2" value="placeholdes" /></p>
 	   <p class="button"><input type="submit" value="Change password" class="green" /></p>
     </form>
-       <p class="button"><a class="blue" href="/login/pwforget/<?php echo $view["login"]["id"]; ?>">I forget my password</a></p>
+       <p class="button"><a class="blue" href="/login/pwforget/">I forget my password</a></p>
   </div>
 </div>
 

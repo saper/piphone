@@ -2,6 +2,13 @@
 
 class loginController extends abstractController {
 
+  private function _getRandToken() {
+  {
+    while( @$c++ * 16 < '12' )
+        @$tmp .= md5( mt_rand(), true );
+    return substr( $tmp, 0, $length );
+  }
+
 // Go back to the form, having the right params : 
   private function _cancelform($id,$login="") {
     global $view;
@@ -30,8 +37,8 @@ class loginController extends abstractController {
     global $view;
     if (isset($_SESSION["id"])) {
       $view["login"]=mqlist("SELECT user.* FROM user WHERE user.login=".$_SESSION["id"]["login"].";");
-      $view["campaigns"]=mqlist("SELECT campaign.name, count(1) FROM campaign, calls WHERE calls.uuid=".$_SESSION["id"]["login"]." AND calls.campaign = campaign.id;");
-      $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uuid = ".$_SESSION["id"]["login"]. ";");
+      $view["campaigns"]=mqlist("SELECT campaign.name, count(1) FROM campaign, calls WHERE calls.uuid=".$_SESSION["id"]["id"]." AND calls.campaign = campaign.id;");
+      $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uuid = ".$_SESSION["id"]["id"]. ";");
       render("logindetail");
     } else {
       render("loginregister");
@@ -71,20 +78,57 @@ class loginController extends abstractController {
   /** Logout */
   function logoutAction() {
     global $view;
-    unset($_SESSION["id"]);
-    session_write_close();
-    header("Location: ".$_SERVER("HTTP_HOST")."/");
+    unset($_SESSION);
+    header("Location: /");
   }
 
   /* ************************************************************************ */
   /** Show the form to add a new login account */
-  function addAction() {
+  function registerAction() {
     global $view;
     $view["title"]="Create an account for the piphone";
     $view["actionname"]="Create this account";
     render("loginform");
   }
 
+  function checkAction() {
+    global $view;
+    $email=$_REQUEST["email"];
+    $password=$_REQUEST["password"];
+    $password2=$_REQUEST["password2"];
+
+    $exist=mqone("SELECT login FROM user WHERE login='".$_REQUEST["login"]."';");
+    if ($exist) { $view["login"] = $_REQUEST["login"]; $invalid=True; }
+
+    $valid=filter_var($_REQUEST["email"], FILTER_VALIDATE_EMAIL);
+    if (!$valid) {$view["email"] = $_REQUEST["email"]; $invalid=True; }
+
+    if (!strcmp($_REQUEST["password"], $_REQUEST["password2"])) { $view["password"] = "1"; $invalid=True; }
+
+    if (isset($invalid)) { render("loginform"); exit(); }
+
+    $token=_getRandToken();
+    mq("INSERT INTO user ('login','pass','email','enabled','admin','token') 
+        VALUES ('".$_REQUEST["login"]."','".$_REQUEST["password"]."','".$_REQUEST["email"]."','0','0','$token');");
+    $id = mqone("SELECT id FROM user WHERE login = '" . $_REQUEST["login"] . "';");
+    $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/$id/$token/";
+
+    // Prepare a validation email
+    $to = $_REQUEST["email"];
+    $subject = "Ohai ".$_REQUEST["login"].", welcome to the piphone.";
+    $headers = "From: piphone@lqdn.fr\n" . "Reply-To: no-reply@lqdn.fr\n". "X-Mailer: PHP/" . phpversion();
+    $message = "Ohai,\n"
+       . "\n"
+       . "You have requested an account on the piphone. You just need to open the following link in your browser.\n"
+       . "\t\t<a href=\"$url\">$url</a>\n"
+       . "\n"
+       . "If you have not required such account, just ignore this mail.\n"
+       . "\n"
+       . "With datalove, La Quadrature Du Net.\n";
+    mail($to, $subject, $headers, $message);
+
+    render("loginvalidate");
+  }
 
   /* ************************************************************************ */
   /** Show the form to edit an existing login account */

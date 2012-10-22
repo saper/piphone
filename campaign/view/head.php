@@ -18,13 +18,12 @@
 </head>
 <body<?php if (isset($body)) echo $body; ?>>
 
-<?php session_start(); ?>
-
 <div id="wrapper">
 <div id="header">
    <h1><?php __("PiPhone"); ?> </h1><h2><?php __("Call MEPs for free - and make yourself heard"); ?></h2>
 </div>
-<?php /*
+<?php 
+/*
 <div class="error flash">
    THE PIPHONE IS CURRENTLY OUT OF ORDER, THIS MESSAGE WILL DISAPPEAR WHEN IT WILL WORK AGAIN<br />
    LE PIPHONE EST ACTUELLEMENT HORS SERVICE, NOUS ENLEVERONS CE MESSAGE UNE FOIS RÉPARÉ
