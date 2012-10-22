@@ -2,32 +2,77 @@
 
 class loginController extends abstractController {
 
+// Go back to the form, having the right params : 
+  private function _cancelform($id,$login="") {
+    global $view;
+    if ($id) {
+      $view["title"]="Editing login account ".$login;
+      $view["actionname"]="Edit this login account";
+    } else {
+      $view["title"]="login account creation";
+      $view["actionname"]="Create this login account";
+    }
+    render("loginform");
+  }
+
 
   /* ************************************************************************ */
   /** This entire controller requires the RIGHT_login
    __constructor : 
   */
   function loginController() {
-    $GLOBALS["me"] = mqone("SELECT * FROM user WHERE login='".mquote($_SERVER['PHP_AUTH_USER'])."' AND pass=PASSWORD('".mquote($_SERVER['PHP_AUTH_PW'])."') AND enabled=1;");
   }
   
 
   /* ************************************************************************ */
-  /** Get the deatils of the currently logged person */
+  /** Get the details of the currently logged person */
   function indexAction() {
     global $view;
-    if (isset($GLOBALS["me"])) {
-      $view["login"]=mqlist("SELECT login.* FROM login WHERE login.login=".$GLOBALS["me"]["login"].";");
-	  $view["campaigns"]=mqlist("SELECT campaign.name, count(1) FROM campaign, lists WHERE lists.uuid=".$GLOBALS["me"]["id"]." AND lists.campaign = campaign.id GROUP BY lists.campaign;");
-	  $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uuid = ".$GLOBALS["me"]["id"]. ";");
+    if (isset($_SESSION["id"])) {
+      $view["login"]=mqlist("SELECT user.* FROM user WHERE user.login=".$_SESSION["id"]["login"].";");
+      $view["campaigns"]=mqlist("SELECT campaign.name, count(1) FROM campaign, calls WHERE calls.uuid=".$_SESSION["id"]["login"]." AND calls.campaign = campaign.id;");
+      $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uuid = ".$_SESSION["id"]["login"]. ";");
       render("logindetail");
     } else {
       render("loginregister");
+    }
   }
 
   /* ************************************************************************ */
+  /** Login */
+  function authAction() {
+    global $view;
+    if (!isset($_SESSION)) {
+      render("loginauth");
+    } else {
+      $view["warning"] .= "Already logged in.";
+      render("logindetail");
+    }
+  }
+
+  function doauthAction() {
+    global $view;
+    if (isset($_SESSION["id"])) {
+      $view["warning"] .= "Already logged in.";
+      render("logindetail");
+    } else {
+      $id=mqone("SELECT user.* FROM user WHERE user.login = '".$_REQUEST["user"]."' AND PASSWORD('".$_REQUEST["password"]."') = user.pass;");
+      if (!$id) {
+        $view["error"] .= "Incorrect login or password.";
+        render("loginauth");
+      }
+
+     $_SESSION["id"] = $id;
+     session_write_close();
+     render("logindetail");
+    }
+  }
+  /* ************************************************************************ */
   /** Logout */
   function logoutAction() {
+    global $view;
+    unset($_SESSION["id"]);
+    session_write_close();
     header("Location: ".$_SERVER("HTTP_HOST")."/");
   }
 
@@ -107,20 +152,7 @@ class loginController extends abstractController {
   } // doAction
 
 
-  // Go back to the form, having the right params : 
-  private function _cancelform($id,$login="") {
-    global $view;
-    if ($id) {
-      $view["title"]="Editing login account ".$login;
-      $view["actionname"]="Edit this login account";
-    } else {
-      $view["title"]="login account creation";
-      $view["actionname"]="Create this login account";
-    }
-    render("loginform");
-  }
-
-
+  
   /* ************************************************************************ */
   /** Show the form to confirm when deleting a login */
   function delAction() {
@@ -178,7 +210,4 @@ class loginController extends abstractController {
     $view["message"]="The login has been enabled successfully";
     $this->indexAction();
   }
-
-
 }
-

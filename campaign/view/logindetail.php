@@ -9,12 +9,12 @@ such as pasword or email adresses here.
 </div>
 
 <!-- Display the user id, email and passwordon left, and the connection on right -->
-<div id="callbox">
+<div id="mep">
   <div class="left">
    <form method="post" action="/login/update/<?php echo $view["login"]["id"]; ?>">
      <h5>Account details</h5>
-	 <p><label for="login">Your username is:</label><input type="text" name="login" id="login" value="<?php echo $view["login"]["login"]; ?>" /></p>
-     <p><label for="email">Your email address:</label><input type="text" name="email" id="email" value="<?php echo $view["login"]["email"]; ?>" /></p>
+	 <p><label for="login">Your username is: </label><input type="text" name="login" id="login" placeholder="<?php echo $view["login"]["login"]; ?>" /></p>
+     <p><label for="email">Your email address: </label><input type="text" name="email" id="email" placeholder="<?php echo $view["login"]["email"]; ?>" /></p>
      <p class="button"><input type="submit" value="Update" class="green" /></p>
    </form>
  </div>
@@ -22,16 +22,16 @@ such as pasword or email adresses here.
    <form method="post" action="/login/pwchange/<?php echo $view["login"]["id"]; ?>">
      <h5>Authentification method</h5>
        <p class="caption">Classic HTTP auth using a password.</p>
-	   <p><label for="current_pw">Enter your current password</label><input type="password" name="current_pw" id="current_pw" value="placeholder" /></p>
-	   <p><label for="new_pw">Enter your new password</label><input type="password" name="new_pw" id="new_pw" value="placeholder" /></p>
-	   <p><label for="new_pw2">Re-enter your new password</label><input type="password" name="new_pw2" id="new_pw2" value="placeholdes" /></p>
+	   <p><label for="current_pw">Enter your current password: </label><input type="password" name="current_pw" id="current_pw" value="placeholder" /></p>
+	   <p><label for="new_pw">Enter your new password: </label><input type="password" name="new_pw" id="new_pw" value="placeholder" /></p>
+	   <p><label for="new_pw2">Re-enter your new password: </label><input type="password" name="new_pw2" id="new_pw2" value="placeholdes" /></p>
 	   <p class="button"><input type="submit" value="Change password" class="green" /></p>
     </form>
        <p class="button"><a class="blue" href="/login/pwforget/<?php echo $view["login"]["id"]; ?>">I forget my password</a></p>
   </div>
 </div>
 
- <?php if (isset($view["calls"])) { ?>
+ <?php if ($view["calls"]) { ?>
 <div class="autoscroll">Those are the calls you've made until now. They've helped to change the situation, thank you.</div>
     <table class="list issues">
 	 <thead>

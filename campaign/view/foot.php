@@ -1,6 +1,8 @@
 <p class=button><a class=blue href="/campaign/hof2/">All star Hall of Fame</a></p>
 
 </div>
+
+<?php session_write_close(); ?>
         <div style="clear:both;"></div>
 
 <!-- <div id="ajax-indicator" style="display:none;"><span>Loading...</span></div> -->
