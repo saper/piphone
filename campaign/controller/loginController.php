@@ -3,10 +3,12 @@
 class loginController extends abstractController {
 
   private function _getRandToken() {
-  {
-    while( @$c++ * 16 < '12' )
-        @$tmp .= md5( mt_rand(), true );
-    return substr( $tmp, 0, $length );
+    $chars = '0123456789abcdefghijklmnopqrsrtuvwxyz';
+   
+    for ($p = 0; $p < 12; $p++) {
+        $result .= $chars[mt_rand(0,36)];
+    }
+    return $result;
   }
 
 // Go back to the form, having the right params : 
@@ -93,6 +95,8 @@ class loginController extends abstractController {
 
   function checkAction() {
     global $view;
+    $view["title"]="Create an account for the piphone";
+    $view["actionname"]="Create this account";
     $email=$_REQUEST["email"];
     $password=$_REQUEST["password"];
     $password2=$_REQUEST["password2"];
@@ -103,15 +107,15 @@ class loginController extends abstractController {
     $valid=filter_var($_REQUEST["email"], FILTER_VALIDATE_EMAIL);
     if (!$valid) {$view["email"] = $_REQUEST["email"]; $invalid=True; }
 
-    if (!strcmp($_REQUEST["password"], $_REQUEST["password2"])) { $view["password"] = "1"; $invalid=True; }
+    if (strcmp($_REQUEST["password"], $_REQUEST["password2"]) != 0 ) { $view["password"] = "1"; $invalid=True; }
 
     if (isset($invalid)) { render("loginform"); exit(); }
 
-    $token=_getRandToken();
-    mq("INSERT INTO user ('login','pass','email','enabled','admin','token') 
-        VALUES ('".$_REQUEST["login"]."','".$_REQUEST["password"]."','".$_REQUEST["email"]."','0','0','$token');");
+    $token=$this->_getRandToken();
+    mq("INSERT INTO user (login,pass,email,enabled,admin,token) 
+        VALUES ('".$_REQUEST["login"]."','PASSWORD(".$_REQUEST["password"].")','".$_REQUEST["email"]."','0','0','$token');");
     $id = mqone("SELECT id FROM user WHERE login = '" . $_REQUEST["login"] . "';");
-    $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/$id/$token/";
+    $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $id[0] ."/" . $token . "/";
 
     // Prepare a validation email
     $to = $_REQUEST["email"];
