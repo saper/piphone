@@ -242,7 +242,7 @@ function render($viewname) {
 
 function check_user_identity() {
   if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
+    header('WWW-Authenticate: Basic realm="PiPhone Login"');
     header('HTTP/1.0 401 Unauthorized');
     echo 'Please authenticate';
     exit;
@@ -250,7 +250,7 @@ function check_user_identity() {
   $GLOBALS["me"]=mqone("SELECT * FROM user WHERE login='".mquote($_SERVER['PHP_AUTH_USER'])."' AND pass=PASSWORD('".mquote($_SERVER['PHP_AUTH_PW'])."') AND enabled=1;");
   
   if (!$GLOBALS["me"]) {
-    header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
+    header('WWW-Authenticate: Basic realm="PiPhone Login"');
     header('HTTP/1.0 401 Unauthorized');
     echo 'Login or password incorrect, or account disabled';
     exit;

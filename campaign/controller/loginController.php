@@ -18,6 +18,8 @@ class loginController extends abstractController {
     global $view;
     if (isset($GLOBALS["me"])) {
       $view["login"]=mqlist("SELECT login.* FROM login WHERE login.login=".$GLOBALS["me"]["login"].";");
+	  $view["campaigns"]=mqlist("SELECT campaign.name, count(1) FROM campaign, lists WHERE lists.uuid=".$GLOBALS["me"]["id"]." AND lists.campaign = campaign.id GROUP BY lists.campaign;");
+	  $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uuid = ".$GLOBALS["me"]["id"]. ";");
       render("logindetail");
     } else {
       render("loginregister");
@@ -33,8 +35,8 @@ class loginController extends abstractController {
   /** Show the form to add a new login account */
   function addAction() {
     global $view;
-    $view["title"]="login account creation";
-    $view["actionname"]="Create this login account";
+    $view["title"]="Create an account for the piphone";
+    $view["actionname"]="Create this account";
     render("loginform");
   }
 
