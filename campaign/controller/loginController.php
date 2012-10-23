@@ -38,9 +38,9 @@ class loginController extends abstractController {
   function indexAction() {
     global $view;
     if (isset($_SESSION["id"])) {
-      $view["login"]=mqlist("SELECT user.* FROM user WHERE user.login=".$_SESSION["id"]["login"].";");
-      $view["campaigns"]=mqlist("SELECT campaign.name, count(1) FROM campaign, calls WHERE calls.uuid=".$_SESSION["id"]["id"]." AND calls.campaign = campaign.id;");
-      $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uuid = ".$_SESSION["id"]["id"]. ";");
+      $view["login"]=mqlist("SELECT user.* FROM user WHERE user.login='".$_SESSION["id"]["login"]."';");
+      $view["campaigns"]=mqlist("SELECT campaign.name, count(campaign.id) score FROM campaign, calls WHERE calls.uid=".$_SESSION["id"]["id"]." AND calls.campaign = campaign.id;");
+      $view["calls"]=mqlist("SELECT lists.campaign, lists.name FROM lists, calls WHERE lists.phone = calls.callee AND calls.uid = ".$_SESSION["id"]["id"]. ";");
       render("logindetail");
     } else {
       render("loginregister");
@@ -65,9 +65,9 @@ class loginController extends abstractController {
       $view["warning"] .= "Already logged in.";
       render("logindetail");
     } else {
-      $id=mqone("SELECT user.* FROM user WHERE user.login = '".$_REQUEST["user"]."' AND PASSWORD('".$_REQUEST["password"]."') = user.pass;");
+      $id=mqone("SELECT user.* FROM user WHERE user.login = '".$_REQUEST["user"]."' AND PASSWORD('".$_REQUEST["password"]."') = user.pass AND enabled = 1;");
       if (!$id) {
-        $view["error"] .= "Incorrect login or password.";
+        $view["error"] .= "Incorrect login or password. Or account disabled.";
         render("loginauth");
       }
 
@@ -76,6 +76,7 @@ class loginController extends abstractController {
      render("logindetail");
     }
   }
+
   /* ************************************************************************ */
   /** Logout */
   function logoutAction() {
@@ -113,7 +114,7 @@ class loginController extends abstractController {
 
     $token=$this->_getRandToken();
     mq("INSERT INTO user (login,pass,email,enabled,admin,token) 
-        VALUES ('".$_REQUEST["login"]."','PASSWORD(".$_REQUEST["password"].")','".$_REQUEST["email"]."','0','0','$token');");
+        VALUES ('".$_REQUEST["login"]."',PASSWORD('".$_REQUEST["password"]."'),'".$_REQUEST["email"]."','0','0','$token');");
     $id = mqone("SELECT id FROM user WHERE login = '" . $_REQUEST["login"] . "';");
     $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $id[0] ."/" . $token . "/";
 
@@ -135,72 +136,23 @@ class loginController extends abstractController {
   }
 
   /* ************************************************************************ */
-  /** Show the form to edit an existing login account */
-  function editAction() {
+  /** Validate the account */
+  function validateAction() {
     global $view,$params;
     if (!isset($params[0])) not_found();
     $id=intval($params[0]);
-    if (!$id) not_found();
-    $login=mqone("SELECT * FROM login WHERE id=$id;");
-    if (!$login) not_found();
-    $view["title"]="Editing login account ".$login["login"];
-    $view["actionname"]="Edit this login account";
-    $view["login"]=$login;
-    list($view["login"]["parentlogin"])=mqone("SELECT login FROM login WHERE id='".$view["login"]["parent"]."';");
-    unset($view["login"]["pass"]);
-    render("loginform");
+
+    if (!isset($params[1])) not_found();
+    $token=$params[1];
+
+    // Get the token stored in database
+    $data=mqassoc("SELECT id, token FROM user WHERE id = '$id'");
+
+    if (strcmp($token, $data[$id]) != 0) not_found();
+    mq("UPDATE user SET enabled='1', token='' WHERE id='$id'");
+    render("loginauth");
   }
-  
 
-  /* ************************************************************************ */
-  /** Receive a POST to add or edit a login account */
-  function doAction() {
-    global $view;
-    $id=intval($_REQUEST["id"]);
-    if ($id) {
-      $old=mqone("SELECT * FROM login WHERE id=$id;");
-      if (!$old) not_found();
-    }
-
-    // Validate the fields : 
-    $fields=array("id","login","pass","email","enabled","admin");
-    foreach($fields as $f) $view["login"][$f]=$_REQUEST[$f]; 
-
-    if ($_REQUEST["pass"]!=$_REQUEST["pass2"]) {
-      $view["error"]="Passwords do not match, please check";
-      $this->_cancelform($id,$old["login"]);
-      return;
-    }
-    $already=mqone("SELECT * FROM login WHERE login='".addslashes($view["login"]["login"])."' AND id!='$id';");
-    if ($already) {
-      $view["error"]="That login already exists, please use another one.";
-      $this->_cancelform($id,$old["login"]);
-      return;      
-    }
-
-    $sqlpass="";
-    if ($view["login"]["pass"]) {
-      $sqlpass=" pass=PASSWORD('".addslashes($view["login"]["pass"])."'), ";
-    }
-    $sql="          login='".addslashes($view["login"]["login"])."',
-          email='".addslashes($view["login"]["email"])."',
-          enabled='".addslashes($view["login"]["enabled"])."',
-          admin='".addslashes($view["login"]["admin"])."'";
-
-    if ($id) {
-      // Update login: 
-      mq("UPDATE login SET $sqlpass $sql WHERE id='$id' ;");
-      $view["message"]="The login has been edited successfully";
-    } else {
-      // Create login:
-      mq("INSERT INTO login SET $sqlpass $sql;");
-      $view["message"]="The login has been created successfully";
-    }
-    $this->indexAction();
-  } // doAction
-
-
-  
   /* ************************************************************************ */
   /** Show the form to confirm when deleting a login */
   function delAction() {
@@ -215,6 +167,42 @@ class loginController extends abstractController {
     render("logindel");
   }
 
+  /* ************************************************************************ */
+  /** Reset the password */
+  function pwresetAction() {
+    global $view;
+    render("loginreset");
+  }
+
+  function doresetAction() {
+    global $view;
+    if (!$_REQUEST["account"]) not_found();
+
+    // The account must be enabled and have no token
+    $account=mqone("SELECT user.* FROM user WHERE login='$login' AND enabled='1' AND token='';");
+    if (!isset($account)) not_found();
+    $tmp_password=_getRandToken();
+    $token=_getRandToken();
+
+    // Disable the account and set the tmp_password
+    mq("UPDATE user SET enabled='0', password=PASSWORD('$tmp_password'), token='$token' WHERE id='".$account[0]."';");
+
+    // Prepare a reset email
+    $to = $_REQUEST["email"];
+    $subject = "Ohai ".$_REQUEST["login"].", you ask for a new password.";
+    $headers = "From: piphone@lqdn.fr\n" . "Reply-To: no-reply@lqdn.fr\n". "X-Mailer: PHP/" . phpversion();
+    $message = "Ohai,\n"
+       . "\n"
+       . "You have requested a password reste on the piphone. Your account have been disabled and a new password have been generated.\n"
+       . "You just need to open the following link in your browser to enabled your account and you will be asked to login with the new password.\n"
+       . "\t\t<a href=\"$url\">$url</a>\n"
+       . "\n"
+       . "Your new password is: $tmp_password\n"
+       . "\n"
+       . "With datalove, La Quadrature Du Net.\n";
+    
+    render("loginauth");
+  }
 
   /* ************************************************************************ */
   /** Receive a POST to del a login account */
@@ -227,35 +215,4 @@ class loginController extends abstractController {
     $view["message"]="The login has been deleted successfully";
     $this->indexAction();
   } // dodelAction
-
-
-
-
-
-  /* ************************************************************************ */
-  /** Receive a URL to disable a login account */
-  function disableAction() {
-    global $view,$params;
-    if (!isset($params[0])) not_found();
-    $id=intval($params[0]);
-    $login=mqone("SELECT * FROM login WHERE id=$id;");
-    if (!$login) not_found();
-    mq("UPDATE login SET enabled=0 WHERE id=$id;");    
-    $view["message"]="The login has been disabled successfully";
-    $this->indexAction();
-  }
-
-
-  /* ************************************************************************ */
-  /** Receive a URL to enable a login account */
-  function enableAction() {
-    global $view,$params;
-    if (!isset($params[0])) not_found();
-    $id=intval($params[0]);
-    $login=mqone("SELECT * FROM login WHERE id=$id;");
-    if (!$login) not_found();
-    mq("UPDATE login SET enabled=1 WHERE id=$id;");    
-    $view["message"]="The login has been enabled successfully";
-    $this->indexAction();
-  }
 }

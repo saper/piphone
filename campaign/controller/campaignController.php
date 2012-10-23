@@ -195,6 +195,10 @@ class campaignController extends abstractController {
       $uuid=$this->_callback($realphone,$realcallee,$view["campaign"]["wavfile"],substr($GLOBALS["lang"],0,2));
       mq("UPDATE calls SET uuid='$uuid' WHERE id='".$view["callid"]."';");
       $view["phone"]=$phone;
+      // Let's check if I'm auth
+      if (isset($_SESSION["id"])) {
+        mq("UPDATE calls SET uid='".$_SESSION["id"]["id"]."' WHERE id='".$view["callid"]."';");
+      }
     }
 
     render("campaigncall2");
@@ -207,7 +211,7 @@ class campaignController extends abstractController {
     global $view,$params;
     if (!isset($params[0])) {
       // All star hall of fame
-      $hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uuid = user.id ORDER BY score LIMIT 10;");
+      $hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uid = user.id ORDER BY score LIMIT 10;");
       $view["hof"] = $hof;
 
       render("campaignhof2");
@@ -219,7 +223,7 @@ class campaignController extends abstractController {
     $view["lang"]=substr($GLOBALS["lang"],0,2);
 
 	// Get the 10 best scores
-	$hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uuid = user.id AND calls.campaign = ".$view["campaign"]["id"]." ORDER BY score LIMIT 10;");
+	$hof=mqlist("SELECT user.login, count(calls.id) score FROM calls, user WHERE calls.feedback IS NOT null AND calls.uid = user.id AND calls.campaign = ".$view["campaign"]["id"]." ORDER BY score LIMIT 10;");
         $view["hof"] = $hof;
 
 	render("campaignhof2");

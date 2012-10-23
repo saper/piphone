@@ -27,11 +27,10 @@ such as pasword or email adresses here.
 	   <p><label for="new_pw2">Re-enter your new password: </label><input type="password" name="new_pw2" id="new_pw2" value="placeholdes" /></p>
 	   <p class="button"><input type="submit" value="Change password" class="green" /></p>
     </form>
-       <p class="button"><a class="blue" href="/login/pwforget/">I forget my password</a></p>
   </div>
 </div>
 
- <?php if ($view["calls"]) { ?>
+ <?php if (count($view["campaigns"]) > 0) { ?>
 <div class="autoscroll">Those are the calls you've made until now. They've helped to change the situation, thank you.</div>
     <table class="list issues">
 	 <thead>
@@ -41,8 +40,8 @@ such as pasword or email adresses here.
 	  </tr>
 	 </thead>
 	 <tbody>
-	  <?php foreach($view["campaigns"] as $cname => $cscore) { ?>
-	    <tr><td><?php echo $cname; ?></td><td><?php echo $cscore; ?></td></tr>
+	  <?php foreach($view["campaigns"] as $cid => $campaign) { ?>
+	    <tr><td><?php echo $campaign["name"]; ?></td><td><?php echo $campaign["score"]; ?></td></tr>
 	  <?php } ?>
 	 </tbody>
 	</table>
