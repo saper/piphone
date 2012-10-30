@@ -215,7 +215,6 @@ function error($str) {
 function not_found() {
   header("HTTP/1.0 404 Not Found");
   echo "<h1>"._("Page Not Found")."</h1>\n<p>"._("The requested page has not been found or an error happened. Please check")."</p>\n";
-  print_r($_REQUEST);
   exit(); 
 }
 
@@ -262,7 +261,8 @@ function check_user_identity() {
 /** Returns TRUE if the current user is an administrator
  */
 function is_admin() {
-  return ($GLOBALS["me"]["admin"]!=0);
+  if (!isset $_SESSION["id"]) return False;
+  return ($_SESSION["id"]["admin"]!=0);
 }
 
 /* ************************************************************ */

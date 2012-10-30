@@ -32,7 +32,6 @@ class loginController extends abstractController {
   function loginController() {
   }
   
-
   /* ************************************************************************ */
   /** Get the details of the currently logged person */
   function indexAction() {
