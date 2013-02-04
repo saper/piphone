@@ -132,14 +132,14 @@ class adminController extends abstractController {
   function doimportAction() {
     global $view;
 
-    $id=intval($_REQUEST["id"][0]);
+    $id=intval($_REQUEST["id"]);
     if (!$id) not_found();
     $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
     if (!$campaign) not_found();
 
     // get the file. 
     if ($_FILES["file"]["error"] != 0 ) not_found();
-    $filename="/home/okhin/pp/campaign/csv/".$campaign["slug"].".csv";
+    $filename="/root/demo/campaign/csv/".$campaign["slug"].".csv";
     if (!move_uploaded_file($_FILES["file"]["tmp_name"], $filename)) not_found();
 	
     // Before going further, we want to trash the existing campaign
