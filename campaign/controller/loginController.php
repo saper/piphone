@@ -175,31 +175,34 @@ class loginController extends abstractController {
 
   function doresetAction() {
     global $view;
-    if (!$_REQUEST["account"]) not_found();
+    if (!$_REQUEST["user"]) not_found();
+    $login = $_REQUEST["user"];
 
     // The account must be enabled and have no token
     $account=mqone("SELECT user.* FROM user WHERE login='$login' AND enabled='1' AND token='';");
     if (!isset($account)) not_found();
-    $tmp_password=_getRandToken();
-    $token=_getRandToken();
+    $tmp_password=$this->_getRandToken();
+    $token=$this->_getRandToken();
 
     // Disable the account and set the tmp_password
-    mq("UPDATE user SET enabled='0', password=PASSWORD('$tmp_password'), token='$token' WHERE id='".$account[0]."';");
+    mq("UPDATE user SET enabled='0', pass=PASSWORD('$tmp_password'), token='$token' WHERE id='".$account[0]."';");
 
     // Prepare a reset email
-    $to = $_REQUEST["email"];
-    $subject = "Ohai ".$_REQUEST["login"].", you ask for a new password.";
+    $to = $account["email"];
+    $subject = "Ohai ".$account["login"].", you've asked for a new password.";
     $headers = "From: piphone@lqdn.fr\n" . "Reply-To: no-reply@lqdn.fr\n". "X-Mailer: PHP/" . phpversion();
+    $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $account["id"] ."/" . $token . "/";
     $message = "Ohai,\n"
        . "\n"
        . "You have requested a password reste on the piphone. Your account have been disabled and a new password have been generated.\n"
-       . "You just need to open the following link in your browser to enabled your account and you will be asked to login with the new password.\n"
+       . "You just need to open the following link in your browser to enable your account and you will be asked to login with the new password.\n"
        . "\t\t<a href=\"$url\">$url</a>\n"
        . "\n"
        . "Your new password is: $tmp_password\n"
        . "\n"
        . "With datalove, La Quadrature Du Net.\n";
     
+    mail($to, $subject, $headers, $message);
     render("loginauth");
   }
 

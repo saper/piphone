@@ -139,7 +139,7 @@ class adminController extends abstractController {
 
     // get the file. 
     if ($_FILES["file"]["error"] != 0 ) not_found();
-    $filename="/root/demo/campaign/csv/".$campaign["slug"].".csv";
+    $filename="/root/piphone/campaign/csv/".$campaign["slug"].".csv";
     if (!move_uploaded_file($_FILES["file"]["tmp_name"], $filename)) not_found();
 	
     // Before going further, we want to trash the existing campaign
