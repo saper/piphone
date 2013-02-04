@@ -11,6 +11,18 @@ if (count($view["campaign"])==1) {
 
 
 <?php
+if (empty($view['campaign'])){
+  header('Location: http://demo.piphone.eu');
+  exit;
+}
+if (count($view['campaign'])<2){
+  $c = array_shift($view['campain']);
+  $url = '/campaign/call2/'. $c["slug"]; 
+  header('Location: '.$url);
+  exit;
+}
+
+
 if (count($view["campaign"])) {
 ?>
 <h3><?php __("Campaign's list"); ?></h2>
@@ -18,8 +30,6 @@ if (count($view["campaign"])) {
 <?php show_messages(); ?>
 
    <?php 
-
-
    $row="odd";
 foreach($view["campaign"] as $c) { 
 if ($row=="odd") $row="even"; else $row="odd";
@@ -43,7 +53,8 @@ if ($c["name-".$view["lang"]]) {
 	?>
 	</p>
 	<p class="deadline"><?php echo $c["datestop"]; ?></p>
-	<p class="button"><a href="/campaign/call2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a></p>
+	<p class="button"><a href="/campaign/call2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Act now!"); ?></a>
+	<a href="/campaign/hof2/<?php echo $c["slug"]; ?>" class="blue"><?php __("Hall of Fame"); ?></a></p>
 </div>
 <?php
     }

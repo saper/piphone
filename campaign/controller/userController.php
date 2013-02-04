@@ -8,7 +8,6 @@ class userController extends abstractController {
    __constructor : 
   */
   function userController() {
-    check_user_identity();
     if (!is_admin()) {
       error("Permission Denied on userController");
       not_found();

@@ -18,13 +18,12 @@
 </head>
 <body<?php if (isset($body)) echo $body; ?>>
 
-
-
 <div id="wrapper">
 <div id="header">
    <h1><?php __("PiPhone"); ?> </h1><h2><?php __("Call MEPs for free - and make yourself heard"); ?></h2>
 </div>
-<?php /*
+<?php 
+/*
 <div class="error flash">
    THE PIPHONE IS CURRENTLY OUT OF ORDER, THIS MESSAGE WILL DISAPPEAR WHEN IT WILL WORK AGAIN<br />
    LE PIPHONE EST ACTUELLEMENT HORS SERVICE, NOUS ENLEVERONS CE MESSAGE UNE FOIS RÉPARÉ
@@ -35,6 +34,14 @@
 <div class="left" style="float: left;">
    [<a href="?setlang=en">English</a>|
    <a href="?setlang=fr">Français</a>]
+   |<?php
+      if (isset($_SESSION["id"])) {
+        ?><span> [Hello <b><?php echo $_SESSION["id"]["login"]; ?></b>!][<a href="/login/logout/">Logout</a>]</span>
+     <?php
+     } else {
+        ?>[<a href="/login/auth/">Login</a> or <a href="/login/register/">Register</a> or not.] [<a href="/login/pwreset">Forget your password?</a>]
+     <?php } ?>
+         
 </div>
 
 <div style="float: right;" id="logo">
