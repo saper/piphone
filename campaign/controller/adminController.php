@@ -3,12 +3,12 @@
 class adminController extends abstractController {
 
 
+
   /* ************************************************************************ */
   /** This entire controller requires the RIGHT_USER
    __constructor : 
   */
   function adminController() {
-    check_user_identity();
     if (!is_admin()) {
       error("Permission Denied on adminController");
       not_found();
@@ -56,8 +56,6 @@ class adminController extends abstractController {
     render("adminform");
   }
 
-
-
   /* ************************************************************************ */
   /** Show the form to edit the list of callees for this campaign */
   function listAction() {
@@ -77,6 +75,22 @@ class adminController extends abstractController {
   
 
   /* ************************************************************************ */
+  /** Show the form to import a csv in this campaign */
+  /** the csv is field separated by semi colon and each field is surrounded by "*/
+  function importAction() {
+    global $view, $params;
+	if (!isset($params[0])) not_found();
+	$id=intval($params[0]);
+	if (!$id) not_found();
+	$campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+	if (!$campaign) not_found();
+	$view["title"]="Importing a CSV to populate the campaign ".$campaign["name"];
+	$view["actionname"]="Replace the campaign list with this one";
+	$view["campaign"]=$campaign;
+	render("adminlistimport");
+  }
+
+  /* ************************************************************************ */
   /** Receive a POST to enable or disable people in a campaign */
   function dolistAction() {
     global $view;
@@ -86,6 +100,7 @@ class adminController extends abstractController {
       if (!$old) not_found();
     }
     $list=mqassoc("SELECT id,enabled FROM lists WHERE campaign=$id;");
+    $score=mqassoc("SELECT id,pond_scores FROM lists WHERE campaign=$id;");
     
     // Validate the fields : 
     foreach($_REQUEST["callee"] as $cid=>$action) {
@@ -93,17 +108,90 @@ class adminController extends abstractController {
       if ($list[$cid]!=$action) {
 	mq("UPDATE lists SET enabled='$action' WHERE campaign=$id AND id='$cid';");
 	if ($action) { 
-	  $view["message"].="$cid enabled. ";
+	  $view["messages"].="$cid enabled. ";
 	} else {
-	  $view["message"].="$cid disabled. ";
+	  $view["messages"].="$cid disabled. ";
 	}
+      }
+    }
+    foreach($_REQUEST["score"] as $cid=>$pscore) {
+      $cid=intval($cid); $pscore=intval($pscore);
+      if ($score[$cid]!=$pscore) {
+        if ($pscore > 100) $pscore = 100;
+        if ($pscore < 0) $pscore = 0;
+        mq("UPDATE lists SET pond_scores='$pscore' WHERE campaign=$id AND id='$cid';");
+        $view["messages"].="$cid score is $pscore. ";
       }
     }
 
     $this->indexAction();
   } // doAction
 
+  /* ************************************************************************ */
+  /** Receive a POST to import a CSV into a campaign */
+  function doimportAction() {
+    global $view;
 
+    $id=intval($_REQUEST["id"][0]);
+    if (!$id) not_found();
+    $campaign=mqone("SELECT * FROM campaign WHERE id=$id;");
+    if (!$campaign) not_found();
+
+    // get the file. 
+    if ($_FILES["file"]["error"] != 0 ) not_found();
+    $filename="/home/okhin/pp/campaign/csv/".$campaign["slug"].".csv";
+    if (!move_uploaded_file($_FILES["file"]["tmp_name"], $filename)) not_found();
+	
+    // Before going further, we want to trash the existing campaign
+    mq("DELETE FROM lists WHERE campaign=$id;");
+    // parse everything
+    if (($file = fopen("$filename","r")) == False) not_found();
+    $line_number=0;
+
+    while (($csv = fgetcsv($file,0,';')) == True) {
+      // The data in the CSV are the mandatory field for the list table,in this order:
+      // "name";"url";"phone number";"country code";"score"
+      if (count($csv) < 5) {
+        $view["warning"] .= "Error on line $line_number: $csv. ";
+	continue;
+      }
+
+      $name=$csv[0];
+      $url=$csv[1];
+      $phone=$csv[2];
+      $country=$csv[3];
+      $score=$csv[4];
+      $line_number++;
+
+      // Validation
+	  // TODO
+
+	  switch ($_REQUEST["meta_engine"]) {
+	    case "parltrack":
+		    $meta = _parseParltrack($url);
+			break;
+	  }
+
+	  if ($meta == null) $view["warning"] .= "$url does not look like a " . $_REQUEST["meta_engine"] . " one";
+	  // INSERT
+      mq("INSERT INTO lists SET
+        campaign='$id',
+	name='$name',
+	url='$url',
+	phone='$phone',
+	scores='$score',
+	pond_scores='$score',
+	country='$country',
+	meta='$meta',
+	callcount=0, enabled=1
+	;"
+      );
+
+    }
+    fclose($file);
+    $view["messages"] .= "Imported $line_number lines from file.";
+    $this->indexAction();
+  }
 
   /* ************************************************************************ */
   /** Receive a POST to add or edit a campaign */
@@ -116,7 +204,7 @@ class adminController extends abstractController {
     }
 
     // Validate the fields : 
-    $fields=array("id","name","name-fr","slug","longname", "longname-fr", "description","description-fr","datestart","datestop");
+    $fields=array("id","name","slug","longname", "description", "description-fr","datestart","datestop");
     foreach($fields as $f) $view["campaign"][$f]=$_REQUEST[$f]; 
 
     if (!$tstart = strtotime($_REQUEST["datestart"])) {
@@ -143,7 +231,6 @@ class adminController extends abstractController {
     }
 
     $name = addslashes($view["campaign"]["name"]);
-    $namefr = addslashes($view["campaign"]["name-fr"]);
     $slug = addslashes($view["campaign"]["slug"]);
     $desc = addslashes($view["campaign"]["description"]);
     $descfr = addslashes($view["campaign"]["description-fr"]);
@@ -169,7 +256,6 @@ class adminController extends abstractController {
     $this->indexAction();
   } // doAction
 
-
   // Go back to the form, having the right params : 
   private function _cancelform($id,$name="") {
     global $view;
@@ -182,7 +268,6 @@ class adminController extends abstractController {
     }
     render("adminform"); 
   }
-
 
   /* ************************************************************************ */
   /** Show the form to confirm when deleting a campaign */
@@ -197,7 +282,6 @@ class adminController extends abstractController {
     render("admindel");
   }
 
-
   /* ************************************************************************ */
   /** Receive a POST to del a campaign */
   function dodelAction() {
@@ -209,10 +293,6 @@ class adminController extends abstractController {
     $view["message"]="The campaign has been deleted successfully";
     $this->indexAction();
   } // dodelAction
-
-
-
-
 
   /* ************************************************************************ */
   /** Receive a URL to disable a campaign */
@@ -227,7 +307,6 @@ class adminController extends abstractController {
     $this->indexAction();
   }
 
-
   /* ************************************************************************ */
   /** Receive a URL to enable a campaign */
   function enableAction() {
@@ -240,7 +319,6 @@ class adminController extends abstractController {
     $view["message"]="The campaign has been enabled successfully";
     $this->indexAction();
   }
-
 
   /* ************************************************************************ */
   /** Display stats for a given campaign */
@@ -256,7 +334,4 @@ class adminController extends abstractController {
     $view["withfeedback"]=array_filter($view["rawstats"],function($a) {return($a["feedback"]!="");});
     render("adminstats");
   }
-
-
 }
-

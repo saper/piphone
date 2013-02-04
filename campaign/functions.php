@@ -1,4 +1,18 @@
 <?php
+function countryCodes($country) {
+  $countryCodes = array(
+     "Austria" => "AU",     "Belgium" => "BE",     "Chyprus" => "CY",
+     "Czech" => "CZ" ,     "Denmark" => "DK",     "Estonia" => "EE",
+     "Finland" => "FI",      "France" => "FR",     "Germany" => "DE",
+     "Greece" => "GR",     "Hungary" => "HU",     "Ireland" => "IE",
+     "Italy" => "IT",     "Latvia" => "LV",     "Lithuania" => "LT",
+     "Luxembourg" => "LU",     "Malta" => "MT",     "Netherlands" => "NL",
+     "Poland" => "PL",     "Portugal" => "PT",     "Slovakia" => "SK",
+     "Slovenia" => "SI",     "Spain" => "SP",     "Sweden" => "SE",
+     "United Kingdom" => "UK",
+  );
+  return $countryCodes[$country];
+}
 
 function show_messages() {
   global $view;
@@ -194,9 +208,6 @@ function pager($offset,$count,$total,$url,$before="",$after="") {
   echo $after;
 }
 
-
-
-
 function error($str) { 
   echo "ERR: ".$str."\n"; 
 }
@@ -228,10 +239,9 @@ function render($viewname) {
   chdir($cur); 
 }
 
-
 function check_user_identity() {
   if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
+    header('WWW-Authenticate: Basic realm="PiPhone Login"');
     header('HTTP/1.0 401 Unauthorized');
     echo 'Please authenticate';
     exit;
@@ -239,7 +249,7 @@ function check_user_identity() {
   $GLOBALS["me"]=mqone("SELECT * FROM user WHERE login='".mquote($_SERVER['PHP_AUTH_USER'])."' AND pass=PASSWORD('".mquote($_SERVER['PHP_AUTH_PW'])."') AND enabled=1;");
   
   if (!$GLOBALS["me"]) {
-    header('WWW-Authenticate: Basic realm="OpenMediaKit Transcoder"');
+    header('WWW-Authenticate: Basic realm="PiPhone Login"');
     header('HTTP/1.0 401 Unauthorized');
     echo 'Login or password incorrect, or account disabled';
     exit;
@@ -247,13 +257,47 @@ function check_user_identity() {
   //  mq("UPDATE user SET lastlogin=NOW() WHERE id='".$GLOBALS["me"]["id"]."';");
 }
 
-
 /* ************************************************************ */
 /** Returns TRUE if the current user is an administrator
  */
 function is_admin() {
-  return ($GLOBALS["me"]["admin"]!=0);
+  if (! isset($_SESSION["id"])) return False;
+  return ($_SESSION["id"]["admin"]!=0);
 }
 
+/* ************************************************************ */
+/** Here be parsers for meta. All those functiosn return an array */
+/** that is then serialized and used later to populate the person */
+/** frame. it takes an URL as an argument */
+function _parseparltrack($url) {
+	  // Parse the parltrack URL
+          $json = "";
+	  $parltrack = fopen("$url","r");
+          while (($line = fgets($parltrack)) !== False) {
+	    $json .= $line;
+	  }
 
+	  $parl_mep=json_decode($json, true);
+	  foreach ($parl_mep["Mail"] as $mail) {
+	    $mep["mail"][] = $mail;
+	  }
 
+	  $mep["stb"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
+	  $mep["bxl"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
+	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
+	  $mep["name"] = $parl_mep["Name"]["full"];
+	  $mep["url"] = $parl_mep["Homepage"];
+	  $mep["country"] = countryCodes($parl_mep["Constituencies"][0]["country"]);
+	  $mep["party"] = $parl_mep["Constituencies"][0]["party"];
+	  foreach ($parl_mep["Committees"] as $committee){
+	    $mep["committee"][] = $committee["abbr"];
+	  }
+          $mep["picurl"] = $parl_mep["Photo"];
+
+          //FIXME Green party is Verts in parltrack and Green in memopol
+          if (strcmp($mep["group"], "Verts/ALE") == 0) $mep["group"]="Greens/EFA";
+
+	  $meta=@serialize($mep);
+	  fclose($parltrack);
+	  return $meta;
+}

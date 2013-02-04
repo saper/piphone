@@ -9,7 +9,7 @@
 <div class="autoscroll">
 <table class="list issues">
     <thead><tr>
-	<th colspan="4"></th>
+	<th colspan="5"></th>
     <th>#</th>
     <th>Name</th>
     <th>Start</th>
@@ -31,6 +31,7 @@ if ($row=="odd") $row="even"; else $row="odd";
 ?>
   <tr id="campaign-<?php echo $c["id"]; ?>" class="<?php echo $row; ?> user <?php if ($c["enabled"]) echo "enabled"; else echo "disabled"; ?>">
    <td class="links"><a class="icon icon-multiple" href="/admin/list/<?php echo $c["id"]; ?>">List</a></td>
+   <td class="links"><a class="icon icon-attachment" href="/admin/import/<?php echo $c["id"]; ?>">Import</a></td>
    <td class="links">   <a class="icon icon-edit" href="/admin/edit/<?php echo $c["id"]; ?>">Edit</a></td>
    <td class="links">   <a class="icon icon-del" href="/admin/del/<?php echo $c["id"]; ?>">Delete</a></td>
    <?php if ($c["enabled"]) { ?>
