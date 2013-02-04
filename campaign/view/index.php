@@ -53,7 +53,15 @@ if ($c["name-".$view["lang"]]) {
 
 <?php show_messages(); ?>
 
-<p><?php __("There is currently no campaign. Please come back later or when you hear there will be one"); ?> 
+<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+<p><?php __("There is currently no campaign. Please come back later or when you hear there will be one"); ?> </p>
+
+<p><h4><?php __("In the meantime, you may be interested in that campaign from friends of us:"); ?></h4></p>
+<p><a href="http://call.unitary-patent.eu">Unitary Patent campaign from April: call your MEP!</a></p>
+
+   <p>&nbsp;</p>
+
+   <p><center><?php __("How to call your MEP, a video from La Quadrature du Net"); ?><br /><iframe src="http://mediakit.laquadrature.net/embed/852?size=small&amp;onlyvideo" style="width: 500px; height: 300px; border: 0; padding: 0; margin: 0;"></iframe></center></p>
 
 <?php } ?>
 <?php require_once("foot.php"); ?>
