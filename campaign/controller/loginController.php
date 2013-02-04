@@ -50,7 +50,7 @@ class loginController extends abstractController {
   /** Login */
   function authAction() {
     global $view;
-    if (!isset($_SESSION)) {
+    if (!isset($_SESSION["id"])) {
       render("loginauth");
     } else {
       $view["warning"] .= "Already logged in.";

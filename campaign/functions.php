@@ -261,7 +261,7 @@ function check_user_identity() {
 /** Returns TRUE if the current user is an administrator
  */
 function is_admin() {
-  if (!isset $_SESSION["id"]) return False;
+  if (! isset($_SESSION["id"])) return False;
   return ($_SESSION["id"]["admin"]!=0);
 }
 

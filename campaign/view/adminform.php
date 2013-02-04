@@ -9,18 +9,12 @@
 <table class="form">
 <tr><th><label for="name">Name</label></th></tr>
 <tr><td><input size="32" type="text" id="name" name="name" value="<?php eher($view["campaign"]["name"]); ?>" /></td></tr>
-<tr><th><label for="name">Name FR</label></th></tr>
-<tr><td><input size="32" type="text" id="name-fr" name="name-fr" value="<?php eher($view["campaign"]["name-fr"]); ?>" /></td></tr>
 
 <tr><th><label for="slug">Slug</label></th></tr>
 <tr><td><input size="32" type="text" id="slug" name="slug" value="<?php eher($view["campaign"]["slug"]); ?>" /></td></tr>
 
-
 <tr><th><label for="longname">Longname</label></th></tr>
 <tr><td><textarea class="longname" rows="10" cols="80" id="longname" name="longname"><?php eher($view["campaign"]["longname"]); ?></textarea></td></tr>
-
-<tr><th><label for="longname-fr">Longname FR</label></th></tr>
-<tr><td><textarea class="longname" rows="10" cols="80" id="longname-fr" name="longname-fr"><?php eher($view["campaign"]["longname-fr"]); ?></textarea></td></tr>
 
 <tr><th><label for="description">Description</label></th></tr>
 <tr><td><textarea class="description" rows="30" cols="80" id="description" name="description"><?php eher($view["campaign"]["description"]); ?></textarea></td></tr>
