@@ -7,7 +7,7 @@
 <div class="caption">
 <p>Your account has been successfully created. You should receive a confirmation email soon containing a link to activate your account.</p>
 
-<p>WIthout validation, you're not allowed to login onto the piphone. However, since login is not mandatory, you can still use it.</p>
+<p>Without validation, you're not allowed to login onto the piphone. However, since login is not mandatory, you can still use it.</p>
 </div>
 
 <?php require_once("foot.php"); ?>

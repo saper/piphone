@@ -115,7 +115,8 @@ class loginController extends abstractController {
     mq("INSERT INTO user (login,pass,email,enabled,admin,token) 
         VALUES ('".$_REQUEST["login"]."',PASSWORD('".$_REQUEST["password"]."'),'".$_REQUEST["email"]."','0','0','$token');");
     $id = mqone("SELECT id FROM user WHERE login = '" . $_REQUEST["login"] . "';");
-    $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $id[0] ."/" . $token . "/";
+    if ($_SERVER["HTTPS"] != "") {$protocol = "https";} else {$protocol = "http";}
+    $url = "$protocol://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $id[0] ."/" . $token . "/";
 
     // Prepare a validation email
     $to = $_REQUEST["email"];
@@ -191,7 +192,8 @@ class loginController extends abstractController {
     $to = $account["email"];
     $subject = "Ohai ".$account["login"].", you've asked for a new password.";
     $headers = "From: piphone@lqdn.fr\n" . "Reply-To: no-reply@lqdn.fr\n". "X-Mailer: PHP/" . phpversion();
-    $url = "https://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $account["id"] ."/" . $token . "/";
+    if ($_SERVER["HTTPS"] != "") {$protocol = "https";} else {$protocol = "http";}
+    $url = "$protocol://" . $_SERVER["HTTP_HOST"] . "/login/validate/" . $account["id"] ."/" . $token . "/";
     $message = "Ohai,\n"
        . "\n"
        . "You have requested a password reste on the piphone. Your account have been disabled and a new password have been generated.\n"
