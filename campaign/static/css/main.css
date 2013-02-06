@@ -108,21 +108,21 @@ table.list td.live { vertical-align: middle ; }
 
 div.flash {margin-top: 8px;}
 
-div.flash.error, #errorExplanation {
+.error, #errorExplanation {
     background: url(../images/exclamation.png) 8px 50% no-repeat;
     background-color: #ffe3e3;
     border-color: #dd0000;
     color: #880000;
 }
 
-div.flash.notice {
+.notice {
     background: url(../images/true.png) 8px 5px no-repeat;
     background-color: #dfffdf;
     border-color: #9fcf9f;
     color: #005f00;
 }
 
-div.flash.warning {
+.warning {
   background: url(../images/warning.png) 8px 5px no-repeat;
     background-color: #FFEBC1;
     border-color: #FDBF3B;
@@ -343,4 +343,10 @@ table, table td, table tr, table th {
 #logo {
     float: right; 
     padding: 20px 100px 20px 20px;
+}
+
+.flash error {
+    border: 1px solid red;
+    color: red;
+    background-color: #FFDDDD;
 }

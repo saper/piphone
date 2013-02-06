@@ -265,7 +265,7 @@ class loginController extends abstractController {
 
     if ($sql != '')
     {
-      mq("UPDATE user SET $sql WHERE id='".$user["id"]."';");
+      mq("UPDATE user SET $sql WHERE id='".$_SESSION["id"]["id"]."';");
     }
 
     $account=mqone("SELECT user.* FROM user WHERE id='".$_SESSION["id"]["id"]."' AND enabled='1' AND token='';");
