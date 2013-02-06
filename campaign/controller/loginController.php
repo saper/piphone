@@ -208,7 +208,36 @@ class loginController extends abstractController {
     render("loginauth");
   }
 
-  /* Update the email or login name address */
+  /* Change the password */
+  function pwchangeAction() {
+    global $view;
+    if (!isset($_SESSION["id"]))
+      render("loginauth");
+
+    if (!isset($_REQUEST["current_pw"]) or !isset($_REQUEST["new_pw"]) or !isset($_REQUEST["new_pw2"]))
+    {
+      $view["message"] .= "You must fill all the fields.";
+      render("loginindex");
+    }
+
+    if (strcmp($_REQUEST["new_pw"] != $_REQUEST["new_pw2"]))
+    {
+      $view["message"] .= "New passwords do not match.";
+      render("loginindex");
+    }
+
+    $old_pw=mqone("SELECT user.password FROM user WHERE id='".$_SESSION["id"]["id"]."' AND password=PASSWORD('".$_REQUEST["current_pw"]."');")
+    if (!$old_pw)
+    {
+        $view["message"] .= "Wrong password";
+        render("loginindex");
+    }
+
+    mq=("UPDATE user SET password=PASSWORD('".$_REQUEST["new_pw2"]."') WHERE id='".$_SESSION["id"]["id"]."';");   
+    $this->indexAction()
+  }
+
+  /* Update the email or login name */
   function updateAction() {
     global $view;
     if (!isset($_SESSION["id"]))
@@ -219,7 +248,7 @@ class loginController extends abstractController {
     {
       if (mqone("SELECT user.* FROM user WHERE login='".$_REQUEST["login"]."' AND enabled='1';"))
       {      
-        $view["messages"] .= "This login name already exist.";
+        $view["message"] .= "This login name already exist.";
         $this->indexAction();
         return;
       }  
