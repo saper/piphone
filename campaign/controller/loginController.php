@@ -80,7 +80,7 @@ class loginController extends abstractController {
   /** Logout */
   function logoutAction() {
     global $view;
-    unset($_SESSION);
+    session_destroy();
     header("Location: /");
   }
 
