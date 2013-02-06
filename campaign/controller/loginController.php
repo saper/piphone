@@ -148,6 +148,8 @@ class loginController extends abstractController {
     // Get the token stored in database
     $data=mqassoc("SELECT id, token FROM user WHERE id = '$id'");
 
+    $view["message"] .= "Account validated, you can now login";
+
     if (strcmp($token, $data[$id]) != 0) not_found();
     mq("UPDATE user SET enabled='1', token='' WHERE id='$id'");
     render("loginauth");
