@@ -36,7 +36,7 @@
    <a href="?setlang=fr">Français</a>]
    |<?php
       if (isset($_SESSION["id"])) {
-        ?><span> [Hello <b><?php echo $_SESSION["id"]["login"]; ?></b>!][<a href="/login/logout/">Logout</a>]</span>
+        ?><span> [Hello <a href="/login/"><?php echo $_SESSION["id"]["login"]; ?></a>!][<a href="/login/logout/">Logout</a>]</span>
      <?php
      } else {
         ?>[<a href="/login/auth/">Login</a> or <a href="/login/register/">Register</a> or not.] [<a href="/login/pwreset">Forgot your password?</a>]
