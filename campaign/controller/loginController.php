@@ -208,6 +208,42 @@ class loginController extends abstractController {
     render("loginauth");
   }
 
+  /* Update the email or login name address */
+  function updateAction() {
+    global $view;
+    if (!isset($_SESSION["id"]))
+      render("loginauth");
+    $sql = '';
+
+    if ($_REQUEST["login"])
+    {
+      if (mqone("SELECT user.* FROM user WHERE login='".$_REQUEST["login"]."' AND enabled='1';"))
+      {      
+        $view["messages"] .= "This login name already exist.";
+        $this->indexAction();
+        return;
+      }  
+      $sql .= "login='" . $_REQUEST["login"] ."'";
+    }
+
+    if ($_REQUEST["email"])
+    {
+      if ($sql != '')
+        $sql .= ', ';
+      $sql .= "email='" . $_REQUEST["email"] . "'";
+    }
+
+    if ($sql != '')
+    {
+      mq("UPDATE user SET $sql WHERE id='".$user["id"]."';");
+    }
+
+    $account=mqone("SELECT user.* FROM user WHERE id='".$_SESSION["id"]["id"]."' AND enabled='1' AND token='';");
+
+    $_SESSION["id"] = $account;
+    session_write_close();
+    $this->indexAction();
+  }
   /* ************************************************************************ */
   /** Receive a POST to del a login account */
   function dodelAction() {
