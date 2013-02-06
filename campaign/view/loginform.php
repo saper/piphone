@@ -8,11 +8,9 @@
 You want to be in the hall of fame? Or to know who you've called until now?
 Just create an account.
 </div>
-<div class="flash error">
-<?php if (isset($view["login"])) { ?> <p><?php echo $view["login"]; ?> is not available</p> <?php } ?>
-<?php if (isset($view["email"])) { ?> <p><?php echo $view["email"]; ?> is not a valid email address</p> <?php } ?>
-<?php if (isset($view["password"])) { ?> <p>Passwords doesn't match</p> <?php } ?>
-</div>
+<?php if (isset($view["login"])) { ?> <div class="flash error"><?php echo $view["login"]; ?> is not available</div> <?php } ?>
+<?php if (isset($view["email"])) { ?> <div class="flash error"><?php echo $view["email"]; ?> is not a valid email address</div> <?php } ?>
+<?php if (isset($view["password"])) { ?> <div class="flash error">Passwords doesn't match</div> <?php } ?>
 
 <div class="mep">
 <form method="post" action="/login/check">
