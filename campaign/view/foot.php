@@ -1,4 +1,4 @@
-<p class=button><a class=blue href="/campaign/hof2/">All star Hall of Fame</a></p>
+<p class=button><a class=blue href="/campaign/hof2/">Citizens Hall of Fame</a></p>
 
 </div>
 
