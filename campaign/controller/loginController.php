@@ -221,22 +221,21 @@ class loginController extends abstractController {
       $view["message"] .= "You must fill all the fields.";
       render("loginindex");
     }
-
     if (strcmp($_REQUEST["new_pw"] != $_REQUEST["new_pw2"]))
     {
       $view["message"] .= "New passwords do not match.";
       render("loginindex");
     }
 
-    $old_pw=mqone("SELECT user.password FROM user WHERE id='".$_SESSION["id"]["id"]."' AND password=PASSWORD('".$_REQUEST["current_pw"]."');")
+    $old_pw=mqone("SELECT user.password FROM user WHERE id='".$_SESSION["id"]["id"]."' AND password=PASSWORD('".$_REQUEST["current_pw"]."');");
     if (!$old_pw)
     {
-        $view["message"] .= "Wrong password";
-        render("loginindex");
+      $view["message"] .= "Wrong password";
+      render("loginindex");
     }
 
-    mq=("UPDATE user SET password=PASSWORD('".$_REQUEST["new_pw2"]."') WHERE id='".$_SESSION["id"]["id"]."';");   
-    $this->indexAction()
+    mq("UPDATE user SET password=PASSWORD('".$_REQUEST["new_pw2"]."') WHERE id='".$_SESSION["id"]["id"]."';");   
+    $this->indexAction();
   }
 
   /* Update the email or login name */
