@@ -71,7 +71,7 @@ $us=@unserialize($view["callee"]["meta"]);
       </ul>
    <?php if (isset($us["committee"])) { ?>
       <ul id="committee">
-	 <?php foreach($us["committee"] as $com) { ?>        <li title="<?php echo $acommittee[$com]; ?>"><a href="https://memopol.lqdn.fr/europe/parliament/committee/<?php echo $com; ?>/" style="color: white;"><?php echo $com; ?></a></li> <?php } ?>
+	 <?php foreach($us["committee"] as $com) { if ($com != "") {?>        <li title="<?php echo $acommittee[$com]; ?>"><a href="https://memopol.lqdn.fr/europe/parliament/committee/<?php echo $com; ?>/" style="color: white;"><?php echo $com; ?></a></li> <?php }} ?>
       </ul>
 	 <?php } ?>
 	 <p id="info"><a href="https://memopol.lqdn.fr/europe/parliament/deputy/<?php echo str_replace(' ', '', ucwords(strtolower($us["name"]))); ?>/"><?php __("Get more info…"); ?></a></p>
