@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Benjamin Sonntag <benjamin@sonntag.fr>, 2012.
 #   <mr@laquadrature.net>, 2012.
+# Benjamin Sonntag <benjamin@sonntag.fr>, 2012, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: LQDN Support\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 17:39+0100\n"
-"PO-Revision-Date: 2012-06-26 10:04+0000\n"
-"Last-Translator: meli_melo <mr@laquadrature.net>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/lqdnsupport/"
-"language/fr/)\n"
+"PO-Revision-Date: 2013-02-15 17:45+0100\n"
+"Last-Translator: Benjamin Sonntag <benjamin@sonntag.fr>\n"
+"Language-Team: français <team@alternc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: view/campaigncall.php:17 view/campaigncall.php:21 view/campaigncall.php:22
 #: view/campaigngo2.php:25 view/campaigngo2.php:32
@@ -487,37 +487,41 @@ msgid "Call, free of charge!"
 msgstr "Appeler gratuitement"
 
 #: view/index.php:57
-#, fuzzy
 msgid "Hall of Fame"
-msgstr "Appelez moi"
+msgstr "Tableau d'honneur"
 
 #: view/index.php:70
 msgid ""
 "In the meantime, you may be interested in that campaign from friends of us:"
 msgstr ""
+"Dans le même temps, vous serez peut-être intéressé par la campagne de nos "
+"amis :"
 
 #: view/index.php:75
 msgid "How to call your MEP, a video from La Quadrature du Net"
 msgstr ""
+"Comment appeler votre Député Européen, une vidéo de La Quadrature du Net"
 
 #: view/campaigncall2.php:118
 msgid "You are calling: "
-msgstr ""
+msgstr "Vous êtes en train d'appeler :"
 
 #: view/campaignwidgetexpired2.php:45
 msgid "Support LQDN"
-msgstr ""
+msgstr "Soutenir LQDN"
 
 #: view/adminlistimport.php:7
 msgid ""
 "Choose a CSV file to upload, one entry per line, fields are comma\n"
 "separated and double quotes enclosed."
 msgstr ""
+"Choisissez un fichier CSV à envoyer, une entrée par ligne, les champs "
+"séparés par ; et entre double-quotes."
 
 #: view/adminlistimport.php:9
 msgid "Field order is / name / url / phone number / country code / score"
-msgstr ""
+msgstr "L'ordre des champs est nom / url / téléphone / pays / score"
 
 #: view/adminlistimport.php:12
 msgid "Choose a meta data provider"
-msgstr ""
+msgstr "Choisissez un fournisseur de metadonnées"
