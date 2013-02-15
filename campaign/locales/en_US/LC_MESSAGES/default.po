@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-30 04:27+0200\n"
+"POT-Creation-Date: 2013-02-15 17:39+0100\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "When the phone call will end, you may want to"
 msgstr ""
 
-#: view/index.php:3 view/index.php:8 view/index.php:16
+#: view/index.php:3 view/index.php:8 view/index.php:16 view/index.php:28
 msgid "Campaign's list"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgstr ""
 
 #: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
 #: view/campaigncall.php:55 view/campaigncall.php:56 view/campaigncall.php:57
-#: view/adminform.php:46
+#: view/adminform.php:46 view/adminform.php:40
 msgid "Cancel"
 msgstr ""
 
@@ -115,7 +115,8 @@ msgstr ""
 #: controller/campaignController.php:147 controller/campaignController.php:266
 #: controller/campaignController.php:459 controller/campaignController.php:479
 #: controller/campaignController.php:294 controller/campaignController.php:487
-#: controller/campaignController.php:507
+#: controller/campaignController.php:507 controller/campaignController.php:164
+#: controller/campaignController.php:281
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
 
@@ -123,10 +124,11 @@ msgstr ""
 #: controller/campaignController.php:290 controller/campaignController.php:149
 #: controller/campaignController.php:470 controller/campaignController.php:152
 #: controller/campaignController.php:484 controller/campaignController.php:512
+#: controller/campaignController.php:169
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 
-#: controller/campaignController.php:54
+#: controller/campaignController.php:54 controller/campaignController.php:81
 msgid "The specified campaign has not been found, please check your link"
 msgstr ""
 
@@ -140,6 +142,7 @@ msgstr ""
 #: controller/campaignController.php:321 controller/campaignController.php:124
 #: controller/campaignController.php:198 controller/campaignController.php:329
 #: controller/campaignController.php:226 controller/campaignController.php:357
+#: controller/campaignController.php:141
 msgid "Your phone number look strange, please check it"
 msgstr ""
 
@@ -148,6 +151,7 @@ msgstr ""
 #: controller/campaignController.php:333 controller/campaignController.php:136
 #: controller/campaignController.php:210 controller/campaignController.php:341
 #: controller/campaignController.php:238 controller/campaignController.php:369
+#: controller/campaignController.php:153
 msgid "Your phone number is from an unsupported country, sorry for that"
 msgstr ""
 
@@ -158,11 +162,11 @@ msgstr ""
 msgid "Country not found, please check"
 msgstr ""
 
-#: functions.php:199 functions.php:206
+#: functions.php:199 functions.php:206 functions.php:218
 msgid "Page Not Found"
 msgstr ""
 
-#: functions.php:199 functions.php:206
+#: functions.php:199 functions.php:206 functions.php:218
 msgid ""
 "The requested page has not been found or an error happened. Please check"
 msgstr ""
@@ -194,6 +198,7 @@ msgstr ""
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
 #: view/campaigncall2.php:113 view/campaigncall2.php:85
+#: view/campaigncall2.php:84
 msgid "-- All Europe --"
 msgstr ""
 
@@ -226,7 +231,7 @@ msgid ""
 "France, then the number without the initial 0):"
 msgstr ""
 
-#: view/index.php:41 view/index.php:47 view/index.php:56
+#: view/index.php:41 view/index.php:47 view/index.php:56 view/index.php:68
 msgid ""
 "There is currently no campaign. Please come back later or when you hear "
 "there will be one"
@@ -248,11 +253,11 @@ msgstr ""
 msgid "This campaign is expired."
 msgstr ""
 
-#: view/head.php:24 view/head.php:53
+#: view/head.php:24 view/head.php:53 view/head.php:60
 msgid "Campaign Admin"
 msgstr ""
 
-#: view/head.php:25 view/head.php:54
+#: view/head.php:25 view/head.php:54 view/head.php:61
 msgid "User Admin"
 msgstr ""
 
@@ -260,19 +265,22 @@ msgstr ""
 msgid "Feeback"
 msgstr ""
 
-#: view/index.php:31 view/index.php:46
+#: view/index.php:31 view/index.php:46 view/index.php:56
+#: view/campaignhof2.php:42
 msgid "Act now!"
 msgstr ""
 
 #: view/campaigngo2.php:68 view/campaigncall2.php:79
 #: view/campaigncall2.php:112 view/campaigngo2.php:75
 #: view/campaigncall2.php:119 view/campaigncall2.php:91
+#: view/campaigncall2.php:90
 msgid "Call Now"
 msgstr ""
 
 #: view/campaigngo2.php:70 view/campaigncall2.php:81
 #: view/campaigncall2.php:114 view/campaigngo2.php:77
 #: view/campaigncall2.php:121 view/campaigncall2.php:93
+#: view/campaigncall2.php:92
 msgid "Choose another random MEP"
 msgstr ""
 
@@ -331,11 +339,13 @@ msgstr ""
 
 #: view/campaigncall2.php:63 view/campaigncall2.php:95
 #: view/campaigncall2.php:102 view/campaigncall2.php:118
+#: view/campaigncall2.php:119
 msgid "Please take a second to give us your feedback."
 msgstr ""
 
 #: view/campaigncall2.php:64 view/campaigncall2.php:96
 #: view/campaigncall2.php:103 view/campaigncall2.php:119
+#: view/campaigncall2.php:120
 msgid ""
 "Were you able to reach somebody or not? How long did the conversation last? "
 "What information did you get?"
@@ -343,6 +353,7 @@ msgstr ""
 
 #: view/campaigncall2.php:65 view/campaigncall2.php:97
 #: view/campaigncall2.php:104 view/campaigncall2.php:120
+#: view/campaigncall2.php:121
 msgid "Your feedback:"
 msgstr ""
 
@@ -350,16 +361,16 @@ msgstr ""
 msgid "Show Popup"
 msgstr ""
 
-#: view/head.php:30 view/head.php:25
+#: view/head.php:30 view/head.php:25 view/head.php:23
 msgid "PiPhone"
 msgstr ""
 
-#: view/head.php:30 view/head.php:25
+#: view/head.php:30 view/head.php:25 view/head.php:23
 msgid "Call MEPs for free - and make yourself heard"
 msgstr ""
 
 #: controller/campaignController.php:263 controller/campaignController.php:271
-#: controller/campaignController.php:299
+#: controller/campaignController.php:299 controller/campaignController.php:287
 msgid ""
 "Your feedback has been sent to us, thanks for your participation! CALLID:"
 msgstr ""
@@ -375,7 +386,7 @@ msgid "X"
 msgstr ""
 
 #: view/campaigncall2.php:110 view/campaigncall2.php:117
-#: view/campaigncall2.php:89
+#: view/campaigncall2.php:89 view/campaigncall2.php:88
 msgid "Show Call & Feedback Popup"
 msgstr ""
 
@@ -392,11 +403,12 @@ msgid "Country:"
 msgstr ""
 
 #: view/campaigncall2.php:71 view/campaigncall2.php:78
+#: view/campaigncall2.php:77
 msgid "Get more info…"
 msgstr ""
 
 #: view/campaigncall2.php:98 view/campaigncall2.php:105
-#: view/campaigncall2.php:121
+#: view/campaigncall2.php:121 view/campaigncall2.php:122
 msgid "Send"
 msgstr ""
 
@@ -408,7 +420,7 @@ msgstr ""
 msgid "Country: "
 msgstr ""
 
-#: view/campaigncall2.php:85
+#: view/campaigncall2.php:85 view/campaigncall2.php:84
 msgid "Choose a Country:"
 msgstr ""
 
@@ -417,13 +429,51 @@ msgid "Add the piphone widget to your website and spread the word."
 msgstr ""
 
 #: view/campaignwidget2.php:75 view/campaignwidget2.php:98
+#: view/campaignwidget2.php:80 view/campaignwidget2.php:103
 msgid "Group:"
 msgstr ""
 
 #: view/campaignwidget2.php:76 view/campaignwidget2.php:100
+#: view/campaignwidget2.php:81 view/campaignwidget2.php:105
 msgid "Party:"
 msgstr ""
 
 #: view/campaignwidget2.php:86 view/campaignwidget2.php:111
+#: view/campaignwidget2.php:91 view/campaignwidget2.php:116
 msgid "Call, free of charge!"
+msgstr ""
+
+#: view/index.php:57
+msgid "Hall of Fame"
+msgstr ""
+
+#: view/index.php:70
+msgid ""
+"In the meantime, you may be interested in that campaign from friends of us:"
+msgstr ""
+
+#: view/index.php:75
+msgid "How to call your MEP, a video from La Quadrature du Net"
+msgstr ""
+
+#: view/campaigncall2.php:118
+msgid "You are calling: "
+msgstr ""
+
+#: view/campaignwidgetexpired2.php:45
+msgid "Support LQDN"
+msgstr ""
+
+#: view/adminlistimport.php:7
+msgid ""
+"Choose a CSV file to upload, one entry per line, fields are comma\n"
+"separated and double quotes enclosed."
+msgstr ""
+
+#: view/adminlistimport.php:9
+msgid "Field order is / name / url / phone number / country code / score"
+msgstr ""
+
+#: view/adminlistimport.php:12
+msgid "Choose a meta data provider"
 msgstr ""
