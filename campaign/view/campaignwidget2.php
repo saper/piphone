@@ -58,9 +58,11 @@ $acommittee = array(
 }
 */
 if ($view['lang'] == 'fr'):?>
-<a href="http://piphone.lqdn.fr" target="_blank">Appelez</a> les eurodéputés&nbsp;! Demandez le rejet d'<a href="http://laquadrature.net/ACTA" target="_blank">ACTA</a> (vote final le 4 juillet) et une <a href="https://www.laquadrature.net/fr/propositions#le-partage-de-la-culture-et-des-connaissances" target="_blank">réforme du droit d'auteur</a>&nbsp;!
+<a href="http://piphone.lqdn.fr" target="_blank">Appelez</a> les eurodéputés&nbsp;! 
+Exigez la mise en place de solides protections pour votre droit fondamental à la vie privée&nbsp;!
 <?php else: ?>
-<a href="http://piphone.lqdn.fr" target="_blank">Call</a> Members of the EU Parliament! Urge them to reject <a href="http://laquadrature.net/ACTA" target="_blank">ACTA</a> (final vote Jul.4th) and <a href="https://www.laquadrature.net/en/proposals#sharing-of-culture-and-knowledge" target="_blank">reform copyright</a>!
+<a href="http://piphone.lqdn.fr" target="_blank">Call</a> MEPs!
+Demand the adoption of strong safeguards for our fundamental right to privacy!
 <?php endif; ?>
 </h4>
 <?php
@@ -71,11 +73,11 @@ $us=@unserialize($view["callee"]["meta"]);
   <p class="left" style="width: 20%; margin: 0;" ><img src="<?php echo $us["picurl"]; ?>" alt="mep" style="width: 85%; margin-right: 5px;"/></p>
   <div class="right" style="float: both; width: 25%; margin-right: 10px;">
    <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
-<?php if (isset($us["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="18" alt="<?php echo $us["country"]; ?>" /> <?php } ?></p>
+<?php if (isset($view["callee"]["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $view["callee"]["country"]; ?>.png" height="18" alt="<?php echo $view["callee"]["country"]; ?>" /> <?php } ?></p>
   </div>
   <div class="right" style="float: none; width: 40%; padding: 0px; margin: 0px;" >
       <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/" target="_blank"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo $us["group"]; ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1/" target="_blank"><img style="vertical-align: middle;" src="http://piphone.lqdn.fr/static/eu/<?php echo str_replace("/","",$us["group"]); ?>.gif" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
@@ -91,15 +93,15 @@ $us=@unserialize($view["callee"]["meta"]);
 </form>
 <?php } else { ?>
 <div id="mep" style="height: 42%;" > 
-  <p class="left" style="width: 30%; margin: 0;" ><img src="<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%; margin-right: 5px;" /></p>
-  <div class="right" style="float:right; width: 70%;">
+  <p class="left" style="width: 28%; margin: 0; padding: 0;" ><img src="<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%; margin-right: 5px;" /></p>
+  <div class="right" style="float:right; width: 68%; margin: 0; padding: 0;">
    <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
-<?php if (isset($us["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="18" alt="<?php echo $us["country"]; ?>" /> <?php } ?></p>
+<?php if (isset($view["callee"]["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $view["callee"]["country"]; ?>.png" height="18" alt="<?php echo $view["callee"]["country"]; ?>" /> <?php } ?></p>
   </div>
   <div class="right" style="width: 100%; padding: 0px;" >
       <ul id="resume">
 <?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span>
-        <span style="font-size: 85%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/" target="_blank"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo str_replace('/',' ',$us["group"]); ?>.png" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+        <span style="font-size: 85%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1/" target="_blank"><img style="vertical-align: middle;" src="http://piphone.lqdn.fr/static/eu/<?php echo str_replace("/","",$us["group"]); ?>.gif" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>

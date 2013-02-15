@@ -38,7 +38,7 @@ class campaignController extends abstractController {
   
   private function _getCampaignCountries($id) {
     $countries=array();
-    $r=mq("SELECT DISTINCT c.code,c.name FROM lists l, countries c WHERE c.code=l.country AND l.campaign='".intval($id)."' AND l.enabled=1 ORDER BY 1;");
+    $r=mq("SELECT DISTINCT c.code,c.name FROM lists l, countries c WHERE c.code=l.country AND l.campaign='".intval($id)."' AND l.enabled=1 ORDER BY c.name;");
     while ($c=mysql_fetch_assoc($r)) {
       $countries[$c["code"]]=$c["name"];
     }
@@ -55,16 +55,16 @@ class campaignController extends abstractController {
 	 */
     if ($_REQUEST["country"]) $country=$_REQUEST["country"];
     if (isset($country)) {
-        $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."' AND country='$country';");
+        $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."' AND country='$country' AND enabled='1';");
     } else {
-        $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."';");
+        $high_score=mqonefield("SELECT max(pond_scores) from lists where campaign='".$campaign_id."' AND enabled='1';");
     }
 
     $threshold=mt_rand(1,$high_score);
     if ($high_score == 0) $threshold = 0;
 
     // lists contains the mep, they have score and pond_score as fields
-    $query="SELECT id FROM lists WHERE campaign='".$campaign_id."'";
+    $query="SELECT id FROM lists WHERE campaign='".$campaign_id."' AND enabled='1'";
     if ($_REQUEST["country"]) $country=$_REQUEST["country"];
 	if (isset($country)) { $query .= " AND country='".$country."'"; }
 	$query.=" AND pond_scores >= '".$threshold."'";

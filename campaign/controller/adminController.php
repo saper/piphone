@@ -20,7 +20,7 @@ class adminController extends abstractController {
   /** Get the list of campaigns */
   function indexAction() {
     global $view;
-    $view["campaign"]=mqlist("SELECT campaign.*, IF(datestart<=NOW() AND datestop>=NOW(),0,1) AS expired FROM campaign ORDER BY enabled DESC");
+    $view["campaign"]=mqlist("SELECT campaign.*, IF(datestart<=NOW() AND datestop>=NOW(),0,1) AS expired FROM campaign ORDER BY enabled DESC, datestart DESC");
     for($i=0;$i<count($view["campaign"]);$i++) {
       $view["campaign"][$i]["count"]=mqonefield("SELECT COUNT(*) FROM lists WHERE campaign=".$view["campaign"][$i]["id"]);
       $view["campaign"][$i]["calls"]=mqonefield("SELECT COUNT(*) FROM calls WHERE campaign=".$view["campaign"][$i]["id"]." AND (uuid!='' OR feedback!='')");
@@ -176,13 +176,13 @@ class adminController extends abstractController {
 	  // INSERT
       mq("INSERT INTO lists SET
         campaign='$id',
-	name='$name',
-	url='$url',
-	phone='$phone',
-	scores='$score',
-	pond_scores='$score',
-	country='$country',
-	meta='$meta',
+	name='".addslashes($name)."',
+	url='".addslashes($url)."',
+	phone='".addslashes($phone)."',
+	scores='".addslashes($score)."',
+	pond_scores='".addslashes($score)."',
+	country='".addslashes($country)."',
+	meta='".addslashes($meta)."',
 	callcount=0, enabled=1
 	;"
       );

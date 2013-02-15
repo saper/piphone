@@ -1,15 +1,16 @@
 <?php
+
 function countryCodes($country) {
   $countryCodes = array(
-     "Austria" => "AU",     "Belgium" => "BE",     "Chyprus" => "CY",
-     "Czech" => "CZ" ,     "Denmark" => "DK",     "Estonia" => "EE",
-     "Finland" => "FI",      "France" => "FR",     "Germany" => "DE",
-     "Greece" => "GR",     "Hungary" => "HU",     "Ireland" => "IE",
-     "Italy" => "IT",     "Latvia" => "LV",     "Lithuania" => "LT",
-     "Luxembourg" => "LU",     "Malta" => "MT",     "Netherlands" => "NL",
-     "Poland" => "PL",     "Portugal" => "PT",     "Slovakia" => "SK",
-     "Slovenia" => "SI",     "Spain" => "SP",     "Sweden" => "SE",
-     "United Kingdom" => "UK",
+     "Austria" => "AT",     "Bulgaria" => "BG",   "Belgium" => "BE",     
+     "Chyprus" => "CY",      "Czech" => "CZ" ,     "Denmark" => "DK",
+     "Estonia" => "EE",     "Finland" => "FI",      "France" => "FR",
+     "Germany" => "DE",     "Greece" => "GR",     "Hungary" => "HU",
+     "Ireland" => "IE",       "Italy" => "IT",     "Latvia" => "LV",
+     "Lithuania" => "LT",    "Luxembourg" => "LU",     "Malta" => "MT",
+     "Netherlands" => "NL",   "Poland" => "PL",     "Portugal" => "PT",
+     "Romania" => "RO",    "Slovakia" => "SK",      "Slovenia" => "SI",
+     "Spain" => "SP",     "Sweden" => "SE",     "United Kingdom" => "UK",  
   );
   return $countryCodes[$country];
 }

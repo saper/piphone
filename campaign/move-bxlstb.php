@@ -8,7 +8,7 @@
 //mep_step1("MEP.html");
 
 $campaign=14;
-$to="stb";
+$to="bxl";
 //$to="bxl";
 
 require_once("config.php");
@@ -17,7 +17,6 @@ require_once(dirname(__FILE__)."/functions_iso.php");
 require_once(dirname(__FILE__)."/functions.php");
 require_once(dirname(__FILE__)."/lang.php");
 
-/*
 $r=mq("SELECT * FROM lists where campaign=".$campaign.";");
 while ($c=mysql_fetch_array($r)) {
   $us=unserialize($c["meta"]);
@@ -29,7 +28,6 @@ while ($c=mysql_fetch_array($r)) {
   }
 }
 echo "\n";
-*/
 
 /* Retournement des appels de lists ... evite de peter les stats > oui c'est crade :)
 $r=mq("SELECT * FROM lists where campaign=".$campaign.";");

@@ -65,16 +65,16 @@ $us=@unserialize($view["callee"]["meta"]);
    <!--        <li id="age">51 years old</li> -->
    <?php $calleephone=preg_replace("#^00#","+",$view["callee"]["phone"]); ?>
    <li id="phone"><?php __("Phone number: "); ?><a href="tel:<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol.lqdn.fr/europe/parliament/group/<?php echo $us["group"]; ?>/"><img style="vertical-align: middle;" src="https://memopol.lqdn.fr/static/img/groups/eu/<?php echo str_replace('/','',$us["group"]); ?>.png" height="24" alt="<?php echo $us["group"]; ?>" /></a> - <?php echo $us["group"]; ?></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1/"><img style="vertical-align: middle;" src="/static/eu/<?php echo str_replace('/','',$us["group"]); ?>.gif" height="24" alt="<?php echo $us["group"]; ?>" /></a> - <?php echo $us["group"]; ?></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("National party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
-<?php if (isset($us["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $us["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
+<?php if (isset($view["callee"]["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $view["callee"]["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
       </ul>
    <?php if (isset($us["committee"])) { ?>
       <ul id="committee">
 	 <?php foreach($us["committee"] as $com) { if ($com != "") {?>        <li title="<?php echo $acommittee[$com]; ?>"><a href="https://memopol.lqdn.fr/europe/parliament/committee/<?php echo $com; ?>/" style="color: white;"><?php echo $com; ?></a></li> <?php }} ?>
       </ul>
 	 <?php } ?>
-	 <p id="info"><a href="https://memopol.lqdn.fr/europe/parliament/deputy/<?php echo str_replace(' ', '', ucwords(strtolower($us["name"]))); ?>/"><?php __("Get more info…"); ?></a></p>
+	 <p id="info"><a href="https://memopol.lqdn.fr/europe/parliament/deputy/<?php echo str_replace(' ', '', ucwords(strtolower(iconv("UTF-8", "US-ASCII//TRANSLIT", $us["name"])))); ?>/"><?php __("Get more info…"); ?></a></p>
   </div>
 </div>
 
@@ -115,6 +115,7 @@ $us=@unserialize($view["callee"]["meta"]);
   <div class="right">
     <form method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/<?php echo $view["callid"]; ?>">
       <h5><?php __("Feedback"); ?><span id="pophide" style="display: none; float: right;" onMouseOver="this.style.cursor='pointer'"><? __("X");?></span></h5>
+      <p><b><?php __("You are calling: "); ?></b><?php echo $view["callee"]["name"] . " ( " . $view["callee"]["country"] . " - " . $us["group"] ." )"; ?></p>
       <p><?php __("Please take a second to give us your feedback."); ?></p>
       <p><?php __("Were you able to reach somebody or not? How long did the conversation last? What information did you get?"); ?></p>
       <p><label for="feedback"><?php __("Your feedback:"); ?></label> <textarea id="feedback" name="feedback"></textarea></p>
