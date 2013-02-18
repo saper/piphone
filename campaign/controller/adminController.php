@@ -204,7 +204,7 @@ class adminController extends abstractController {
     }
 
     // Validate the fields : 
-    $fields=array("id","name","slug","longname", "description", "description-fr","datestart","datestop");
+    $fields=array("id","name", "name-fr","slug","longname", "longname-fr", "description", "description-fr","datestart","datestop");
     foreach($fields as $f) $view["campaign"][$f]=$_REQUEST[$f]; 
 
     if (!$tstart = strtotime($_REQUEST["datestart"])) {
@@ -231,6 +231,7 @@ class adminController extends abstractController {
     }
 
     $name = addslashes($view["campaign"]["name"]);
+    $namefr = addslashes($view["campaign"]["namefr"]);
     $slug = addslashes($view["campaign"]["slug"]);
     $desc = addslashes($view["campaign"]["description"]);
     $descfr = addslashes($view["campaign"]["description-fr"]);
