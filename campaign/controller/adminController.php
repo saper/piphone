@@ -103,16 +103,21 @@ class adminController extends abstractController {
     $score=mqassoc("SELECT id,pond_scores FROM lists WHERE campaign=$id;");
     
     // Validate the fields : 
+    mq("UPDATE lists SET enabled=0 WHERE campaign=$id;");
     foreach($_REQUEST["callee"] as $cid=>$action) {
       $cid=intval($cid); $action=intval($action);
+      /*
       if ($list[$cid]!=$action) {
+      */
 	mq("UPDATE lists SET enabled='$action' WHERE campaign=$id AND id='$cid';");
+	/*
 	if ($action) { 
 	  $view["messages"].="$cid enabled. ";
 	} else {
 	  $view["messages"].="$cid disabled. ";
 	}
       }
+	*/
     }
     foreach($_REQUEST["score"] as $cid=>$pscore) {
       $cid=intval($cid); $pscore=intval($pscore);
