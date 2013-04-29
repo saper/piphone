@@ -9,8 +9,10 @@ The aim of this project is to allow any group of citizen to create political cam
 for an online demo of the piphone, please go to http://demo.piphone.eu/
 
 (C) La Quadrature du Net and others, 2012-2013
-This program is distributed under the GPL-v3 license as specified in the <COPYRIGHT> file.
-See <AUTHORS> for a complete list of authors 
+
+This program is distributed under the GPL-v3 license as specified in the [COPYRIGHT](COPYRIGHT) file. See [AUTHORS](AUTHORS) for a complete list of authors 
+
+![Screenshot Piphone](/screenshot.jpg)
 
 Installation Instructions
 -------------------------
