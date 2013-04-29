@@ -3,7 +3,6 @@ Options -Indexes
 RewriteEngine On
 # Everything NOT in static/ is served by the catchall index.php : 
 RewriteCond %{REQUEST_URI} !^/static/
-RewriteCond %{REQUEST_URI} !^/imports/
 RewriteRule .* index.php [L]
 
 

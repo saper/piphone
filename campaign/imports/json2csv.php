@@ -7,8 +7,15 @@ header("Content-Type: text/csv");
 if (!empty($_REQUEST["url"])) $url=$_REQUEST["url"];
 if (!empty($argv[1])) $url=$argv[1];
 
+if (empty($url)) {
+  echo "USAGE: json2csv.php <file>\n";
+  echo " transform a json file from parltrack to a csv that can be uploaded into the PIPHONE admin interface\n";
+  exit(1);
+}
+
 $me=json_decode(file_get_contents($url));
 
+/* debug */
 /*
 foreach($me as $k=>$v) {
   echo "K:$k V:$v\n";
@@ -34,10 +41,14 @@ function getparltrack($url,$id) {
 }
 
 $countries=array(
- "Austria" => "AT", "Belgium" => "BE",	 "Bulgaria" => "BG",	 "Cyprus" => "CY",	 "Czech Republic" => "CZ",	 "Denmark" => "DK",	 "Estonia" => "EE",
- "Finland" => "FI", 	 "France" => "FR",	 "Germany" => "DE",	 "Greece" => "EL",	 "Hungary" => "HU",	 "Ireland" => "IE",	 "Italy" => "IT",
- "Latvia" => "LV",	 "Lithuania" => "LT",	 "Luxembourg" => "LU",	 "Malta" => "MT",	 "Netherlands" => "NL",	 "Poland" => "PL",	 "Portugal" => "PT",
- "Romania" => "RO",	 "Slovakia" => "SK",	 "Slovenia" => "SL",	 "Spain" => "ES",	 "Sweden" => "SE",	 "United Kingdom" => "GB",	 );
+		 "Austria" => "AT", "Belgium" => "BE",	 "Bulgaria" => "BG",	 "Cyprus" => "CY",	 
+		 "Czech Republic" => "CZ",	 "Denmark" => "DK",	 "Estonia" => "EE",
+		 "Finland" => "FI", 	 "France" => "FR",	 "Germany" => "DE",	 "Greece" => "EL",
+		 "Hungary" => "HU",	 "Ireland" => "IE",	 "Italy" => "IT",  "Latvia" => "LV",	
+		 "Lithuania" => "LT",	 "Luxembourg" => "LU",	 "Malta" => "MT",	 "Netherlands" => "NL",
+		 "Poland" => "PL",	 "Portugal" => "PT",  "Romania" => "RO",	 "Slovakia" => "SK",	 
+		 "Slovenia" => "SL",	 "Spain" => "ES",	 "Sweden" => "SE",	 "United Kingdom" => "GB",	 
+		 );
 
 function Country2Short($const) {
   global $countries;
@@ -47,6 +58,7 @@ function Country2Short($const) {
     }
   }
 }
+
 function GoodPhone($phone) {
   return str_replace("+","00",str_replace(" ","",$phone));
 }

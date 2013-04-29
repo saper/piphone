@@ -3,3 +3,6 @@ campaign/locales/fr_FR/LC_MESSAGES/default.mo
 plivo
 campaign/config.php
 campaign/static/pics
+campaign/csv/*.csv
+campaign/imports/*.csv
+campaign/imports/*.json
