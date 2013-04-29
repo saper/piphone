@@ -325,6 +325,9 @@ function feedback2Action() {
 
   } // function _callback
 
+  function privacyAction() {
+    render("privacy");   
+  }
 
   function log($str) {
     $f=fopen("/tmp/log","ab");
