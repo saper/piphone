@@ -23,6 +23,7 @@ To install it proceed as follow :
 * Configure a MySQL database access in campaign/config.php.sample, which should be renamed to config.php
 * (not sure it's still needed) clone the plivo-helper files into campaign/plivo by using :  cd campaign/ && git clone https://github.com/digination/plivohelper-php plivo
 * Inject piphone.sql into your MySQL database to create the basic structure
+* use freeswitch/ folder to preconfigure freeswitch and its sounds/ and scripts/ folders
 
 * You also need both [Plivo](https://github.com/plivo/plivoframework/) and [Freeswitch](http://www.freeswitch.org/) installed. 
 * In Plivo, you need to define two keys in default.conf called "Auth ID" and "Auth Token". Change them to something unique, and put the same information into the AccountSid and AuthToken of config.php
