@@ -1,15 +1,10 @@
 <?php
 
-// Get a liste of MEP into a campaign list table 
-// download pictures if needed, and also metadata ...
-
-// HERE is the campaign number
-// Call mep_step1 with the URL of the mep LIST in memopol as parameter.
-//mep_step1("MEP.html");
-
-$campaign=14;
+// Move all mep of a campaign (below) to Brussells (BXL) or Strasbourg (STB)
+$campaign=15;
+//$to="stb";
 $to="bxl";
-//$to="bxl";
+
 
 require_once("config.php");
 mysql_query("SET NAMES UTF8;");
@@ -23,8 +18,11 @@ while ($c=mysql_fetch_array($r)) {
   //  echo $us["bxl"];
   if (isset($us[$to])) {
     $us[$to]=str_replace("+","00",$us[$to]);
-    mq("UPDATE lists SET phone='".$us[$to]."' WHERE id=".$c["id"]);
-    echo "."; flush();
+    $q="UPDATE lists SET phone='".$us[$to]."' WHERE id=".$c["id"];
+    //    echo $q."\n";
+    mq($q);
+    if (mysql_affected_rows()) echo "."; else echo "!"; 
+    flush();
   }
 }
 echo "\n";
