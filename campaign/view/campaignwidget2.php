@@ -122,8 +122,8 @@ $us=@unserialize($view["callee"]["meta"]);
 <div style="clear:both;"></div>
 </div>
 <p style="font-size:8pt;padding:0;margin:0;text-align:right">
-<?php if($view['lang']=='fr'):?><a href="http://piphone.lqdn.fr/campaign/addwidget2/acta-final-vote?setlang=fr" target="_blank">Partagez sur votre site</a>
-<?php else:?><a href="http://piphone.lqdn.fr/campaign/addwidget2/acta-final-vote?setlang=en" target="_blank">Share this on your site</a></p>
+<?php if($view['lang']=='fr'):?><a href="http://piphone.lqdn.fr/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>?setlang=fr" target="_blank">Partagez sur votre site</a>
+<?php else:?><a href="http://piphone.lqdn.fr/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>?setlang=en" target="_blank">Share this on your site</a></p>
 <?php endif;?>
 </body>
 </html>
