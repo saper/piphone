@@ -77,7 +77,7 @@ $us=@unserialize($view["callee"]["meta"]);
   </div>
   <div class="right" style="float: none; width: 40%; padding: 0px; margin: 0px;" >
       <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1/" target="_blank"><img style="vertical-align: middle;" src="http://piphone.lqdn.fr/static/eu/<?php echo str_replace("/","",$us["group"]); ?>.gif" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1" target="_blank"><img style="vertical-align: middle;" src="http://piphone.lqdn.fr/static/eu/<?php echo str_replace("/","",$us["group"]); ?>.gif" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
       </ul>
   </div>
