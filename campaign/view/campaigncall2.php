@@ -54,7 +54,7 @@ $us=@unserialize($view["callee"]["meta"]);
    <!--        <li id="age">51 years old</li> -->
    <?php $calleephone=preg_replace("#^00#","+",$view["callee"]["phone"]); ?>
    <li id="phone"><?php __("Phone number: "); ?><a href="tel:<?php echo $calleephone; ?>"><?php echo $calleephone; ?></a></li>
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1/"><img style="vertical-align: middle;" src="/static/eu/<?php echo str_replace('/','',$us["group"]); ?>.gif" height="24" alt="<?php echo $us["group"]; ?>" /></a> - <?php echo $us["group"]; ?></li> <?php } ?>
+<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Political group:"); ?></span><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1"><img style="vertical-align: middle;" src="/static/eu/<?php echo str_replace('/','',$us["group"]); ?>.gif" height="24" alt="<?php echo $us["group"]; ?>" /></a> - <?php echo $us["group"]; ?></li> <?php } ?>
 <?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("National party:"); ?></span> <?php echo $us["party"]; ?></li> <?php } ?>
 <?php if (isset($view["callee"]["country"])) { ?> <li id="country"><span><?php __("Country: "); ?></span><img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $view["callee"]["country"]; ?>.png" height="24" alt="<?php echo $us["country"]; ?>" /></li> <?php } ?>
       </ul>
