@@ -59,10 +59,10 @@ $acommittee = array(
 */
 if ($view['lang'] == 'fr'):?>
 <a href="http://piphone.lqdn.fr" target="_blank">Appelez</a> les eurodéputés&nbsp;! 
-Exigez la mise en place de solides protections pour votre droit fondamental à la vie privée&nbsp;!
+Exigez l'application réelle et inconditionnelle de la neutralité du Net&nbsp;!
 <?php else: ?>
 <a href="http://piphone.lqdn.fr" target="_blank">Call</a> MEPs!
-Demand the adoption of strong safeguards for our fundamental right to privacy!
+Demand the enforcement of a true and unconditional Net neutrality!
 <?php endif; ?>
 </h4>
 <?php

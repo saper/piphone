@@ -1,10 +1,10 @@
 <?php
 
 // Move all mep of a campaign (below) to Brussells (BXL) or Strasbourg (STB)
-$campaign=15;
+$campaign=20;
 //$to="stb";
-$to="bxl";
-
+$to="stb";
+$from="bxl";
 
 require_once("config.php");
 mysql_query("SET NAMES UTF8;");
@@ -17,8 +17,9 @@ while ($c=mysql_fetch_array($r)) {
   $us=unserialize($c["meta"]);
   //  echo $us["bxl"];
   if (isset($us[$to])) {
-    $us[$to]=str_replace("+","00",$us[$to]);
-    $q="UPDATE lists SET phone='".$us[$to]."' WHERE id=".$c["id"];
+    $us[$from]=preg_replace("#^00#","+",$c["phone"]);
+    $pho=str_replace("+","00",$us[$to]);
+    $q="UPDATE lists SET phone='".$pho."',meta='".addslashes(serialize($us))."' WHERE id=".$c["id"];
     //    echo $q."\n";
     mq($q);
     if (mysql_affected_rows()) echo "."; else echo "!"; 

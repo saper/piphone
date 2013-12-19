@@ -38,17 +38,6 @@ if ($view["campaign"]["name-".$view["lang"]]) {
 
 <?php show_messages(); ?>
 
-<div id="abstract">
-   <?php 
-   if ($view["campaign"]["description-".$view["lang"]]) {
-     echo $view["campaign"]["description-".$view["lang"]]; 
-   } else {
-     echo $view["campaign"]["description"];
-   }
-
-?>
-</div>
-
 <?php
 if (isset($_COOKIE["piphone-phone"])) {$view["phone"]=$_COOKIE["piphone-phone"];}
 if (isset($_COOKIE["piphone-country"])) {$view["country"]=$_COOKIE["piphone-country"];}
@@ -122,6 +111,17 @@ $us=@unserialize($view["callee"]["meta"]);
       <p class="button"><input type="submit" value="<?php __("Send"); ?>" class="green" /></p>
     </form>
   </div>
+</div>
+
+<div id="abstract">
+   <?php 
+   if ($view["campaign"]["description-".$view["lang"]]) {
+     echo $view["campaign"]["description-".$view["lang"]]; 
+   } else {
+     echo $view["campaign"]["description"];
+   }
+
+?>
 </div>
 
 <!--Clicka convi things -->
