@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 17:39+0100\n"
+"POT-Creation-Date: 2014-01-14 23:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,6 +47,7 @@ msgid "When the phone call will end, you may want to"
 msgstr ""
 
 #: view/index.php:3 view/index.php:8 view/index.php:16 view/index.php:28
+#: view/index.php:28
 msgid "Campaign's list"
 msgstr ""
 
@@ -106,7 +107,8 @@ msgstr ""
 
 #: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
 #: view/campaigncall.php:55 view/campaigncall.php:56 view/campaigncall.php:57
-#: view/adminform.php:46 view/feedbackform.php:15 view/adminform.php:40
+#: view/adminform.php:46 view/adminform.php:40 view/feedbackform.php:15
+#: view/adminform.php:46
 msgid "Cancel"
 msgstr ""
 
@@ -119,6 +121,7 @@ msgstr ""
 #: controller/campaignController.php:459 controller/campaignController.php:479
 #: controller/campaignController.php:294 controller/campaignController.php:487
 #: controller/campaignController.php:507 controller/campaignController.php:164
+#: controller/campaignController.php:281 controller/campaignController.php:164
 #: controller/campaignController.php:281
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
@@ -127,11 +130,12 @@ msgstr ""
 #: controller/campaignController.php:290 controller/campaignController.php:149
 #: controller/campaignController.php:470 controller/campaignController.php:152
 #: controller/campaignController.php:484 controller/campaignController.php:512
-#: controller/campaignController.php:169
+#: controller/campaignController.php:169 controller/campaignController.php:169
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 
 #: controller/campaignController.php:54 controller/campaignController.php:81
+#: controller/campaignController.php:81
 msgid "The specified campaign has not been found, please check your link"
 msgstr ""
 
@@ -145,7 +149,7 @@ msgstr ""
 #: controller/campaignController.php:321 controller/campaignController.php:124
 #: controller/campaignController.php:198 controller/campaignController.php:329
 #: controller/campaignController.php:226 controller/campaignController.php:357
-#: controller/campaignController.php:141
+#: controller/campaignController.php:141 controller/campaignController.php:141
 msgid "Your phone number look strange, please check it"
 msgstr ""
 
@@ -154,7 +158,7 @@ msgstr ""
 #: controller/campaignController.php:333 controller/campaignController.php:136
 #: controller/campaignController.php:210 controller/campaignController.php:341
 #: controller/campaignController.php:238 controller/campaignController.php:369
-#: controller/campaignController.php:153
+#: controller/campaignController.php:153 controller/campaignController.php:153
 msgid "Your phone number is from an unsupported country, sorry for that"
 msgstr ""
 
@@ -165,11 +169,11 @@ msgstr ""
 msgid "Country not found, please check"
 msgstr ""
 
-#: functions.php:199 functions.php:206 functions.php:218
+#: functions.php:199 functions.php:206 functions.php:218 functions.php:218
 msgid "Page Not Found"
 msgstr ""
 
-#: functions.php:199 functions.php:206 functions.php:218
+#: functions.php:199 functions.php:206 functions.php:218 functions.php:218
 msgid ""
 "The requested page has not been found or an error happened. Please check"
 msgstr ""
@@ -201,7 +205,8 @@ msgstr ""
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
 #: view/campaigncall2.php:113 view/campaigncall2.php:85
-#: view/campaigngo2.php:72 view/campaigncall2.php:84 view/campaignform.php:20
+#: view/campaigncall2.php:84 view/campaigngo2.php:72 view/campaigncall2.php:63
+#: view/campaignform.php:20
 msgid "-- All Europe --"
 msgstr ""
 
@@ -235,6 +240,7 @@ msgid ""
 msgstr ""
 
 #: view/index.php:41 view/index.php:47 view/index.php:56 view/index.php:68
+#: view/index.php:68
 msgid ""
 "There is currently no campaign. Please come back later or when you hear "
 "there will be one"
@@ -256,11 +262,11 @@ msgstr ""
 msgid "This campaign is expired."
 msgstr ""
 
-#: view/head.php:24 view/head.php:53 view/head.php:60
+#: view/head.php:24 view/head.php:53 view/head.php:60 view/head.php:60
 msgid "Campaign Admin"
 msgstr ""
 
-#: view/head.php:25 view/head.php:54 view/head.php:61
+#: view/head.php:25 view/head.php:54 view/head.php:61 view/head.php:61
 msgid "User Admin"
 msgstr ""
 
@@ -269,38 +275,38 @@ msgid "Feeback"
 msgstr ""
 
 #: view/index.php:31 view/index.php:46 view/index.php:56
-#: view/campaignhof2.php:42
+#: view/campaignhof2.php:42 view/index.php:56 view/campaignhof2.php:42
 msgid "Act now!"
 msgstr ""
 
 #: view/campaigngo2.php:68 view/campaigncall2.php:79
 #: view/campaigncall2.php:112 view/campaigngo2.php:75
 #: view/campaigncall2.php:119 view/campaigncall2.php:91
-#: view/campaigngo2.php:75 view/campaigncall2.php:90
+#: view/campaigncall2.php:90 view/campaigngo2.php:75 view/campaigncall2.php:69
 msgid "Call Now"
 msgstr ""
 
 #: view/campaigngo2.php:70 view/campaigncall2.php:81
 #: view/campaigncall2.php:114 view/campaigngo2.php:77
 #: view/campaigncall2.php:121 view/campaigncall2.php:93
-#: view/campaigngo2.php:77 view/campaigncall2.php:92
+#: view/campaigncall2.php:92 view/campaigngo2.php:77 view/campaigncall2.php:71
 msgid "Choose another random MEP"
 msgstr ""
 
 #: view/campaigncall2.php:30 view/campaigncall2.php:60
-#: view/campaigncall2.php:67 view/campaigncall2.php:67
+#: view/campaigncall2.php:67 view/mep.php:9 view/an.php:8
 msgid "Phone number: "
 msgstr ""
 
 #: view/campaigncall2.php:48 view/campaigncall2.php:79
 #: view/campaigncall2.php:86 view/campaigncall2.php:102
-#: view/campaigncall2.php:102
+#: view/campaigncall2.php:81
 msgid "Call for free"
 msgstr ""
 
 #: view/campaigncall2.php:49 view/campaigncall2.php:80
 #: view/campaigncall2.php:87 view/campaigncall2.php:103
-#: view/campaigncall2.php:103
+#: view/campaigncall2.php:82
 msgid ""
 "If you want to call fo free, you must provide us with your phone number (the "
 "PiPhone will call that number to initiate the communication)."
@@ -308,13 +314,13 @@ msgstr ""
 
 #: view/campaigncall2.php:51 view/campaigncall2.php:82
 #: view/campaigncall2.php:89 view/campaigncall2.php:105
-#: view/campaigncall2.php:105
+#: view/campaigncall2.php:84
 msgid "Your phone number:"
 msgstr ""
 
 #: view/campaigncall2.php:52 view/campaigncall2.php:83
 #: view/campaigncall2.php:90 view/campaigncall2.php:106
-#: view/campaigncall2.php:106
+#: view/campaigncall2.php:85
 msgid ""
 "Starting with your <a href=\"http://en.wikipedia.org/wiki/"
 "List_of_country_calling_codes#Zones_3.2F4_.E2.80.93_Europe\">country code</"
@@ -323,19 +329,19 @@ msgstr ""
 
 #: view/campaigncall2.php:53 view/campaigncall2.php:85
 #: view/campaigncall2.php:92 view/campaigncall2.php:108
-#: view/campaigncall2.php:108
+#: view/campaigncall2.php:87
 msgid "I'm ready, call me"
 msgstr ""
 
 #: view/campaigncall2.php:55 view/campaigncall2.php:87
 #: view/campaigncall2.php:94 view/campaigncall2.php:110
-#: view/campaigncall2.php:110
+#: view/campaigncall2.php:89
 msgid "Call at your expense"
 msgstr ""
 
 #: view/campaigncall2.php:56 view/campaigncall2.php:88
 #: view/campaigncall2.php:95 view/campaigncall2.php:111
-#: view/campaigncall2.php:111
+#: view/campaigncall2.php:90
 msgid ""
 "If you don't want to call for free, here is the number of the current MEP "
 "(you can either dial it from your phone or push the button if any VoIP "
@@ -344,19 +350,19 @@ msgstr ""
 
 #: view/campaigncall2.php:62 view/campaigncall2.php:94
 #: view/campaigncall2.php:101 view/campaigncall2.php:117
-#: view/campaigncall2.php:117
+#: view/campaigncall2.php:96
 msgid "Feedback"
 msgstr ""
 
 #: view/campaigncall2.php:63 view/campaigncall2.php:95
 #: view/campaigncall2.php:102 view/campaigncall2.php:118
-#: view/campaigncall2.php:119
+#: view/campaigncall2.php:119 view/campaigncall2.php:98
 msgid "Please take a second to give us your feedback."
 msgstr ""
 
 #: view/campaigncall2.php:64 view/campaigncall2.php:96
 #: view/campaigncall2.php:103 view/campaigncall2.php:119
-#: view/campaigncall2.php:120
+#: view/campaigncall2.php:120 view/campaigncall2.php:99
 msgid ""
 "Were you able to reach somebody or not? How long did the conversation last? "
 "What information did you get?"
@@ -364,7 +370,7 @@ msgstr ""
 
 #: view/campaigncall2.php:65 view/campaigncall2.php:97
 #: view/campaigncall2.php:104 view/campaigncall2.php:120
-#: view/campaigncall2.php:121
+#: view/campaigncall2.php:121 view/campaigncall2.php:100
 msgid "Your feedback:"
 msgstr ""
 
@@ -372,42 +378,42 @@ msgstr ""
 msgid "Show Popup"
 msgstr ""
 
-#: view/head.php:30 view/head.php:25 view/head.php:23
+#: view/head.php:30 view/head.php:25 view/head.php:23 view/head.php:23
 msgid "PiPhone"
 msgstr ""
 
-#: view/head.php:30 view/head.php:25 view/head.php:23
+#: view/head.php:30 view/head.php:25 view/head.php:23 view/head.php:23
 msgid "Call MEPs for free - and make yourself heard"
 msgstr ""
 
 #: controller/campaignController.php:263 controller/campaignController.php:271
 #: controller/campaignController.php:299 controller/campaignController.php:287
+#: controller/campaignController.php:287
 msgid ""
 "Your feedback has been sent to us, thanks for your participation! CALLID:"
 msgstr ""
 
 #: view/campaigncall2.php:84 view/campaigncall2.php:91
-#: view/campaigncall2.php:107 view/campaigncall2.php:107
+#: view/campaigncall2.php:107 view/campaigncall2.php:86
 msgid "Call in progress."
 msgstr ""
 
 #: view/campaigncall2.php:94 view/campaigncall2.php:101
-#: view/campaigncall2.php:117 view/campaigncall2.php:117
+#: view/campaigncall2.php:117 view/campaigncall2.php:96
 msgid "X"
 msgstr ""
 
 #: view/campaigncall2.php:110 view/campaigncall2.php:117
 #: view/campaigncall2.php:89 view/campaigncall2.php:88
+#: view/campaigncall2.php:67
 msgid "Show Call & Feedback Popup"
 msgstr ""
 
-#: view/campaigncall2.php:61 view/campaigncall2.php:68
-#: view/campaigncall2.php:68
+#: view/campaigncall2.php:61 view/campaigncall2.php:68 view/mep.php:10
 msgid "Political group:"
 msgstr ""
 
-#: view/campaigncall2.php:62 view/campaigncall2.php:69
-#: view/campaigncall2.php:69
+#: view/campaigncall2.php:62 view/campaigncall2.php:69 view/mep.php:11
 msgid "National party:"
 msgstr ""
 
@@ -416,12 +422,13 @@ msgid "Country:"
 msgstr ""
 
 #: view/campaigncall2.php:71 view/campaigncall2.php:78
-#: view/campaigncall2.php:77
+#: view/campaigncall2.php:77 view/mep.php:19 view/an.php:14
 msgid "Get more info…"
 msgstr ""
 
 #: view/campaigncall2.php:98 view/campaigncall2.php:105
 #: view/campaigncall2.php:121 view/campaigncall2.php:122
+#: view/campaigncall2.php:101
 msgid "Send"
 msgstr ""
 
@@ -429,11 +436,12 @@ msgstr ""
 msgid "or"
 msgstr ""
 
-#: view/campaigncall2.php:70 view/campaigncall2.php:70
+#: view/campaigncall2.php:70 view/mep.php:12
 msgid "Country: "
 msgstr ""
 
 #: view/campaigncall2.php:85 view/campaigncall2.php:84
+#: view/campaigncall2.php:63
 msgid "Choose a Country:"
 msgstr ""
 
@@ -443,50 +451,107 @@ msgstr ""
 
 #: view/campaignwidget2.php:75 view/campaignwidget2.php:98
 #: view/campaignwidget2.php:80 view/campaignwidget2.php:103
+#: view/campaignwidget2.php:80 view/campaignwidget2.php:103
 msgid "Group:"
 msgstr ""
 
 #: view/campaignwidget2.php:76 view/campaignwidget2.php:100
 #: view/campaignwidget2.php:81 view/campaignwidget2.php:105
+#: view/campaignwidget2.php:81 view/campaignwidget2.php:105 view/an.php:10
 msgid "Party:"
 msgstr ""
 
 #: view/campaignwidget2.php:86 view/campaignwidget2.php:111
 #: view/campaignwidget2.php:91 view/campaignwidget2.php:116
+#: view/campaignwidget2.php:91 view/campaignwidget2.php:116
 msgid "Call, free of charge!"
 msgstr ""
 
-#: view/index.php:57
+#: view/index.php:57 view/index.php:57
 msgid "Hall of Fame"
 msgstr ""
 
-#: view/index.php:70
+#: view/index.php:70 view/index.php:70
 msgid ""
 "In the meantime, you may be interested in that campaign from friends of us:"
 msgstr ""
 
-#: view/index.php:75
+#: view/index.php:75 view/index.php:75
 msgid "How to call your MEP, a video from La Quadrature du Net"
 msgstr ""
 
-#: view/campaigncall2.php:118
+#: view/campaigncall2.php:118 view/campaigncall2.php:97
 msgid "You are calling: "
 msgstr ""
 
-#: view/campaignwidgetexpired2.php:45
+#: view/campaignwidgetexpired2.php:45 view/campaignwidgetexpired2.php:45
 msgid "Support LQDN"
 msgstr ""
 
-#: view/adminlistimport.php:7
+#: view/adminlistimport.php:7 view/adminlistimport.php:7
 msgid ""
 "Choose a CSV file to upload, one entry per line, fields are comma\n"
 "separated and double quotes enclosed."
 msgstr ""
 
-#: view/adminlistimport.php:9
+#: view/adminlistimport.php:9 view/adminlistimport.php:9
 msgid "Field order is / name / url / phone number / country code / score"
 msgstr ""
 
-#: view/adminlistimport.php:12
+#: view/adminlistimport.php:12 view/adminlistimport.php:12
 msgid "Choose a meta data provider"
+msgstr ""
+
+#: view/privacy.php:5 view/foot.php:11
+msgid "Privacy Policy"
+msgstr ""
+
+#: view/privacy.php:11
+msgid ""
+"The piphone logs the following. By using it to call anyone, you agree to let "
+"us do this for either statistical purpose or for any legal request as stated "
+"by the French Laws."
+msgstr ""
+
+#: view/privacy.php:14
+msgid ""
+"We log the <b>caller phone number, the called phone number, the date and "
+"time, and duration</b> of the call"
+msgstr ""
+
+#: view/privacy.php:17
+msgid ""
+"If you send one to us, we also remember in a database your <b>feedback "
+"message</b>, which will be available to any people involved in the daily "
+"work of La Quadrature du Net. Nobody else will be allowed to use it, and "
+"especially the public. This is equivalent to an email sent to contact at "
+"laquadrature dot net."
+msgstr ""
+
+#: view/privacy.php:20
+msgid ""
+"The SIP application we use is able to record the phone call entirely (the "
+"voice of both people involved in the call). Of course, we <b>don't use this "
+"feature</b> and will never do, but you should be aware of that fact."
+msgstr ""
+
+#: view/privacy.php:23
+msgid ""
+"The company which provide us with the SIP trunk is Neuronnexion, at Amiens, "
+"France, and <b>as any telephony provider</b>, they log and remember the "
+"caller phone number, the called phone number, the date and time, and "
+"duration of the call. Also, we thank them a lot to provide La Quadrature "
+"with this service"
+msgstr ""
+
+#: view/an.php:9
+msgid "Nom de la circonscription:"
+msgstr ""
+
+#: view/an.php:11
+msgid " years old"
+msgstr ""
+
+#: view/an.php:12
+msgid "Job:"
 msgstr ""
