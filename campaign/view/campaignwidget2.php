@@ -48,16 +48,16 @@ $acommittee = array(
 <?php } ?>
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
 <h4 style="font-size: 100%; height: 10%;margin-top: 0.8em;">
-<?php } else { ?>
+  <?php } else { ?>
 <h4 style="font-size: 90%; height: 25%;margin: 0.33em 0"><?php
 }
-/*if ($view["campaign"]["longname-".$view["lang"]]) {   
-  echo $view["campaign"]["longname-".$view["lang"]];
-} else {
-  echo $view["campaign"]["longname"];
-}
-*/
-if ($view['lang'] == 'fr'):?>
+
+   if ($view["campaign"]["template"]!="") {
+     $template=str_replace(".","",str_replace("/","",$view["campaign"]["template"]));
+     require_once("widget_".$template.".php");
+   } 
+
+if ($view['lang'] == 'fr'): ?>
 <a href="http://piphone.lqdn.fr" target="_blank">Appelez</a> les eurodéputés&nbsp;! 
 Exigez l'application réelle et inconditionnelle de la neutralité du Net&nbsp;!
 <?php else: ?>

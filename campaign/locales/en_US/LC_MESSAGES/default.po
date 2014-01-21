@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-14 23:34+0100\n"
+"POT-Creation-Date: 2014-01-15 12:11+0100\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -446,11 +446,13 @@ msgstr ""
 
 #: view/campaignwidget2.php:76 view/campaignwidget2.php:100
 #: view/campaignwidget2.php:81 view/campaignwidget2.php:105 view/an.php:10
+#: view/widget_an.php:27 view/widget_an.php:50
 msgid "Party:"
 msgstr ""
 
 #: view/campaignwidget2.php:86 view/campaignwidget2.php:111
 #: view/campaignwidget2.php:91 view/campaignwidget2.php:116
+#: view/widget_an.php:39 view/widget_an.php:60
 msgid "Call, free of charge!"
 msgstr ""
 
@@ -535,10 +537,14 @@ msgstr ""
 msgid "Nom de la circonscription:"
 msgstr ""
 
-#: view/an.php:11
+#: view/an.php:11 view/widget_an.php:28 view/widget_an.php:51
 msgid " years old"
 msgstr ""
 
 #: view/an.php:12
 msgid "Job:"
+msgstr ""
+
+#: view/head.php:23
+msgid "Call your elected representatives for free<br/>and make yourself heard"
 msgstr ""

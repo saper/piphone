@@ -10,7 +10,7 @@ require("../config.php");
 $campaign=22;
 
 mysql_query("DELETE FROM lists WHERE campaign=$campaign;");
-$r=mysql_query("SELECT *, YEAR(date_de_naissance) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(date_de_naissance, 5)) AS age FROM deputes WHERE ancien_depute =0;");
+$r=mysql_query("SELECT *, (YEAR(NOW()) - YEAR(date_de_naissance) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(date_de_naissance, 5))) AS age FROM deputes WHERE ancien_depute =0;");
 
 while ($c=mysql_fetch_array($r)) {
   $meta=array(

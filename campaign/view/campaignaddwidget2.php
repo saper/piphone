@@ -41,9 +41,9 @@ if($GLOBALS["lang"]=="fr_FR")$lang = 'fr';
 <div id="abstract">
   <h4><?php __("Add the piphone widget to your website and spread the word."); ?></h4>
   <p><?php if($lang=="fr"):?>
-Vous pouvez insérer l'un de ces "widgets" sur votre site web pour permettre à vos amis et visiteurs d'appeler des Membres du Parlement européen, choisis au hasard parmi ceux qui restent à convaincre, <strong>gratuitement</strong> !
+Vous pouvez insérer l'un de ces "widgets" sur votre site web pour permettre à vos amis et visiteurs d'appeler les élus, choisis au hasard parmi ceux qui restent à convaincre, <strong>gratuitement</strong> !
 <?php else:?>
-You can insert one of these two widgets on your website to allow your friends and visitors to call Members of the European Parliament, picked at random from the ones left to convince, <strong>free of charge</strong>!
+You can insert one of these two widgets on your website to allow your friends and visitors to call the elected representatives, picked at random from the ones left to convince, <strong>free of charge</strong>!
 <?php endif;?>
 </p>
   <div>

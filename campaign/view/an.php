@@ -1,6 +1,6 @@
 
 <div id="mep">
-  <p class="left"><img src="<?php echo "/static/deputes/".$us["slug"]; ?>.jpg" alt="mep"></p>
+  <p class="left"><img src="<?php echo "/static/deputes/".$us["slug"]; ?>.jpg" alt="photo député"></p>
   <div class="right">
    <p id="name"><?php echo $view["callee"]["name"]; ?></p>
       <ul id="resume">

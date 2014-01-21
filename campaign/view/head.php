@@ -20,7 +20,7 @@
 
 <div id="wrapper">
 <div id="header">
-   <h1><?php __("PiPhone"); ?> </h1><h2><?php __("Call MEPs for free - and make yourself heard"); ?></h2>
+   <h1><?php __("PiPhone"); ?> </h1><h2><?php __("Call your elected representatives for free<br/>and make yourself heard"); ?></h2>
 </div>
 <?php 
 /*
