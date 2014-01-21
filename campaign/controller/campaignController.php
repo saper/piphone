@@ -8,7 +8,7 @@ class campaignController extends abstractController {
      "+420" => "Czech",     "+45" => "Denmark",     "+372" => "Estonia",
      "+358" => "Finland",      "+33" => "France",     "+49" => "Germany",
      "+30" => "Greece",     "+36" => "Hungary",     "+353" => "Ireland",
-     "+30" => "Italy",     "+371" => "Latvia",     "+370" => "Lithuania",
+     "+39" => "Italy",     "+371" => "Latvia",     "+370" => "Lithuania",
      "+352" => "Luxembourg",     "+356" => "Malta",     "+31" => "Netherlands",
      "+48" => "Poland",     "+351" => "Portugal",     "+421" => "Slovakia",
      "+386" => "Slovenia",     "+34" => "Spain",     "+46" => "Sweden",
