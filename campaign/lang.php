@@ -3,7 +3,7 @@
 // Automatically detect the language from the HTTP_ACCEPT_LANGUAGE and 
 // set gettext accordingly ...
 
-$available_lang=array("en"=>"en_US","fr"=>"fr_FR");
+$available_lang=array("en"=>"en_US","fr"=>"fr_FR","es"=>"es_ES","it"=>"it_IT");
 
 if (!isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {
   $_SERVER["HTTP_ACCEPT_LANGUAGE"]="en_US";

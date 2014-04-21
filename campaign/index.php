@@ -2,7 +2,7 @@
 
 session_start();
 
-define("PIPHONE_VERSION","1.3.14 [codename <a href=\"https://en.wikipedia.org/wiki/Dennis_Ritchie\">Ritchie</a>]");
+define("PIPHONE_VERSION","1.4~mx [codename <a href=\"https://es.wikipedia.org/wiki/Miguel_Hidalgo_y_Costilla\">Miguel Hidalgo y Costilla</a>]");
 
 require_once("config.php");
 

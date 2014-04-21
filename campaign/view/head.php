@@ -33,6 +33,8 @@
 
 <div class="left" style="float: left;">
    [<a href="?setlang=en">English</a>|
+   <a href="?setlang=es">Espa&ntilde;ol</a>|
+   <!-- <a href="?setlang=it">Italiano</a>| -->
    <a href="?setlang=fr">Français</a>]
    |<?php
       if (isset($_SESSION["id"])) {

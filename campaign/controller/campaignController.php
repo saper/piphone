@@ -119,6 +119,7 @@ class campaignController extends abstractController {
     }
     $view["countries"]=$this->_getCampaignCountries($view["campaign"]["id"]);
     $view["lang"]=substr($GLOBALS["lang"],0,2);
+    if ($view["lang"]=="es") $view["lang"]="fr";
 
     // If a mep is already set, choose it
     if ($params[1]) $callee=mqone("SELECT * FROM lists WHERE id='".trim($params[1])."';");
@@ -137,26 +138,31 @@ class campaignController extends abstractController {
       // Check that the phone number is valid
       $phone=trim(str_replace(" ","",$_REQUEST["phone"]));
       if ($phone) {
-        if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) {
+	if (preg_match("#^[0-9]{5,20}$#",$phone)) {
+	  // MEXICAN 
+	} else {
+	  
+	  if (!preg_match("#^\+[0-9]{5,20}$#",$phone)) { 
             $view["message"]=_("Your phone number look strange, please check it");
             render("campaigncall2");
 	    exit();
-	}
-	$found="";
-	foreach($this->countryPhoneCodes as $c=>$v) {
-          if (substr($phone,0,strlen($c))==$c) {
-	    $found=$v;
-	    break;
 	  }
-	}
-	if (!$found) {
-	  $view["message"]=_("Your phone number is from an unsupported country, sorry for that");
-	  render("campaigncall2");
-          exit();
+	  $found="";
+	  foreach($this->countryPhoneCodes as $c=>$v) {
+	    if (substr($phone,0,strlen($c))==$c) {
+	      $found=$v;
+	      break;
+	    }
+	  }
+	  if (!$found) {
+	    $view["message"]=_("Your phone number is from an unsupported country, sorry for that");
+	    render("campaigncall2");
+	    exit();
+	  }
 	}
       }
     }
-
+      
     // So, I have a callee AND a callid. SO it's feedback time
     if ($callee && $callid) {
       $view["call"]=mq("SELECT * FROM calls WHERE id='".$callid."';");
@@ -188,8 +194,17 @@ class campaignController extends abstractController {
     // If I have a phone and a callee, then, everything is ok
     if ($callee && $phone && (!isset($callid))) {
       // mq("UPDATE lists SET callcount=callcount+1 WHERE id='".$callee["id"]."'");
-      $realphone=preg_replace("#^\+#","00",$phone);
-      $realcallee=preg_replace("#^\+#","00",$view["callee"]["phone"]);
+      $callee=$view["callee"]["phone"];
+      if (defined("FORCETO")) $callee=FORCETO;
+      $phone=str_replace(" ","",$phone);
+      if (substr($phone,0,1)=="+") {
+	$realphone=preg_replace("#^\+#","011",$phone);
+	$realcallee=preg_replace("#^\+#","011",$callee);
+      } else {
+	// force mexican prefix
+	$realphone="01152".$phone;
+	$realcallee=preg_replace("#^\+#","011",$callee);
+      }
       mq("INSERT INTO calls SET caller='$phone', callee='".$view["callee"]["phone"]."', datestart=NOW(), campaign='".$view["campaign"]["id"]."';");
       $view["callid"]=mysql_insert_id();
       $uuid=$this->_callback($realphone,$realcallee,$view["campaign"]["wavfile"],substr($GLOBALS["lang"],0,2));
@@ -310,9 +325,10 @@ function feedback2Action() {
     if (file_exists("/usr/local/freeswitch/sounds/".str_replace(".wav","-".$lang.".wav",$wavfile))) {
       $wavfile=str_replace(".wav","-".$lang.".wav",$wavfile);
     }
-    //    $this->log($bridge_id."/".$from."/".$to."/".$wavfile);
+      $this->log($bridge_id."/".$from."/".$to."/".$wavfile);
     // WARNING : I don't use wintermew bridge.lua anymore, modified for SIP trunk on nnx ...
     $params = array( 'command' => "luarun bridge.lua $bridge_id $from $to $wavfile",'bg' => 'true');
+
     try {
       // Initiate bridge
       $response = $client->command($params);
