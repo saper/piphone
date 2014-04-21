@@ -35,6 +35,7 @@ if ($view["campaign"]["name-".$view["lang"]]) {
 }
 $lang = 'en';
 if($GLOBALS["lang"]=="fr_FR")$lang = 'fr';
+if($GLOBALS["lang"]=="es_ES")$lang = 'es';
 
 ?></h3>
 
@@ -48,31 +49,25 @@ You can insert one of these two widgets on your website to allow your friends an
 </p>
   <div>
     <div id="left" style="float: left;">
-      <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz/<?php echo $lang ?>" width="630" height="200"></object>
+      <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz/<?php echo $lang ?>" width="630" height="300"></object>
     </div>
     <div id="right">
-      <textarea rows="9" cols="20" onclick="this.select()" onfocus="this.select()"><object data="http://piphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz/<?php echo $lang ?>" width="630" height="200"></object></textarea>
+      <textarea rows="9" cols="20" onclick="this.select()" onfocus="this.select()"><object data="https://mxphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/horiz/<?php echo $lang ?>" width="630" height="300"></object></textarea>
     </div>
   </div>
   <div style="clear: both;"></div>
+<!--
   <div>
     <div id="left" style="float: left;">
       <object data="/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/verti/<?php echo $lang?>" width="215" height="380"></object>
     </div>
     <div id="right">
-      <textarea rows="10" cols="25" onclick="this.select()" onfocus="this.select()"><object data="http://piphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/verti/<?php echo $lang ?>" width="215" height="380"></object></textarea>
+      <textarea rows="10" cols="25" onclick="this.select()" onfocus="this.select()"><object data="https://mxphone.lqdn.fr/campaign/widget2/<?php echo $view["campaign"]["slug"]?>/verti/<?php echo $lang ?>" width="215" height="380"></object></textarea>
     </div>
   </div>
   <div style="clear: both;"></div>
 <p>
-<?php if ($lang == 'fr'):?>
-Le contenu de cette boîte changera lorsque la campagne d'appels sera 
-            terminée, pour s'adapter à d'autres campagnes.
-<?php else: ?>
-The content of this widget will change once this calling campaign is over, to adapt 
-            to other campaigns
-<?php endif ?>
-</p>
+ -->
 </div>
 
 

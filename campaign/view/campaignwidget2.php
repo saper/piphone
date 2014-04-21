@@ -42,88 +42,26 @@ $acommittee = array(
 </head>
 <body<?php if (isset($body)) echo $body; ?>>
 <?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
-<div id="global" style="width: 600px; height: 170px; padding: 5px;">
+<div id="global" style="width: 600px; height: 245px; padding: 0px;">
 <?php } else { ?>
-<div id="global" style="width: 200px; height: 350px; padding: 5px;">
-<?php } ?>
-<?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
-<h4 style="font-size: 100%; height: 10%;margin-top: 0.8em;">
-  <?php } else { ?>
-<h4 style="font-size: 90%; height: 25%;margin: 0.33em 0"><?php
-}
+<div id="global" style="width: 200px; height: 350px; padding: 0px;">
+<?php } 
 
    if ($view["campaign"]["template"]!="") {
      $template=str_replace(".","",str_replace("/","",$view["campaign"]["template"]));
      require_once("widget_".$template.".php");
    } 
 
-if ($view['lang'] == 'fr'): ?>
-<a href="http://piphone.lqdn.fr" target="_blank">Appelez</a> les eurodéputés&nbsp;! 
-Exigez l'application réelle et inconditionnelle de la neutralité du Net&nbsp;!
-<?php else: ?>
-<a href="http://piphone.lqdn.fr" target="_blank">Call</a> MEPs!
-Demand the enforcement of a true and unconditional Net neutrality!
-<?php endif; ?>
-</h4>
-<?php
 $us=@unserialize($view["callee"]["meta"]);
-?>
-<?php if (strcmp($view["orientation"],"horiz") == 0) { ?>
-<div id="mep" style="height: 45%; width: 60%; float: left;"> 
-  <p class="left" style="width: 20%; margin: 0;" ><img src="<?php echo $us["picurl"]; ?>" alt="mep" style="width: 85%; margin-right: 5px;"/></p>
-  <div class="right" style="float: both; width: 25%; margin-right: 10px;">
-   <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
-<?php if (isset($view["callee"]["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $view["callee"]["country"]; ?>.png" height="18" alt="<?php echo $view["callee"]["country"]; ?>" /> <?php } ?></p>
-  </div>
-  <div class="right" style="float: none; width: 40%; padding: 0px; margin: 0px;" >
-      <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span><span style="font-size: 86%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1" target="_blank"><img style="vertical-align: middle;" src="http://piphone.lqdn.fr/static/eu/<?php echo str_replace("/","",$us["group"]); ?>.gif" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
-<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
-      </ul>
-  </div>
-</div>
-<!-- Shoot at random -->
-<form target="_blank" method="post" style="width: 10%; float: left; margin-left: 20px;" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
-  <p class="action button">
-    <br />
-    <br />
-    <br />
-    <input type="submit" style="vertical-align: middle;" class="green" name="go" value="<?php __("Call, free of charge!");?>" />
-  </p>
-</form>
-<?php } else { ?>
-<div id="mep" style="height: 42%;" > 
-  <p class="left" style="width: 28%; margin: 0; padding: 0;" ><img src="<?php echo $us["picurl"]; ?>" alt="mep" style=" width: 100%; margin-right: 5px;" /></p>
-  <div class="right" style="float:right; width: 68%; margin: 0; padding: 0;">
-   <p id="name" style="font-size: 100%; font-weight: bold;"><?php echo $view["callee"]["name"]; ?>
-<?php if (isset($view["callee"]["country"])) { ?> <img style="vertical-align: middle;" src="/static/ui-2.0/flag/<?php echo $view["callee"]["country"]; ?>.png" height="18" alt="<?php echo $view["callee"]["country"]; ?>" /> <?php } ?></p>
-  </div>
-  <div class="right" style="width: 100%; padding: 0px;" >
-      <ul id="resume">
-<?php if (isset($us["group"])) { ?> <li id="group"><span><?php __("Group:"); ?></span>
-        <span style="font-size: 85%; font-weight: normal;" ><a href="https://memopol.lqdn.fr/search/?q=group:<?php echo $us["group"]; ?>%20is_active:1/" target="_blank"><img style="vertical-align: middle;" src="http://piphone.lqdn.fr/static/eu/<?php echo str_replace("/","",$us["group"]); ?>.gif" height="16" alt="<?php echo $us["group"]; ?>" /></a>&nbsp;-&nbsp;<?php echo $us["group"]; ?></span></li> <?php } ?>
-<?php if (isset($us["party"])) { ?> <li id="party"><span><?php __("Party:"); ?></span><span style="font-size: 85%; font-weight: normal;" > <?php if (strlen($us["party"])<40) echo $us["party"]; else echo substr($us["party"],0,37)."..."; ?></span></li> <?php } ?>
-      </ul>
-  </div>
-  <div style="clear: both;"></div>
-</div>
-<?php } ?>
 
-<?php if (strcmp($view["orientation"],"horiz") != 0) { ?>
-<!-- Shoot at random -->
-<form target="_blank" method="post" action="/campaign/call2/<?php echo $view["campaign"]["slug"]; ?>/<?php echo $view["callee"]["id"]; ?>/#mep" id="selcountry">
-  <p class="action button" style="height: 15%;">
-    <input type="submit" class="green" name="go" value="<?php __("Call, free of charge!");?>" />
-  </p>
-</form>
-<?php } ?>
+?>
 
 <!--Clicka convi things -->
 <div style="clear:both;"></div>
 </div>
 <p style="font-size:8pt;padding:0;margin:0;text-align:right">
-<?php if($view['lang']=='fr'):?><a href="http://piphone.lqdn.fr/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>?setlang=fr" target="_blank">Partagez sur votre site</a>
-<?php else:?><a href="http://piphone.lqdn.fr/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>?setlang=en" target="_blank">Share this on your site</a></p>
+<?php if($view['lang']=='fr'):?><a href="https://mxphone.lqdn.fr/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>?setlang=fr" target="_blank">Partagez sur votre site</a>
+<?php else:?><a href="https://mxphone.lqdn.fr/campaign/addwidget2/<?php echo $view["campaign"]["slug"]; ?>?setlang=en" target="_blank">Share this on your site</a></p>
 <?php endif;?>
 </body>
 </html>

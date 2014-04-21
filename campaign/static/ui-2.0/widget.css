@@ -5,7 +5,7 @@
 
 body {
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.2;
   color: #333;
 }
 #wrapper {
@@ -239,7 +239,7 @@ a:focus {
 /* campaign: mep left */
 
 #mep .left {
-  max-width: 170px;
+  width: 120px;
   margin: 0;
 }
 #mep .left img {
@@ -249,14 +249,14 @@ a:focus {
 /* campaign: mep right */
 
 #mep .right {
-  width: 65%;
+  width: 420px;
 }
 #mep .right li span {
   font-weight: bold;
 }
 #name {
-  margin: 0 0 .8em 0;
-  font-size: 1.8em;
+  margin: 0 0 .2em 0;
+  font-size: 1.5em;
 }
 #resume, #committee {
   margin: 0;
@@ -267,7 +267,7 @@ a:focus {
   display: inline-block;
   margin-right: 2px;
   padding: 2px 5px;
-  font-size: .8em;
+  font-size: .7em;
   color: #fff;
   background: #de5f2c;
 }
@@ -358,7 +358,6 @@ label[for=phone],
 label[for=feedback] {
   font-weight: bold;
 }
-.nojs label[for=phone],
 .nojs label[for=feedback] {
   width: 82%;
   margin-left: auto;
@@ -366,24 +365,15 @@ label[for=feedback] {
   padding: 5px 8px;
   font-weight: normal;
 }
-#phone,
 #feedback,
 #callbox .caption {
   width: 82%;
 }
-#phone,
 #feedback {
   margin: 10px auto 0 auto;
 }
-.nojs #phone,
 .nojs #feedback {
   margin: 0 auto;
-}
-#phone {
-  padding: .2em;
-  font-size: 18px;
-  letter-spacing: 1px;
-  text-align: center;
 }
 #callbox .caption {
   margin: -8px auto 0 auto;

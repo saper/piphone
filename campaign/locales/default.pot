@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-11 11:59+0100\n"
+"POT-Creation-Date: 2014-04-21 22:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr ""
 
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
-#: view/campaigncall2.php:113 view/campaigngo2.php:72 view/campaignform.php:20
+#: view/campaigncall2.php:113 view/campaignform.php:20 view/campaigngo2.php:72
 msgid "Choose your Country:"
 msgstr ""
 
@@ -107,8 +107,8 @@ msgstr ""
 
 #: view/feedbackform.php:15 view/campaigncall.php:47 view/campaigncall.php:51
 #: view/campaigncall.php:55 view/campaigncall.php:56 view/campaigncall.php:57
-#: view/adminform.php:46 view/adminform.php:40 view/feedbackform.php:15
-#: view/adminform.php:46
+#: view/adminform.php:46 view/adminform.php:40 view/adminform.php:46
+#: view/feedbackform.php:15
 msgid "Cancel"
 msgstr ""
 
@@ -121,8 +121,8 @@ msgstr ""
 #: controller/campaignController.php:459 controller/campaignController.php:479
 #: controller/campaignController.php:294 controller/campaignController.php:487
 #: controller/campaignController.php:507 controller/campaignController.php:164
-#: controller/campaignController.php:281 controller/campaignController.php:164
-#: controller/campaignController.php:281
+#: controller/campaignController.php:281 controller/campaignController.php:170
+#: controller/campaignController.php:296
 msgid "A feedback has already been given for that call, sorry"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 #: controller/campaignController.php:290 controller/campaignController.php:149
 #: controller/campaignController.php:470 controller/campaignController.php:152
 #: controller/campaignController.php:484 controller/campaignController.php:512
-#: controller/campaignController.php:169 controller/campaignController.php:169
+#: controller/campaignController.php:169 controller/campaignController.php:175
 msgid "Your feedback has been sent to us, thanks for your participation!"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 #: controller/campaignController.php:321 controller/campaignController.php:124
 #: controller/campaignController.php:198 controller/campaignController.php:329
 #: controller/campaignController.php:226 controller/campaignController.php:357
-#: controller/campaignController.php:141 controller/campaignController.php:141
+#: controller/campaignController.php:141 controller/campaignController.php:146
 msgid "Your phone number look strange, please check it"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 #: controller/campaignController.php:333 controller/campaignController.php:136
 #: controller/campaignController.php:210 controller/campaignController.php:341
 #: controller/campaignController.php:238 controller/campaignController.php:369
-#: controller/campaignController.php:153 controller/campaignController.php:153
+#: controller/campaignController.php:153 controller/campaignController.php:158
 msgid "Your phone number is from an unsupported country, sorry for that"
 msgstr ""
 
@@ -169,11 +169,11 @@ msgstr ""
 msgid "Country not found, please check"
 msgstr ""
 
-#: functions.php:199 functions.php:206 functions.php:218 functions.php:218
+#: functions.php:199 functions.php:206 functions.php:218 functions.php:219
 msgid "Page Not Found"
 msgstr ""
 
-#: functions.php:199 functions.php:206 functions.php:218 functions.php:218
+#: functions.php:199 functions.php:206 functions.php:218 functions.php:219
 msgid ""
 "The requested page has not been found or an error happened. Please check"
 msgstr ""
@@ -205,8 +205,8 @@ msgstr ""
 #: view/campaignform.php:20 view/campaigngo2.php:65 view/campaigncall2.php:73
 #: view/campaigncall2.php:106 view/campaigngo2.php:72
 #: view/campaigncall2.php:113 view/campaigncall2.php:85
-#: view/campaigncall2.php:84 view/campaigncall2.php:63 view/campaigngo2.php:72
-#: view/campaigncall2.php:63 view/campaignform.php:20
+#: view/campaigncall2.php:84 view/campaigncall2.php:63
+#: view/campaignform.php:20 view/campaigngo2.php:72 view/campaigncall2.php:63
 msgid "-- All Europe --"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgstr ""
 
 #: view/campaigncall2.php:30 view/campaigncall2.php:60
 #: view/campaigncall2.php:67 view/mep.php:9 view/an.php:8 view/mep.php:9
-#: view/an.php:8
+#: view/an.php:8 view/mx.php:18
 msgid "Phone number: "
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr ""
 
 #: controller/campaignController.php:263 controller/campaignController.php:271
 #: controller/campaignController.php:299 controller/campaignController.php:287
-#: controller/campaignController.php:287
+#: controller/campaignController.php:302
 msgid ""
 "Your feedback has been sent to us, thanks for your participation! CALLID:"
 msgstr ""
@@ -435,7 +435,7 @@ msgstr ""
 
 #: view/campaigncall2.php:71 view/campaigncall2.php:78
 #: view/campaigncall2.php:77 view/mep.php:19 view/an.php:14 view/mep.php:19
-#: view/an.php:14
+#: view/an.php:14 view/mx.php:31
 msgid "Get more info…"
 msgstr ""
 
@@ -472,8 +472,8 @@ msgstr ""
 #: view/campaignwidget2.php:81 view/campaignwidget2.php:105 view/an.php:10
 #: view/widget_an.php:27 view/widget_an.php:50 view/widget_an.php:26
 #: view/widget_an.php:49 view/campaignwidget2.php:81
-#: view/campaignwidget2.php:105 view/an.php:10 view/widget_an.php:26
-#: view/widget_an.php:49
+#: view/campaignwidget2.php:105 view/widget_an.php:26 view/widget_an.php:49
+#: view/an.php:10 view/mx.php:21
 msgid "Party:"
 msgstr ""
 
@@ -521,7 +521,7 @@ msgstr ""
 msgid "Choose a meta data provider"
 msgstr ""
 
-#: view/privacy.php:5 view/foot.php:11 view/privacy.php:5 view/foot.php:11
+#: view/privacy.php:5 view/foot.php:11 view/foot.php:11 view/privacy.php:5
 msgid "Privacy Policy"
 msgstr ""
 
@@ -554,7 +554,7 @@ msgid ""
 "feature</b> and will never do, but you should be aware of that fact."
 msgstr ""
 
-#: view/privacy.php:23 view/privacy.php:23
+#: view/privacy.php:23
 msgid ""
 "The company which provide us with the SIP trunk is Neuronnexion, at Amiens, "
 "France, and <b>as any telephony provider</b>, they log and remember the "
@@ -563,13 +563,13 @@ msgid ""
 "with this service"
 msgstr ""
 
-#: view/an.php:9 view/an.php:9
+#: view/an.php:9 view/an.php:9 view/mx.php:19
 msgid "Nom de la circonscription:"
 msgstr ""
 
 #: view/an.php:11 view/widget_an.php:28 view/widget_an.php:51
-#: view/widget_an.php:27 view/widget_an.php:50 view/an.php:11
-#: view/widget_an.php:27 view/widget_an.php:50
+#: view/widget_an.php:27 view/widget_an.php:50 view/widget_an.php:27
+#: view/widget_an.php:50 view/an.php:11
 msgid " years old"
 msgstr ""
 
@@ -588,7 +588,7 @@ msgid ""
 "client is installed on your device."
 msgstr ""
 
-#: view/campaigncall2.php:85 view/campaigncall2.php:85
+#: view/campaigncall2.php:85
 msgid ""
 "Starting with your <a href=\"https://en.wikipedia.org/wiki/"
 "List_of_country_calling_codes#Zones_3-4:_Europe\">country code</a>, without "
@@ -601,6 +601,31 @@ msgid ""
 "(the PiPhone will call that number to initiate the communication)."
 msgstr ""
 
-#: view/campaigncall2.php:75
+#: view/campaigncall2.php:75 view/campaigncall2.php:75
 msgid "Add a widget on your website"
+msgstr ""
+
+#: view/privacy.php:23
+msgid ""
+"The company which provide us with the SIP trunk is Voipvoip, and <b>as any "
+"telephony provider</b>, they log and remember the caller phone number, the "
+"called phone number, the date and time, and duration of the call."
+msgstr ""
+
+#: view/campaigncall2.php:85
+msgid ""
+"use + plus your country code if not calling from Mexico. from Mexico start "
+"with your area code"
+msgstr ""
+
+#: view/mx.php:22
+msgid "Comisión:"
+msgstr ""
+
+#: view/mx.php:26
+msgid "Email:"
+msgstr ""
+
+#: view/mx.php:27
+msgid "Twitter:"
 msgstr ""
