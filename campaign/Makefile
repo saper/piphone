@@ -3,13 +3,19 @@
 all: locales
 
 
-locales: ./locales/en_US/LC_MESSAGES/default.mo ./locales/fr_FR/LC_MESSAGES/default.mo
+locales: ./locales/en_US/LC_MESSAGES/default.mo ./locales/fr_FR/LC_MESSAGES/default.mo ./locales/es_ES/LC_MESSAGES/default.mo ./locales/it_IT/LC_MESSAGES/default.mo
 
 ./locales/en_US/LC_MESSAGES/default.mo: ./locales/en_US/LC_MESSAGES/default.po
 	msgfmt ./locales/en_US/LC_MESSAGES/default.po -o ./locales/en_US/LC_MESSAGES/default.mo
 
 ./locales/fr_FR/LC_MESSAGES/default.mo: ./locales/fr_FR/LC_MESSAGES/default.po
 	msgfmt ./locales/fr_FR/LC_MESSAGES/default.po -o ./locales/fr_FR/LC_MESSAGES/default.mo
+
+./locales/es_ES/LC_MESSAGES/default.mo: ./locales/es_ES/LC_MESSAGES/default.po
+	msgfmt ./locales/es_ES/LC_MESSAGES/default.po -o ./locales/es_ES/LC_MESSAGES/default.mo
+
+./locales/it_IT/LC_MESSAGES/default.mo: ./locales/it_IT/LC_MESSAGES/default.po
+	msgfmt ./locales/it_IT/LC_MESSAGES/default.po -o ./locales/it_IT/LC_MESSAGES/default.mo
 
 
 pot: ./locales/default.pot

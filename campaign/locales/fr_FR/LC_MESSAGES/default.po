@@ -1,24 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# English translation of PiPhone
+# Copyright (C) 2012 Benjamin Sonntag <benjamin@octopuce.fr>
+# This file is distributed under the same license as PiPhone
 #
 # Translators:
-#   <mr@laquadrature.net>, 2012.
-# Benjamin Sonntag <benjamin@sonntag.fr>, 2012, 2013.
-#
+# Benjamin Sonntag <benjamin@sonntag.fr>, 2012-2013
+# meli_melo <mr@laquadrature.net>, 2012
+# Mindiell <tb@laquadrature.net>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: LQDN Support\n"
+"Project-Id-Version: PiPhone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-15 12:11+0100\n"
-"PO-Revision-Date: 2013-02-15 17:45+0100\n"
-"Last-Translator: Benjamin Sonntag <benjamin@sonntag.fr>\n"
-"Language-Team: français <team@alternc.org>\n"
+"POT-Creation-Date: 2014-03-11 11:59+0100\n"
+"PO-Revision-Date: 2014-03-11 10:53+0000\n"
+"Last-Translator: Mindiell <tb@laquadrature.net>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/piphone/language/"
+"fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bits\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: view/campaigncall.php:17 view/campaigncall.php:21 view/campaigncall.php:22
 #: view/campaigngo2.php:25 view/campaigngo2.php:32
@@ -284,11 +285,13 @@ msgstr "Gérer les campagnes"
 msgid "This campaign is expired."
 msgstr "Cette campagne est terminée."
 
-#: view/head.php:24 view/head.php:53 view/head.php:60
+#: view/head.php:24 view/head.php:53 view/head.php:60 view/head.php:61
+#: view/head.php:62
 msgid "Campaign Admin"
 msgstr "Administration des campagnes"
 
-#: view/head.php:25 view/head.php:54 view/head.php:61
+#: view/head.php:25 view/head.php:54 view/head.php:61 view/head.php:62
+#: view/head.php:63
 msgid "User Admin"
 msgstr "Administration des utilisateurs"
 
@@ -489,13 +492,15 @@ msgstr "Groupe :"
 
 #: view/campaignwidget2.php:76 view/campaignwidget2.php:100
 #: view/campaignwidget2.php:81 view/campaignwidget2.php:105 view/an.php:10
-#: view/widget_an.php:27 view/widget_an.php:50
+#: view/widget_an.php:27 view/widget_an.php:50 view/widget_an.php:26
+#: view/widget_an.php:49
 msgid "Party:"
 msgstr "Parti :"
 
 #: view/campaignwidget2.php:86 view/campaignwidget2.php:111
 #: view/campaignwidget2.php:91 view/campaignwidget2.php:116
-#: view/widget_an.php:39 view/widget_an.php:60
+#: view/widget_an.php:39 view/widget_an.php:60 view/widget_an.php:38
+#: view/widget_an.php:59
 msgid "Call, free of charge!"
 msgstr "Appeler gratuitement"
 
@@ -541,7 +546,7 @@ msgstr "Choisissez un fournisseur de metadonnées"
 
 #: view/privacy.php:5 view/foot.php:11
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politique de confidentialité"
 
 #: view/privacy.php:11
 msgid ""
@@ -549,12 +554,18 @@ msgid ""
 "us do this for either statistical purpose or for any legal request as stated "
 "by the French Laws."
 msgstr ""
+"Le Piphone enregistre les informations suivantes. En l'utilisant pour "
+"appeler, vous acceptez que nous utilisaions ces données à des fins "
+"statistiques ou bien en cas de requête de la part de la justice comme la loi "
+"française le demande."
 
 #: view/privacy.php:14
 msgid ""
 "We log the <b>caller phone number, the called phone number, the date and "
 "time, and duration</b> of the call"
 msgstr ""
+"Nous enregistrons <b>le numéro appelant, le numéro appelé, la date et "
+"l'heure de l'appel ainsi que sa durée</b>"
 
 #: view/privacy.php:17
 msgid ""
@@ -564,6 +575,11 @@ msgid ""
 "especially the public. This is equivalent to an email sent to contact at "
 "laquadrature dot net."
 msgstr ""
+"Si vous nous envoyez un <b>retour sur l'appel</b>, nous l'enregistrons aussi "
+"en base de données afin qu'il soit accessible aux permanents travaillant à "
+"La Quadrature du Net. Personne d'autre n'est autorisé à l'utiliser, et "
+"certainement pas le public. C'est équivalent  à un mail envoyé à contact at "
+"laquadrature point net."
 
 #: view/privacy.php:20
 msgid ""
@@ -571,6 +587,10 @@ msgid ""
 "voice of both people involved in the call). Of course, we <b>don't use this "
 "feature</b> and will never do, but you should be aware of that fact."
 msgstr ""
+"L'application SIP que nous utilisons est capable d'enregistrer l'appel "
+"complet (la voix des deux personnes qui conversent). Bien entendu, nous "
+"<b>n'utilisons pas cette fonctionnalité</b> et ne le ferons jamais, mais "
+"mous devez savoir que cela est possible techniquement."
 
 #: view/privacy.php:23
 msgid ""
@@ -580,12 +600,18 @@ msgid ""
 "duration of the call. Also, we thank them a lot to provide La Quadrature "
 "with this service"
 msgstr ""
+"La compagnie qui nous procure la technologie SIP est Neuronnexion, située à "
+"Amiens, en France et <b>en tant que fournisseur téléphonique</b>, ils "
+"enregistrent aussi les méta-données des appels (numéro appelant, appelé, "
+"date et heure de l'appel ainsi que sa durée). Nous les remercions aussi de "
+"fournir ce service à La Quadrature du Net"
 
 #: view/an.php:9
 msgid "Nom de la circonscription:"
 msgstr "Nom de la circonscription&nbsp;: "
 
 #: view/an.php:11 view/widget_an.php:28 view/widget_an.php:51
+#: view/widget_an.php:27 view/widget_an.php:50
 msgid " years old"
 msgstr " ans"
 
@@ -596,3 +622,36 @@ msgstr "Profession&nbsp;: "
 #: view/head.php:23
 msgid "Call your elected representatives for free<br/>and make yourself heard"
 msgstr "Appelez vos élus gratuitement<br />et faites entendre votre voix"
+
+#: view/campaigncall2.php:90
+msgid ""
+"If you don't want to call for free, here is the number of the current MEP "
+"(you can either dial it from your phone or push the button if any VoIP "
+"client is installed on your device."
+msgstr ""
+"Si vous préférez ne pas appeler gratuitement, voici le numéro du député "
+"affiché (vous pouvez soit l'utiliser avec votre téléphone, soit cliquer "
+"dessus si vous avez installé un client VoIP)"
+
+#: view/campaigncall2.php:85
+msgid ""
+"Starting with your <a href=\"https://en.wikipedia.org/wiki/"
+"List_of_country_calling_codes#Zones_3-4:_Europe\">country code</a>, without "
+"the initial 0"
+msgstr ""
+"Commençant par l'<a href=\"https://fr.wikipedia.org/wiki/"
+"Liste_des_indicatifs_t%C3%A9l"
+"%C3%A9phoniques_internationaux_par_indicatif#Zone_3_:_Europe\">indicatif</a> "
+"de votre pays, sans le premier 0 "
+
+#: view/campaigncall2.php:82
+msgid ""
+"If you want to call for free, you must provide us with your phone number "
+"(the PiPhone will call that number to initiate the communication)."
+msgstr ""
+"Si vous voulez appeler gratuitement, vous devez nous donner votre numéro de "
+"téléphone (le PiPhone rappellera ce numéro pour démarrer la communication)."
+
+#: view/campaigncall2.php:75
+msgid "Add a widget on your website"
+msgstr ""

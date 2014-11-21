@@ -153,14 +153,21 @@ class adminController extends abstractController {
     if (($file = fopen("$filename","r")) == False) not_found();
     $line_number=0;
 
+// logging for tests
+if (($log_file = fopen('/root/piphone/campaign/test.log', 'w')) == false) not_found();
+
     while (($csv = fgetcsv($file,0,';')) == True) {
       // The data in the CSV are the mandatory field for the list table,in this order:
       // "name";"url";"phone number";"country code";"score"
       if (count($csv) < 5) {
         $view["warning"] .= "Error on line $line_number: $csv. ";
+// log
+fwrite($log_file, "Error on line $line_number: $csv\n");
 	continue;
       }
 
+// log
+fwrite($log_file, "csv: $csv[0];$csv[1];$csv[2];$csv[3];$csv[4]\n");
       $name=$csv[0];
       $url=$csv[1];
       $phone=$csv[2];
@@ -173,13 +180,20 @@ class adminController extends abstractController {
 
 	  switch ($_REQUEST["meta_engine"]) {
 	    case "parltrack":
+// log
+fwrite($log_file, "calling parltrack for url: $url\n");
 		    $meta = _parseParltrack($url);
 			break;
 	  }
 
-	  if ($meta == null) $view["warning"] .= "$url does not look like a " . $_REQUEST["meta_engine"] . " one";
+	  if ($meta == null) {
+              $view["warning"] .= "$url does not look like a " . $_REQUEST["meta_engine"] . " one";
+// log
+fwrite($log_file, "url does not look like a " . $_REQUEST["meta_engine"] . " one\n");
+          }
+
 	  // INSERT
-      mq("INSERT INTO lists SET
+      $sql = "INSERT INTO lists SET
         campaign='$id',
 	name='".addslashes($name)."',
 	url='".addslashes($url)."',
@@ -189,8 +203,10 @@ class adminController extends abstractController {
 	country='".addslashes($country)."',
 	meta='".addslashes($meta)."',
 	callcount=0, enabled=1
-	;"
-      );
+	;";
+      mq($sql);
+// log
+fwrite($log_file, "request: $sql\n");
 
     }
     fclose($file);

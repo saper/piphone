@@ -11,6 +11,7 @@ function countryCodes($country) {
      "Netherlands" => "NL",   "Poland" => "PL",     "Portugal" => "PT",
      "Romania" => "RO",    "Slovakia" => "SK",      "Slovenia" => "SI",
      "Spain" => "SP",     "Sweden" => "SE",     "United Kingdom" => "UK",  
+     "Czech Republic" => "CZ",    "Cyprus" => "CY",
   );
   return $countryCodes[$country];
 }
@@ -277,6 +278,7 @@ function _parseparltrack($url) {
           while (($line = fgets($parltrack)) !== False) {
 	    $json .= $line;
 	  }
+	  fclose($parltrack);
 
 	  $parl_mep=json_decode($json, true);
 	  foreach ($parl_mep["Mail"] as $mail) {
@@ -286,6 +288,9 @@ function _parseparltrack($url) {
 	  $mep["stb"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
 	  $mep["bxl"] = str_replace(' ','',$parl_mep["Addresses"]["Strasbourg"]["Phone"]);
 	  $mep["group"] = $parl_mep["Groups"][0]["groupid"];
+	  if (is_array($mep["group"])) { 
+	    $mep["group"] = $mep["group"][0];
+	  }
 	  $mep["name"] = $parl_mep["Name"]["full"];
 	  $mep["url"] = $parl_mep["Homepage"];
 	  $mep["country"] = countryCodes($parl_mep["Constituencies"][0]["country"]);
@@ -299,6 +304,5 @@ function _parseparltrack($url) {
           if (strcmp($mep["group"], "Verts/ALE") == 0) $mep["group"]="Greens/EFA";
 
 	  $meta=@serialize($mep);
-	  fclose($parltrack);
 	  return $meta;
 }

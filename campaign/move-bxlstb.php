@@ -1,7 +1,7 @@
 <?php
 
 // Move all mep of a campaign (below) to Brussells (BXL) or Strasbourg (STB)
-$campaign=20;
+$campaign=21;
 //$to="stb";
 $to="stb";
 $from="bxl";

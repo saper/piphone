@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PiPhone 20120228\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-15 12:11+0100\n"
+"POT-Creation-Date: 2014-03-11 11:59+0100\n"
 "PO-Revision-Date: 2012-02-03 17:21+0100\n"
 "Last-Translator: Benjamin Sonntag <benjamin@octopuce.fr>\n"
 "Language-Team: english <>\n"
@@ -253,11 +253,13 @@ msgstr ""
 msgid "This campaign is expired."
 msgstr ""
 
-#: view/head.php:24 view/head.php:53 view/head.php:60
+#: view/head.php:24 view/head.php:53 view/head.php:60 view/head.php:61
+#: view/head.php:62
 msgid "Campaign Admin"
 msgstr ""
 
-#: view/head.php:25 view/head.php:54 view/head.php:61
+#: view/head.php:25 view/head.php:54 view/head.php:61 view/head.php:62
+#: view/head.php:63
 msgid "User Admin"
 msgstr ""
 
@@ -446,13 +448,15 @@ msgstr ""
 
 #: view/campaignwidget2.php:76 view/campaignwidget2.php:100
 #: view/campaignwidget2.php:81 view/campaignwidget2.php:105 view/an.php:10
-#: view/widget_an.php:27 view/widget_an.php:50
+#: view/widget_an.php:27 view/widget_an.php:50 view/widget_an.php:26
+#: view/widget_an.php:49
 msgid "Party:"
 msgstr ""
 
 #: view/campaignwidget2.php:86 view/campaignwidget2.php:111
 #: view/campaignwidget2.php:91 view/campaignwidget2.php:116
-#: view/widget_an.php:39 view/widget_an.php:60
+#: view/widget_an.php:39 view/widget_an.php:60 view/widget_an.php:38
+#: view/widget_an.php:59
 msgid "Call, free of charge!"
 msgstr ""
 
@@ -538,6 +542,7 @@ msgid "Nom de la circonscription:"
 msgstr ""
 
 #: view/an.php:11 view/widget_an.php:28 view/widget_an.php:51
+#: view/widget_an.php:27 view/widget_an.php:50
 msgid " years old"
 msgstr ""
 
@@ -547,4 +552,28 @@ msgstr ""
 
 #: view/head.php:23
 msgid "Call your elected representatives for free<br/>and make yourself heard"
+msgstr ""
+
+#: view/campaigncall2.php:90
+msgid ""
+"If you don't want to call for free, here is the number of the current MEP "
+"(you can either dial it from your phone or push the button if any VoIP "
+"client is installed on your device."
+msgstr ""
+
+#: view/campaigncall2.php:85
+msgid ""
+"Starting with your <a href=\"https://en.wikipedia.org/wiki/"
+"List_of_country_calling_codes#Zones_3-4:_Europe\">country code</a>, without "
+"the initial 0"
+msgstr ""
+
+#: view/campaigncall2.php:82
+msgid ""
+"If you want to call for free, you must provide us with your phone number "
+"(the PiPhone will call that number to initiate the communication)."
+msgstr ""
+
+#: view/campaigncall2.php:75
+msgid "Add a widget on your website"
 msgstr ""

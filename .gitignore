@@ -6,3 +6,5 @@ campaign/static/pics
 campaign/csv/*.csv
 campaign/imports/*.csv
 campaign/imports/*.json
+*.gz
+*~

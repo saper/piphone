@@ -1,0 +1,403 @@
+csv: Nicole SINCLAIRE;/var/www/parltrack/96960.csv;003222845756;GB;1
+calling parltrack for url: /var/www/parltrack/96960.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Nicole SINCLAIRE',
+	url='/var/www/parltrack/96960.csv',
+	phone='003222845756',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:34:\"nikki.sinclaire@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175756\";s:3:\"bxl\";s:12:\"+33388175756\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:16:\"Nicole SINCLAIRE\";s:3:\"url\";a:1:{i:0;s:22:\"http://www.yourmep.org\";}s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:22:\"We Demand a Referendum\";s:9:\"committee\";a:4:{i:0;s:4:\"EMPL\";i:1;s:4:\"PETI\";i:2;s:4:\"DROI\";i:3;s:4:\"FEMM\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96960.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Daniël van der STOEP;/var/www/parltrack/96946.csv;003222845176;NL;1
+calling parltrack for url: /var/www/parltrack/96946.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Daniël van der STOEP',
+	url='/var/www/parltrack/96946.csv',
+	phone='003222845176',
+	scores='1',
+	pond_scores='1',
+	country='NL',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:37:\"daniel.vanderstoep@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175176\";s:3:\"bxl\";s:12:\"+33388175176\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:21:\"Daniël van der STOEP\";s:3:\"url\";a:1:{i:0;s:23:\"http://www.artikel50.nl\";}s:7:\"country\";s:2:\"NL\";s:5:\"party\";s:10:\"Artikel 50\";s:9:\"committee\";a:7:{i:0;s:4:\"DEVE\";i:1;s:4:\"DROI\";i:2;s:4:\"LIBE\";i:3;s:4:\"ITRE\";i:4;s:4:\"BUDG\";i:5;s:4:\"SURE\";i:6;s:4:\"ENVI\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96946.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Godfrey BLOOM;/var/www/parltrack/28513.csv;003222845469;GB;1
+calling parltrack for url: /var/www/parltrack/28513.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Godfrey BLOOM',
+	url='/var/www/parltrack/28513.csv',
+	phone='003222845469',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:32:\"godfrey.bloom@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175469\";s:3:\"bxl\";s:12:\"+33388175469\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Godfrey BLOOM\";s:3:\"url\";N;s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:33:\"United Kingdom Independence Party\";s:9:\"committee\";a:14:{i:0;s:4:\"ECON\";i:1;s:4:\"FEMM\";i:2;s:4:\"ENVI\";i:3;s:4:\"ECON\";i:4;s:4:\"FEMM\";i:5;s:4:\"ENVI\";i:6;s:4:\"ECON\";i:7;s:4:\"FEMM\";i:8;s:4:\"IMCO\";i:9;N;i:10;s:4:\"IMCO\";i:11;s:4:\"FEMM\";i:12;s:4:\"IMCO\";i:13;s:4:\"FEMM\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/28513.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Dimitar STOYANOV;/var/www/parltrack/34254.csv;003222845654;BG;1
+calling parltrack for url: /var/www/parltrack/34254.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Dimitar STOYANOV',
+	url='/var/www/parltrack/34254.csv',
+	phone='003222845654',
+	scores='1',
+	pond_scores='1',
+	country='BG',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:35:\"dimitar.stoyanov@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175654\";s:3:\"bxl\";s:12:\"+33388175654\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:16:\"Dimitar STOYANOV\";s:3:\"url\";a:1:{i:0;s:20:\"http://dstoyanov.eu/\";}s:7:\"country\";s:2:\"BG\";s:5:\"party\";s:25:\"National-Democratic Party\";s:9:\"committee\";a:8:{i:0;s:4:\"JURI\";i:1;s:4:\"REGI\";i:2;s:4:\"AGRI\";i:3;N;i:4;N;i:5;N;i:6;N;i:7;N;}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/34254.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Franz OBERMAYR;/var/www/parltrack/96981.csv;003222845680;AT;1
+calling parltrack for url: /var/www/parltrack/96981.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Franz OBERMAYR',
+	url='/var/www/parltrack/96981.csv',
+	phone='003222845680',
+	scores='1',
+	pond_scores='1',
+	country='AT',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:33:\"franz.obermayr@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175680\";s:3:\"bxl\";s:12:\"+33388175680\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:14:\"Franz OBERMAYR\";s:3:\"url\";N;s:7:\"country\";s:2:\"AT\";s:5:\"party\";s:33:\"Freiheitliche Partei Österreichs\";s:9:\"committee\";a:2:{i:0;s:4:\"IMCO\";i:1;s:4:\"EMPL\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96981.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Franco BONANINI;/var/www/parltrack/118710.csv;003222845565;IT;1
+calling parltrack for url: /var/www/parltrack/118710.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Franco BONANINI',
+	url='/var/www/parltrack/118710.csv',
+	phone='003222845565',
+	scores='1',
+	pond_scores='1',
+	country='IT',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:34:\"franco.bonanini@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175565\";s:3:\"bxl\";s:12:\"+33388175565\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:15:\"Franco BONANINI\";s:3:\"url\";a:1:{i:0;s:29:\"http://www.francobonanini.eu/\";}s:7:\"country\";s:2:\"IT\";s:5:\"party\";s:12:\"Indipendente\";s:9:\"committee\";a:3:{i:0;s:4:\"ENVI\";i:1;s:4:\"TRAN\";i:2;s:4:\"BUDG\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/118710.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Nick GRIFFIN;/var/www/parltrack/96751.csv;003222845772;GB;1
+calling parltrack for url: /var/www/parltrack/96751.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Nick GRIFFIN',
+	url='/var/www/parltrack/96751.csv',
+	phone='003222845772',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:31:\"nick.griffin@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175772\";s:3:\"bxl\";s:12:\"+33388175772\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:12:\"Nick GRIFFIN\";s:3:\"url\";a:1:{i:0;s:21:\"http://www.bnp.org.uk\";}s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:22:\"British National Party\";s:9:\"committee\";a:2:{i:0;s:4:\"ENVI\";i:1;s:4:\"ITRE\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96751.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Nessa CHILDERS;/var/www/parltrack/96603.csv;003222845535;IE;1
+calling parltrack for url: /var/www/parltrack/96603.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Nessa CHILDERS',
+	url='/var/www/parltrack/96603.csv',
+	phone='003222845535',
+	scores='1',
+	pond_scores='1',
+	country='IE',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:33:\"nessa.childers@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175535\";s:3:\"bxl\";s:12:\"+33388175535\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:14:\"Nessa CHILDERS\";s:3:\"url\";N;s:7:\"country\";s:2:\"IE\";s:5:\"party\";s:11:\"Independent\";s:9:\"committee\";a:5:{i:0;s:4:\"ENVI\";i:1;s:4:\"EMPL\";i:2;s:4:\"CULT\";i:3;s:4:\"ENVI\";i:4;s:4:\"CULT\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96603.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Krisztina MORVAI;/var/www/parltrack/96661.csv;003222845786;HU;1
+calling parltrack for url: /var/www/parltrack/96661.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Krisztina MORVAI',
+	url='/var/www/parltrack/96661.csv',
+	phone='003222845786',
+	scores='1',
+	pond_scores='1',
+	country='HU',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:35:\"krisztina.morvai@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175786\";s:3:\"bxl\";s:12:\"+33388175786\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:16:\"Krisztina MORVAI\";s:3:\"url\";a:1:{i:0;s:29:\"http://www.morvaikrisztina.hu\";}s:7:\"country\";s:2:\"HU\";s:5:\"party\";s:33:\"Jobbik Magyarországért Mozgalom\";s:9:\"committee\";a:3:{i:0;s:4:\"FEMM\";i:1;s:4:\"LIBE\";i:2;s:4:\"CRIM\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96661.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Patricia van der KAMMEN;/var/www/parltrack/115868.csv;003222845849;NL;1
+calling parltrack for url: /var/www/parltrack/115868.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Patricia van der KAMMEN',
+	url='/var/www/parltrack/115868.csv',
+	phone='003222845849',
+	scores='1',
+	pond_scores='1',
+	country='NL',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:40:\"patricia.vanderkammen@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175849\";s:3:\"bxl\";s:12:\"+33388175849\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:23:\"Patricia van der KAMMEN\";s:3:\"url\";N;s:7:\"country\";s:2:\"NL\";s:5:\"party\";s:23:\"Partij voor de Vrijheid\";s:9:\"committee\";a:2:{i:0;s:4:\"TRAN\";i:1;s:4:\"IMCO\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/115868.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Bruno GOLLNISCH;/var/www/parltrack/1164.csv;003222845265;FR;1
+calling parltrack for url: /var/www/parltrack/1164.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Bruno GOLLNISCH',
+	url='/var/www/parltrack/1164.csv',
+	phone='003222845265',
+	scores='1',
+	pond_scores='1',
+	country='FR',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:34:\"bruno.gollnisch@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175265\";s:3:\"bxl\";s:12:\"+33388175265\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:15:\"Bruno GOLLNISCH\";s:3:\"url\";a:1:{i:0;s:24:\"http://www.gollnisch.com\";}s:7:\"country\";s:2:\"FR\";s:5:\"party\";s:14:\"Front national\";s:9:\"committee\";a:33:{i:0;s:4:\"TRAN\";i:1;s:4:\"REGI\";i:2;s:4:\"ECON\";i:3;s:4:\"BUDG\";i:4;s:4:\"TRAN\";i:5;s:4:\"BUDG\";i:6;s:4:\"ECON\";i:7;s:4:\"TRAN\";i:8;s:4:\"ECON\";i:9;s:4:\"ECON\";i:10;s:4:\"TRAN\";i:11;N;i:12;s:4:\"AFCO\";i:13;N;i:14;N;i:15;N;i:16;s:4:\"AFCO\";i:17;N;i:18;s:4:\"BUDG\";i:19;N;i:20;N;i:21;s:4:\"TRAN\";i:22;N;i:23;N;i:24;N;i:25;N;i:26;s:4:\"TRAN\";i:27;N;i:28;N;i:29;N;i:30;N;i:31;N;i:32;N;}s:6:\"picurl\";s:47:\"http://www.europarl.europa.eu/mepphoto/1164.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Csanád SZEGEDI;/var/www/parltrack/96855.csv;003222845787;HU;1
+calling parltrack for url: /var/www/parltrack/96855.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Csanád SZEGEDI',
+	url='/var/www/parltrack/96855.csv',
+	phone='003222845787',
+	scores='1',
+	pond_scores='1',
+	country='HU',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:33:\"csanad.szegedi@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175787\";s:3:\"bxl\";s:12:\"+33388175787\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:15:\"Csanád SZEGEDI\";s:3:\"url\";a:1:{i:0;s:23:\"http://szegedicsanad.hu\";}s:7:\"country\";s:2:\"HU\";s:5:\"party\";s:33:\"Jobbik Magyarországért Mozgalom\";s:9:\"committee\";a:4:{i:0;s:4:\"REGI\";i:1;s:4:\"IMCO\";i:2;s:4:\"REGI\";i:3;s:4:\"IMCO\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96855.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Dan Dumitru ZAMFIRESCU;/var/www/parltrack/117119.csv;003222845791;RO;1
+calling parltrack for url: /var/www/parltrack/117119.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Dan Dumitru ZAMFIRESCU',
+	url='/var/www/parltrack/117119.csv',
+	phone='003222845791',
+	scores='1',
+	pond_scores='1',
+	country='RO',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:40:\"dandumitru.zamfirescu@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175791\";s:3:\"bxl\";s:12:\"+33388175791\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:22:\"Dan Dumitru ZAMFIRESCU\";s:3:\"url\";N;s:7:\"country\";s:2:\"RO\";s:5:\"party\";s:22:\"Partidul România Mare\";s:9:\"committee\";a:2:{i:0;s:4:\"INTA\";i:1;s:4:\"TRAN\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/117119.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Francisco SOSA WAGNER;/var/www/parltrack/97170.csv;003222845794;ES;1
+calling parltrack for url: /var/www/parltrack/97170.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Francisco SOSA WAGNER',
+	url='/var/www/parltrack/97170.csv',
+	phone='003222845794',
+	scores='1',
+	pond_scores='1',
+	country='ES',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:39:\"francisco.sosawagner@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175794\";s:3:\"bxl\";s:12:\"+33388175794\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:21:\"Francisco SOSA WAGNER\";s:3:\"url\";a:2:{i:0;s:19:\"http://www.upyd.es/\";i:1;s:41:\"http://guindasenaguardiente.blogspot.com/\";}s:7:\"country\";s:2:\"SP\";s:5:\"party\";s:29:\"Unión, Progreso y Democracia\";s:9:\"committee\";a:2:{i:0;s:4:\"ITRE\";i:1;s:4:\"DEVE\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/97170.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Béla KOVÁCS;/var/www/parltrack/102887.csv;003222845789;HU;1
+calling parltrack for url: /var/www/parltrack/102887.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Béla KOVÁCS',
+	url='/var/www/parltrack/102887.csv',
+	phone='003222845789',
+	scores='1',
+	pond_scores='1',
+	country='HU',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:30:\"bela.kovacs@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175789\";s:3:\"bxl\";s:12:\"+33388175789\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Béla KOVÁCS\";s:3:\"url\";N;s:7:\"country\";s:2:\"HU\";s:5:\"party\";s:33:\"Jobbik Magyarországért Mozgalom\";s:9:\"committee\";a:2:{i:0;s:4:\"ITRE\";i:1;s:4:\"BUDG\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/102887.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Laurence J.A.J. STASSEN;/var/www/parltrack/96905.csv;003222845850;NL;1
+calling parltrack for url: /var/www/parltrack/96905.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Laurence J.A.J. STASSEN',
+	url='/var/www/parltrack/96905.csv',
+	phone='003222845850',
+	scores='1',
+	pond_scores='1',
+	country='NL',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:35:\"laurence.stassen@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175850\";s:3:\"bxl\";s:12:\"+33388175850\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:23:\"Laurence J.A.J. STASSEN\";s:3:\"url\";N;s:7:\"country\";s:2:\"NL\";s:5:\"party\";s:23:\"Partij voor de Vrijheid\";s:9:\"committee\";a:2:{i:0;s:4:\"AFET\";i:1;s:4:\"ITRE\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96905.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Andreas MÖLZER;/var/www/parltrack/28255.csv;003222845141;AT;1
+calling parltrack for url: /var/www/parltrack/28255.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Andreas MÖLZER',
+	url='/var/www/parltrack/28255.csv',
+	phone='003222845141',
+	scores='1',
+	pond_scores='1',
+	country='AT',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:33:\"andreas.molzer@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175141\";s:3:\"bxl\";s:12:\"+33388175141\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:15:\"Andreas MÖLZER\";s:3:\"url\";a:1:{i:0;s:29:\"http://www.andreas-moelzer.at\";}s:7:\"country\";s:2:\"AT\";s:5:\"party\";s:33:\"Freiheitliche Partei Österreichs\";s:9:\"committee\";a:10:{i:0;s:4:\"AFET\";i:1;s:4:\"AFCO\";i:2;s:4:\"AFET\";i:3;s:4:\"AFCO\";i:4;s:4:\"AFCO\";i:5;s:4:\"CULT\";i:6;s:4:\"AFET\";i:7;s:4:\"AFCO\";i:8;s:4:\"AFCO\";i:9;s:4:\"CULT\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/28255.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Jean-Marie LE PEN;/var/www/parltrack/1023.csv;003222845720;FR;1
+calling parltrack for url: /var/www/parltrack/1023.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Jean-Marie LE PEN',
+	url='/var/www/parltrack/1023.csv',
+	phone='003222845720',
+	scores='1',
+	pond_scores='1',
+	country='FR',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:35:\"jean-marie.lepen@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175720\";s:3:\"bxl\";s:12:\"+33388175720\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:17:\"Jean-Marie LE PEN\";s:3:\"url\";N;s:7:\"country\";s:2:\"FR\";s:5:\"party\";s:14:\"Front national\";s:9:\"committee\";a:33:{i:0;s:4:\"PECH\";i:1;s:4:\"AGRI\";i:2;s:4:\"PECH\";i:3;s:4:\"PETI\";i:4;s:4:\"JURI\";i:5;s:4:\"INTA\";i:6;s:4:\"AFET\";i:7;s:4:\"INTA\";i:8;s:4:\"INTA\";i:9;s:4:\"AFET\";i:10;s:4:\"PETI\";i:11;N;i:12;N;i:13;N;i:14;N;i:15;N;i:16;N;i:17;N;i:18;s:4:\"CONT\";i:19;s:4:\"AGRI\";i:20;s:4:\"PETI\";i:21;N;i:22;N;i:23;N;i:24;N;i:25;N;i:26;N;i:27;N;i:28;s:4:\"PETI\";i:29;N;i:30;N;i:31;N;i:32;N;}s:6:\"picurl\";s:47:\"http://www.europarl.europa.eu/mepphoto/1023.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Marine LE PEN;/var/www/parltrack/28210.csv;003222845709;FR;1
+calling parltrack for url: /var/www/parltrack/28210.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Marine LE PEN',
+	url='/var/www/parltrack/28210.csv',
+	phone='003222845709',
+	scores='1',
+	pond_scores='1',
+	country='FR',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:31:\"marine.lepen@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175709\";s:3:\"bxl\";s:12:\"+33388175709\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Marine LE PEN\";s:3:\"url\";N;s:7:\"country\";s:2:\"FR\";s:5:\"party\";s:14:\"Front national\";s:9:\"committee\";a:7:{i:0;s:4:\"EMPL\";i:1;s:4:\"INTA\";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/28210.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Hans-Peter MARTIN;/var/www/parltrack/4238.csv;003222845157;AT;1
+calling parltrack for url: /var/www/parltrack/4238.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Hans-Peter MARTIN',
+	url='/var/www/parltrack/4238.csv',
+	phone='003222845157',
+	scores='1',
+	pond_scores='1',
+	country='AT',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:36:\"hans-peter.martin@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175157\";s:3:\"bxl\";s:12:\"+33388175157\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:17:\"Hans-Peter MARTIN\";s:3:\"url\";a:1:{i:0;s:23:\"http://www.hpmartin.net\";}s:7:\"country\";s:2:\"AT\";s:5:\"party\";s:62:\"Liste \"Dr. Martin - für Demokratie, Kontrolle, Gerechtigkeit\"\";s:9:\"committee\";a:20:{i:0;s:4:\"ECON\";i:1;s:4:\"CULT\";i:2;s:4:\"ECON\";i:3;s:4:\"CULT\";i:4;s:4:\"CRIS\";i:5;s:4:\"CONT\";i:6;s:4:\"ECON\";i:7;s:4:\"BUDG\";i:8;s:4:\"ECON\";i:9;s:4:\"CONT\";i:10;s:4:\"BUDG\";i:11;s:4:\"ECON\";i:12;s:4:\"CONT\";i:13;s:4:\"BUDG\";i:14;N;i:15;s:4:\"AFCO\";i:16;N;i:17;N;i:18;s:4:\"AFCO\";i:19;N;}s:6:\"picurl\";s:47:\"http://www.europarl.europa.eu/mepphoto/4238.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Corneliu VADIM TUDOR;/var/www/parltrack/96845.csv;003222845847;RO;1
+calling parltrack for url: /var/www/parltrack/96845.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Corneliu VADIM TUDOR',
+	url='/var/www/parltrack/96845.csv',
+	phone='003222845847',
+	scores='1',
+	pond_scores='1',
+	country='RO',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:38:\"tudorcorneliu.vadim@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175847\";s:3:\"bxl\";s:12:\"+33388175847\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:20:\"Corneliu VADIM TUDOR\";s:3:\"url\";N;s:7:\"country\";s:2:\"RO\";s:5:\"party\";s:22:\"Partidul România Mare\";s:9:\"committee\";a:4:{i:0;s:4:\"CULT\";i:1;s:4:\"AFET\";i:2;s:4:\"CULT\";i:3;s:4:\"AFET\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96845.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Andrew Henry William BRONS;/var/www/parltrack/96749.csv;003222845773;GB;1
+calling parltrack for url: /var/www/parltrack/96749.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Andrew Henry William BRONS',
+	url='/var/www/parltrack/96749.csv',
+	phone='003222845773',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:31:\"andrew.brons@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175773\";s:3:\"bxl\";s:12:\"+33388175773\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:26:\"Andrew Henry William BRONS\";s:3:\"url\";N;s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:1:\"-\";s:9:\"committee\";a:2:{i:0;s:4:\"AFCO\";i:1;s:4:\"LIBE\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96749.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Philip CLAEYS;/var/www/parltrack/24030.csv;003222845281;BE;1
+calling parltrack for url: /var/www/parltrack/24030.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Philip CLAEYS',
+	url='/var/www/parltrack/24030.csv',
+	phone='003222845281',
+	scores='1',
+	pond_scores='1',
+	country='BE',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:32:\"philip.claeys@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175281\";s:3:\"bxl\";s:12:\"+33388175281\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Philip CLAEYS\";s:3:\"url\";a:1:{i:0;s:27:\"http://www.philipclaeys.org\";}s:7:\"country\";s:2:\"BE\";s:5:\"party\";s:13:\"Vlaams Belang\";s:9:\"committee\";a:13:{i:0;s:4:\"LIBE\";i:1;s:4:\"AFET\";i:2;N;i:3;N;i:4;N;i:5;N;i:6;N;i:7;N;i:8;N;i:9;N;i:10;N;i:11;N;i:12;N;}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/24030.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Auke ZIJLSTRA;/var/www/parltrack/103246.csv;003222845812;NL;1
+calling parltrack for url: /var/www/parltrack/103246.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Auke ZIJLSTRA',
+	url='/var/www/parltrack/103246.csv',
+	phone='003222845812',
+	scores='1',
+	pond_scores='1',
+	country='NL',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:32:\"auke.zijlstra@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175812\";s:3:\"bxl\";s:12:\"+33388175812\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Auke ZIJLSTRA\";s:3:\"url\";N;s:7:\"country\";s:2:\"NL\";s:5:\"party\";s:23:\"Partij voor de Vrijheid\";s:9:\"committee\";a:2:{i:0;s:4:\"LIBE\";i:1;s:4:\"ECON\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/103246.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Lucas HARTONG;/var/www/parltrack/103132.csv;003222845848;NL;1
+calling parltrack for url: /var/www/parltrack/103132.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Lucas HARTONG',
+	url='/var/www/parltrack/103132.csv',
+	phone='003222845848',
+	scores='1',
+	pond_scores='1',
+	country='NL',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:32:\"lucas.hartong@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175848\";s:3:\"bxl\";s:12:\"+33388175848\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Lucas HARTONG\";s:3:\"url\";N;s:7:\"country\";s:2:\"NL\";s:5:\"party\";s:23:\"Partij voor de Vrijheid\";s:9:\"committee\";a:6:{i:0;s:4:\"BUDG\";i:1;s:4:\"CONT\";i:2;s:4:\"BUDG\";i:3;s:4:\"ENVI\";i:4;s:4:\"SURE\";i:5;s:4:\"ENVI\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/103132.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Ewald STADLER;/var/www/parltrack/111026.csv;003222845818;AT;1
+calling parltrack for url: /var/www/parltrack/111026.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Ewald STADLER',
+	url='/var/www/parltrack/111026.csv',
+	phone='003222845818',
+	scores='1',
+	pond_scores='1',
+	country='AT',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:32:\"ewald.stadler@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175818\";s:3:\"bxl\";s:12:\"+33388175818\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Ewald STADLER\";s:3:\"url\";a:1:{i:0;s:28:\"http://www.ewald-stadler.at/\";}s:7:\"country\";s:2:\"AT\";s:5:\"party\";s:33:\"Die Reformkonservativen – REKOS\";s:9:\"committee\";a:3:{i:0;s:4:\"AGRI\";i:1;s:4:\"ENVI\";i:2;s:4:\"REGI\";}s:6:\"picurl\";s:49:\"http://www.europarl.europa.eu/mepphoto/111026.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Diane DODDS;/var/www/parltrack/96951.csv;003222845770;GB;1
+calling parltrack for url: /var/www/parltrack/96951.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Diane DODDS',
+	url='/var/www/parltrack/96951.csv',
+	phone='003222845770',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:30:\"diane.dodds@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175770\";s:3:\"bxl\";s:12:\"+33388175770\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:11:\"Diane DODDS\";s:3:\"url\";N;s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:44:\"Democratic Unionist Party (Northern Ireland)\";s:9:\"committee\";a:4:{i:0;s:4:\"AGRI\";i:1;s:4:\"PECH\";i:2;s:4:\"AGRI\";i:3;s:4:\"PECH\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/96951.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Trevor COLMAN;/var/www/parltrack/94283.csv;003222845763;GB;1
+calling parltrack for url: /var/www/parltrack/94283.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Trevor COLMAN',
+	url='/var/www/parltrack/94283.csv',
+	phone='003222845763',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:32:\"trevor.colman@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175763\";s:3:\"bxl\";s:12:\"+33388175763\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Trevor COLMAN\";s:3:\"url\";a:1:{i:0;s:25:\"http://www.th-eu-nit.com/\";}s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:33:\"United Kingdom Independence Party\";s:9:\"committee\";a:7:{i:0;s:4:\"IMCO\";i:1;N;i:2;s:4:\"IMCO\";i:3;s:4:\"AFCO\";i:4;s:4:\"INTA\";i:5;s:4:\"AFCO\";i:6;s:4:\"INTA\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/94283.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Mike NATTRASS;/var/www/parltrack/28506.csv;003222845133;GB;1
+calling parltrack for url: /var/www/parltrack/28506.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Mike NATTRASS',
+	url='/var/www/parltrack/28506.csv',
+	phone='003222845133',
+	scores='1',
+	pond_scores='1',
+	country='GB',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:40:\"michaelhenry.nattrass@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175133\";s:3:\"bxl\";s:12:\"+33388175133\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:13:\"Mike NATTRASS\";s:3:\"url\";N;s:7:\"country\";s:2:\"UK\";s:5:\"party\";s:21:\"An Independence Party\";s:9:\"committee\";a:5:{i:0;s:4:\"TRAN\";i:1;s:4:\"TRAN\";i:2;s:4:\"TRAN\";i:3;s:4:\"TRAN\";i:4;s:4:\"TRAN\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/28506.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Adrian SEVERIN;/var/www/parltrack/33990.csv;003222845811;RO;1
+calling parltrack for url: /var/www/parltrack/33990.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Adrian SEVERIN',
+	url='/var/www/parltrack/33990.csv',
+	phone='003222845811',
+	scores='1',
+	pond_scores='1',
+	country='RO',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:33:\"adrian.severin@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175811\";s:3:\"bxl\";s:12:\"+33388175811\";s:5:\"group\";s:2:\"NA\";s:4:\"name\";s:14:\"Adrian SEVERIN\";s:3:\"url\";N;s:7:\"country\";s:2:\"RO\";s:5:\"party\";s:24:\"Partidul Social Democrat\";s:9:\"committee\";a:8:{i:0;s:4:\"AFET\";i:1;s:4:\"AFET\";i:2;s:4:\"AFCO\";i:3;s:4:\"AFCO\";i:4;s:4:\"AFET\";i:5;s:4:\"AFCO\";i:6;s:4:\"AFET\";i:7;s:4:\"AFCO\";}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/33990.jpg\";}',
+	callcount=0, enabled=1
+	;
+csv: Mario BORGHEZIO;/var/www/parltrack/21817.csv;003222845704;IT;1
+calling parltrack for url: /var/www/parltrack/21817.csv
+request: INSERT INTO lists SET
+        campaign='23',
+	name='Mario BORGHEZIO',
+	url='/var/www/parltrack/21817.csv',
+	phone='003222845704',
+	scores='1',
+	pond_scores='1',
+	country='IT',
+	meta='a:10:{s:4:\"mail\";a:1:{i:0;s:34:\"mario.borghezio@europarl.europa.eu\";}s:3:\"stb\";s:12:\"+33388175704\";s:3:\"bxl\";s:12:\"+33388175704\";s:5:\"group\";s:3:\"EFD\";s:4:\"name\";s:15:\"Mario BORGHEZIO\";s:3:\"url\";a:1:{i:0;s:29:\"http://www.marioborghezio.org\";}s:7:\"country\";s:2:\"IT\";s:5:\"party\";s:9:\"Lega Nord\";s:9:\"committee\";a:18:{i:0;s:4:\"LIBE\";i:1;s:4:\"CRIM\";i:2;s:4:\"IMCO\";i:3;N;i:4;N;i:5;N;i:6;N;i:7;N;i:8;N;i:9;N;i:10;N;i:11;N;i:12;N;i:13;N;i:14;N;i:15;N;i:16;N;i:17;N;}s:6:\"picurl\";s:48:\"http://www.europarl.europa.eu/mepphoto/21817.jpg\";}',
+	callcount=0, enabled=1
+	;

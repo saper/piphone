@@ -64,15 +64,16 @@ class loginController extends abstractController {
       $view["warning"] .= "Already logged in.";
       render("logindetail");
     } else {
-      $id=mqone("SELECT user.* FROM user WHERE user.login = '".$_REQUEST["user"]."' AND PASSWORD('".$_REQUEST["password"]."') = user.pass AND enabled = 1;");
+      $id=mqone("SELECT user.* FROM user WHERE user.login = '".mysql_real_escape_string($_REQUEST["user"])."' AND PASSWORD('".mysql_real_escape_string($_REQUEST["password"])."') = user.pass AND enabled = 1;");
       if (!$id) {
         $view["error"] .= "Incorrect login or password. Or account disabled.";
         render("loginauth");
-      }
+      } else {
 
      $_SESSION["id"] = $id;
      session_write_close();
      render("logindetail");
+     }
     }
   }
 
